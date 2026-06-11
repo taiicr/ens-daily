@@ -1,0 +1,257 @@
+{
+  "updated": "20260612",
+  "papers": [
+    {
+      "id": "3dmed_2412.13059",
+      "date": "20260611",
+      "title": "3D MedDiffusion — Controllable High-Fidelity 3D Medical Image Generation",
+      "pub": "Wang et al. · IEEE TMI 2025",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Diffusion Model",
+        "Latent Diffusion",
+        "Patch-Volume Autoencoder"
+      ],
+      "summary": "Patch-Volume AE + Latent Diffusion 生成高解析度 512³ 3D 醫學影像，支援文字 / 影像條件化",
+      "github": "https://github.com/ShanghaiTech-IMPACT/3D-MedDiffusion",
+      "arxiv": "https://arxiv.org/abs/2412.13059",
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "sgan2_2503.00962"
+      ],
+      "pick": false
+    },
+    {
+      "id": "phasor_2604.01053",
+      "date": "20260611",
+      "title": "PHASOR — Video Diffusion for Volume-to-Volume CT Translation",
+      "pub": "arXiv 2604.01053 · 2025",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Video Diffusion",
+        "MoE",
+        "AR-MoE",
+        "IP-REPA",
+        "配準誤差容忍"
+      ],
+      "summary": "Video Diffusion + AR-MoE 解剖條件化 + IP-REPA 頻率域配準誤差容忍，直接體積對體積 CT 轉換",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2604.01053",
+      "pmc": null,
+      "relations": [
+        "3dmed_2412.13059",
+        "nasalseg_s41597"
+      ],
+      "pick": true
+    },
+    {
+      "id": "nasalseg_s41597",
+      "date": "20260611",
+      "title": "NasalSeg — 大規模鼻腔 CT 分割資料集與基準",
+      "pub": "Zhang et al. · Scientific Data 2024",
+      "stars": 4,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "nnUNet",
+        "Segmentation",
+        "Dataset",
+        "Five-fold Cross Validation"
+      ],
+      "summary": "130 CT cases，5 個鼻腔解剖結構標注，nnUNet 五折基準 DSC>0.87，完全開放授權",
+      "github": "https://github.com/YichiZhang98/NasalSeg",
+      "arxiv": null,
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "ens_pmc12935405"
+      ],
+      "pick": false
+    },
+    {
+      "id": "sgan2_2503.00962",
+      "date": "20260611",
+      "title": "Synthetic Images for Small Medical Datasets — StyleGAN2-ADA Study",
+      "pub": "Vu et al. · arXiv 2503.00962 · 2025",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "GAN",
+        "StyleGAN2",
+        "ADA",
+        "Data Augmentation"
+      ],
+      "summary": "N<50 小資料集下 ADA 策略抑制 GAN 過擬合，合成影像有效擴增分割訓練資料",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2503.00962",
+      "pmc": null,
+      "relations": [
+        "3dmed_2412.13059"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_pmc12935405",
+      "date": "20260611",
+      "title": "ENS — Costal Cartilage Reconstruction, CT Volumetry & SNOT-22 Outcomes",
+      "pub": "PMC12935405 · PMC 2025",
+      "stars": 3,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CT Volumetry",
+        "ENS Clinical",
+        "SNOT-22",
+        "3D Slicer"
+      ],
+      "summary": "同種異體肋軟骨植入重建下鼻甲，術後 CT 體積量化 + SNOT-22 改善，提供 Δ 體積基準",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12935405/",
+      "relations": [
+        "nasalseg_s41597"
+      ],
+      "pick": false
+    },
+    {
+      "id": "gdm_2503.00745",
+      "date": "20260612",
+      "title": "Geodesic Diffusion Models for Medical Image-to-Image Generation",
+      "pub": "mirthAI et al. · arXiv · 2025",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Diffusion Model",
+        "Geodesic Noise Schedule",
+        "Fisher-Rao Metric",
+        "Conditional Generation"
+      ],
+      "summary": "Fisher-Rao 測地線噪聲排程取代 DDPM，CT 條件式生成訓練縮短至 2.5 小時、15 步採樣",
+      "github": "https://github.com/mirthAI/GDM-VE",
+      "arxiv": "https://arxiv.org/abs/2503.00745",
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "3dmed_2412.13059"
+      ],
+      "pick": true
+    },
+    {
+      "id": "sinusseg_s41598-2025",
+      "date": "20260612",
+      "title": "Comparison of segmentation performance of CNNs, vision transformers, and hybrid networks for paranasal sinuses with sinusitis on CT images",
+      "pub": "Scientific Reports · 2025",
+      "stars": 4,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "nnUNet",
+        "Swin UNETR",
+        "UNETR",
+        "TransUnet",
+        "ResUnet",
+        "Segmentation Benchmark"
+      ],
+      "summary": "系統比較六種架構分割鼻竇 CT，Swin UNETR 最佳 DSC=0.830，可作 C 階段 baseline",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12402304/",
+      "relations": [
+        "nasalseg_s41597"
+      ],
+      "pick": false
+    },
+    {
+      "id": "seg2med_2504.09182",
+      "date": "20260612",
+      "title": "seg2med: a bridge from artificial anatomy to multimodal medical images",
+      "pub": "Physics in Medicine & Biology · IOPscience · 2025",
+      "stars": 3,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Conditional DDPM",
+        "XCAT Phantom",
+        "PhysioSynth",
+        "Anatomy-to-Image"
+      ],
+      "summary": "解剖分割遮罩→CT/MRI 條件式 DDPM，PhysioSynth 先驗影像設計啟發材料無關策略",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2504.09182",
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "3dmed_2412.13059"
+      ],
+      "pick": false
+    },
+    {
+      "id": "lora_2605.11898",
+      "date": "20260612",
+      "title": "Few-Shot Synthetic Data Generation with Diffusion Models for Downstream Vision Tasks",
+      "pub": "CVPR 2026 SynData4CV Workshop · arXiv · 2026",
+      "stars": 3,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "LoRA",
+        "Diffusion Model Fine-tuning",
+        "Few-Shot",
+        "Data Augmentation"
+      ],
+      "summary": "LoRA 微調預訓練擴散模型於小樣本（20-50 張）場景，合成資料增強稀有類召回率",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2605.11898",
+      "pmc": null,
+      "relations": [
+        "sgan2_2503.00962",
+        "3dmed_2412.13059"
+      ],
+      "pick": false
+    },
+    {
+      "id": "cnntrans_fncom2026",
+      "date": "20260612",
+      "title": "Explainable hybrid CNN-transformer with self-supervised learning for structural analysis of paranasal sinus CT",
+      "pub": "Frontiers in Computational Neuroscience · 2026",
+      "stars": 3,
+      "stages": [
+        "c",
+        "d"
+      ],
+      "methods": [
+        "CNN-Transformer Hybrid",
+        "Self-Supervised Learning",
+        "3D Autoencoder",
+        "Residual Representation"
+      ],
+      "summary": "混合 CNN-Transformer + 3D 自監督自編碼器分析鼻竇 CT 結構，殘差表徵啟發 D 階段評估",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "relations": [
+        "nasalseg_s41597",
+        "sinusseg_s41598-2025"
+      ],
+      "pick": false
+    }
+  ]
+}
