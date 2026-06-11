@@ -1,0 +1,38 @@
+{
+  "updated": "20260612",
+  "repos": [
+    {
+      "date": "20260611",
+      "name": "3D-MedDiffusion",
+      "owner": "ShanghaiTech-IMPACT",
+      "url": "https://github.com/ShanghaiTech-IMPACT/3D-MedDiffusion",
+      "stars": "850+",
+      "desc": "高解析度 3D 醫學影像生成框架。核心設計是 Patch-Volume Autoencoder：先把大體積 CT 切成 patch 壓縮成 latent，再用 Latent Diffusion 生成，最後合併還原為 512³ 完整體積。支援文字條件化和影像條件化，提供完整 inference demo 和預訓練權重。",
+      "relevance": "B 階段生成模型起點。架構直接可借用到 ENS 術前→術後 CT 生成，Patch-Volume AE 解決了 N=42 記憶體限制的問題。",
+      "stage": "b",
+      "install": "git clone https://github.com/ShanghaiTech-IMPACT/3D-MedDiffusion"
+    },
+    {
+      "date": "20260611",
+      "name": "NasalSeg",
+      "owner": "YichiZhang98",
+      "url": "https://github.com/YichiZhang98/NasalSeg",
+      "stars": "120+",
+      "desc": "鼻腔 CT 分割資料集與 nnUNet 基準。包含 130 個帶標注的 CT cases，涵蓋 5 個解剖結構（下鼻甲、中鼻甲、鼻腔、鼻竇等），五折交叉驗證 DSC > 0.87。資料集完全開放，可直接用於 ENS 分割模型的預訓練或 baseline 比較。",
+      "relevance": "C 階段分割管道預訓練起點。可作為 nnUNet fine-tuning 的起始點，鼻腔解剖結構標注與 ENS 手術重建目標吻合。",
+      "stage": "c",
+      "install": "pip install nnunetv2"
+    },
+    {
+      "date": "20260612",
+      "name": "torchio",
+      "owner": "fepegar",
+      "url": "https://github.com/fepegar/torchio",
+      "stars": "2100+",
+      "desc": "專為 3D 醫學影像設計的 PyTorch augmentation 函式庫。支援 NIfTI、DICOM 格式自動載入，提供 3D 隨機仿射、彈性變形、強度隨機化、磁場偏置等增強操作，以及 Patch-based 訓練（GridSampler、UniformSampler）——標準 torchvision 不支援的 3D 醫學影像必備功能。",
+      "relevance": "ENS N=42 極小，torchio 3D 隨機仿射和彈性變形可在不改變解剖語意的前提下擴增術前/術後 CT 配對；GridSampler 直接對應 2.5D 殘差架構 B 階段訓練的 patch 採樣管線",
+      "stage": "b",
+      "install": "pip install torchio"
+    }
+  ]
+}
