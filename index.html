@@ -3,33 +3,526 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENS 文獻日報</title>
+<title>ENS 研究知識庫</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,700;0,800;1,400&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,700;0,800;1,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" defer></script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:#faf8f5;color:#2c1a0e;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:40px 16px}
-.logo{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:8px}
-h1{font-family:'EB Garamond',Georgia,serif;font-size:28px;font-weight:800;color:#1c0f07;margin-bottom:5px}
-.sub{font-size:13px;color:#a08060;margin-bottom:32px}
-.latest-btn{display:block;background:#1c0f07;color:#f5f0e8;padding:14px 40px;border-radius:10px;text-decoration:none;font-family:'EB Garamond',Georgia,serif;font-size:17px;font-weight:700;margin-bottom:28px;letter-spacing:.3px;border:2px solid #1c0f07}
+:root{color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.75;color:#2c1a0e;-webkit-font-smoothing:antialiased}
+
+/* ── Masthead ── */
+.masthead{background:#1c0f07;color:#f5f0e8;padding:20px 20px 18px}
+.mast-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:6px}
+.mast-title{font-family:'EB Garamond',Georgia,serif;font-size:28px;font-weight:800;color:#f5f0e8;letter-spacing:-.3px}
+.mast-sub{font-size:12px;color:#7a6050;margin-top:4px}
+
+/* ── Hero ── */
+.hero{max-width:760px;margin:0 auto;padding:24px 16px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.latest-btn{display:inline-flex;align-items:center;gap:8px;background:#1c0f07;color:#f5f0e8;padding:11px 24px;border-radius:10px;text-decoration:none;font-family:'EB Garamond',Georgia,serif;font-size:16px;font-weight:700;transition:background .15s;border:2px solid #1c0f07;white-space:nowrap}
 .latest-btn:hover{background:#2c1a0e}
-.archive{width:100%;max-width:320px}
-.archive-title{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#a08060;margin-bottom:12px}
-.day-link{display:block;padding:10px 14px;background:#fff;border:1px solid #e8e4df;border-radius:8px;color:#4a3020;text-decoration:none;font-size:13px;margin-bottom:6px}
-.day-link:hover{border-color:#c2a07a;color:#1c0f07;background:#fff8f0}
+.stage-pill{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #e8e4df;border-radius:20px;padding:6px 14px;font-size:12px;color:#7a5840}
+.stage-dot{width:7px;height:7px;border-radius:50%;background:#c2852a;flex-shrink:0}
+.hero-stats{margin-left:auto;display:flex;gap:20px}
+.stat{text-align:center}
+.stat-n{font-family:'EB Garamond',Georgia,serif;font-size:26px;font-weight:800;color:#1c0f07}
+.stat-l{font-size:10px;color:#a08060;letter-spacing:.5px;text-transform:uppercase}
+
+/* ── Tabs ── */
+.tab-wrap{max-width:760px;margin:0 auto;padding:20px 16px 0}
+.tab-nav{display:flex;border-bottom:2px solid #e8e4df;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab-btn{background:none;border:none;padding:10px 16px;font-size:13px;font-family:'Noto Sans TC',sans-serif;color:#7a5840;cursor:pointer;position:relative;white-space:nowrap;transition:color .15s;flex-shrink:0}
+.tab-btn::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:transparent;transition:background .15s}
+.tab-btn.active{color:#1c0f07;font-weight:700}
+.tab-btn.active::after{background:#c2852a}
+.tab-btn:hover{color:#2c1a0e}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ── Filter bar (shared) ── */
+.filter-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.filter-lbl{font-size:11px;color:#a08060;font-weight:700;letter-spacing:.5px;flex-shrink:0}
+.filter-btn{border:1px solid #e8e4df;background:#fff;color:#7a5840;border-radius:20px;padding:4px 13px;font-size:11.5px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .15s;white-space:nowrap}
+.filter-btn:hover{border-color:#c2852a;color:#7a4010}
+.filter-btn.active{background:#c2852a;color:#fff;border-color:#c2852a}
+.search-input{flex:1;max-width:200px;border:1px solid #e8e4df;border-radius:20px;padding:4px 14px;font-size:12px;font-family:'Noto Sans TC',sans-serif;background:#fff;color:#2c1a0e;outline:none}
+.search-input:focus{border-color:#c2852a}
+.search-input::placeholder{color:#c0a880}
+
+/* ── Stage tags ── */
+.stag{height:20px;padding:0 9px;border-radius:10px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
+.sa4{background:#f3eeff;color:#6030a0}.sb{background:#edf0f8;color:#3050a0}.sc{background:#edf8f2;color:#1a6040}.sd{background:#edf3ff;color:#2050a0}
+
+/* ── Paper library grid ── */
+.papers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.lib-card{background:#fff;border:1px solid #e8e4df;border-radius:12px;padding:14px 16px;cursor:pointer;transition:box-shadow .2s,border-color .2s}
+.lib-card:hover{box-shadow:0 2px 14px rgba(44,26,14,.07);border-color:#d4cdc5}
+.lib-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.lib-stages{display:flex;gap:4px;flex-wrap:wrap}
+.lib-stars{font-size:11px;color:#c2852a;flex-shrink:0}
+.lib-title{font-family:'EB Garamond',Georgia,serif;font-size:15px;font-weight:700;color:#2c1a0e;line-height:1.3;margin-bottom:3px}
+.lib-pub{font-size:11.5px;color:#a08060;margin-bottom:7px}
+.lib-summary{font-size:12.5px;color:#7a5840;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.lib-footer{display:flex;justify-content:space-between;align-items:center}
+.lib-date{font-size:11px;color:#b0a090}
+.lib-links{display:flex;gap:10px}
+.lib-link{font-size:11.5px;color:#7050b0;text-decoration:none;border-bottom:1px solid #d0c0e8}
+.lib-link:hover{color:#5030a0}
+
+/* ── Repo cards ── */
+.repos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.repo-card{background:#fff;border:1px solid #90d0b0;border-radius:12px;padding:16px}
+.repo-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px}
+.repo-name{font-family:'EB Garamond',Georgia,serif;font-size:16px;font-weight:700;color:#1a5030}
+.repo-stars{font-size:12px;color:#a08060}
+.repo-stage-row{margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.repo-intro-date{font-size:11px;color:#b0a090;margin-left:auto}
+.repo-desc{font-size:13px;color:#4a3020;line-height:1.85;margin-bottom:10px}
+.repo-rel{background:#d8f0e4;border-radius:7px;padding:9px 12px;font-size:12.5px;color:#0a3820;margin-bottom:10px;line-height:1.8}
+.repo-rel strong{color:#1a5030}
+.repo-install{font-family:'SF Mono','Cascadia Code',monospace;font-size:11.5px;background:#1c0f07;color:#c8e8b8;border-radius:7px;padding:8px 12px;margin-bottom:8px;white-space:pre-wrap}
+.repo-link{font-size:12.5px;color:#7050b0;text-decoration:none;border-bottom:1px solid #d0c0e8}
+
+/* ── Graph ── */
+.graph-container{background:#fff;border:1px solid #e8e4df;border-radius:12px;overflow:hidden}
+.graph-legend{display:flex;gap:16px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid #e8e4df;align-items:center}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#7a5840}
+.leg-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.graph-hint{margin-left:auto;font-size:11px;color:#b0a090}
+#graph-svg-wrap{width:100%;position:relative;min-height:100px}
+#graph-svg-wrap svg{display:block;width:100%}
+.graph-info{padding:8px 16px 12px;font-size:11.5px;color:#b0a090;border-top:1px solid #f0ebe4}
+
+/* ── Archive ── */
+.arch-section{margin-bottom:24px}
+.arch-title{font-family:'EB Garamond',Georgia,serif;font-size:18px;font-weight:700;color:#2c1a0e;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #e8e4df}
+.weekly-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:4px}
+.weekly-card{background:#fff8f0;border:1px solid #e8c090;border-radius:10px;padding:12px 14px;text-decoration:none;display:block;transition:background .15s}
+.weekly-card:hover{background:#fff0e0}
+.weekly-card-title{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-weight:700;color:#7a4010;margin-bottom:3px}
+.weekly-card-sub{font-size:11.5px;color:#a08060}
+.daily-list{display:flex;flex-direction:column;gap:5px}
+.daily-item{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #e8e4df;border-radius:8px;padding:10px 14px;text-decoration:none;color:#4a3020;font-size:13px;transition:border-color .15s,background .15s}
+.daily-item:hover{border-color:#c2a07a;background:#fff8f0;color:#1c0f07}
+.daily-item-date{font-family:'EB Garamond',Georgia,serif;font-size:15px;font-weight:700}
+.daily-item-arrow{color:#c2a07a;font-size:16px}
+
+/* ── Util ── */
+.loading{text-align:center;padding:40px;color:#b0a090;font-size:13px}
+.empty{text-align:center;padding:32px;color:#b0a090;font-size:13px}
+
+/* ── Footer ── */
+.site-footer{max-width:760px;margin:0 auto;padding:20px 16px 40px;font-size:11.5px;color:#b0a090;border-top:1px solid #e8e4df;margin-top:24px}
+
+/* ── Responsive ── */
+@media(max-width:520px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero-stats{margin-left:0}
+  .papers-grid,.repos-grid,.weekly-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="logo">空鼻症術後預測研究</div>
-<h1>ENS 文獻日報</h1>
-<p class="sub">長庚大學資訊管理研究所</p>
-<a class="latest-btn" href="ENS文獻日報_20260612.html">開啟今日日報 →</a>
-<div class="archive">
-<div class="archive-title">歷史日報</div>
-<a href="ENS文獻日報_20260612.html" class="day-link">2026-06-12</a>
-<a href="ENS文獻日報_20260611.html" class="day-link">2026-06-11</a>
+
+<div class="masthead">
+  <div class="mast-eyebrow">空鼻症術後解剖預測 · 長庚大學資訊管理研究所</div>
+  <div class="mast-title">ENS 研究知識庫</div>
+  <div class="mast-sub">每日文獻日報 · 累積論文庫 · GitHub 套件 · 論文關聯圖</div>
 </div>
+
+<div class="hero">
+  <a class="latest-btn" id="latest-link" href="#">📄 開啟今日日報 →</a>
+  <div class="stage-pill"><div class="stage-dot"></div><span>當前：A4 變化遮罩</span></div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n" id="stat-papers">—</div><div class="stat-l">論文</div></div>
+    <div class="stat"><div class="stat-n" id="stat-repos">—</div><div class="stat-l">套件</div></div>
+    <div class="stat"><div class="stat-n" id="stat-days">—</div><div class="stat-l">日報</div></div>
+  </div>
+</div>
+
+<div class="tab-wrap">
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="papers">📚 論文庫</button>
+    <button class="tab-btn" data-tab="repos">⚙️ GitHub 套件</button>
+    <button class="tab-btn" data-tab="graph">🔗 論文關聯圖</button>
+    <button class="tab-btn" data-tab="archive">📅 歷史日報</button>
+  </div>
+
+  <!-- ── Papers ── -->
+  <div class="tab-panel active" id="tab-papers">
+    <div class="filter-bar" id="paper-filter-bar">
+      <span class="filter-lbl">篩選：</span>
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="a4">A4 變化遮罩</button>
+      <button class="filter-btn" data-filter="b">B 生成模型</button>
+      <button class="filter-btn" data-filter="c">C 分割</button>
+      <button class="filter-btn" data-filter="d">D 評估</button>
+      <input class="search-input" id="paper-search" type="text" placeholder="搜尋標題 / 方法…">
+    </div>
+    <div class="papers-grid" id="papers-grid"><div class="loading">載入論文資料中…</div></div>
+  </div>
+
+  <!-- ── Repos ── -->
+  <div class="tab-panel" id="tab-repos">
+    <div class="filter-bar" id="repo-filter-bar">
+      <span class="filter-lbl">篩選：</span>
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="b">B 生成模型</button>
+      <button class="filter-btn" data-filter="c">C 分割</button>
+      <button class="filter-btn" data-filter="d">D 評估</button>
+    </div>
+    <div class="repos-grid" id="repos-grid"><div class="loading">載入套件資料中…</div></div>
+  </div>
+
+  <!-- ── Graph ── -->
+  <div class="tab-panel" id="tab-graph">
+    <div class="graph-container">
+      <div class="graph-legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#8050c0"></div>A4 變化遮罩</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#3050a0"></div>B 生成模型</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#1a6040"></div>C 分割</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#2050a0"></div>D 評估</div>
+        <div class="graph-hint">拖曳節點 · 點擊跳到當日日報 · 節點大小 = 星級</div>
+      </div>
+      <div id="graph-svg-wrap"><div class="loading" id="graph-loading">切換到此頁後自動繪製…</div></div>
+      <div class="graph-info">連線 = 方法相關 / 引用關係 · 節點顏色 = 主要研究階段</div>
+    </div>
+  </div>
+
+  <!-- ── Archive ── -->
+  <div class="tab-panel" id="tab-archive">
+    <div class="arch-section">
+      <div class="arch-title">📋 每週摘要</div>
+      <div class="weekly-grid" id="weekly-grid"><div class="empty">暫無每週摘要（每週日自動生成）</div></div>
+    </div>
+    <div class="arch-section">
+      <div class="arch-title">📅 每日日報</div>
+      <div class="daily-list" id="daily-list"><div class="loading">載入中…</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="site-footer">
+  ENS 術後預測研究 · 長庚大學資管所 · 每日 09:00 自動更新
+</div>
+
+<script>
+// ============================================================
+//  Helpers
+// ============================================================
+const STAGE_LABELS = {a4:'A4 變化遮罩', b:'B 生成模型', c:'C 分割', d:'D 評估'};
+const STAGE_COLORS = {a4:'#8050c0', b:'#3050a0', c:'#1a6040', d:'#2050a0'};
+const STAGE_CLS    = {a4:'sa4', b:'sb', c:'sc', d:'sd'};
+
+function stageTag(s) {
+  return `<span class="stag ${STAGE_CLS[s]||''}">${STAGE_LABELS[s]||s}</span>`;
+}
+function starsStr(n) {
+  n = Math.min(5, Math.max(0, n||0));
+  return '★'.repeat(n) + '☆'.repeat(5-n);
+}
+function dateFmt(d8) { // "20260611" → "2026/06/11"
+  if (!d8 || d8.length !== 8) return d8 || '';
+  return `${d8.slice(0,4)}/${d8.slice(4,6)}/${d8.slice(6)}`;
+}
+function dateShort(d8) { // "20260611" → "06.11"
+  if (!d8 || d8.length !== 8) return d8 || '';
+  return `${d8.slice(4,6)}.${d8.slice(6)}`;
+}
+
+// ============================================================
+//  Data
+// ============================================================
+let papersData = [], reposData = [], manifestData = {daily:[], weekly:[]};
+let graphBuilt = false;
+let currentPaperFilter = 'all', currentSearch = '';
+
+async function loadAll() {
+  try {
+    const [pd, rd, md] = await Promise.all([
+      fetch('./data/papers_db.json').then(r => r.ok ? r.json() : {papers:[]}),
+      fetch('./data/github_repos.json').then(r => r.ok ? r.json() : {repos:[]}),
+      fetch('./data/reports_manifest.json').then(r => r.ok ? r.json() : {daily:[], weekly:[]})
+    ]);
+    papersData   = pd.papers || [];
+    reposData    = rd.repos  || [];
+    manifestData = md;
+
+    document.getElementById('stat-papers').textContent = papersData.length;
+    document.getElementById('stat-repos').textContent  = reposData.length;
+    document.getElementById('stat-days').textContent   = (md.daily||[]).length;
+
+    const latest = (md.daily||[]).slice(-1)[0];
+    if (latest) document.getElementById('latest-link').href = latest.file;
+
+    renderPapers();
+    renderRepos('all');
+    renderArchive();
+  } catch(e) {
+    console.error('Load error:', e);
+    document.getElementById('papers-grid').innerHTML = '<div class="empty">資料載入失敗，請確認 data/ 資料夾已推送至 GitHub</div>';
+  }
+}
+
+// ============================================================
+//  Tab switching
+// ============================================================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+    if (tab === 'graph' && !graphBuilt) buildGraph();
+  });
+});
+
+// ============================================================
+//  Papers
+// ============================================================
+function renderPapers() {
+  const grid = document.getElementById('papers-grid');
+  let papers = papersData.slice().reverse();
+  if (currentPaperFilter !== 'all')
+    papers = papers.filter(p => (p.stages||[]).includes(currentPaperFilter));
+  if (currentSearch)
+    papers = papers.filter(p =>
+      (p.title||'').toLowerCase().includes(currentSearch) ||
+      (p.summary||'').toLowerCase().includes(currentSearch) ||
+      (p.methods||[]).some(m => m.toLowerCase().includes(currentSearch))
+    );
+  if (!papers.length) { grid.innerHTML = '<div class="empty">沒有符合條件的論文</div>'; return; }
+  grid.innerHTML = papers.map(p => {
+    const stags = (p.stages||[]).map(stageTag).join('');
+    const pickTag = p.pick ? '<span class="stag" style="background:#fff8f0;color:#a06020;border:1px solid #e8c090">★ Pick</span>' : '';
+    const links = [];
+    if (p.github) links.push(`<a class="lib-link" href="${p.github}" target="_blank" onclick="event.stopPropagation()">GitHub</a>`);
+    if (p.arxiv)  links.push(`<a class="lib-link" href="${p.arxiv}"  target="_blank" onclick="event.stopPropagation()">arXiv</a>`);
+    if (p.pmc)    links.push(`<a class="lib-link" href="${p.pmc}"    target="_blank" onclick="event.stopPropagation()">PMC</a>`);
+    const reportFile = `ENS文獻日報_${p.date}.html`;
+    return `<div class="lib-card" data-stages="${(p.stages||[]).join(' ')}" onclick="location.href='${reportFile}'">
+  <div class="lib-card-top">
+    <div class="lib-stages">${stags}${pickTag}</div>
+    <div class="lib-stars">${starsStr(p.stars)}</div>
+  </div>
+  <div class="lib-title">${p.title||''}</div>
+  <div class="lib-pub">${p.pub||''}</div>
+  <div class="lib-summary">${p.summary||''}</div>
+  <div class="lib-footer">
+    <span class="lib-date">${dateShort(p.date)}</span>
+    <div class="lib-links">${links.join('')}</div>
+  </div>
+</div>`;
+  }).join('');
+}
+
+document.querySelectorAll('#paper-filter-bar .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#paper-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentPaperFilter = btn.dataset.filter;
+    renderPapers();
+  });
+});
+document.getElementById('paper-search').addEventListener('input', e => {
+  currentSearch = e.target.value.toLowerCase();
+  renderPapers();
+});
+
+// ============================================================
+//  Repos
+// ============================================================
+let currentRepoFilter = 'all';
+function renderRepos(filter) {
+  currentRepoFilter = filter;
+  const grid = document.getElementById('repos-grid');
+  let repos = reposData.slice().reverse();
+  if (filter !== 'all') repos = repos.filter(r => r.stage === filter);
+  if (!repos.length) { grid.innerHTML = '<div class="empty">暫無套件資料</div>'; return; }
+  grid.innerHTML = repos.map(r => {
+    return `<div class="repo-card">
+  <div class="repo-header">
+    <div class="repo-name">${r.name||''}</div>
+    <div class="repo-stars">⭐ ${r.stars||''}</div>
+  </div>
+  <div class="repo-stage-row">${stageTag(r.stage||'b')}<span class="repo-intro-date">收錄 ${dateShort(r.date||'')}</span></div>
+  <div class="repo-desc">${r.desc||''}</div>
+  <div class="repo-rel"><strong>ENS 關聯：</strong>${r.relevance||''}</div>
+  ${r.install ? `<div class="repo-install">${r.install}</div>` : ''}
+  <a class="repo-link" href="${r.url||'#'}" target="_blank">${(r.url||'').replace('https://','').replace(/\/$/,'')}</a>
+</div>`;
+  }).join('');
+}
+
+document.querySelectorAll('#repo-filter-bar .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#repo-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderRepos(btn.dataset.filter);
+  });
+});
+
+// ============================================================
+//  Archive
+// ============================================================
+function renderArchive() {
+  const weeklyEl = document.getElementById('weekly-grid');
+  const dailyEl  = document.getElementById('daily-list');
+
+  const weeklies = (manifestData.weekly||[]).slice().reverse();
+  if (weeklies.length) {
+    weeklyEl.innerHTML = weeklies.map(w =>
+      `<a class="weekly-card" href="${w.file}">
+  <div class="weekly-card-title">${w.title||'週報'}</div>
+  <div class="weekly-card-sub">${dateFmt(w.date)}</div>
+</a>`
+    ).join('');
+  }
+
+  const dailies = (manifestData.daily||[]).slice().reverse();
+  if (!dailies.length) { dailyEl.innerHTML = '<div class="empty">暫無日報</div>'; return; }
+  dailyEl.innerHTML = dailies.map(d =>
+    `<a class="daily-item" href="${d.file}">
+  <span class="daily-item-date">${dateFmt(d.date)}</span>
+  <span class="daily-item-arrow">→</span>
+</a>`
+  ).join('');
+}
+
+// ============================================================
+//  Graph (D3.js)
+// ============================================================
+function buildGraph() {
+  graphBuilt = true;
+  const wrap    = document.getElementById('graph-svg-wrap');
+  const loading = document.getElementById('graph-loading');
+
+  if (!papersData.length) {
+    loading.textContent = '尚無論文資料可建立關聯圖';
+    return;
+  }
+
+  // Build nodes
+  const nodes = papersData.map(p => ({
+    id: p.id,
+    title: p.title || p.id,
+    stages: p.stages || [],
+    stars: p.stars || 3,
+    date: p.date,
+    pick: !!p.pick,
+    summary: p.summary || ''
+  }));
+
+  // Build deduplicated links
+  const linkSet = new Set();
+  const links = [];
+  papersData.forEach(p => {
+    (p.relations||[]).forEach(r => {
+      const key = [p.id, r].sort().join('|||');
+      if (!linkSet.has(key) && nodes.find(n => n.id === r)) {
+        linkSet.add(key);
+        links.push({source: p.id, target: r});
+      }
+    });
+  });
+
+  const W = wrap.clientWidth || 600;
+  const H = Math.min(Math.max(W * 0.65, 320), 520);
+
+  loading.remove();
+
+  const svg = d3.select(wrap).append('svg')
+    .attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('width', W)
+    .attr('height', H);
+
+  const simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(120).strength(0.5))
+    .force('charge', d3.forceManyBody().strength(-260))
+    .force('center', d3.forceCenter(W/2, H/2))
+    .force('collision', d3.forceCollide(d => 22 + (d.stars-3)*3));
+
+  // Links
+  const linkEl = svg.append('g')
+    .selectAll('line')
+    .data(links)
+    .join('line')
+    .attr('stroke', '#d4c8bc')
+    .attr('stroke-width', 1.5)
+    .attr('stroke-opacity', 0.8);
+
+  // Nodes
+  const nodeEl = svg.append('g')
+    .selectAll('g')
+    .data(nodes)
+    .join('g')
+    .style('cursor', 'pointer')
+    .on('click', (e, d) => { window.location.href = `ENS文獻日報_${d.date}.html`; })
+    .call(d3.drag()
+      .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+      .on('drag',  (e, d) => { d.fx=e.x; d.fy=e.y; })
+      .on('end',   (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; })
+    );
+
+  nodeEl.append('circle')
+    .attr('r', d => 15 + (d.stars-3)*3)
+    .attr('fill', d => STAGE_COLORS[d.stages[0]] || '#a08060')
+    .attr('fill-opacity', 0.88)
+    .attr('stroke', d => d.pick ? '#c2852a' : '#fff')
+    .attr('stroke-width', d => d.pick ? 3 : 2);
+
+  nodeEl.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dy', '4px')
+    .attr('fill', '#fff')
+    .attr('font-size', '9px')
+    .attr('font-family', 'Noto Sans TC, sans-serif')
+    .attr('font-weight', '700')
+    .attr('pointer-events', 'none')
+    .text(d => d.id.split('_')[0].toUpperCase().slice(0, 6));
+
+  // Tooltip
+  const tt = d3.select(wrap).append('div')
+    .style('position', 'absolute').style('pointer-events', 'none')
+    .style('background', '#1c0f07').style('color', '#f5f0e8')
+    .style('border-radius', '9px').style('padding', '10px 13px')
+    .style('font-size', '12px').style('line-height', '1.75')
+    .style('max-width', '220px').style('opacity', 0)
+    .style('transition', 'opacity .15s').style('z-index', '99')
+    .style('font-family', 'Noto Sans TC, sans-serif')
+    .style('box-shadow', '0 4px 18px rgba(0,0,0,.3)');
+
+  nodeEl
+    .on('mouseover', (e, d) => {
+      const stageName = (d.stages||[]).map(s => STAGE_LABELS[s]||s).join(' · ');
+      tt.style('opacity', 1)
+        .html(`<strong>${d.title}</strong><br><span style="color:#a08060;font-size:10.5px">${stageName}</span><br><span style="color:#c8b49a;font-size:11.5px">${d.summary}</span>`);
+    })
+    .on('mousemove', (e) => {
+      const rect = wrap.getBoundingClientRect();
+      const tx = Math.min(e.clientX - rect.left + 12, W - 240);
+      tt.style('left', tx + 'px').style('top', (e.clientY - rect.top + 12) + 'px');
+    })
+    .on('mouseout', () => tt.style('opacity', 0));
+
+  simulation.on('tick', () => {
+    nodes.forEach(d => {
+      d.x = Math.max(20, Math.min(W-20, d.x));
+      d.y = Math.max(20, Math.min(H-20, d.y));
+    });
+    linkEl.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+          .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    nodeEl.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+}
+
+// ============================================================
+//  Init
+// ============================================================
+loadAll();
+</script>
 </body>
 </html>
