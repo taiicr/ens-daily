@@ -6,145 +6,184 @@
 <title>ENS 文獻日報 20260611</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{color-scheme:light}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;color:#111827}
+body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;color:#2c1a0e}
 
 /* ── Masthead ── */
-.masthead{background:#111827;color:#fff;padding:22px 20px 18px}
-.mast-eyebrow{font-family:'Noto Sans TC',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px}
-.mast-title{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:900;letter-spacing:-.5px;line-height:1.2}
-.mast-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:3px 10px;border-radius:20px;font-size:11.5px;font-family:'Noto Sans TC',sans-serif}
-.mdot{width:6px;height:6px;border-radius:50%;background:#86efac;flex-shrink:0}
+.masthead{background:#1c0f07;color:#f5f0e8;padding:24px 20px 20px}
+.mast-eyebrow{font-family:'Noto Sans TC',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:8px}
+.mast-title{font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.15;color:#f5f0e8}
+.mast-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.18);padding:3px 11px;border-radius:20px;font-size:11.5px;font-family:'Noto Sans TC',sans-serif;color:#c8b49a}
+.mdot{width:6px;height:6px;border-radius:50%;background:#c2852a;flex-shrink:0}
 
 /* ── Page layout ── */
-.page{max-width:720px;margin:18px auto 48px;padding:0 16px}
+.page{max-width:720px;margin:20px auto 52px;padding:0 16px}
 
 /* ── Today's Pick ── */
-.pick-card{background:#fffbeb;border:2px solid #f59e0b;border-radius:14px;padding:18px 20px;margin-bottom:16px}
+.pick-card{background:#fff8f0;border:2px solid #e8c090;border-radius:12px;padding:18px 20px;margin-bottom:14px}
 .pick-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.pick-icon{width:28px;height:28px;background:#f59e0b;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.pick-lbl{font-family:'Noto Serif TC',serif;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#b45309}
-.pick-title{font-family:'Noto Serif TC',serif;font-size:15px;font-weight:700;color:#111827;margin-bottom:6px}
-.pick-reason{font-size:13px;color:#78350f;line-height:1.8}
+.pick-icon{width:28px;height:28px;background:#c2852a;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.pick-lbl{font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#a06020}
+.pick-title{font-family:'EB Garamond',Georgia,serif;font-size:17px;font-weight:700;color:#2c1a0e;margin-bottom:6px;line-height:1.3}
+.pick-reason{font-size:13px;color:#6b4020;line-height:1.85}
 
 /* ── Coverage ── */
-.cov-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:12px;padding:16px 18px;margin-bottom:16px}
-.cov-head{font-family:'Noto Serif TC',serif;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#6b7280;margin-bottom:12px}
+.cov-card{background:#fff;border:1px solid #e8e4df;border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.cov-head{font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#a08060;margin-bottom:12px}
 .cov-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
-.cov-lbl{font-size:12px;flex:0 0 120px;color:#374151;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cov-bar-w{flex:1;background:#f3f4f6;border-radius:4px;height:7px;overflow:hidden}
+.cov-lbl{font-size:12px;flex:0 0 120px;color:#4a3020;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cov-bar-w{flex:1;background:#f0ebe4;border-radius:4px;height:6px;overflow:hidden}
 .cov-bar{height:100%;border-radius:4px}
-.cov-cnt{font-size:11px;color:#9ca3af;flex:0 0 18px;text-align:right}
-.cov-gap-tag{font-size:10px;font-weight:600;background:#fef2f2;color:#ef4444;border:1px solid #fecaca;border-radius:6px;padding:1px 7px;flex-shrink:0}
+.cov-cnt{font-size:11px;color:#a08060;flex:0 0 18px;text-align:right}
+.cov-gap-tag{font-size:10px;font-weight:600;background:#fdf0e8;color:#b45309;border:1px solid #f0d0a8;border-radius:5px;padding:1px 7px;flex-shrink:0}
 
 /* ── Paper cards ── */
-.paper-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:14px;margin-bottom:10px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
-.paper-card:hover{box-shadow:0 3px 16px rgba(0,0,0,.07)}
-.paper-card.open{border-color:#c7d2fe;box-shadow:0 3px 20px rgba(79,70,229,.1)}
-.card-head{padding:15px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;-webkit-tap-highlight-color:transparent;user-select:none}
+.paper-card{background:#fff;border:1px solid #e8e4df;border-radius:12px;margin-bottom:9px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.paper-card:hover{box-shadow:0 2px 14px rgba(44,26,14,.07);border-color:#d4cdc5}
+.paper-card.open{border-color:#c2a07a;box-shadow:0 3px 18px rgba(120,70,20,.1)}
+.card-head{padding:14px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;-webkit-tap-highlight-color:transparent;user-select:none}
 .card-left{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
-.cnum{width:26px;height:26px;background:#f3f4f6;color:#374151;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;font-family:'Noto Serif TC',serif}
-.paper-card.open .cnum{background:#4f46e5;color:#fff}
-.cstars{font-size:9px;color:#f59e0b;letter-spacing:1px}
+.cnum{width:26px;height:26px;background:#f0ebe4;color:#4a3020;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:'EB Garamond',serif}
+.paper-card.open .cnum{background:#c2852a;color:#fff}
+.cstars{font-size:9px;color:#c2852a;letter-spacing:1px}
 .card-body{flex:1;min-width:0}
-.ptitle{font-family:'Noto Serif TC',serif;font-size:14.5px;font-weight:700;line-height:1.35;color:#111827;word-break:break-word}
-.ppub{font-size:11.5px;color:#9ca3af;margin-top:2px;font-family:'Noto Sans TC',sans-serif}
+.ptitle{font-family:'EB Garamond',Georgia,serif;font-size:15.5px;font-weight:700;line-height:1.3;color:#2c1a0e;word-break:break-word}
+.ppub{font-size:11.5px;color:#a08060;margin-top:2px}
 .srow{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
-.stag{height:20px;padding:0 8px;border-radius:10px;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;font-family:'Noto Sans TC',sans-serif}
-.sa4{background:#f5f3ff;color:#6d28d9}
-.sb{background:#eef2ff;color:#4338ca}
-.sc{background:#ecfdf5;color:#065f46}
-.sd{background:#eff6ff;color:#1d4ed8}
-.pdesc{margin-top:5px;font-size:12.5px;color:#6b7280;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.stag{height:20px;padding:0 9px;border-radius:10px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
+.sa4{background:#f3eeff;color:#6030a0}
+.sb{background:#edf0f8;color:#3050a0}
+.sc{background:#edf8f2;color:#1a6040}
+.sd{background:#edf3ff;color:#2050a0}
+.pdesc{margin-top:5px;font-size:12.5px;color:#7a5840;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .paper-card.open .pdesc{display:none}
-.chev{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:14px;transition:transform .25s;flex-shrink:0;margin-top:1px}
-.paper-card.open .chev{transform:rotate(180deg);color:#4f46e5}
+.chev{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#c0a880;font-size:14px;transition:transform .25s;flex-shrink:0;margin-top:1px}
+.paper-card.open .chev{transform:rotate(180deg);color:#c2852a}
 .card-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
 .paper-card.open .card-detail{max-height:4000px}
 
 /* ── Detail grid ── */
-.di{border-top:1.5px solid #f3f4f6;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.di{border-top:1px solid #f0ebe4;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 @media(max-width:520px){.di{grid-template-columns:1fr}}
-.db{background:#f7f5f0;border-radius:9px;padding:11px 12px}
+.db{background:#faf8f5;border-radius:8px;padding:10px 12px}
 .db.full{grid-column:1/-1}
-.db.borrow{background:#f0fdf4;border:1.5px solid #bbf7d0}
-.db.action{background:#fffbeb;border:1.5px solid #fde68a}
-.db.links{background:#eef2ff;border:1.5px solid #c7d2fe}
-.db.arch{background:#f8faff;border:1.5px solid #bfdbfe}
-.db.train{background:#fdf4ff;border:1.5px solid #e9d5ff}
-.db.result{background:#f0fdf4;border:1.5px solid #86efac}
-.db.limit{background:#fff7ed;border:1.5px solid #fed7aa}
-.db.notes{background:#fafafa;border:1.5px solid #d1d5db;grid-column:1/-1}
-.dl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:5px;font-family:'Noto Sans TC',sans-serif}
-.db.borrow .dl{color:#15803d}
-.db.action .dl{color:#b45309}
-.db.links .dl{color:#4338ca}
-.db.arch  .dl{color:#1d4ed8}
-.db.train .dl{color:#7c3aed}
-.db.result .dl{color:#065f46}
-.db.limit .dl{color:#c2410c}
-.db.notes .dl{color:#374151}
+.db.borrow{background:#f2faf4;border:1px solid #b8dfc4}
+.db.action{background:#fff8f0;border:1px solid #e8c090}
+.db.links{background:#f5f3ff;border:1px solid #cfc8f0}
+.db.arch{background:#f3f6ff;border:1px solid #bfcff0}
+.db.train{background:#faf3ff;border:1px solid #d8c8f0}
+.db.result{background:#f2faf4;border:1px solid #b0d8c0}
+.db.limit{background:#fff7f0;border:1px solid #e8c8a8}
+.db.notes{background:#fdf9f5;border:1px solid #e0d8d0;grid-column:1/-1}
+.dl{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#a08060;margin-bottom:5px}
+.db.borrow .dl{color:#1a6040}
+.db.action .dl{color:#a06020}
+.db.links .dl{color:#5040a0}
+.db.arch  .dl{color:#2050a0}
+.db.train .dl{color:#6030a0}
+.db.result .dl{color:#1a6040}
+.db.limit .dl{color:#a04020}
+.db.notes .dl{color:#7a5840}
 .notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
 @media(max-width:520px){.notes-grid{grid-template-columns:1fr}}
-.nitem{background:#fff;border-radius:7px;padding:9px 11px;border:1px solid #e5e7eb}
+.nitem{background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #ede8e2}
 .nitem-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
-.nl-key{color:#1d4ed8}.nl-feel{color:#7c3aed}.nl-link{color:#065f46}.nl-method{color:#b45309}
-.nitem p{font-size:12.5px;color:#374151;line-height:1.75}
-.dt{font-size:13px;color:#111827;line-height:1.8}
-.dt strong{font-weight:700}
-.dt code{font-size:11.5px;background:#f3f4f6;padding:1px 5px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace}
-.dt a{color:#4f46e5;text-decoration:none;font-weight:600;border-bottom:1px solid #c7d2fe}
-.dt a:hover{border-color:#4f46e5}
+.nl-key{color:#2050a0}.nl-feel{color:#6030a0}.nl-link{color:#1a6040}.nl-method{color:#a06020}
+.nitem p{font-size:12.5px;color:#4a3020;line-height:1.8}
+.dt{font-size:13px;color:#2c1a0e;line-height:1.85}
+.dt strong{font-weight:700;color:#1c0f07}
+.dt code{font-size:11.5px;background:#f0ebe4;padding:1px 6px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace;color:#4a3020}
+.dt a{color:#8050c0;text-decoration:none;font-weight:500;border-bottom:1px solid #d0c0e8}
+.dt a:hover{color:#6030a0;border-color:#8050c0}
 
-/* ── Slicer / Tool sections ── */
-.section-block{background:#fff;border:1.5px solid #e5e7eb;border-radius:14px;margin-bottom:12px;overflow:hidden}
-.section-block.slicer{border-color:#c7d2fe}
-.section-block.toolguide{border-color:#a7f3d0}
-.section-block.assessment{border-color:#fcd34d}
+/* ── Section blocks ── */
+.section-block{background:#fff;border:1px solid #e8e4df;border-radius:12px;margin-bottom:10px;overflow:hidden}
+.section-block.slicer{border-color:#c0b8e0}
+.section-block.toolguide{border-color:#a8d8c0}
+.section-block.assessment{border-color:#dcc080}
 .sec-head{padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;-webkit-tap-highlight-color:transparent;user-select:none}
-.sec-icon{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.slicer .sec-icon{background:#eef2ff}
-.toolguide .sec-icon{background:#ecfdf5}
-.assessment .sec-icon{background:#fef3c7}
-.sec-title{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#111827;flex:1}
-.sec-chev{font-size:14px;color:#9ca3af;transition:transform .25s}
-.section-block.open .sec-chev{transform:rotate(180deg)}
+.sec-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.slicer .sec-icon{background:#f0eef8}
+.toolguide .sec-icon{background:#edf7f2}
+.assessment .sec-icon{background:#fdf6e0}
+.sec-title{font-family:'EB Garamond',Georgia,serif;font-size:15px;font-weight:700;color:#2c1a0e;flex:1}
+.sec-chev{font-size:14px;color:#c0a880;transition:transform .25s}
+.section-block.open .sec-chev{transform:rotate(180deg);color:#c2852a}
 .sec-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
 .section-block.open .sec-body{max-height:3000px}
-.sec-inner{border-top:1.5px solid #f3f4f6;padding:14px 16px}
+.sec-inner{border-top:1px solid #f0ebe4;padding:14px 16px}
 
 /* Slicer tips */
-.slicer-tip{background:#f8faff;border-left:3px solid #4f46e5;border-radius:6px;padding:12px 14px;margin-bottom:10px}
+.slicer-tip{background:#f5f3ff;border-left:3px solid #8060c0;border-radius:6px;padding:12px 14px;margin-bottom:10px}
 .slicer-tip:last-child{margin-bottom:0}
-.slicer-tip-title{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:700;color:#1e40af;margin-bottom:5px}
-.slicer-tip p{font-size:12.5px;color:#374151;line-height:1.8}
-.slicer-tip code{font-size:11.5px;background:#e0e7ff;padding:1px 5px;border-radius:4px;color:#3730a3;font-family:'SF Mono','Cascadia Code',monospace}
+.slicer-tip-title{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-weight:700;color:#4030a0;margin-bottom:6px}
+.slicer-tip p{font-size:12.5px;color:#4a3020;line-height:1.85}
+.slicer-tip code{font-size:11.5px;background:#e8e0f8;padding:1px 6px;border-radius:4px;color:#4030a0;font-family:'SF Mono','Cascadia Code',monospace}
 
 /* Tool guide */
-.tool-card{background:#ecfdf5;border:1.5px solid #6ee7b7;border-radius:10px;padding:13px 14px;margin-bottom:10px}
+.tool-card{background:#edf7f2;border:1px solid #90d0b0;border-radius:10px;padding:13px 14px;margin-bottom:10px}
 .tool-card:last-child{margin-bottom:0}
-.tool-name{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#065f46;margin-bottom:4px}
-.tool-desc{font-size:12.5px;color:#374151;line-height:1.8;margin-bottom:8px}
-.tool-install{background:#d1fae5;border-radius:6px;padding:7px 10px;font-family:'SF Mono','Cascadia Code',monospace;font-size:11.5px;color:#064e3b;margin-bottom:7px}
-.tool-steps{font-size:12px;color:#374151;line-height:1.9}
-.tool-steps strong{color:#065f46}
+.tool-name{font-family:'EB Garamond',Georgia,serif;font-size:15px;font-weight:700;color:#1a5030;margin-bottom:4px}
+.tool-desc{font-size:12.5px;color:#4a3020;line-height:1.85;margin-bottom:8px}
+.tool-install{background:#d8f0e4;border-radius:6px;padding:7px 10px;font-family:'SF Mono','Cascadia Code',monospace;font-size:11.5px;color:#0a3820;margin-bottom:7px}
+.tool-steps{font-size:12px;color:#4a3020;line-height:1.95}
+.tool-steps strong{color:#1a5030}
 
 /* Research assessment */
-.assess-verdict{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-weight:700;font-size:13px;margin-bottom:12px;font-family:'Noto Sans TC',sans-serif}
-.assess-verdict.keep{background:#dcfce7;color:#15803d;border:1.5px solid #86efac}
-.assess-verdict.update{background:#fef3c7;color:#b45309;border:1.5px solid #fcd34d}
-.assess-item{background:#fffbeb;border-left:3px solid #f59e0b;border-radius:6px;padding:11px 13px;margin-bottom:9px}
+.assess-verdict{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-weight:700;font-size:13px;margin-bottom:12px}
+.assess-verdict.keep{background:#f0faf4;color:#1a6040;border:1px solid #90d0b0}
+.assess-verdict.update{background:#fff8f0;color:#a06020;border:1px solid #e8c090}
+.assess-item{background:#fdf9f3;border-left:3px solid #c2852a;border-radius:6px;padding:11px 13px;margin-bottom:9px}
 .assess-item:last-child{margin-bottom:0}
-.assess-item-title{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:700;color:#92400e;margin-bottom:5px}
-.assess-item p{font-size:12.5px;color:#374151;line-height:1.8}
+.assess-item-title{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-weight:700;color:#7a4010;margin-bottom:5px}
+.assess-item p{font-size:12.5px;color:#4a3020;line-height:1.85}
 
 /* ── Summary footer ── */
-.sumfooter{background:#111827;color:#d1d5db;padding:16px 18px;margin-top:8px;border-radius:12px;font-size:13px;line-height:1.85}
-.sumfooter .footer-title{font-family:'Noto Serif TC',serif;font-weight:700;color:#fff;margin-bottom:4px;font-size:14px}
+.sumfooter{background:#1c0f07;color:#c8b49a;padding:18px 20px;margin-top:10px;border-radius:12px;font-size:13px;line-height:1.9}
+.sumfooter .footer-title{font-family:'EB Garamond',Georgia,serif;font-weight:700;color:#f5f0e8;margin-bottom:6px;font-size:16px;font-style:italic}
+.sumfooter strong{color:#f5f0e8}
+
+/* ── Tooltip ── */
+.tip{border-bottom:1.5px dotted #c2852a;cursor:help;color:inherit}
+.tip-box{position:absolute;z-index:9999;background:#1c0f07;color:#f5f0e8;border-radius:9px;padding:10px 13px;font-size:12px;line-height:1.75;max-width:240px;pointer-events:none;opacity:0;transition:opacity .15s;font-family:'Noto Sans TC',sans-serif;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.tip-box.show{opacity:1}
+
+/* ── Filter bar ── */
+.filter-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.filter-lbl{font-size:11px;color:#a08060;font-weight:700;letter-spacing:.5px;flex-shrink:0}
+.filter-btn{border:1px solid #e8e4df;background:#fff;color:#7a5840;border-radius:20px;padding:4px 13px;font-size:11.5px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .15s;white-space:nowrap}
+.filter-btn:hover{border-color:#c2852a;color:#7a4010}
+.filter-btn.active{background:#c2852a;color:#fff;border-color:#c2852a}
+
+/* ── Read checkbox ── */
+.read-check{width:16px;height:16px;cursor:pointer;accent-color:#c2852a;flex-shrink:0;margin-top:2px}
+.paper-card.read{opacity:.55}
+.paper-card.read .cnum{background:#d4cdc5!important;color:#a08060!important}
+.read-row{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.read-label{font-size:10px;color:#a08060}
+
+
+/* ── Pick card full explanation ── */
+.pick-toggle{margin-top:12px;background:none;border:1.5px solid #c2852a;border-radius:8px;color:#a06020;font-size:12.5px;font-family:'Noto Sans TC',sans-serif;padding:6px 14px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s;font-weight:500}
+.pick-toggle:hover{background:#c2852a;color:#fff}
+.pick-toggle .chev-t{transition:transform .25s;display:inline-block}
+.pick-full{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.pick-full.open{max-height:3000px}
+.pick-full-inner{border-top:1.5px dashed #e8c090;margin-top:14px;padding-top:14px}
+.pf-block{margin-bottom:16px}
+.pf-title{font-family:'EB Garamond',Georgia,serif;font-size:15px;font-weight:700;color:#7a4010;margin-bottom:7px}
+.pf-body{font-size:13px;color:#4a3020;line-height:1.9}
+.pf-body strong{color:#1c0f07}
+.pf-body em{font-style:italic;color:#7a4010}
+.pf-tag{display:inline-block;background:#fff8f0;border:1px solid #e8c090;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;color:#a06020;margin-bottom:8px}
+.pf-step{background:#fdf9f5;border-left:3px solid #c2852a;border-radius:6px;padding:10px 13px;margin-bottom:8px}
+.pf-step:last-child{margin-bottom:0}
+.pf-step-title{font-weight:700;color:#7a4010;margin-bottom:4px;font-size:13px}
+.pf-step p{font-size:12.5px;color:#4a3020;line-height:1.85}
 </style>
 </head>
 <body>
@@ -166,6 +205,61 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
     <div class="pick-head"><div class="pick-icon">★</div><div class="pick-lbl">今日必讀 Pick</div></div>
     <div class="pick-title">#2 PHASOR — Anatomy- and Phase-Consistent Volumetric Diffusion</div>
     <div class="pick-reason">你現在做 A4 變化遮罩，最大的痛點是術前術後配準不完美——PHASOR 的 <strong>IP-REPA</strong> 模組就是專門處理這個問題，方法設計和你的差分預測幾乎同構。<strong>AR-MoE</strong> 的解剖語義條件化可以直接換成「手術介入遮罩」。讀完這篇你會直接知道 A4 → B 階段的架構要怎麼走，是目前 5 篇中和你研究最直接對齊的一篇。</div>
+    <button class="pick-toggle" id="pick-toggle-btn" onclick="togglePick()">📖 完整白話講解（從零開始）<span class="chev-t" id="pick-chev">▾</span></button>
+    <div class="pick-full" id="pick-full">
+      <div class="pick-full-inner">
+
+        <div class="pf-block">
+          <div class="pf-tag">🤔 這篇在解決什麼問題？</div>
+          <div class="pf-body">想像你去醫院拍了兩次 CT（電腦斷層掃描）：一次手術前、一次手術後。你想訓練 AI 學會「看術前 CT → 預測術後 CT」。但問題是，兩次掃描時病人躺的位置不可能完全一樣（就像你用手機拍同一個杯子，每次角度都稍微不同）。這種位置偏差叫做<strong>「配準誤差」</strong>。AI 如果直接學，可能學到的是「位置偏差」而不是「手術造成的真實變化」。PHASOR 就是要解決這個問題。</div>
+        </div>
+
+        <div class="pf-block">
+          <div class="pf-tag">💡 看懂這篇你需要知道的 3 個名詞</div>
+          <div class="pf-step">
+            <div class="pf-step-title">CT（電腦斷層掃描）是什麼？</div>
+            <p>醫院的掃描儀從各個角度照 X 光，電腦把數百張不同角度的影像重組成 3D 立體影像。想像把一顆橘子切成幾百片薄片，每片都拍一張照片，再全部堆回去——你就得到了橘子的 3D 結構。CT 裡每個小格子（voxel）的數值代表該位置的密度（HU 值），骨頭是高密度白色，空氣是低密度黑色。</p>
+          </div>
+          <div class="pf-step">
+            <div class="pf-step-title">Diffusion Model（擴散模型）是什麼？</div>
+            <p>一種 AI 生成圖片的方法，最近很流行（Stable Diffusion 就是這類）。核心概念很直觀：把一張圖片一步一步「加雪花雜訊」，直到完全看不出原來是什麼。然後訓練 AI 學會「逆向操作」——從一堆雜訊還原出有意義的圖片。學會逆向之後，你就能從純雜訊生成全新的圖片。應用在 CT 上，就是從「術前 CT + 一些雜訊」生成「術後 CT」。</p>
+          </div>
+          <div class="pf-step">
+            <div class="pf-step-title">Volume vs Slice 是什麼？</div>
+            <p>CT 是立體的（3D），叫做 volume。把 volume 橫切一刀，就得到一個 2D 的切片（slice）。一個腦部 CT 大概有 150 個 slice 疊起來。處理 volume 比處理 slice 更耗記憶體、但解剖一致性更好——PHASOR 選擇處理整個 volume。</p>
+          </div>
+        </div>
+
+        <div class="pf-block">
+          <div class="pf-tag">🏗 他們怎麼做的？（三個核心設計）</div>
+          <div class="pf-step">
+            <div class="pf-step-title">① 把 CT 想成影片（Video Diffusion Backbone）</div>
+            <p>CT 的 volume 可以看成「Z 軸方向的一段影片」——每個 slice 是一個畫格，從上到下播放就是整個 CT volume。用處理影片的 AI 技術來處理 CT，好處是相鄰 slice 之間會保持一致：不會出現「這一張有個結構，下一張突然消失了」這種不合理的情況。</p>
+          </div>
+          <div class="pf-step">
+            <div class="pf-step-title">② 不同區域不同專家（AR-MoE，Anatomy-Routed Mixture of Experts）</div>
+            <p>鼻腔、鼻竇、咽喉的 CT 外觀很不一樣，用同一個模型統一處理容易搞混。PHASOR 的解法：先把 CT 裡的解剖結構分類（用分割模型標出「這裡是鼻腔、那裡是鼻竇」），然後讓不同解剖區域各自交給「專屬的神經網路分支」（Expert）來處理。就像一個管弦樂團：弦樂組、管樂組各自看各自的譜，最後統一由指揮合奏。</p>
+          </div>
+          <div class="pf-step">
+            <div class="pf-step-title">③ 頻率域對齊，解決配準誤差（IP-REPA）</div>
+            <p>這是最重要的設計。傳統方法在 pixel 層面比較兩張 CT（你的 voxel A 和我的 voxel A 有沒有一樣），容易被位置偏移干擾。PHASOR 改成在「頻率域」比較——把 CT 做傅立葉轉換，比較兩個 volume 的「結構頻率組成」是否一致，而不是逐個 pixel 比。<br>比喻：兩首歌即使一首快一首慢（相當於配準稍微不同），你仍然能辨認出是同一首歌的主旋律（相當於解剖結構相同）。這讓模型在配準不完美時也能正確學習手術帶來的真實變化。</p>
+          </div>
+        </div>
+
+        <div class="pf-block">
+          <div class="pf-tag">📊 結果如何？</div>
+          <div class="pf-body">跟傳統方法（pix2pix、CycleGAN）比，PHASOR 在影像清晰度指標（SSIM、PSNR）上都更好。特別是當術前術後 CT 配準誤差超過 2mm 時，PHASOR 的優勢最明顯——這正是 IP-REPA 設計的目的。</div>
+        </div>
+
+        <div class="pf-block">
+          <div class="pf-tag">🔗 跟你的 ENS 研究有什麼關係？</div>
+          <div class="pf-body">你的研究問題幾乎是這篇的翻版：<strong>術前 CT → 術後 CT，有配準誤差，需要解剖條件化</strong>。<br>具體可以借用的地方：<br>
+          <strong>IP-REPA</strong>：你的 A4 遮罩在計算差分（術後 − 術前）時，如果有配準殘差，可以參考這個頻率域對齊的思路，減少假陽性 voxel。<br>
+          <strong>AR-MoE</strong>：解剖條件化的機制可以直接替換成「手術介入位置遮罩」——哪裡做了手術，就對那個區域套用特定的生成模式。</div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <!-- ── Coverage ── -->
@@ -174,12 +268,22 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
     <div id="cov"></div>
   </div>
 
+  <!-- ── Filter bar ── -->
+  <div class="filter-bar">
+    <span class="filter-lbl">篩選：</span>
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="a4">A4 變化遮罩</button>
+    <button class="filter-btn" data-filter="b">B 生成模型</button>
+    <button class="filter-btn" data-filter="c">C 分割</button>
+    <button class="filter-btn" data-filter="d">D 評估</button>
+  </div>
+
   <!-- ══════════════════════════════════════
        Paper 1 — 3D MedDiffusion
   ══════════════════════════════════════ -->
-  <div class="paper-card">
+  <div class="paper-card" data-stages="b">
     <div class="card-head">
-      <div class="card-left"><div class="cnum">1</div><div class="cstars">★★★★☆</div></div>
+      <div class="card-left"><div class="read-row"><input type="checkbox" class="read-check" title="標記為已讀"><span class="read-label">已讀</span></div><div class="cnum">1</div><div class="cstars">★★★★☆</div></div>
       <div class="card-body">
         <div class="ptitle">3D MedDiffusion — Controllable High-Res 3D Medical Image Generation</div>
         <div class="ppub">Wang et al. · IEEE TMI 2025</div>
@@ -211,9 +315,9 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
   <!-- ══════════════════════════════════════
        Paper 2 — PHASOR
   ══════════════════════════════════════ -->
-  <div class="paper-card">
+  <div class="paper-card" data-stages="a4 b">
     <div class="card-head">
-      <div class="card-left"><div class="cnum">2</div><div class="cstars">★★★★★</div></div>
+      <div class="card-left"><div class="read-row"><input type="checkbox" class="read-check" title="標記為已讀"><span class="read-label">已讀</span></div><div class="cnum">2</div><div class="cstars">★★★★★</div></div>
       <div class="card-body">
         <div class="ptitle">PHASOR — Video Diffusion for Volume-to-Volume CT Translation</div>
         <div class="ppub">arXiv 2604.01053 · 2025</div>
@@ -248,9 +352,9 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
   <!-- ══════════════════════════════════════
        Paper 3 — NasalSeg
   ══════════════════════════════════════ -->
-  <div class="paper-card">
+  <div class="paper-card" data-stages="c">
     <div class="card-head">
-      <div class="card-left"><div class="cnum">3</div><div class="cstars">★★★★☆</div></div>
+      <div class="card-left"><div class="read-row"><input type="checkbox" class="read-check" title="標記為已讀"><span class="read-label">已讀</span></div><div class="cnum">3</div><div class="cstars">★★★★☆</div></div>
       <div class="card-body">
         <div class="ptitle">NasalSeg — 大規模鼻腔 CT 分割資料集與基準</div>
         <div class="ppub">Zhang et al. · Scientific Data 2024</div>
@@ -282,9 +386,9 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
   <!-- ══════════════════════════════════════
        Paper 4 — StyleGAN2-ADA
   ══════════════════════════════════════ -->
-  <div class="paper-card">
+  <div class="paper-card" data-stages="b">
     <div class="card-head">
-      <div class="card-left"><div class="cnum">4</div><div class="cstars">★★★★☆</div></div>
+      <div class="card-left"><div class="read-row"><input type="checkbox" class="read-check" title="標記為已讀"><span class="read-label">已讀</span></div><div class="cnum">4</div><div class="cstars">★★★★☆</div></div>
       <div class="card-body">
         <div class="ptitle">Synthetic Images for Small Medical Datasets (StyleGAN2-ADA)</div>
         <div class="ppub">Vu et al. · arXiv 2503.00962 · 2025</div>
@@ -316,9 +420,9 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
   <!-- ══════════════════════════════════════
        Paper 5 — ENS Costal Cartilage
   ══════════════════════════════════════ -->
-  <div class="paper-card">
+  <div class="paper-card" data-stages="d">
     <div class="card-head">
-      <div class="card-left"><div class="cnum">5</div><div class="cstars">★★★☆☆</div></div>
+      <div class="card-left"><div class="read-row"><input type="checkbox" class="read-check" title="標記為已讀"><span class="read-label">已讀</span></div><div class="cnum">5</div><div class="cstars">★★★☆☆</div></div>
       <div class="card-body">
         <div class="ptitle">ENS — Costal Cartilage Reconstruction, CT Volumetry &amp; SNOT Outcomes</div>
         <div class="ppub">PMC12935405 · PMC 2025</div>
@@ -344,38 +448,6 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
           <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>① 3D Slicer 手動分割量化體積的標準流程（直接用在你的驗證步驟）<br>② 術後 CT 體積變化的統計報告方式（均值±標準差，配對 t 檢定）<br>③ SNOT-22 問卷整合到評估報告的格式</p></div>
         </div>
       </div>
-    </div></div>
-  </div>
-
-  <!-- ══════════════════════════════════════
-       3D Slicer 使用教學
-  ══════════════════════════════════════ -->
-  <div class="section-block slicer">
-    <div class="sec-head">
-      <div class="sec-icon">🔬</div>
-      <div class="sec-title">3D Slicer 使用教學（A4 階段）</div>
-      <div class="sec-chev">▾</div>
-    </div>
-    <div class="sec-body"><div class="sec-inner">
-
-      <div class="slicer-tip">
-        <div class="slicer-tip-title">Tip 1 — Segment Editor：建立術前術後差分遮罩</div>
-        <p>你現在在做 A4 變化遮罩，核心操作是把術後 CT 減去術前 CT 後，找出「顯著改變的 voxel」。在 3D Slicer 的 <strong>Segment Editor</strong> 模組中：<br><br>
-        1. 把配準後的術前術後 CT 同時載入 Slicer（確認兩者在同一 frame of reference）。<br>
-        2. 打開 <strong>SimpleFilters</strong> 擴充套件，用 <code>SubtractImageFilter</code> 計算差分影像 Δ = 術後 − 術前。<br>
-        3. 在 Segment Editor 選 <strong>Threshold</strong> 工具，針對 Δ 影像設定上下界（例如 |Δ HU| &gt; 50）自動建立遮罩。<br>
-        4. 使用 <strong>Islands</strong> 工具 → Keep largest island，去除雜訊小島，留下主要解剖變化區域。<br>
-        5. 用 <strong>Smoothing（Gaussian, σ=1mm）</strong> 消除邊界鋸齒，最後輸出為 .nrrd 或 .nii.gz。</p>
-      </div>
-
-      <div class="slicer-tip">
-        <div class="slicer-tip-title">Tip 2 — SlicerElastix / Register Volumes：確認配準品質</div>
-        <p>A4 遮罩的品質取決於 A1 配準的精度。在 3D Slicer 中可用兩個方式驗證：<br><br>
-        <strong>方法 A（快速目測）</strong>：在 Red/Yellow/Green 三個切面上切換 Foreground/Background（快捷鍵 <code>[</code> 和 <code>]</code>），目測術前術後的解剖邊界是否對齊。<br><br>
-        <strong>方法 B（定量驗證）</strong>：安裝 <strong>SlicerElastix</strong> 擴充，在 Registration → General Registration (Elastix) 模組執行 BSpline 精細配準，把配準後的 TRE（Target Registration Error，用已知 landmark 計算）記錄下來，若 &gt;2mm 需先改善配準再做 A4。<br><br>
-        目標：配準 TRE &lt;1.5mm，否則 A4 遮罩的邊界假陽性率會很高。</p>
-      </div>
-
     </div></div>
   </div>
 
@@ -456,6 +528,7 @@ body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
 </div>
 
 <script>
+/* ── Coverage bars ── */
 const COV_DATA = [
   {label:'術前→術後預測', count:1},
   {label:'條件式生成',    count:3},
@@ -471,21 +544,148 @@ COV_DATA.forEach(c=>{
   const pct = Math.round(c.count / maxC * 100);
   const row = document.createElement('div');
   row.className = 'cov-row';
-  row.innerHTML = `<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${c.count?pct:100}%;background:${c.count?'#4f46e5':'#fee2e2'}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count===0?'<span class="cov-gap-tag">空白</span>':''}`;
+  row.innerHTML = `<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${c.count?pct:100}%;background:${c.count?'#c2852a':'#f0c8a8'}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count===0?'<span class="cov-gap-tag">空白</span>':''}`;
   covEl.appendChild(row);
 });
-// Paper card toggle
+
+/* ── Paper card toggle ── */
 document.querySelectorAll('.card-head').forEach(h=>{
-  h.addEventListener('click', ()=>h.closest('.paper-card').classList.toggle('open'));
+  h.addEventListener('click', e=>{
+    if(e.target.classList.contains('read-check')) return;
+    h.closest('.paper-card').classList.toggle('open');
+  });
 });
-// Section block toggle
+
+/* ── Section block toggle ── */
 document.querySelectorAll('.sec-head').forEach(h=>{
   h.addEventListener('click', ()=>h.closest('.section-block').classList.toggle('open'));
 });
-// Auto-open all sections on desktop
+
+/* ── Auto-open sections on desktop ── */
 if(window.innerWidth > 600) {
   document.querySelectorAll('.section-block').forEach(b=>b.classList.add('open'));
 }
+
+/* ── Pick expand toggle ── */
+function togglePick(){
+  const full = document.getElementById('pick-full');
+  const chev = document.getElementById('pick-chev');
+  const isOpen = full.classList.toggle('open');
+  chev.style.transform = isOpen ? 'rotate(180deg)' : '';
+}
+
+/* ── Read checkbox ── */
+document.querySelectorAll('.read-check').forEach(cb=>{
+  cb.addEventListener('change', ()=>{
+    cb.closest('.paper-card').classList.toggle('read', cb.checked);
+  });
+});
+
+/* ── Stage filter ── */
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.paper-card').forEach(card=>{
+      card.style.display = (f==='all' || (card.dataset.stages||'').includes(f)) ? '' : 'none';
+    });
+  });
+});
+
+/* ── Tooltip glossary ── */
+const GLOSSARY = {
+  'Diffusion Model': '一種 AI 生成圖片的方法。把圖片逐步加雜訊直到完全模糊，訓練 AI 學會「逆向」還原——反過來就能從純雜訊生成全新圖片。Stable Diffusion 是最有名的例子。',
+  'Latent Diffusion': 'Diffusion Model 的進化版。不在原始像素上加雜訊，而是先用 Autoencoder 把影像壓縮成小很多的「潛在空間」（Latent Space），再在那裡做擴散。速度快、記憶體省。',
+  'GAN': '生成對抗網路（Generative Adversarial Network）。有兩個神經網路互相競爭：Generator（負責生成假圖）vs Discriminator（負責分辨真假）。兩個一起訓練，最後 Generator 生成的圖越來越難被分辨。',
+  'CycleGAN': '無配對資料的 GAN 變形。不需要「術前對應術後」這樣的配對樣本，只需要「一堆術前 CT」和「一堆術後 CT」就能訓練，但生成品質通常不如配對訓練。',
+  'pix2pix': '最基礎的配對影像轉換 GAN。給一張輸入圖，生成對應的輸出圖。需要嚴格的配對訓練資料，是很多醫學影像轉換的基準（baseline）。',
+  'nnUNet': '目前最強的醫學影像分割框架。最大優勢是「零調參」——你只要提供資料集和標注，它自動決定 patch size、架構（2D/3D）、preprocessing 和 augmentation，在大多數分割任務都能達到 SOTA。',
+  'MONAI': 'PyTorch-based 醫學影像深度學習函式庫。提供很多醫學影像常用的 transforms、損失函數和模型架構，就像醫學影像界的 torchvision。',
+  'voxel': '3D 版本的 pixel。就像 2D 圖片是由很多個 pixel 組成，3D 的 CT 影像是由很多個 voxel（體積元素）組成，每個 voxel 代表那個位置的密度（HU 值）。',
+  'Voxel': '3D 版本的 pixel。就像 2D 圖片是由很多個 pixel 組成，3D 的 CT 影像是由很多個 voxel（體積元素）組成，每個 voxel 代表那個位置的密度（HU 值）。',
+  'FID': 'Fréchet Inception Distance，生成影像品質的評估指標。數字越低代表生成的影像分佈越接近真實資料分佈，是 GAN/Diffusion Model 的標準評估指標。',
+  'SSIM': '結構相似性指數（Structural Similarity Index）。比較兩張影像的亮度、對比度和結構，比單純的 pixel MSE 更接近人眼感知。值域 0~1，越高越好。',
+  'PSNR': '峰值信噪比（Peak Signal-to-Noise Ratio）。以 dB 為單位，衡量生成影像和真實影像的差異，數字越高代表越相似。通常和 SSIM 一起報告。',
+  'DSC': 'Dice Similarity Coefficient，分割任務的主要評估指標。計算預測分割區域和真實標注的重疊程度，值域 0~1，>0.85 在醫學影像分割中算好。',
+  'DICE': 'Dice Similarity Coefficient，分割任務的主要評估指標。計算預測分割區域和真實標注的重疊程度，值域 0~1，>0.85 在醫學影像分割中算好。',
+  'Autoencoder': '自動編碼器。一個先「壓縮」再「還原」的神經網路，目標是讓還原的輸出和輸入一樣。壓縮後的小向量（latent code）包含了輸入的最重要特徵。',
+  'fine-tuning': '微調。先用大量通用資料訓練好的模型，再用少量特定領域的資料繼續訓練，讓模型適應特定任務。比從零開始訓練省資料、省時間。',
+  'fine-tune': '微調。先用大量通用資料訓練好的模型，再用少量特定領域的資料繼續訓練，讓模型適應特定任務。比從零開始訓練省資料、省時間。',
+  'HU': 'Hounsfield Unit，CT 影像的密度單位。空氣約 -1000 HU、水是 0 HU、骨頭是 +400~+1000 HU、脂肪約 -100 HU。你的鼻腔軟組織大概在 -100~+100 HU 之間。',
+  'DDIM': 'Denoising Diffusion Implicit Model，一種加速 Diffusion Model 推理的採樣方法。原本需要 1000 步逆擴散，DDIM 可以壓縮到 50 步，品質幾乎不變。',
+  'attention': '注意力機制（Attention Mechanism）。讓神經網路在處理每個位置時，能「看到」其他位置的資訊並給予不同程度的關注，是 Transformer 的核心概念。',
+  'Attention': '注意力機制（Attention Mechanism）。讓神經網路在處理每個位置時，能「看到」其他位置的資訊並給予不同程度的關注，是 Transformer 的核心概念。',
+  'patch': '把大影像切成小塊處理的策略，每一小塊叫 patch。醫學影像太大（512³ voxels），通常不能整張餵給模型，改用 patch 分塊處理可以節省記憶體。',
+  'augmentation': '資料增強。對訓練圖片做翻轉、旋轉、亮度調整等操作，人工製造更多變化，幫助模型學到更泛化的特徵，在資料量小時特別重要。',
+  'baseline': '基準線。實驗中拿來比較的標準方法，通常是已發表的現有方法。你的實驗結果需要「比 baseline 好才有意義」。',
+  'encoder': '編碼器。把原始高維度輸入（如 CT 影像）壓縮成低維度特徵向量的神經網路部分，通常由多個卷積層組成。',
+  'decoder': '解碼器。把低維度特徵向量還原成高維度輸出（如分割 mask）的神經網路部分，通常用 upsampling + 卷積組成。',
+  'ResNet': '殘差網路（Residual Network）。使用「跳連接（skip connection）」的深度神經網路，讓梯度能直接跳過多個層傳遞，解決深層網路難訓練的問題。你的 2.5D 殘差架構就是基於這個概念。',
+};
+
+/* Build tooltip element */
+const tipBox = document.createElement('div');
+tipBox.className = 'tip-box';
+tipBox.id = 'global-tip-box';
+document.body.appendChild(tipBox);
+
+/* Scan & wrap text nodes */
+function wrapGlossary(root) {
+  const terms = Object.keys(GLOSSARY).sort((a,b)=>b.length-a.length);
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: n => {
+      const p = n.parentElement;
+      if(!p) return NodeFilter.FILTER_REJECT;
+      const tag = p.tagName;
+      if(['SCRIPT','STYLE','TEXTAREA','INPUT','CODE','A'].includes(tag)) return NodeFilter.FILTER_REJECT;
+      if(p.classList.contains('tip')) return NodeFilter.FILTER_REJECT;
+      return n.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes = [];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    let html = node.textContent;
+    let changed = false;
+    terms.forEach(term => {
+      if(html.includes(term)) {
+        const safe = GLOSSARY[term].replace(/"/g,'&quot;');
+        html = html.split(term).join(`<span class="tip" data-tip="${safe}">${term}</span>`);
+        changed = true;
+      }
+    });
+    if(changed) {
+      const span = document.createElement('span');
+      span.innerHTML = html;
+      node.parentNode.replaceChild(span, node);
+    }
+  });
+}
+
+/* Show/hide tooltip */
+document.addEventListener('mouseover', e => {
+  const tip = e.target.closest('.tip');
+  if(!tip) { tipBox.classList.remove('show'); return; }
+  tipBox.textContent = tip.dataset.tip;
+  tipBox.classList.add('show');
+  const r = tip.getBoundingClientRect();
+  const left = Math.min(r.left + window.scrollX, window.innerWidth + window.scrollX - 260);
+  tipBox.style.left = Math.max(8, left) + 'px';
+  tipBox.style.top = (r.bottom + window.scrollY + 8) + 'px';
+});
+document.addEventListener('mouseout', e => {
+  if(!e.relatedTarget || !e.relatedTarget.closest('.tip-box')) {
+    tipBox.classList.remove('show');
+  }
+});
+document.addEventListener('scroll', () => tipBox.classList.remove('show'), {passive:true});
+
+/* Run glossary wrapping after load */
+window.addEventListener('load', () => {
+  wrapGlossary(document.querySelector('.page'));
+  wrapGlossary(document.querySelector('.pick-full'));
+});
 </script>
 </body>
 </html>
