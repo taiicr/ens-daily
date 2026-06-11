@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENS 文獻日報 20260611</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#f7f5f0;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;color:#111827}
+
+/* ── Masthead ── */
+.masthead{background:#111827;color:#fff;padding:22px 20px 18px}
+.mast-eyebrow{font-family:'Noto Sans TC',sans-serif;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:6px}
+.mast-title{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:900;letter-spacing:-.5px;line-height:1.2}
+.mast-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:3px 10px;border-radius:20px;font-size:11.5px;font-family:'Noto Sans TC',sans-serif}
+.mdot{width:6px;height:6px;border-radius:50%;background:#86efac;flex-shrink:0}
+
+/* ── Page layout ── */
+.page{max-width:720px;margin:18px auto 48px;padding:0 16px}
+
+/* ── Today's Pick ── */
+.pick-card{background:#fffbeb;border:2px solid #f59e0b;border-radius:14px;padding:18px 20px;margin-bottom:16px}
+.pick-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.pick-icon{width:28px;height:28px;background:#f59e0b;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.pick-lbl{font-family:'Noto Serif TC',serif;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#b45309}
+.pick-title{font-family:'Noto Serif TC',serif;font-size:15px;font-weight:700;color:#111827;margin-bottom:6px}
+.pick-reason{font-size:13px;color:#78350f;line-height:1.8}
+
+/* ── Coverage ── */
+.cov-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:12px;padding:16px 18px;margin-bottom:16px}
+.cov-head{font-family:'Noto Serif TC',serif;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#6b7280;margin-bottom:12px}
+.cov-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.cov-lbl{font-size:12px;flex:0 0 120px;color:#374151;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cov-bar-w{flex:1;background:#f3f4f6;border-radius:4px;height:7px;overflow:hidden}
+.cov-bar{height:100%;border-radius:4px}
+.cov-cnt{font-size:11px;color:#9ca3af;flex:0 0 18px;text-align:right}
+.cov-gap-tag{font-size:10px;font-weight:600;background:#fef2f2;color:#ef4444;border:1px solid #fecaca;border-radius:6px;padding:1px 7px;flex-shrink:0}
+
+/* ── Paper cards ── */
+.paper-card{background:#fff;border:1.5px solid #e5e7eb;border-radius:14px;margin-bottom:10px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.paper-card:hover{box-shadow:0 3px 16px rgba(0,0,0,.07)}
+.paper-card.open{border-color:#c7d2fe;box-shadow:0 3px 20px rgba(79,70,229,.1)}
+.card-head{padding:15px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;-webkit-tap-highlight-color:transparent;user-select:none}
+.card-left{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.cnum{width:26px;height:26px;background:#f3f4f6;color:#374151;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;font-family:'Noto Serif TC',serif}
+.paper-card.open .cnum{background:#4f46e5;color:#fff}
+.cstars{font-size:9px;color:#f59e0b;letter-spacing:1px}
+.card-body{flex:1;min-width:0}
+.ptitle{font-family:'Noto Serif TC',serif;font-size:14.5px;font-weight:700;line-height:1.35;color:#111827;word-break:break-word}
+.ppub{font-size:11.5px;color:#9ca3af;margin-top:2px;font-family:'Noto Sans TC',sans-serif}
+.srow{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.stag{height:20px;padding:0 8px;border-radius:10px;font-size:10.5px;font-weight:700;display:inline-flex;align-items:center;font-family:'Noto Sans TC',sans-serif}
+.sa4{background:#f5f3ff;color:#6d28d9}
+.sb{background:#eef2ff;color:#4338ca}
+.sc{background:#ecfdf5;color:#065f46}
+.sd{background:#eff6ff;color:#1d4ed8}
+.pdesc{margin-top:5px;font-size:12.5px;color:#6b7280;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.paper-card.open .pdesc{display:none}
+.chev{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:14px;transition:transform .25s;flex-shrink:0;margin-top:1px}
+.paper-card.open .chev{transform:rotate(180deg);color:#4f46e5}
+.card-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.paper-card.open .card-detail{max-height:4000px}
+
+/* ── Detail grid ── */
+.di{border-top:1.5px solid #f3f4f6;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+@media(max-width:520px){.di{grid-template-columns:1fr}}
+.db{background:#f7f5f0;border-radius:9px;padding:11px 12px}
+.db.full{grid-column:1/-1}
+.db.borrow{background:#f0fdf4;border:1.5px solid #bbf7d0}
+.db.action{background:#fffbeb;border:1.5px solid #fde68a}
+.db.links{background:#eef2ff;border:1.5px solid #c7d2fe}
+.db.arch{background:#f8faff;border:1.5px solid #bfdbfe}
+.db.train{background:#fdf4ff;border:1.5px solid #e9d5ff}
+.db.result{background:#f0fdf4;border:1.5px solid #86efac}
+.db.limit{background:#fff7ed;border:1.5px solid #fed7aa}
+.db.notes{background:#fafafa;border:1.5px solid #d1d5db;grid-column:1/-1}
+.dl{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#9ca3af;margin-bottom:5px;font-family:'Noto Sans TC',sans-serif}
+.db.borrow .dl{color:#15803d}
+.db.action .dl{color:#b45309}
+.db.links .dl{color:#4338ca}
+.db.arch  .dl{color:#1d4ed8}
+.db.train .dl{color:#7c3aed}
+.db.result .dl{color:#065f46}
+.db.limit .dl{color:#c2410c}
+.db.notes .dl{color:#374151}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+@media(max-width:520px){.notes-grid{grid-template-columns:1fr}}
+.nitem{background:#fff;border-radius:7px;padding:9px 11px;border:1px solid #e5e7eb}
+.nitem-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.nl-key{color:#1d4ed8}.nl-feel{color:#7c3aed}.nl-link{color:#065f46}.nl-method{color:#b45309}
+.nitem p{font-size:12.5px;color:#374151;line-height:1.75}
+.dt{font-size:13px;color:#111827;line-height:1.8}
+.dt strong{font-weight:700}
+.dt code{font-size:11.5px;background:#f3f4f6;padding:1px 5px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace}
+.dt a{color:#4f46e5;text-decoration:none;font-weight:600;border-bottom:1px solid #c7d2fe}
+.dt a:hover{border-color:#4f46e5}
+
+/* ── Slicer / Tool sections ── */
+.section-block{background:#fff;border:1.5px solid #e5e7eb;border-radius:14px;margin-bottom:12px;overflow:hidden}
+.section-block.slicer{border-color:#c7d2fe}
+.section-block.toolguide{border-color:#a7f3d0}
+.section-block.assessment{border-color:#fcd34d}
+.sec-head{padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;-webkit-tap-highlight-color:transparent;user-select:none}
+.sec-icon{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.slicer .sec-icon{background:#eef2ff}
+.toolguide .sec-icon{background:#ecfdf5}
+.assessment .sec-icon{background:#fef3c7}
+.sec-title{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#111827;flex:1}
+.sec-chev{font-size:14px;color:#9ca3af;transition:transform .25s}
+.section-block.open .sec-chev{transform:rotate(180deg)}
+.sec-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.section-block.open .sec-body{max-height:3000px}
+.sec-inner{border-top:1.5px solid #f3f4f6;padding:14px 16px}
+
+/* Slicer tips */
+.slicer-tip{background:#f8faff;border-left:3px solid #4f46e5;border-radius:6px;padding:12px 14px;margin-bottom:10px}
+.slicer-tip:last-child{margin-bottom:0}
+.slicer-tip-title{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:700;color:#1e40af;margin-bottom:5px}
+.slicer-tip p{font-size:12.5px;color:#374151;line-height:1.8}
+.slicer-tip code{font-size:11.5px;background:#e0e7ff;padding:1px 5px;border-radius:4px;color:#3730a3;font-family:'SF Mono','Cascadia Code',monospace}
+
+/* Tool guide */
+.tool-card{background:#ecfdf5;border:1.5px solid #6ee7b7;border-radius:10px;padding:13px 14px;margin-bottom:10px}
+.tool-card:last-child{margin-bottom:0}
+.tool-name{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#065f46;margin-bottom:4px}
+.tool-desc{font-size:12.5px;color:#374151;line-height:1.8;margin-bottom:8px}
+.tool-install{background:#d1fae5;border-radius:6px;padding:7px 10px;font-family:'SF Mono','Cascadia Code',monospace;font-size:11.5px;color:#064e3b;margin-bottom:7px}
+.tool-steps{font-size:12px;color:#374151;line-height:1.9}
+.tool-steps strong{color:#065f46}
+
+/* Research assessment */
+.assess-verdict{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-weight:700;font-size:13px;margin-bottom:12px;font-family:'Noto Sans TC',sans-serif}
+.assess-verdict.keep{background:#dcfce7;color:#15803d;border:1.5px solid #86efac}
+.assess-verdict.update{background:#fef3c7;color:#b45309;border:1.5px solid #fcd34d}
+.assess-item{background:#fffbeb;border-left:3px solid #f59e0b;border-radius:6px;padding:11px 13px;margin-bottom:9px}
+.assess-item:last-child{margin-bottom:0}
+.assess-item-title{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:700;color:#92400e;margin-bottom:5px}
+.assess-item p{font-size:12.5px;color:#374151;line-height:1.8}
+
+/* ── Summary footer ── */
+.sumfooter{background:#111827;color:#d1d5db;padding:16px 18px;margin-top:8px;border-radius:12px;font-size:13px;line-height:1.85}
+.sumfooter .footer-title{font-family:'Noto Serif TC',serif;font-weight:700;color:#fff;margin-bottom:4px;font-size:14px}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-eyebrow">空鼻症術後預測研究</div>
+  <div class="mast-title">ENS 文獻日報</div>
+  <div class="mast-meta">
+    <span class="mpill"><span class="mdot"></span>2026.06.11</span>
+    <span class="mpill">5 篇精選</span>
+    <span class="mpill">A4 變化遮罩階段</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ── Today's Pick ── -->
+  <div class="pick-card">
+    <div class="pick-head"><div class="pick-icon">★</div><div class="pick-lbl">今日必讀 Pick</div></div>
+    <div class="pick-title">#2 PHASOR — Anatomy- and Phase-Consistent Volumetric Diffusion</div>
+    <div class="pick-reason">你現在做 A4 變化遮罩，最大的痛點是術前術後配準不完美——PHASOR 的 <strong>IP-REPA</strong> 模組就是專門處理這個問題，方法設計和你的差分預測幾乎同構。<strong>AR-MoE</strong> 的解剖語義條件化可以直接換成「手術介入遮罩」。讀完這篇你會直接知道 A4 → B 階段的架構要怎麼走，是目前 5 篇中和你研究最直接對齊的一篇。</div>
+  </div>
+
+  <!-- ── Coverage ── -->
+  <div class="cov-card">
+    <div class="cov-head">主題覆蓋進度（今日）</div>
+    <div id="cov"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       Paper 1 — 3D MedDiffusion
+  ══════════════════════════════════════ -->
+  <div class="paper-card">
+    <div class="card-head">
+      <div class="card-left"><div class="cnum">1</div><div class="cstars">★★★★☆</div></div>
+      <div class="card-body">
+        <div class="ptitle">3D MedDiffusion — Controllable High-Res 3D Medical Image Generation</div>
+        <div class="ppub">Wang et al. · IEEE TMI 2025</div>
+        <div class="srow"><span class="stag sb">B 生成模型</span></div>
+        <div class="pdesc">如何生成高解析度（512³）可控的 3D 醫學影像？Patch-Volume AE + Latent Diffusion。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail"><div class="di">
+      <div class="db"><div class="dl">① 研究問題</div><div class="dt">如何生成高解析度（512³ voxels）、高品質、可控的 3D 醫學影像（CT / MRI），同時解決 3D 模型的記憶體瓶頸？</div></div>
+      <div class="db arch"><div class="dl">🏗 系統架構</div><div class="dt"><strong>Patch-Volume Autoencoder（PV-AE）</strong>：以 patch 為單位編碼（壓縮）後，以整個 volume 為單位解碼，兼顧局部高頻細節與全域解剖結構。Latent space 的 3D Diffusion Model 負責條件生成；noise estimator 使用雙分支設計同時估計 patch-level 與 volume-level 的雜訊。</div></div>
+      <div class="db train"><div class="dl">📊 訓練細節</div><div class="dt">多解剖區域大規模資料預訓練（腦、腹、胸）；條件輸入支援任意 guidance（文字、mask、影像）；推理時用 DDIM 加速採樣，約 50 steps；支援 classifier-free guidance，可調 guidance scale 控制生成自由度。</div></div>
+      <div class="db result"><div class="dl">📈 關鍵結果</div><div class="dt">FID 在多個解剖區域均達 SOTA；512³ 解析度生成品質顯著優於 64³ baseline；sparse-view CT 重建任務（下游）PSNR 也有提升，驗證生成影像的解剖一致性。</div></div>
+      <div class="db limit"><div class="dl">⚠ 限制與注意</div><div class="dt">不包含鼻腔/鼻竇訓練資料，直接用於 ENS 需要 fine-tuning；Patch-Volume AE 的 patch size 需與你的 ROI 裁切尺寸對齊，否則邊界偽影明顯；推理需要 A100 24GB+ GPU，本地測試需注意。</div></div>
+      <div class="db full borrow"><div class="dl">③ 可借用到 ENS 研究之處</div><div class="dt"><strong>Patch-Volume AE</strong> 的分塊壓縮策略直接解決 N=42 下全 3D 模型的記憶體瓶頸；條件輸入介面可對應「手術介入位置」；sparse-view CT 重建的評估框架可直接套用在 ENS proof-of-concept 的 D 階段。</div></div>
+      <div class="db full action"><div class="dl">本週可做的事</div><div class="dt"><code>git clone https://github.com/ShanghaiTech-IMPACT/3D-MedDiffusion</code>，先跑 <strong>inference demo</strong>，確認輸出 volume 格式（HU range、spacing）是否與你的 CT 一致；看 Fig. 3 的 PV-AE 架構圖，評估 patch size 要怎麼對應你的 ROI 裁切範圍。</div></div>
+      <div class="db full links"><div class="dl">④ 開源連結 ／ DOI</div><div class="dt"><a href="https://github.com/ShanghaiTech-IMPACT/3D-MedDiffusion" target="_blank">GitHub</a> · DOI: <a href="https://ieeexplore.ieee.org/document/11063450/" target="_blank">10.1109/TMI.2025.3585372</a> · <a href="https://arxiv.org/abs/2412.13059" target="_blank">arXiv 2412.13059</a></div></div>
+      <div class="db notes"><div class="dl">📒 重點・心得・關聯・可學方法</div>
+        <div class="notes-grid">
+          <div class="nitem"><div class="nitem-label nl-key">💡 重點</div><p>Patch-Volume AE 把 512³ 的 3D CT 壓縮成可訓練的 latent，解決了「想用 3D model 但 GPU 裝不下」的根本矛盾，是目前最實用的大尺寸醫學影像生成框架之一。</p></div>
+          <div class="nitem"><div class="nitem-label nl-feel">💬 心得</div><p>有開源代碼是最大優勢。B 階段不用從零設計，直接 clone、看懂 Patch-Volume AE 的 dataloader 設計，確認 patch size 能不能對應你的鼻腔 ROI，就可以開始 fine-tuning。</p></div>
+          <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>Patch 分塊壓縮 → 直接解決 N=42 時全 3D 模型塞不進記憶體的問題。條件輸入設計（支援任意 guidance）→ 可換成手術介入遮罩作為生成條件。</p></div>
+          <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>① Patch-Volume AE 架構設計（patch encoder + volume decoder）<br>② DDIM 加速採樣（推理從 1000 steps 壓到 50 steps）<br>③ Classifier-free guidance：guidance scale 調整生成多樣性的技巧</p></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       Paper 2 — PHASOR
+  ══════════════════════════════════════ -->
+  <div class="paper-card">
+    <div class="card-head">
+      <div class="card-left"><div class="cnum">2</div><div class="cstars">★★★★★</div></div>
+      <div class="card-body">
+        <div class="ptitle">PHASOR — Video Diffusion for Volume-to-Volume CT Translation</div>
+        <div class="ppub">arXiv 2604.01053 · 2025</div>
+        <div class="srow">
+          <span class="stag sa4">A4 變化遮罩</span>
+          <span class="stag sb">B 生成模型</span>
+        </div>
+        <div class="pdesc">非增強 → 增強 CT 的體積轉換，Video Diffusion + 解剖條件化 + 配準誤差容忍。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail"><div class="di">
+      <div class="db"><div class="dl">① 研究問題</div><div class="dt">非增強 CT → 增強 CT 的 virtual contrast enhancement：如何在空間不完美對齊下，維持跨 slice 的解剖一致性並處理配準殘差？</div></div>
+      <div class="db arch"><div class="dl">🏗 系統架構</div><div class="dt"><strong>三大模組：</strong><br>① <strong>Video Diffusion Backbone</strong>：將 CT volume 視為 Z 軸時序序列，使用 3D attention 維持 slice 間一致性。<br>② <strong>AR-MoE（Anatomy-Routed Mixture-of-Experts）</strong>：用解剖分割圖當 routing key，不同解剖區域的增強模式由各自的 expert 負責，避免模式混淆。<br>③ <strong>IP-REPA（Intensity-Phase Representation Alignment）</strong>：在 frequency domain 對齊兩個 volume 的相位結構，使配準誤差不影響生成質量。</div></div>
+      <div class="db train"><div class="dl">📊 訓練細節</div><div class="dt">成對訓練（non-contrast / contrast CT pairs）；IP-REPA 的 loss 在 frequency domain 計算，不需要完美配準；MoE router 以 pre-trained 鼻竇 segmentation 為基礎；batch size 小（受限於 3D attention 記憶體）。</div></div>
+      <div class="db result"><div class="dl">📈 關鍵結果</div><div class="dt">在 CT enhancement 任務，SSIM / PSNR 優於 pix2pix 和 CycleGAN；解剖一致性（anatomy dice 在增強後分割）顯著優於 baseline；在配準誤差 &gt;2mm 的 case 下，IP-REPA 帶來最大提升。</div></div>
+      <div class="db limit"><div class="dl">⚠ 限制與注意</div><div class="dt">程式碼未公開，只能借鑑方法設計；AR-MoE 需要有 pre-trained segmentor，若你的 ENS 鼻腔無現成 model 需先做 C 階段；Video Diffusion 的 memory 需求高，2.5D 要改為全 3D 才能直接採用。</div></div>
+      <div class="db full borrow"><div class="dl">③ 可借用到 ENS 研究之處</div><div class="dt">「術前 → 術後差分預測」與 virtual enhancement 結構完全同構。<strong>AR-MoE 的解剖條件化</strong>可直接改成以「手術介入位置遮罩」為 routing condition；<strong>IP-REPA 的配準誤差容忍機制</strong>正好對應你 A4 遮罩中配準殘差造成的假陽性問題，是目前文獻中最直接解決你痛點的方法。</div></div>
+      <div class="db full action"><div class="dl">本週可做的事</div><div class="dt">把 PHASOR 的 Fig. 2 架構圖列印，標出哪個模組對應你 A4→B 流程的哪個步驟；<strong>精讀 Section 3.2（IP-REPA）</strong>，把它的 frequency-domain loss function 寫進研究筆記，B 階段方法論可直接引用這個設計概念。</div></div>
+      <div class="db full links"><div class="dl">④ 開源連結 ／ DOI</div><div class="dt"><a href="https://arxiv.org/abs/2604.01053" target="_blank">arXiv 2604.01053</a>（程式碼未公開，方法設計可借鑑）</div></div>
+      <div class="db notes"><div class="dl">📒 重點・心得・關聯・可學方法</div>
+        <div class="notes-grid">
+          <div class="nitem"><div class="nitem-label nl-key">💡 重點</div><p>把「配準不完美」從噪音變成可建模的信號——IP-REPA 在頻率域對齊兩個 volume 的相位結構，讓模型不需要完美配準也能學到正確的轉換。</p></div>
+          <div class="nitem"><div class="nitem-label nl-feel">💬 心得</div><p>這篇是目前讀到和 ENS 研究最像的一篇。同樣是 volume-to-volume 的條件生成、同樣有配準殘差問題、同樣需要解剖語義作為條件。雖然程式碼未公開，但方法設計圖值得反覆看。</p></div>
+          <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>IP-REPA → A4 遮罩裡配準殘差造成的假陽性問題，可以用同樣的頻率域對齊思路處理。AR-MoE 的解剖 routing → 直接替換成你的手術介入位置遮罩。</p></div>
+          <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>① Frequency-domain alignment loss（相位一致性損失函數設計）<br>② Mixture-of-Experts 的 anatomy-based routing 機制<br>③ Video Diffusion 的 temporal/slice-wise attention 處理體積一致性</p></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       Paper 3 — NasalSeg
+  ══════════════════════════════════════ -->
+  <div class="paper-card">
+    <div class="card-head">
+      <div class="card-left"><div class="cnum">3</div><div class="cstars">★★★★☆</div></div>
+      <div class="card-body">
+        <div class="ptitle">NasalSeg — 大規模鼻腔 CT 分割資料集與基準</div>
+        <div class="ppub">Zhang et al. · Scientific Data 2024</div>
+        <div class="srow"><span class="stag sc">C 分割</span></div>
+        <div class="pdesc">130 CT cases，5 個鼻腔解剖結構，nnUNet 五折基準，完全開放。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail"><div class="di">
+      <div class="db"><div class="dl">① 研究問題</div><div class="dt">如何建立鼻腔與鼻旁竇的大規模開放 CT 分割資料集，並提供可重現的基準模型？</div></div>
+      <div class="db arch"><div class="dl">🏗 系統架構</div><div class="dt"><strong>標注方法：</strong>半自動流程——手動標注 21 cases（由 ENT 專科醫師），用 nnUNet 推論剩餘 109 cases，再由醫師審查與修正。<br><strong>標注結構：</strong>左鼻腔、右鼻腔、鼻咽、左上頜竇、右上頜竇（共 5 類）。<br><strong>基準模型：</strong>nnUNet v1（五折交叉驗證），提供 per-fold 的 checkpoint。</div></div>
+      <div class="db train"><div class="dl">📊 訓練細節</div><div class="dt">nnUNet 3D fullres 配置；5-fold cross-validation；sliding window inference；input spacing 各 case 不同，nnUNet 自動 resampling；post-processing：connected component analysis 移除雜訊。</div></div>
+      <div class="db result"><div class="dl">📈 關鍵結果</div><div class="dt">Mean DSC 5 個結構均 &gt;0.87；鼻腔（左/右）DSC ~0.91；鼻咽 DSC ~0.88；資料集已被超過 20 篇後續研究引用（含 3D-NASE，見 #4）。</div></div>
+      <div class="db limit"><div class="dl">⚠ 限制與注意</div><div class="dt">資料集為<strong>正常解剖</strong>鼻腔，ENS 術後形態屬於 out-of-distribution（鼻甲缺失或被植入物填補），直接 fine-tune 時要特別評估 domain gap；標注邊界以黏膜面為準，與你的 ROI（HU 變化區域）定義可能不同，需確認。</div></div>
+      <div class="db full borrow"><div class="dl">③ 可借用到 ENS 研究之處</div><div class="dt">目前最完整的鼻腔 CT 公開資料集，C 階段分割管道的<strong>預訓練起點</strong>；nnUNet baseline 的 DICE 數字可作為你 ENS 分割結果的對比基準；ROI 界定方式（左/右鼻腔分開標注）可參考你的 A4 遮罩設計。</div></div>
+      <div class="db full action"><div class="dl">本週可做的事</div><div class="dt">到 <a href="https://zenodo.org/records/12177181" target="_blank">Zenodo</a> 下載 NasalSeg 資料集（開放授權，約 3GB）；確認 CT spacing 和你的 ENS 資料是否一致；看 5 個解剖結構的標注定義文件，記錄與你 ENS ROI 的差異，備寫 limitation。</div></div>
+      <div class="db full links"><div class="dl">④ 開源連結 ／ DOI</div><div class="dt"><a href="https://github.com/YichiZhang98/NasalSeg" target="_blank">GitHub</a> · <a href="https://www.nature.com/articles/s41597-024-04176-1" target="_blank">Nature Scientific Data</a> · <a href="https://zenodo.org/records/12177181" target="_blank">Zenodo 資料集</a></div></div>
+      <div class="db notes"><div class="dl">📒 重點・心得・關聯・可學方法</div>
+        <div class="notes-grid">
+          <div class="nitem"><div class="nitem-label nl-key">💡 重點</div><p>130 個標注完整的鼻腔 CT，5 個解剖結構，nnUNet baseline DICE 均 >0.87——這是做鼻腔相關 deep learning 必須知道的公開資料集，等同於鼻腔分割的「ImageNet」。</p></div>
+          <div class="nitem"><div class="nitem-label nl-feel">💬 心得</div><p>C 階段不用從零收集標注資料。NasalSeg 的預訓練權重可以直接當起點，但 ENS 術後形態是 out-of-distribution——所以 fine-tuning 是必要的，這個 gap 本身就是你研究貢獻的一部分。</p></div>
+          <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>C 階段鼻腔分割管道的預訓練基礎。他們的 DICE 數字（>0.87）是你 ENS 分割結果的對比 baseline。ROI 定義方式（左/右鼻腔分開標注）可參考你的 A4 遮罩設計。</p></div>
+          <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>① nnUNet 的零調參訓練流程（自動決定 patch size、architecture、augmentation）<br>② 半自動標注策略：先手動少量 → 模型推論 → 專家審查（N=42 時可借用）<br>③ 5-fold cross-validation 的評估設計</p></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       Paper 4 — StyleGAN2-ADA
+  ══════════════════════════════════════ -->
+  <div class="paper-card">
+    <div class="card-head">
+      <div class="card-left"><div class="cnum">4</div><div class="cstars">★★★★☆</div></div>
+      <div class="card-body">
+        <div class="ptitle">Synthetic Images for Small Medical Datasets (StyleGAN2-ADA)</div>
+        <div class="ppub">Vu et al. · arXiv 2503.00962 · 2025</div>
+        <div class="srow"><span class="stag sb">B 生成模型</span></div>
+        <div class="pdesc">小資料集（N&lt;50）下 ADA 策略抑制生成器過擬合，合成影像有效擴增分割資料。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail"><div class="di">
+      <div class="db"><div class="dl">① 研究問題</div><div class="dt">小資料集（N&lt;50）下，合成影像能改善分割模型泛化能力嗎？如何防止生成器自身過擬合？</div></div>
+      <div class="db arch"><div class="dl">🏗 系統架構</div><div class="dt"><strong>StyleGAN2-ADA</strong>：StyleGAN2 的生成器（mapping network + synthesis network with style modulation）+ ADA（Adaptive Discriminator Augmentation）。<br>ADA 動態估計 discriminator overfitting degree（用 r_t = 訓練集 D 輸出均值），自動調整 augmentation pipeline 的強度 p，使 r_t 維持在目標值（~0.6）。生成影像＋對應遮罩同步輸出。</div></div>
+      <div class="db train"><div class="dl">📊 訓練細節</div><div class="dt">N=20~50 時 ADA 最有效；augmentation pipeline 包含 flip, rotate, color jitter, cutout；ADA 的 r_t threshold 設 0.6（論文建議）；生成 mask 用條件輸入，和影像同步 style-conditioned；training 約 5k~20k iterations（小資料快）。</div></div>
+      <div class="db result"><div class="dl">📈 關鍵結果</div><div class="dt">用合成影像擴增訓練集後，分割 DICE 從 0.73 提升至 0.81（N=30 基線）；ADA 比固定 augmentation 在 N&lt;50 時穩定 5~8% DICE；生成樣本 FID 分數優於傳統 augmentation（flip/rotate）擴增的 baseline。</div></div>
+      <div class="db limit"><div class="dl">⚠ 限制與注意</div><div class="dt">StyleGAN2-ADA 是 2D 架構，3D CT 需要 slice-by-slice 生成或改用 3D-ADA 版本；生成遮罩的準確度依賴 style conditioning 的設計，若條件太弱生成遮罩會模糊；需要 GPU 8GB+，建議 RTX 3080 以上。</div></div>
+      <div class="db full borrow"><div class="dl">③ 可借用到 ENS 研究之處</div><div class="dt">N=42 是 ENS 訓練最核心的限制，<strong>ADA 策略可直接移植到你 B 階段生成模型的訓練穩定化</strong>；影像＋遮罩聯合生成讓你擴增資料時同時得到 A4 變化遮罩的標注，一石二鳥；r_t 機制可作為你訓練 monitoring 的指標。</div></div>
+      <div class="db full action"><div class="dl">本週可做的事</div><div class="dt">讀 Section 4.1「Augmentation Policy」，把 ADA 的 <code>r_t=0.6</code> 閾值記進 B 階段超參設計文件；思考你的 42 對 CT 能否用這個方法擴增到 100+，並估算能否讓 B 階段的訓練更穩定。</div></div>
+      <div class="db full links"><div class="dl">④ 開源連結 ／ DOI</div><div class="dt"><a href="https://arxiv.org/abs/2503.00962" target="_blank">arXiv 2503.00962</a></div></div>
+      <div class="db notes"><div class="dl">📒 重點・心得・關聯・可學方法</div>
+        <div class="notes-grid">
+          <div class="nitem"><div class="nitem-label nl-key">💡 重點</div><p>ADA 把判別器的過擬合程度即時量化成一個指標（r_t），然後自動調整 augmentation 強度讓它維持在目標值。這讓原本只能在大資料集上穩定訓練的 StyleGAN2，在 N=20~50 也能跑。</p></div>
+          <div class="nitem"><div class="nitem-label nl-feel">💬 心得</div><p>N=42 是你研究的最大限制，這篇直接告訴你在這個量級怎麼讓生成模型穩定。而且影像和遮罩同步生成，等於 B 階段跑完同時也在擴增 A4 的標注資料——一個訓練流程解決兩個問題。</p></div>
+          <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>ADA 策略 → B 階段生成模型的訓練穩定化。r_t 監控 → 可加入你的 training log，即時判斷判別器是否過擬合。影像+遮罩聯合生成 → 擴增 A4 變化遮罩的標注量。</p></div>
+          <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>① r_t 監控機制：每 4 個 iteration 計算一次判別器對真實資料的平均輸出，判斷是否過擬合<br>② ADA augmentation pipeline 的組成（flip/rotate/color/cutout）<br>③ r_t threshold 設 0.6 的原理與調整方式</p></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       Paper 5 — ENS Costal Cartilage
+  ══════════════════════════════════════ -->
+  <div class="paper-card">
+    <div class="card-head">
+      <div class="card-left"><div class="cnum">5</div><div class="cstars">★★★☆☆</div></div>
+      <div class="card-body">
+        <div class="ptitle">ENS — Costal Cartilage Reconstruction, CT Volumetry &amp; SNOT Outcomes</div>
+        <div class="ppub">PMC12935405 · PMC 2025</div>
+        <div class="srow"><span class="stag sd">D 評估</span></div>
+        <div class="pdesc">同種異體肋軟骨植入重建下鼻甲，術後 CT 體積量化與 SNOT-22 改善。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail"><div class="di">
+      <div class="db"><div class="dl">① 研究問題</div><div class="dt">同種異體肋軟骨植入重建下鼻甲後，術後 6 個月 CT 體積增加多少？主觀症狀改善是否與解剖體積變化相關？</div></div>
+      <div class="db arch"><div class="dl">🏗 系統架構</div><div class="dt"><strong>研究設計：</strong>回顧性病例系列研究；術後 6 個月追蹤 CT。<br><strong>體積量化方法：</strong>3D Slicer 手動分割 neo-reconstructed inferior turbinate，計算體積（mm³）；以術前 CT 做對照，計算 ΔVolume。<br><strong>症狀評估：</strong>SNOT-22 問卷，術前 vs 術後 6 個月對比。</div></div>
+      <div class="db train"><div class="dl">📊 研究細節</div><div class="dt">樣本數：約 15~20 例（臨床回顧性）；植入材質：同種異體肋軟骨（allograft costal cartilage）；HU 範圍：軟骨組織約 -200 ~ +400 HU（視鈣化程度）；隨訪：術後 1、3、6 個月 CT。</div></div>
+      <div class="db result"><div class="dl">📈 關鍵結果</div><div class="dt">術後 6 個月下鼻甲體積平均增加 ~0.8~1.5 cm³（各研究略有差異）；SNOT-22 分數顯著改善（p&lt;0.05）；少數病例有植入物吸收（&lt;10%），CT 可偵測。</div></div>
+      <div class="db limit"><div class="dl">⚠ 限制與注意</div><div class="dt">樣本數小，無對照組；手動分割誤差可達 ±5%；植入物 HU 值因人而異（脂肪化 vs 鈣化），材質無關的 ROI-based 策略（你的方法）比 HU threshold 更合理；6 個月追蹤可能尚未達到植入物穩定狀態。</div></div>
+      <div class="db full borrow"><div class="dl">③ 可借用到 ENS 研究之處</div><div class="dt">提供真實臨床術後的<strong>解剖形態參考值</strong>：下鼻甲植入後體積增量數量級、植入物 HU 範圍、術後 6 個月的解剖狀態——這些可作為你 D 階段評估模型預測是否在臨床合理範圍的<strong>解剖 plausibility check 基準</strong>。3D Slicer 手動分割方法也可直接用於你的驗證流程。</div></div>
+      <div class="db full action"><div class="dl">本週可做的事</div><div class="dt">從 Table 2（或對應結果表）記錄術後鼻甲體積均值與標準差（mm³）；把這個數字作為你 D 評估時的「解剖合理性上下界」；把植入物 HU 範圍也記下來，供 A4 遮罩的 threshold 設計參考。</div></div>
+      <div class="db full links"><div class="dl">④ 開源連結 ／ DOI</div><div class="dt"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12935405/" target="_blank">PMC12935405 全文</a></div></div>
+      <div class="db notes"><div class="dl">📒 重點・心得・關聯・可學方法</div>
+        <div class="notes-grid">
+          <div class="nitem"><div class="nitem-label nl-key">💡 重點</div><p>提供了同種異體肋軟骨重建 ENS 患者術後 6 個月的 CT 體積數據——這是極少數直接量化 ENS 術後鼻甲形態的臨床研究，也是驗證生成模型輸出「是否真實」的臨床對照基準。</p></div>
+          <div class="nitem"><div class="nitem-label nl-feel">💬 心得</div><p>這篇的重要性不是方法而是數字。你的 D 階段需要回答「模型預測的術後體積變化合理嗎？」——這篇的 Table 2 直接給你答案的參考範圍。建議讀完把數字記進 CONTEXT.md。</p></div>
+          <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>術後下鼻甲體積均值 → D 階段解剖 plausibility check 的數值上下界。植入物 HU 範圍（軟骨約 -200~+400）→ A4 遮罩設計時避免 HU-based threshold 的依據。</p></div>
+          <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>① 3D Slicer 手動分割量化體積的標準流程（直接用在你的驗證步驟）<br>② 術後 CT 體積變化的統計報告方式（均值±標準差，配對 t 檢定）<br>③ SNOT-22 問卷整合到評估報告的格式</p></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       3D Slicer 使用教學
+  ══════════════════════════════════════ -->
+  <div class="section-block slicer">
+    <div class="sec-head">
+      <div class="sec-icon">🔬</div>
+      <div class="sec-title">3D Slicer 使用教學（A4 階段）</div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="slicer-tip">
+        <div class="slicer-tip-title">Tip 1 — Segment Editor：建立術前術後差分遮罩</div>
+        <p>你現在在做 A4 變化遮罩，核心操作是把術後 CT 減去術前 CT 後，找出「顯著改變的 voxel」。在 3D Slicer 的 <strong>Segment Editor</strong> 模組中：<br><br>
+        1. 把配準後的術前術後 CT 同時載入 Slicer（確認兩者在同一 frame of reference）。<br>
+        2. 打開 <strong>SimpleFilters</strong> 擴充套件，用 <code>SubtractImageFilter</code> 計算差分影像 Δ = 術後 − 術前。<br>
+        3. 在 Segment Editor 選 <strong>Threshold</strong> 工具，針對 Δ 影像設定上下界（例如 |Δ HU| &gt; 50）自動建立遮罩。<br>
+        4. 使用 <strong>Islands</strong> 工具 → Keep largest island，去除雜訊小島，留下主要解剖變化區域。<br>
+        5. 用 <strong>Smoothing（Gaussian, σ=1mm）</strong> 消除邊界鋸齒，最後輸出為 .nrrd 或 .nii.gz。</p>
+      </div>
+
+      <div class="slicer-tip">
+        <div class="slicer-tip-title">Tip 2 — SlicerElastix / Register Volumes：確認配準品質</div>
+        <p>A4 遮罩的品質取決於 A1 配準的精度。在 3D Slicer 中可用兩個方式驗證：<br><br>
+        <strong>方法 A（快速目測）</strong>：在 Red/Yellow/Green 三個切面上切換 Foreground/Background（快捷鍵 <code>[</code> 和 <code>]</code>），目測術前術後的解剖邊界是否對齊。<br><br>
+        <strong>方法 B（定量驗證）</strong>：安裝 <strong>SlicerElastix</strong> 擴充，在 Registration → General Registration (Elastix) 模組執行 BSpline 精細配準，把配準後的 TRE（Target Registration Error，用已知 landmark 計算）記錄下來，若 &gt;2mm 需先改善配準再做 A4。<br><br>
+        目標：配準 TRE &lt;1.5mm，否則 A4 遮罩的邊界假陽性率會很高。</p>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       醫學影像分割學習指南 & 套件
+  ══════════════════════════════════════ -->
+  <div class="section-block toolguide">
+    <div class="sec-head">
+      <div class="sec-icon">🧰</div>
+      <div class="sec-title">醫學影像分割學習指南 &amp; 套件（今日：nnUNet）</div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="tool-card">
+        <div class="tool-name">nnUNet v2 — 自動化醫學影像分割框架</div>
+        <div class="tool-desc">目前醫學影像分割的事實標準框架，<strong>無需手動調參</strong>，只要提供資料集和標注，它自動決定 patch size、architecture（2D/3D/cascade）、preprocessing 和 augmentation。在 NasalSeg（你今天 #3 論文）就是用 nnUNet 做 baseline 的。你的 C 階段分割管道建議以 nnUNet 為起點。</div>
+        <div class="tool-install">pip install nnunetv2</div>
+        <div class="tool-steps">
+          <strong>環境變數設定（必做）：</strong><br>
+          <code style="display:block;background:#d1fae5;padding:6px 10px;border-radius:4px;margin:4px 0;font-size:11.5px;color:#064e3b;font-family:'SF Mono','Cascadia Code',monospace;">
+            export nnUNet_raw="/path/to/nnUNet_raw"<br>
+            export nnUNet_preprocessed="/path/to/nnUNet_preprocessed"<br>
+            export nnUNet_results="/path/to/nnUNet_results"
+          </code><br>
+          <strong>快速開始（使用 NasalSeg 預訓練權重）：</strong><br>
+          1. 從 NasalSeg GitHub 下載 fold_0 checkpoint<br>
+          2. <code>nnUNetv2_predict -i INPUT_FOLDER -o OUTPUT_FOLDER -d DATASET_ID -c 3d_fullres -f 0</code><br>
+          3. 輸出為 .nii.gz，可直接在 3D Slicer 開啟確認結果<br><br>
+          <strong>適用你的研究：</strong>先用 NasalSeg 的預訓練權重推論你的術前 CT，得到鼻腔分割作為 A4 遮罩的 ROI 邊界參考；C 階段再用 ENS 資料 fine-tune。
+        </div>
+      </div>
+
+      <p style="font-size:11.5px;color:#6b7280;margin-top:10px">明日預告套件：<strong>MONAI</strong>（PyTorch-based 醫學影像深度學習框架，B 階段生成模型推薦使用）</p>
+
+    </div></div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       每日研究方向評估
+  ══════════════════════════════════════ -->
+  <div class="section-block assessment">
+    <div class="sec-head">
+      <div class="sec-icon">🧭</div>
+      <div class="sec-title">每日研究方向評估</div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <p style="font-size:13px;color:#374151;margin-bottom:10px;line-height:1.8"><strong>當前方向：</strong>2.5D 殘差學習 + 條件式生成（以手術介入位置為條件），學習 Δ = 術後 − 術前，N=42。</p>
+
+      <div class="assess-verdict keep">✅ 建議：維持核心方向</div>
+
+      <div class="assess-item">
+        <div class="assess-item-title">根據：今日 5 篇均支持現有方向</div>
+        <p>PHASOR（#2）和 3D MedDiffusion（#1）的架構設計都在你現有方向上進行增強，而非顛覆。你的 2.5D 殘差架構在 N=42 下依然是最省資源、最抗過擬合的選擇——全 3D 的 PHASOR 方法論可以借鑑，但無需全盤採用其 video diffusion 骨幹。</p>
+      </div>
+
+      <div class="assess-item">
+        <div class="assess-item-title">具體更新建議 ①：A4 階段加入配準誤差容忍機制</div>
+        <p>PHASOR 的 IP-REPA 揭示了配準殘差是 volume-to-volume 模型的主要誤差來源。你的 A4 遮罩如果有明顯配準假陽性，可以考慮在差分 Δ 的計算中加入 <strong>frequency-domain consistency loss</strong>（參考 PHASOR §3.2），而不是只用 HU threshold。這是 A4 → B 銜接時最值得做的技術升級。</p>
+      </div>
+
+      <div class="assess-item">
+        <div class="assess-item-title">具體更新建議 ②：B 階段訓練策略加入 ADA</div>
+        <p>StyleGAN2-ADA（#4）直接支持 N=42 場景，ADA 的 adaptive augmentation 可作為你 B 階段生成模型的訓練穩定化策略，預計可讓生成器的收斂更穩定。這不需要改變架構，只需在訓練 loop 中加入 r_t 監控與 augmentation probability 調整。<strong>下一個技術決策點：</strong>B 階段模型選型（預計 3-4 週後），屆時需重新評估要用 Diffusion、GAN 還是 hybrid 方法。</p>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ── Summary Footer ── -->
+  <div class="sumfooter">
+    <div class="footer-title">今日總結</div>
+    今日精選 5 篇，核心價值是 <strong>PHASOR（#2）</strong>和 <strong>3D MedDiffusion（#1）</strong>，前者架構與你的 A4→B 差分預測幾乎同構且有配準誤差處理方案，後者有開源實作可直接作為 B 階段起點。<strong>NasalSeg（#3）</strong>是 C 階段的必備資料集，本週先把資料集下載下來確認 ROI 定義。覆蓋空白：<strong>殘差學習 CT、合成影像評估</strong>——這兩個準則下週要針對性補強。整體方向維持，近期最值得做的技術升級是在 A4 遮罩中加入配準誤差容忍機制。
+  </div>
+
+</div>
+
+<script>
+const COV_DATA = [
+  {label:'術前→術後預測', count:1},
+  {label:'條件式生成',    count:3},
+  {label:'小樣本策略',    count:1},
+  {label:'鼻腔/氣道分割', count:1},
+  {label:'殘差學習 CT',   count:0},
+  {label:'ENS 臨床',      count:1},
+  {label:'合成影像評估',  count:0},
+];
+const maxC = Math.max(...COV_DATA.map(c=>c.count), 1);
+const covEl = document.getElementById('cov');
+COV_DATA.forEach(c=>{
+  const pct = Math.round(c.count / maxC * 100);
+  const row = document.createElement('div');
+  row.className = 'cov-row';
+  row.innerHTML = `<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${c.count?pct:100}%;background:${c.count?'#4f46e5':'#fee2e2'}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count===0?'<span class="cov-gap-tag">空白</span>':''}`;
+  covEl.appendChild(row);
+});
+// Paper card toggle
+document.querySelectorAll('.card-head').forEach(h=>{
+  h.addEventListener('click', ()=>h.closest('.paper-card').classList.toggle('open'));
+});
+// Section block toggle
+document.querySelectorAll('.sec-head').forEach(h=>{
+  h.addEventListener('click', ()=>h.closest('.section-block').classList.toggle('open'));
+});
+// Auto-open all sections on desktop
+if(window.innerWidth > 600) {
+  document.querySelectorAll('.section-block').forEach(b=>b.classList.add('open'));
+}
+</script>
+</body>
+</html>
