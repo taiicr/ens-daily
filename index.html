@@ -212,7 +212,7 @@ body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
         <div class="leg-item"><div class="leg-dot" style="background:#3050a0"></div>B 生成模型</div>
         <div class="leg-item"><div class="leg-dot" style="background:#1a6040"></div>C 分割</div>
         <div class="leg-item"><div class="leg-dot" style="background:#2050a0"></div>D 評估</div>
-        <div class="graph-hint">拖曳節點 · 點擊跳到當日日報 · 節點大小 = 星級</div>
+        <div class="graph-hint">拖曳節點 · 點擊查看摘要詳情 · 節點大小 = 星級</div>
       </div>
       <div id="graph-svg-wrap"><div class="loading" id="graph-loading">切換到此頁後自動繪製…</div></div>
       <div class="graph-info">連線 = 方法相關 / 引用關係 · 節點顏色 = 主要研究階段</div>
@@ -495,7 +495,7 @@ function buildGraph() {
     .data(nodes)
     .join('g')
     .style('cursor', 'pointer')
-    .on('click', (e, d) => { window.location.href = `ENS文獻日報_${d.date}.html`; })
+    .on('click', (e, d) => { if (!e.defaultPrevented) openModal(d.id); })
     .call(d3.drag()
       .on('start', (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
       .on('drag',  (e, d) => { d.fx=e.x; d.fy=e.y; })
