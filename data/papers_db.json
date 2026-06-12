@@ -16,6 +16,7 @@
         "Patch-Volume Autoencoder"
       ],
       "summary": "Patch-Volume AE + Latent Diffusion 生成高解析度 512³ 3D 醫學影像，支援文字 / 影像條件化",
+      "key_insight": "把大 CT 切成小塊壓縮再生成，解決記憶體不夠的問題——ENS 術後 CT 生成可直接借用這個架構，N=42 也能跑。",
       "github": "https://github.com/ShanghaiTech-IMPACT/3D-MedDiffusion",
       "arxiv": "https://arxiv.org/abs/2412.13059",
       "pmc": null,
@@ -43,6 +44,7 @@
         "配準誤差容忍"
       ],
       "summary": "Video Diffusion + AR-MoE 解剖條件化 + IP-REPA 頻率域配準誤差容忍，直接體積對體積 CT 轉換",
+      "key_insight": "第一篇直接做「術前→術後 CT 體積轉換」的論文，跟 ENS 研究目標幾乎完全一樣，是最重要的參考基準。",
       "github": null,
       "arxiv": "https://arxiv.org/abs/2604.01053",
       "pmc": null,
@@ -68,6 +70,7 @@
         "Five-fold Cross Validation"
       ],
       "summary": "130 CT cases，5 個鼻腔解剖結構標注，nnUNet 五折基準 DSC>0.87，完全開放授權",
+      "key_insight": "現成的鼻腔 CT 標注資料集，免費可用。ENS 研究缺少訓練資料，這個資料集可以用來預訓練分割模型。",
       "github": "https://github.com/YichiZhang98/NasalSeg",
       "arxiv": null,
       "pmc": null,
@@ -93,6 +96,7 @@
         "Data Augmentation"
       ],
       "summary": "N<50 小資料集下 ADA 策略抑制 GAN 過擬合，合成影像有效擴增分割訓練資料",
+      "key_insight": "專門研究「病例數不到 50 筆」時如何用 AI 生成假影像來補充資料——和 ENS 的 N=42 情境完全一樣。",
       "github": null,
       "arxiv": "https://arxiv.org/abs/2503.00962",
       "pmc": null,
@@ -117,6 +121,7 @@
         "3D Slicer"
       ],
       "summary": "同種異體肋軟骨植入重建下鼻甲，術後 CT 體積量化 + SNOT-22 改善，提供 Δ 體積基準",
+      "key_insight": "真實 ENS 手術的術前術後 CT 量化資料，提供了「手術後鼻腔體積變化多少」的基準數字，是評估模型預測準確度的參考。",
       "github": null,
       "arxiv": null,
       "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12935405/",
@@ -141,6 +146,7 @@
         "Conditional Generation"
       ],
       "summary": "Fisher-Rao 測地線噪聲排程取代 DDPM，CT 條件式生成訓練縮短至 2.5 小時、15 步採樣",
+      "key_insight": "把擴散模型的訓練時間從幾十小時壓到 2.5 小時，且有開源程式碼——ENS 生成模型可以直接拿來用，大幅加速實驗。",
       "github": "https://github.com/mirthAI/GDM-VE",
       "arxiv": "https://arxiv.org/abs/2503.00745",
       "pmc": null,
@@ -168,6 +174,7 @@
         "Segmentation Benchmark"
       ],
       "summary": "系統比較六種架構分割鼻竇 CT，Swin UNETR 最佳 DSC=0.830，可作 C 階段 baseline",
+      "key_insight": "比較了六種 AI 模型在鼻竇 CT 分割的表現，結論是 Swin UNETR 最好——選分割模型時直接參考這篇，不用自己測試。",
       "github": null,
       "arxiv": null,
       "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12402304/",
@@ -193,6 +200,7 @@
         "Anatomy-to-Image"
       ],
       "summary": "解剖分割遮罩→CT/MRI 條件式 DDPM，PhysioSynth 先驗影像設計啟發材料無關策略",
+      "key_insight": "用「解剖遮罩→CT 影像」的方向來生成，和 ENS 的「術後解剖→術後 CT」流程相似，提供了另一種條件化設計思路。",
       "github": null,
       "arxiv": "https://arxiv.org/abs/2504.09182",
       "pmc": null,
@@ -218,6 +226,7 @@
         "Data Augmentation"
       ],
       "summary": "LoRA 微調預訓練擴散模型於小樣本（20-50 張）場景，合成資料增強稀有類召回率",
+      "key_insight": "用 LoRA（輕量微調）讓大型生成模型適應只有 20-50 張的小資料集——ENS N=42 可以用這個技術讓生成模型學會 ENS 術後 CT 的特徵。",
       "github": null,
       "arxiv": "https://arxiv.org/abs/2605.11898",
       "pmc": null,
@@ -244,6 +253,7 @@
         "Residual Representation"
       ],
       "summary": "混合 CNN-Transformer + 3D 自監督自編碼器分析鼻竇 CT 結構，殘差表徵啟發 D 階段評估",
+      "key_insight": "不需要大量標注資料就能分析鼻竇結構，「殘差表徵」的設計可以啟發 ENS 術後評估指標的設計方式。",
       "github": null,
       "arxiv": null,
       "pmc": null,
