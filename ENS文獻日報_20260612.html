@@ -490,7 +490,12 @@ COV_DATA.forEach(c=>{
 document.querySelectorAll('.card-head').forEach(h=>{
   h.addEventListener('click',e=>{
     if(e.target.classList.contains('read-check')) return;
-    h.closest('.paper-card').classList.toggle('open');
+    const card=h.closest('.paper-card');
+    const wasOpen=card.classList.contains('open');
+    card.classList.toggle('open');
+    if(!wasOpen){
+      setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),80);
+    }
   });
 });
 /* Section toggle */
