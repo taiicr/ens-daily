@@ -50,6 +50,8 @@ body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
 .search-input{flex:1;max-width:200px;border:1px solid #e8e4df;border-radius:20px;padding:4px 14px;font-size:12px;font-family:'Noto Sans TC',sans-serif;background:#fff;color:#2c1a0e;outline:none}
 .search-input:focus{border-color:#c2852a}
 .search-input::placeholder{color:#c0a880}
+.sort-select{border:1px solid #e8e4df;background:#fff;color:#7a5840;border-radius:20px;padding:4px 13px;font-size:11.5px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;outline:none;margin-left:auto;transition:border-color .15s,color .15s}
+.sort-select:hover{border-color:#c2852a;color:#7a4010}
 
 /* ── Stage tags ── */
 .stag{height:20px;padding:0 9px;border-radius:10px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
@@ -181,13 +183,25 @@ body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
   <!-- ── Papers ── -->
   <div class="tab-panel active" id="tab-papers">
     <div class="filter-bar" id="paper-filter-bar">
-      <span class="filter-lbl">篩選：</span>
+      <span class="filter-lbl">階段：</span>
       <button class="filter-btn active" data-filter="all">全部</button>
       <button class="filter-btn" data-filter="a4">A4 變化遮罩</button>
       <button class="filter-btn" data-filter="b">B 生成模型</button>
       <button class="filter-btn" data-filter="c">C 分割</button>
       <button class="filter-btn" data-filter="d">D 評估</button>
       <input class="search-input" id="paper-search" type="text" placeholder="搜尋標題 / 方法…">
+    </div>
+    <div class="filter-bar" id="paper-sort-bar">
+      <span class="filter-lbl">星等：</span>
+      <button class="filter-btn star-filter active" data-stars="0">全部</button>
+      <button class="filter-btn star-filter" data-stars="3">★★★+</button>
+      <button class="filter-btn star-filter" data-stars="4">★★★★+</button>
+      <button class="filter-btn star-filter" data-stars="5">★★★★★</button>
+      <select class="sort-select" id="paper-sort">
+        <option value="date-desc">最新優先</option>
+        <option value="stars-desc">星等 ↓</option>
+        <option value="stars-asc">星等 ↑</option>
+      </select>
     </div>
     <div class="papers-grid" id="papers-grid"><div class="loading">載入論文資料中…</div></div>
   </div>
@@ -273,7 +287,7 @@ function dateShort(d8) { // "20260611" → "06.11"
 // ============================================================
 let papersData = [], reposData = [], manifestData = {daily:[], weekly:[]};
 let graphBuilt = false;
-let currentPaperFilter = 'all', currentSearch = '';
+let currentPaperFilter = 'all', currentSearch = '', currentStarFilter = 0, currentSort = 'date-desc';
 
 async function loadAll() {
   try {
@@ -321,15 +335,20 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 // ============================================================
 function renderPapers() {
   const grid = document.getElementById('papers-grid');
-  let papers = papersData.slice().reverse();
+  let papers = papersData.slice();
   if (currentPaperFilter !== 'all')
     papers = papers.filter(p => (p.stages||[]).includes(currentPaperFilter));
+  if (currentStarFilter > 0)
+    papers = papers.filter(p => (p.stars||0) >= currentStarFilter);
   if (currentSearch)
     papers = papers.filter(p =>
       (p.title||'').toLowerCase().includes(currentSearch) ||
       (p.summary||'').toLowerCase().includes(currentSearch) ||
       (p.methods||[]).some(m => m.toLowerCase().includes(currentSearch))
     );
+  if (currentSort === 'stars-desc') papers.sort((a,b) => (b.stars||0)-(a.stars||0));
+  else if (currentSort === 'stars-asc') papers.sort((a,b) => (a.stars||0)-(b.stars||0));
+  else papers.reverse(); // date-desc: newest first
   if (!papers.length) { grid.innerHTML = '<div class="empty">沒有符合條件的論文</div>'; return; }
   grid.innerHTML = papers.map(p => {
     const stags = (p.stages||[]).map(stageTag).join('');
@@ -361,6 +380,18 @@ document.querySelectorAll('#paper-filter-bar .filter-btn').forEach(btn => {
     currentPaperFilter = btn.dataset.filter;
     renderPapers();
   });
+});
+document.querySelectorAll('#paper-sort-bar .star-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#paper-sort-bar .star-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentStarFilter = parseInt(btn.dataset.stars, 10);
+    renderPapers();
+  });
+});
+document.getElementById('paper-sort').addEventListener('change', e => {
+  currentSort = e.target.value;
+  renderPapers();
 });
 document.getElementById('paper-search').addEventListener('input', e => {
   currentSearch = e.target.value.toLowerCase();
@@ -573,7 +604,7 @@ function openModal(paperId) {
   if (p.arxiv)  links.push(`<a class="modal-link-btn modal-link-arxiv" href="${p.arxiv}" target="_blank">📄 arXiv</a>`);
   if (p.pmc)    links.push(`<a class="modal-link-btn modal-link-pmc"   href="${p.pmc}"   target="_blank">🏥 PMC</a>`);
   if (p.github) links.push(`<a class="modal-link-btn modal-link-github" href="${p.github}" target="_blank">💻 GitHub</a>`);
-  links.push(`<a class="modal-link-btn modal-link-report" href="ENS文獻日報_${p.date}.html">📰 查看日報</a>`);
+  links.push(`<a class="modal-link-btn modal-link-report" href="ENS文獻日報_${p.date}.html#paper-${p.id}">📰 查看日報</a>`);
 
   const relIds = (p.relations||[]).filter(r => papersData.find(x => x.id === r));
   const relHtml = relIds.length
