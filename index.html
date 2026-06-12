@@ -47,11 +47,15 @@ body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
 .filter-btn{border:1px solid #e8e4df;background:#fff;color:#7a5840;border-radius:20px;padding:4px 13px;font-size:11.5px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .15s;white-space:nowrap}
 .filter-btn:hover{border-color:#c2852a;color:#7a4010}
 .filter-btn.active{background:#c2852a;color:#fff;border-color:#c2852a}
-.search-input{flex:1;max-width:200px;border:1px solid #e8e4df;border-radius:20px;padding:4px 14px;font-size:12px;font-family:'Noto Sans TC',sans-serif;background:#fff;color:#2c1a0e;outline:none}
+/* ── Paper filter: Option A ── */
+.paper-filter-wrap{margin-bottom:14px}
+.search-input{width:100%;border:1px solid #e8e4df;border-radius:20px;padding:7px 16px;font-size:13px;font-family:'Noto Sans TC',sans-serif;background:#fff;color:#2c1a0e;outline:none;margin-bottom:8px;box-sizing:border-box}
 .search-input:focus{border-color:#c2852a}
 .search-input::placeholder{color:#c0a880}
-.sort-select{border:1px solid #e8e4df;background:#fff;color:#7a5840;border-radius:20px;padding:4px 13px;font-size:11.5px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;outline:none;margin-left:auto;transition:border-color .15s,color .15s}
-.sort-select:hover{border-color:#c2852a;color:#7a4010}
+.dd-row{display:flex;gap:6px;align-items:center}
+.filter-dd{flex:1;border:1px solid #e8e4df;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23a08060'/%3E%3C/svg%3E") no-repeat right 10px center;background-size:8px;color:#7a5840;border-radius:20px;padding:6px 28px 6px 13px;font-size:12px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;outline:none;appearance:none;-webkit-appearance:none;transition:border-color .15s;min-width:0}
+.filter-dd:focus{border-color:#c2852a}
+.filter-dd.sort-active{background-color:#1c0f07;border-color:#1c0f07;color:#f5f0e8;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c2852a'/%3E%3C/svg%3E")}
 
 /* ── Stage tags ── */
 .stag{height:20px;padding:0 9px;border-radius:10px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
@@ -231,27 +235,30 @@ button.modal-report-cta{width:100%;text-align:left;font-family:inherit;cursor:po
 
   <!-- ── Papers ── -->
   <div class="tab-panel active" id="tab-papers">
-    <div class="filter-bar" id="paper-filter-bar">
-      <span class="filter-lbl">階段：</span>
-      <button class="filter-btn active" data-filter="all">全部</button>
-      <button class="filter-btn" data-filter="a4">A4 變化遮罩</button>
-      <button class="filter-btn" data-filter="b">B 生成模型</button>
-      <button class="filter-btn" data-filter="c">C 分割</button>
-      <button class="filter-btn" data-filter="d">D 評估</button>
+    <div class="paper-filter-wrap">
       <input class="search-input" id="paper-search" type="text" placeholder="搜尋標題 / 方法…">
-    </div>
-    <div class="filter-bar" id="paper-sort-bar">
-      <span class="filter-lbl">星等：</span>
-      <button class="filter-btn star-filter active" data-stars="0">全部</button>
-      <button class="filter-btn star-filter" data-stars="3">★★★+</button>
-      <button class="filter-btn star-filter" data-stars="4">★★★★+</button>
-      <button class="filter-btn star-filter" data-stars="5">★★★★★</button>
-      <span class="filter-lbl" style="margin-left:2px">排序：</span>
-      <button class="filter-btn sort-btn active" data-sort="date-desc">查獲↓</button>
-      <button class="filter-btn sort-btn" data-sort="stars-desc">星等↓</button>
-      <button class="filter-btn sort-btn" data-sort="stars-asc">星等↑</button>
-      <button class="filter-btn sort-btn" data-sort="pubyear-desc">年份↓</button>
-      <button class="filter-btn sort-btn" data-sort="pubyear-asc">年份↑</button>
+      <div class="dd-row">
+        <select class="filter-dd" id="stage-select">
+          <option value="all">全部階段</option>
+          <option value="a4">A4 變化遮罩</option>
+          <option value="b">B 生成模型</option>
+          <option value="c">C 分割</option>
+          <option value="d">D 評估</option>
+        </select>
+        <select class="filter-dd" id="stars-select">
+          <option value="0">全部星等</option>
+          <option value="3">★★★+</option>
+          <option value="4">★★★★+</option>
+          <option value="5">★★★★★</option>
+        </select>
+        <select class="filter-dd sort-active" id="sort-select">
+          <option value="date-desc">查獲↓</option>
+          <option value="stars-desc">星等↓</option>
+          <option value="stars-asc">星等↑</option>
+          <option value="pubyear-desc">年份↓</option>
+          <option value="pubyear-asc">年份↑</option>
+        </select>
+      </div>
     </div>
     <div class="papers-grid" id="papers-grid"><div class="loading">載入論文資料中…</div></div>
   </div>
@@ -426,29 +433,17 @@ function renderPapers() {
   }).join('');
 }
 
-document.querySelectorAll('#paper-filter-bar .filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('#paper-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentPaperFilter = btn.dataset.filter;
-    renderPapers();
-  });
+document.getElementById('stage-select').addEventListener('change', e => {
+  currentPaperFilter = e.target.value;
+  renderPapers();
 });
-document.querySelectorAll('#paper-sort-bar .star-filter').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('#paper-sort-bar .star-filter').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentStarFilter = parseInt(btn.dataset.stars, 10);
-    renderPapers();
-  });
+document.getElementById('stars-select').addEventListener('change', e => {
+  currentStarFilter = parseInt(e.target.value, 10);
+  renderPapers();
 });
-document.querySelectorAll('#paper-sort-bar .sort-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('#paper-sort-bar .sort-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentSort = btn.dataset.sort;
-    renderPapers();
-  });
+document.getElementById('sort-select').addEventListener('change', e => {
+  currentSort = e.target.value;
+  renderPapers();
 });
 document.getElementById('paper-search').addEventListener('input', e => {
   currentSearch = e.target.value.toLowerCase();
