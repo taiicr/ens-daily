@@ -156,6 +156,38 @@ body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
 .rel-chip{background:#f5f0e8;color:#7a5840;border-radius:8px;padding:3px 10px;font-size:11px;cursor:pointer;border:1px solid #e8e4df;transition:border-color .15s}
 .rel-chip:hover{border-color:#c2852a;color:#7a4010}
 
+/* ── Modal CTA as button ── */
+button.modal-report-cta{width:100%;text-align:left;font-family:inherit;cursor:pointer}
+
+/* ── Modal inline detail (from daily report) ── */
+.modal-detail-wrap{margin-top:4px;margin-bottom:10px}
+.modal-detail-loading{text-align:center;padding:20px;color:#a08060;font-size:13px}
+.di{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 0 4px}
+@media(max-width:520px){.di{grid-template-columns:1fr}}
+.db{background:#faf8f5;border-radius:8px;padding:10px 12px}
+.db.full{grid-column:1/-1}
+.db.borrow{background:#f2faf4;border:1px solid #b8dfc4}
+.db.action{background:#fff8f0;border:1px solid #e8c090}
+.db.links{background:#f5f3ff;border:1px solid #cfc8f0}
+.db.arch{background:#f3f6ff;border:1px solid #bfcff0}
+.db.train{background:#faf3ff;border:1px solid #d8c8f0}
+.db.result{background:#f2faf4;border:1px solid #b0d8c0}
+.db.limit{background:#fff7f0;border:1px solid #e8c8a8}
+.db.notes{background:#fdf9f5;border:1px solid #e0d8d0;grid-column:1/-1}
+.dl{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#a08060;margin-bottom:5px}
+.db.borrow .dl{color:#1a6040}.db.action .dl{color:#a06020}.db.links .dl{color:#5040a0}
+.db.arch .dl{color:#2050a0}.db.train .dl{color:#6030a0}.db.result .dl{color:#1a6040}.db.limit .dl{color:#a04020}.db.notes .dl{color:#7a5840}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+@media(max-width:520px){.notes-grid{grid-template-columns:1fr}}
+.nitem{background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #ede8e2}
+.nitem-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.nl-key{color:#2050a0}.nl-feel{color:#6030a0}.nl-link{color:#1a6040}.nl-method{color:#a06020}
+.nitem p{font-size:12.5px;color:#4a3020;line-height:1.8}
+.dt{font-size:13px;color:#2c1a0e;line-height:1.85}
+.dt strong{font-weight:700;color:#1c0f07}
+.dt code{font-size:11.5px;background:#f0ebe4;padding:1px 6px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace;color:#4a3020}
+.dt a{color:#8050c0;text-decoration:none;font-weight:500;border-bottom:1px solid #d0c0e8}
+
 /* ── Util ── */
 .loading{text-align:center;padding:40px;color:#b0a090;font-size:13px}
 .empty{text-align:center;padding:32px;color:#b0a090;font-size:13px}
@@ -168,7 +200,6 @@ body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
   .hero{flex-direction:column;align-items:flex-start}
   .hero-stats{margin-left:0}
   .papers-grid,.repos-grid,.weekly-grid{grid-template-columns:1fr}
-  #paper-sort-bar{display:none}
 }
 </style>
 </head>
@@ -215,11 +246,12 @@ body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-siz
       <button class="filter-btn star-filter" data-stars="3">★★★+</button>
       <button class="filter-btn star-filter" data-stars="4">★★★★+</button>
       <button class="filter-btn star-filter" data-stars="5">★★★★★</button>
-      <select class="sort-select" id="paper-sort">
-        <option value="date-desc">最新優先</option>
-        <option value="stars-desc">星等 ↓</option>
-        <option value="stars-asc">星等 ↑</option>
-      </select>
+      <span class="filter-lbl" style="margin-left:2px">排序：</span>
+      <button class="filter-btn sort-btn active" data-sort="date-desc">查獲↓</button>
+      <button class="filter-btn sort-btn" data-sort="stars-desc">星等↓</button>
+      <button class="filter-btn sort-btn" data-sort="stars-asc">星等↑</button>
+      <button class="filter-btn sort-btn" data-sort="pubyear-desc">年份↓</button>
+      <button class="filter-btn sort-btn" data-sort="pubyear-asc">年份↑</button>
     </div>
     <div class="papers-grid" id="papers-grid"><div class="loading">載入論文資料中…</div></div>
   </div>
@@ -364,8 +396,11 @@ function renderPapers() {
       (p.summary||'').toLowerCase().includes(currentSearch) ||
       (p.methods||[]).some(m => m.toLowerCase().includes(currentSearch))
     );
+  function pubYear(p){const m=(p.pub||'').match(/\b(20\d{2})\b/);return m?parseInt(m[1]):(p.date?parseInt(p.date.slice(0,4)):0);}
   if (currentSort === 'stars-desc') papers.sort((a,b) => (b.stars||0)-(a.stars||0));
   else if (currentSort === 'stars-asc') papers.sort((a,b) => (a.stars||0)-(b.stars||0));
+  else if (currentSort === 'pubyear-desc') papers.sort((a,b) => pubYear(b)-pubYear(a));
+  else if (currentSort === 'pubyear-asc') papers.sort((a,b) => pubYear(a)-pubYear(b));
   else papers.reverse(); // date-desc: newest first
   if (!papers.length) { grid.innerHTML = '<div class="empty">沒有符合條件的論文</div>'; return; }
   grid.innerHTML = papers.map(p => {
@@ -407,9 +442,13 @@ document.querySelectorAll('#paper-sort-bar .star-filter').forEach(btn => {
     renderPapers();
   });
 });
-document.getElementById('paper-sort').addEventListener('change', e => {
-  currentSort = e.target.value;
-  renderPapers();
+document.querySelectorAll('#paper-sort-bar .sort-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#paper-sort-bar .sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentSort = btn.dataset.sort;
+    renderPapers();
+  });
 });
 document.getElementById('paper-search').addEventListener('input', e => {
   currentSearch = e.target.value.toLowerCase();
@@ -650,13 +689,14 @@ function openModal(paperId) {
     <div class="modal-summary-label">技術摘要</div>
     <div class="modal-summary">${p.summary||''}</div>
     ${methods ? `<div class="modal-methods">${methods}</div>` : ''}
-    <a class="modal-report-cta" href="ENS文獻日報_${p.date}.html#paper-${p.id}">
+    <button class="modal-report-cta" onclick="toggleFullDetail('${p.id}','${p.date}',this)">
       <div>
         <div class="modal-report-cta-main">📖 完整分析</div>
         <div class="modal-report-cta-sub">白話講解 · 心得 · 可借用之處 · 每週行動建議</div>
       </div>
-      <div class="modal-report-cta-arrow">→</div>
-    </a>
+      <div class="modal-report-cta-arrow" id="detail-arrow-${p.id}">▾</div>
+    </button>
+    <div id="modal-detail-${p.id}" class="modal-detail-wrap" style="display:none"></div>
     ${extLinks.length ? `<div class="modal-links">${extLinks.join('')}</div>` : ''}
     ${relHtml ? `<div class="modal-rel-label">相關論文</div><div class="modal-relations">${relHtml}</div>` : ''}
   `;
@@ -668,6 +708,36 @@ function openModal(paperId) {
 function closeModal() {
   modalOverlay.classList.remove('open');
   document.body.style.overflow = '';
+}
+
+// ── Fetch full detail from daily report HTML ──────────────────
+const _detailCache = {};
+async function toggleFullDetail(paperId, date, btn) {
+  const wrap  = document.getElementById('modal-detail-' + paperId);
+  const arrow = document.getElementById('detail-arrow-' + paperId);
+  if (wrap.style.display !== 'none') {
+    wrap.style.display = 'none';
+    arrow.textContent = '▾';
+    return;
+  }
+  wrap.style.display = 'block';
+  arrow.textContent = '▴';
+  if (_detailCache[paperId]) { wrap.innerHTML = _detailCache[paperId]; return; }
+  wrap.innerHTML = '<div class="modal-detail-loading">載入完整分析中…</div>';
+  try {
+    const res = await fetch('ENS文獻日報_' + date + '.html');
+    if (!res.ok) throw new Error('no report');
+    const text = await res.text();
+    const doc  = new DOMParser().parseFromString(text, 'text/html');
+    const card = doc.getElementById('paper-' + paperId);
+    if (!card) throw new Error('card not found');
+    const detail = card.querySelector('.card-detail');
+    if (!detail) throw new Error('detail missing');
+    _detailCache[paperId] = detail.innerHTML;
+    wrap.innerHTML = detail.innerHTML;
+  } catch(e) {
+    wrap.innerHTML = '<div class="modal-detail-loading">⚠️ 完整分析暫不可用，請直接開啟日報查看</div>';
+  }
 }
 
 document.getElementById('modal-close-btn').addEventListener('click', closeModal);
