@@ -1,5 +1,5 @@
 {
-  "updated": "20260612",
+  "updated": "20260613",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -260,6 +260,154 @@
       "relations": [
         "nasalseg_s41597",
         "sinusseg_s41598-2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_cfd_lary31757",
+      "date": "20260613",
+      "title": "Does Total Turbinectomy Always Lead to Empty Nose Syndrome? A Computational Virtual Surgery Study",
+      "pub": "Zhao, Odeh et al. · The Laryngoscope Vol.135 · 2025",
+      "stars": 5,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CFD",
+        "Virtual Surgery Planning",
+        "Nasal Airflow Simulation",
+        "Wall Shear Stress",
+        "NOSE Score"
+      ],
+      "summary": "CFD 虛擬手術研究：全下鼻甲切除不一定產生 ENS 的氣流扭曲模式，ENS 是多因素疾病；NOSE 分數術前 72.5 → 術後 10.8",
+      "key_insight": "CFD 壁面剪切力和鼻腔氣流分布可作為 D 階段「術後形態預測品質」的功能性驗證指標；NOSE score 補充 ENS6Q 作為次要驗證量表。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11725719/",
+      "doi": "10.1002/lary.31757",
+      "pmid": "39305211",
+      "relations": [
+        "ens_cfd_ear2025",
+        "ens_cfd_biorxiv2504",
+        "ens_cluster_lary70460"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_cluster_lary70460",
+      "date": "20260613",
+      "title": "Cluster Analysis of Patients With Empty Nose Syndrome and Its Relation to Surgical Outcome",
+      "pub": "P.-W. Wu, Lu et al. · The Laryngoscope · 2026",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Hierarchical Clustering",
+        "SNOT-25",
+        "ENS6Q",
+        "Surgical Outcome",
+        "Medpor"
+      ],
+      "summary": "SNOT-25 子域分數層次聚類 ENS 患者為 4 個症狀群組；不同群組接受 Medpor 下鼻甲重建手術後的 ENS6Q 改善程度有顯著差異",
+      "key_insight": "確認 ENS6Q + SNOT-25 為 D 階段標準評估工具配對；症狀分群設計提示未來可依症狀類型設計個人化形態預測子模型。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1002/lary.70460",
+      "pmid": null,
+      "relations": [
+        "ens_cfd_lary31757",
+        "ens_cfd_biorxiv2504"
+      ],
+      "pick": false
+    },
+    {
+      "id": "reg3dnet_mp2023",
+      "date": "20260613",
+      "title": "Direct estimation of regional lung volume change from paired and single CT images using residual regression neural network",
+      "pub": "Gerard, Chaudhary et al. · Medical Physics · 2023",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Residual Regression CNN",
+        "Jacobian Estimation",
+        "Paired CT",
+        "Volume Change Prediction",
+        "3D ConvNet"
+      ],
+      "summary": "Reg3DNet+ 殘差回歸卷積網路：輸入配對 CT → 直接回歸局部體積變化場（Jacobian），繞過昂貴迭代配準；配對輸入顯著優於單張",
+      "key_insight": "「配對 CT → 直接回歸體積變化場」框架直接對應 ENS 研究的 Δ 建模，啟發 A4 遮罩升級為連續 Jacobian 場設計，並為 B 生成模型提供殘差輸出的方法學基礎。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10743098/",
+      "doi": "10.1002/mp.16365",
+      "pmid": "36929883",
+      "relations": [
+        "phasor_2604.01053",
+        "3dmed_2412.13059"
+      ],
+      "pick": true
+    },
+    {
+      "id": "ens_cfd_ear2025",
+      "date": "20260613",
+      "title": "Empty nose syndrome: new insights from a CFD approach",
+      "pub": "Esteban-Ortega et al. · Eur Arch Otorhinolaryngol · 2025;282(3):1319-26",
+      "stars": 3,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CFD",
+        "Nasal Resistance",
+        "Airflow Symmetry",
+        "Patient Classification",
+        "Personalized Treatment"
+      ],
+      "summary": "48 名 ENS 疑似患者個人化 CFD 分析，依鼻腔阻力與對稱性分為 3 個氣流類型群，有助精化 ENS 診斷與指導個人化治療策略",
+      "key_insight": "CFD 鼻腔阻力和氣流對稱性指數可作為術後形態預測的功能性分層驗證指標；不同 CFD 類型對應不同治療策略與形態恢復目標。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11890371/",
+      "doi": "10.1007/s00405-024-09122-w",
+      "pmid": "39663223",
+      "relations": [
+        "ens_cfd_lary31757",
+        "ens_cfd_biorxiv2504"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_cfd_biorxiv2504",
+      "date": "20260613",
+      "title": "How Nasal Cavity Structure Influences Empty Nose Syndrome Severity: A CFD-Based Analysis",
+      "pub": "bioRxiv preprint · 2025.04.04.645990 v2",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CFD",
+        "ENS6Q",
+        "Turbinate Volume",
+        "Mucosal Surface Area",
+        "Anatomy-Symptom Correlation"
+      ],
+      "summary": "下鼻甲殘餘體積越小、黏膜表面積越少，ENS6Q 分數越高（症狀越重）；直接建立 CT 解剖形態 → ENS 症狀嚴重度的量化關係",
+      "key_insight": "直接確立「CT 形態預測 → 症狀改善預測」的量化橋接關係，是 ENS 研究最關鍵的 Introduction 論據：預測術後形態即間接預測症狀改善程度。",
+      "github": null,
+      "arxiv": "https://doi.org/10.1101/2025.04.04.645990",
+      "pmc": null,
+      "doi": "10.1101/2025.04.04.645990",
+      "pmid": null,
+      "relations": [
+        "ens_cluster_lary70460",
+        "ens_cfd_lary31757",
+        "nasalseg_s41597"
       ],
       "pick": false
     }
