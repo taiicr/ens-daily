@@ -1,5 +1,5 @@
 {
-  "updated": "20260612",
+  "updated": "20260622",
   "repos": [
     {
       "date": "20260611",
@@ -33,6 +33,34 @@
       "relevance": "ENS N=42 極小，torchio 3D 隨機仿射和彈性變形可在不改變解剖語意的前提下擴增術前/術後 CT 配對；GridSampler 直接對應 2.5D 殘差架構 B 階段訓練的 patch 採樣管線",
       "stage": "b",
       "install": "pip install torchio"
+    },
+    {
+      "id": "pyvista",
+      "date": "20260613",
+      "name": "PyVista",
+      "repo": "pyvista/pyvista",
+      "url": "https://github.com/pyvista/pyvista",
+      "stars": "4800+",
+      "status": "積極維護中（2026）",
+      "install": "pip install pyvista",
+      "desc": "Python 3D 視覺化與幾何處理函式庫，包裝 VTK，可讀取 CT 分割結果（.nii/.stl/.vtk），視覺化 3D 鼻腔幾何，計算表面積/體積，生成 CFD 前處理所需 surface mesh，視覺化壁面剪切力熱圖。",
+      "ens_usage": "A4 階段：視覺化 3D Δ 遮罩確認手術改變區域。D 階段：CFD WSS 結果疊加鼻腔幾何視覺化。C 階段：從 nnUNet 分割結果提取下鼻甲體積（對應 bioRxiv #5 的解剖參數計算）。",
+      "related_papers": [
+        "ens_cfd_lary31757",
+        "ens_cfd_ear2025",
+        "ens_cfd_biorxiv2504"
+      ]
+    },
+    {
+      "id": "mass_2603.13660",
+      "date": "20260622",
+      "name": "Stanford-AIMI/MASS",
+      "url": "https://github.com/Stanford-AIMI/MASS",
+      "license": "MIT",
+      "paper": "CVPR 2026 · arXiv 2603.13660",
+      "install": "git clone https://github.com/Stanford-AIMI/MASS && pip install -r requirements.txt",
+      "description": "CVPR 2026 Stanford AIMI 的 3D 醫學影像 mask-guided 自監督預訓練框架。用 class-agnostic mask proposals 作為自監督訊號，在 20–200 個 scan 的小規模資料集上即可有效預訓練，fine-tune 後只需 20–40% 標注資料媲美全監督效能。",
+      "ens_use": "ENS N=42 標注量不足時，可先在 NasalSeg（130 CT）做 MASS 預訓練，再 fine-tune 到 42 對 ENS 術後 CT，用最少標注達到最好 C 階段分割效果。"
     }
   ]
 }
