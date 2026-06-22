@@ -1,5 +1,5 @@
 {
-  "updated": "20260613",
+  "updated": "20260617",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -408,6 +408,544 @@
         "ens_cluster_lary70460",
         "ens_cfd_lary31757",
         "nasalseg_s41597"
+      ],
+      "pick": false
+    },
+    {
+      "id": "trace_2507.00802",
+      "date": "20260614",
+      "title": "TRACE: Temporally Reliable Anatomically-Conditioned 3D CT Generation with Enhanced Efficiency",
+      "pub": "Shao et al. · arXiv 2507.00802 · MICCAI 2025 · July 2025",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Diffusion Model",
+        "2D Diffusion",
+        "Anatomical Conditioning",
+        "Frame-pair Training",
+        "Optical Flow",
+        "CT Generation"
+      ],
+      "github": "https://github.com/VinyehShaw/TRACE",
+      "doi": "arXiv:2507.00802",
+      "key_insight": "把 3D CT 生成拆解為 2D frame-pair diffusion，用解剖 mask 和光流做跨 slice 條件，設計邏輯與 ENS 2.5D 殘差架構完全一致，可直接替換條件輸入作為 B 階段生成模組的實作骨架。",
+      "relations": [],
+      "pick": true
+    },
+    {
+      "id": "nase3d_jimaging2025",
+      "date": "20260614",
+      "title": "3D-NASE: A Novel 3D CT Nasal Attention-Based Segmentation Ensemble",
+      "pub": "Pani et al. · Journal of Imaging · DOI: 10.3390/jimaging11050148 · May 2025 · PMC12112669",
+      "stars": 4,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "Ensemble",
+        "3D U-Net",
+        "UNETR",
+        "Swin UNETR",
+        "SegResNet",
+        "Soft Voting",
+        "Nasal CT Segmentation"
+      ],
+      "github": "https://github.com/YichiZhang98/NasalSeg",
+      "doi": "10.3390/jimaging11050148",
+      "pmc": "PMC12112669",
+      "key_insight": "集成 6 個 3D 分割模型在鼻腔 CT 上 DICE 提升 35.88%；NasalSeg 預訓練權重可直接用於 C 階段 ENS 術後分割初始化，soft voting 可量化分割不確定性。",
+      "relations": [
+        "nasalseg_s41597"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_meta_pmc12321921",
+      "date": "20260614",
+      "title": "Surgical Interventions for Empty Nose Syndrome: A Meta-Analysis of Meta-Analyses",
+      "pub": "Aguirre-Peña et al. · European Archives of Oto-Rhino-Laryngology · 2025 · PMID: 40461852",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Meta-analysis",
+        "AMSTAR2",
+        "ENS6Q",
+        "SNOT",
+        "Systematic Review"
+      ],
+      "github": null,
+      "doi": "10.1007/s00405-025-09501-x",
+      "pmc": "PMC12321921",
+      "key_insight": "統合 3 個 meta-analysis（>1500 例）確認 ENS6Q 和 SNOT-25 是最具效度的術後評估指標，同時確認手術介入有顯著長期效果，是 D 階段評估框架設計的最高等級臨床佐證。",
+      "relations": [
+        "ens_pmc12935405",
+        "ens_cluster_lary70460"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_sr_pmc13099783",
+      "date": "20260614",
+      "title": "Evidence-Based Approaches for Empty Nose Syndrome Management: A Systematic Review Highlighting Current Treatments and Future Directions",
+      "pub": "Frontiers in Bioengineering and Biotechnology · 2026 · PMC13099783",
+      "stars": 3,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Systematic Review",
+        "PRISMA",
+        "ENS Management"
+      ],
+      "github": null,
+      "doi": "10.3389/fbioe.2026.1778266",
+      "pmc": "PMC13099783",
+      "key_insight": "2026 年最新 PRISMA 系統性回顧（788→44 篇）確認 ENS 現有治療效果有限，'future directions' 段落可直接引用說明 AI 術後形態預測的研究缺口與臨床必要性。",
+      "relations": [
+        "ens_meta_pmc12321921"
+      ],
+      "pick": false
+    },
+    {
+      "id": "crossview_2509.02256",
+      "date": "20260614",
+      "title": "A Multimodal Cross-View Model for Predicting Postoperative Outcomes in Cervical Spondylosis Patients",
+      "pub": "Shan et al. · arXiv 2509.02256 · September 2025",
+      "stars": 3,
+      "stages": [
+        "a4",
+        "d"
+      ],
+      "methods": [
+        "Cross-view Attention",
+        "Multimodal Fusion",
+        "2.5D CT",
+        "Postoperative Prediction"
+      ],
+      "github": null,
+      "doi": "arXiv:2509.02256",
+      "key_insight": "從術前多視角 CT（軸狀/冠狀/矢狀）預測術後結果的 cross-view attention fusion 框架，可移植到 ENS 2.5D 殘差架構中整合多視角切面特徵，並作為術前 CT → 術後預測 proof-of-concept 的先例。",
+      "relations": [],
+      "pick": false
+    },
+    {
+      "id": "gliodiff3d_2606.05113",
+      "date": "20260615",
+      "title": "3D-GlioPREDICT: 3D Latent Diffusion for Post-Radiotherapy Brain MRI Prediction in Patients with Glioma",
+      "pub": "arXiv 2606.05113 · June 2026",
+      "stars": 5,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Latent Diffusion Model",
+        "ControlNet",
+        "3D Patch-Volume Compression",
+        "Anatomical Consistency Evaluation"
+      ],
+      "summary": "3D LDM + ControlNet 空間條件化（體素劑量分布），以術前腦部 MRI 生成術後 MRI；N=25 患者小樣本；DSC + 體積誤差 + 形變場三維解剖驗證",
+      "key_insight": "把「放療劑量地圖」換成「手術 ROI 遮罩」，整個框架直接對應 ENS 術前 CT → 術後 CT 的生成任務，N=25 驗證了小樣本可行性。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2606.05113",
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "gbmldm_2510.17851",
+        "3dmed_2412.13059"
+      ],
+      "pick": true
+    },
+    {
+      "id": "gbmldm_2510.17851",
+      "date": "20260615",
+      "title": "Pre to Post-Treatment Glioblastoma MRI Prediction using a Latent Diffusion Model",
+      "pub": "arXiv 2510.17851 · MICCAI 2025 Workshop · Oct 2025",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Latent Diffusion Model",
+        "Slice-to-Slice Translation",
+        "2D LDM"
+      ],
+      "summary": "2D LDM slice-to-slice 術前→術後 GBM MRI 生成；輕量設計適合小樣本；3D case → 2D slice 資料擴增策略",
+      "key_insight": "2D slice-level LDM 把 N=42 CT 對擴增為數千張 2D slice 訓練樣本，直接解決 ENS 小樣本問題，適合作為 B 階段第一個 baseline。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2510.17851",
+      "pmc": null,
+      "relations": [
+        "gliodiff3d_2606.05113",
+        "phasor_2604.01053",
+        "sgan2_2503.00962"
+      ],
+      "pick": false
+    },
+    {
+      "id": "longbrain_2511.02558",
+      "date": "20260615",
+      "title": "Forecasting Future Anatomies: Longitudinal Brain MRI-to-MRI Prediction",
+      "pub": "arXiv 2511.02558 · Nov 2025",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "UNet",
+        "U2-Net",
+        "UNETR",
+        "Time-Embedding UNet",
+        "ODE-UNet",
+        "Longitudinal MRI Prediction"
+      ],
+      "summary": "五種架構比較縱向腦部 MRI 預測；Time-Embedding UNet 表現最佳；在 ADNI 和 AIBL 兩個縱向世代驗證",
+      "key_insight": "Time-Embedding 設計啟發在 ENS 殘差架構中加入「術式類型嵌入」，幫助模型區分不同手術造成的 Δ 差異，幾乎不增加資料需求。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2511.02558",
+      "pmc": null,
+      "relations": [
+        "gliodiff3d_2606.05113",
+        "phasor_2604.01053"
+      ],
+      "pick": false
+    },
+    {
+      "id": "alignflow_2604.02868",
+      "date": "20260615",
+      "title": "Few-Shot Distribution-Aligned Flow Matching for Data Synthesis in Medical Image Segmentation",
+      "pub": "arXiv 2604.02868 · Apr 2026",
+      "stars": 4,
+      "stages": [
+        "b",
+        "c"
+      ],
+      "methods": [
+        "Flow Matching",
+        "Few-Shot Learning",
+        "Distribution Alignment",
+        "Reward-based Fine-tuning",
+        "Domain Adaptation"
+      ],
+      "summary": "Flow Matching + 可微分 reward 引導分布對齊，少量目標域樣本即可生成對齊的合成訓練資料；6 資料集 3 分割模型全面勝出",
+      "key_insight": "Reward-based 分布對齊解決 ENS 術後影像 OOD 問題：以 ENS 術後鼻腔解剖特徵為 reward，引導生成模型適應術後 out-of-distribution 分布，適配 N=42 few-shot 場景。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2604.02868",
+      "pmc": null,
+      "relations": [
+        "sgan2_2503.00962",
+        "lora_2605.11898",
+        "gliodiff3d_2606.05113"
+      ],
+      "pick": false
+    },
+    {
+      "id": "cdm_2409.08500",
+      "date": "20260615",
+      "title": "Cross-conditioned Diffusion Model for Medical Image to Image Translation",
+      "pub": "arXiv 2409.08500 · MICCAI 2024",
+      "stars": 3,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Diffusion Model",
+        "Cross-conditioning",
+        "Modality-specific Representation",
+        "C-UNet",
+        "Condition Embedding"
+      ],
+      "summary": "三組件設計（MRM + MDN + C-UNet）雙重條件化多模態 MRI 合成；BraTS2023 PSNR=31.92、SSIM=0.941；比 GAN 和標準 DDPM 更高效",
+      "key_insight": "C-UNet 雙重條件化設計（源影像 + 目標分布）可啟發 ENS 架構：以術前 CT 為源、ENS 術後解剖分布為目標引導，比單一條件化更有表現力。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2409.08500",
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "gliodiff3d_2606.05113",
+        "3dmed_2412.13059"
+      ],
+      "pick": false
+    },
+    {
+      "id": "gdrift_2604.19736",
+      "date": "20260616",
+      "title": "Generative Drifting for Conditional Medical Image Generation",
+      "pub": "Friedrich-Alexander Univ. + Sun Yat-sen Univ. · arXiv 2026",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Drifting Field",
+        "Multi-level Feature Bank",
+        "Multi-objective Loss",
+        "Single-step Inference"
+      ],
+      "summary": "多層級 feature bank + drifting field 讓條件式生成同時保證分布真實性與個體保真度；single-step 推理；MRI→CT 超越所有 GAN/flow/SDE baseline",
+      "key_insight": "GDM 的 drifting field 直接對應 ENS 的 Δ = 術後 − 術前：讓模型從術前特徵「漂移」到術後，天然處理分布外問題，可作為 B 階段主幹架構。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2604.19736",
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "cdm_2409.08500"
+      ],
+      "pick": false
+    },
+    {
+      "id": "gposc_pmc11911408",
+      "date": "20260616",
+      "title": "Predicting Orthognathic Surgery Results as Postoperative Lateral Cephalograms Using Graph Neural Networks and Diffusion Models (GPOSC-Net)",
+      "pub": "Kim Junsik et al. · Nature Communications 2025",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Graph Neural Network",
+        "Latent Diffusion Model",
+        "Two-stage Prediction",
+        "Landmark Prediction"
+      ],
+      "summary": "兩階段：GNN 預測術後關鍵點位移 → LDM 依關鍵點生成術後側面影像；通過視覺 Turing test；有開源程式碼",
+      "key_insight": "「幾何預測 + 影像生成」兩階段策略可移植到 ENS：先預測假體植入後形狀變化，再生成術後 CT，是 B 階段備選方案。",
+      "github": "https://github.com/Kim-Junsik/GPOSC-Net",
+      "arxiv": null,
+      "pmc": "PMC11911408",
+      "relations": [
+        "gdrift_2604.19736"
+      ],
+      "pick": false
+    },
+    {
+      "id": "medlord_2503.13211",
+      "date": "20260616",
+      "title": "MedLoRD: A Medical Low-Resource Diffusion Model for High-Resolution 3D CT Image Synthesis",
+      "pub": "Seyfarth et al. · Cardio-AI Germany · arXiv / MICCAI 2025",
+      "stars": 4,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Diffusion Model",
+        "Mask-conditioned",
+        "Low-resource",
+        "3D CT Synthesis"
+      ],
+      "summary": "針對低資源環境的 3D CT 擴散模型；24GB VRAM 可跑 512×512×256；mask-conditioned；評估含放射科評分 + 體積分析 + downstream task",
+      "key_insight": "MedLoRD 的 mask-conditioned 設計直接對應 A4 遮罩，低資源設定符合 N=42，其三層次評估框架可作為 D 階段模板。",
+      "github": "https://github.com/Cardio-AI/medlord",
+      "arxiv": "https://arxiv.org/abs/2503.13211",
+      "pmc": null,
+      "relations": [
+        "gdrift_2604.19736",
+        "3dmed_2412.13059"
+      ],
+      "pick": false
+    },
+    {
+      "id": "nasalcfd_pmc12808322",
+      "date": "20260616",
+      "title": "Understanding Airflow Dynamics: A Computational Study of Nasal and Oral Breathers Using Patient-Specific Models",
+      "pub": "BDJ Open · Nature · 2025 · PMC12808322",
+      "stars": 3,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CFD",
+        "Patient-specific model",
+        "Wall Shear Stress",
+        "Airway resistance"
+      ],
+      "summary": "CFD 分析正常鼻呼吸 vs 鼻阻塞患者的 WSS、氣流速度、氣道阻力；5 位患者；提供 WSS 基準值",
+      "key_insight": "提供正常鼻呼吸者的 WSS 基準值（WSS 最高點在鼻瓣和鼻甲前後段），作為 D 階段功能驗證的對照：ENS 術後形態的 CFD 結果應向正常值靠攏。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "PMC12808322",
+      "relations": [
+        "ens_cfd_lary31757",
+        "ens_cfd_ear2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "sslsam2_2512.11548",
+      "date": "20260616",
+      "title": "SSL-MedSAM2: A Semi-supervised Medical Image Segmentation Framework Powered by Few-shot Learning of SAM2",
+      "pub": "arXiv 2512.11548 · December 2025",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "SAM2",
+        "Semi-supervised",
+        "Few-shot Learning",
+        "Pseudo-label",
+        "Video Tracking"
+      ],
+      "summary": "SAM2 + 半監督學習；few-shot + pseudo-label 迭代；SAM2 video tracking 提升 3D 切片間一致性；少量標注超越現有半監督方法",
+      "key_insight": "SAM2 的 video tracking 機制天然適合鼻腔 3D CT 切片間一致性，few-shot 框架可在 N=42 小標注量下有效進行術後鼻腔分割（C 階段）。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2512.11548",
+      "pmc": null,
+      "relations": [
+        "sinusseg_s41598-2025",
+        "nase3d_jimaging2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "physfinet_2601.02088",
+      "date": "20260617",
+      "title": "PhysSFI-Net: Physics-informed Geometric Learning of Skeletal and Facial Interactions for Orthognathic Surgical Outcome Prediction",
+      "pub": "Yu Zhuang et al. · Shanghai Jiao Tong University · arXiv 2601.02088 · 2026-01",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Hierarchical GNN",
+        "LSTM Incremental Deformation",
+        "Physics-informed Learning",
+        "Point Cloud",
+        "Surgical Outcome Prediction"
+      ],
+      "summary": "三模組框架（層次化 GNN + LSTM 增量形變 + 生物力學約束）從術前顱顏幾何 + 手術計畫預測術後軟組織形狀，N=135，點雲誤差 1.07 mm",
+      "key_insight": "術前幾何+手術計畫→術後形態的框架與 ENS 研究完全平行；GNN 幾何條件化和 LSTM 增量 Δ 預測是 B 階段架構設計的直接參考。",
+      "github": null,
+      "arxiv": "https://arxiv.org/pdf/2601.02088",
+      "pmc": null,
+      "relations": [
+        "phasor_2604.01053",
+        "gposc_pmc11911408",
+        "reg3dnet_mp2023"
+      ],
+      "pick": true
+    },
+    {
+      "id": "nasalssm_2510.09713",
+      "date": "20260617",
+      "title": "Statistical Shape Modelling of the Nasosinusal Anatomy",
+      "pub": "Bertolini, Tonghini, Rossoni et al. · Politecnico di Milano · arXiv 2510.09713 / ASME IMECE2024",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "c"
+      ],
+      "methods": [
+        "Statistical Shape Model",
+        "PCA",
+        "Non-rigid Registration",
+        "Nasal Cavity SSM",
+        "Shape Correspondence"
+      ],
+      "summary": "40 個 CT 建立包含鼻竇的完整鼻腔鼻竇統計形狀模型（SSM），填補現有研究只建模部分解剖結構的缺口，PCA 解釋主要形態變異",
+      "key_insight": "ENS 術後形態的合理性驗證缺一個「正常鼻腔形態基準」，這篇的 SSM 正好填補：D 階段可用 SSM 投影距離衡量生成形態是否落在正常分布範圍內。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2510.09713",
+      "pmc": null,
+      "relations": [
+        "nasalseg_s41597",
+        "nase3d_jimaging2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "sslknow_2503.06816",
+      "date": "20260617",
+      "title": "Semi-Supervised Medical Image Segmentation via Knowledge Mining from Large Models",
+      "pub": "Yuchen Mao (Cambridge), Hongwei Li (Harvard Medical School) et al. · arXiv 2503.06816 · 2025-03",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "Semi-supervised Learning",
+        "SAM",
+        "Knowledge Mining",
+        "Pseudo Labels",
+        "U-Net++"
+      ],
+      "summary": "SAM 在無標注影像產偽標籤 → 轉為 SAM prompt 迭代精煉 → 擴充訓練資料 → U-Net++ 微調；在有限標注下 Dice +3%，甚至超越全標注 baseline",
+      "key_insight": "ENS 術後分割缺標注，「SAM 產偽標籤→迭代精煉」框架可擴充少量術後 CT 標注，減少分布外形態的標注需求，比純 pseudo-label 更有知識基礎。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2503.06816",
+      "pmc": null,
+      "relations": [
+        "sslsam2_2512.11548",
+        "nasalseg_s41597"
+      ],
+      "pick": false
+    },
+    {
+      "id": "fewshot_review_acm2025",
+      "date": "20260617",
+      "title": "Few-Shot Learning for Medical Image Segmentation: A Review and Comparative Study",
+      "pub": "Monash University et al. · ACM Computing Surveys · 2025 · DOI: 10.1145/3746224",
+      "stars": 3,
+      "stages": [
+        "b",
+        "c"
+      ],
+      "methods": [
+        "Survey",
+        "Few-shot Learning",
+        "Meta-learning",
+        "Prototype-based",
+        "Foundation Models",
+        "SAM"
+      ],
+      "summary": "系統性回顧 2020-2025 年少樣本醫學影像分割；涵蓋元學習、prototype-based、SAM/DINOv2 基礎模型三大路線；基礎模型路線顯著優於傳統元學習",
+      "key_insight": "論文 Related Work 主要 survey 來源；prototype-based 和 SAM-based 方法對 ENS OOD 少樣本分割的適用性評估依據；幫助定位 C 階段分割方法的學術位置。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1145/3746224",
+      "url": "https://dl.acm.org/doi/abs/10.1145/3746224",
+      "relations": [
+        "sslknow_2503.06816",
+        "sslsam2_2512.11548",
+        "sgan2_2503.00962"
+      ],
+      "pick": false
+    },
+    {
+      "id": "polypose_2505.19256",
+      "date": "20260617",
+      "title": "PolyPose: Deformable 2D/3D Registration via Polyrigid Transformations",
+      "pub": "MIT CSAIL · arXiv 2505.19256 · 2025-05",
+      "stars": 3,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "Deformable Registration",
+        "Polyrigid",
+        "2D/3D Registration",
+        "Differentiable X-ray Rendering",
+        "Inductive Bias"
+      ],
+      "summary": "Polyrigid formulation 把複雜 3D 形變場分解為多個局部剛性變換的疊加，用生物解剖約束替代正則化器，僅需 2 張 X-ray 配準術前 3D CT，開源",
+      "key_insight": "Polyrigid 形變分解（複雜形變=多局部剛性變換疊加）可借鑑用於 A4 遮罩設計：ENS 植入物附近形變 = 局部剛性位移 + 軟組織彈性響應，降低形變預測複雜度。",
+      "github": "https://polypose.csail.mit.edu",
+      "arxiv": "https://arxiv.org/abs/2505.19256",
+      "pmc": null,
+      "relations": [
+        "reg3dnet_mp2023",
+        "alignflow_2604.02868"
       ],
       "pick": false
     }
