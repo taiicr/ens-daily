@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENS 週報 2026.06.14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;0,800;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#f7f5f2;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;color:#2c1a0e}
+.masthead{background:#1c0f07;color:#f5f0e8;padding:28px 24px 22px}
+.mast-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:8px}
+.mast-title{font-family:'EB Garamond',serif;font-size:34px;font-weight:800;color:#f5f0e8;line-height:1.1}
+.mast-sub{font-size:13px;color:#c8b49a;margin-top:8px}
+.mast-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.18);padding:3px 11px;border-radius:20px;font-size:11.5px;color:#c8b49a}
+.mdot{width:6px;height:6px;border-radius:50%;background:#c2852a;flex-shrink:0}
+.page{max-width:760px;margin:24px auto 60px;padding:0 16px}
+/* Section cards */
+.sec-card{background:#fff;border:1px solid #e8e4df;border-radius:14px;margin-bottom:16px;overflow:hidden}
+.sec-card.accent-a{border-top:3px solid #c2852a}
+.sec-card.accent-b{border-top:3px solid #4080c0}
+.sec-card.accent-c{border-top:3px solid #20a060}
+.sec-card.accent-d{border-top:3px solid #8040c0}
+.sec-card.accent-e{border-top:3px solid #d04040}
+.sec-head{padding:16px 20px 14px;cursor:pointer;display:flex;align-items:center;gap:12px}
+.sec-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ba{background:#fff8f0}.bb{background:#edf3ff}.bc{background:#edf8f2}.bd{background:#f5f0ff}.be{background:#fff0f0}
+.sec-title{font-family:'EB Garamond',serif;font-size:17px;font-weight:700;color:#2c1a0e;flex:1}
+.sec-meta{font-size:11px;color:#a08060}
+.sec-chev{font-size:14px;color:#c0a880;transition:transform .25s}
+.sec-card.open .sec-chev{transform:rotate(180deg);color:#c2852a}
+.sec-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.sec-card.open .sec-body{max-height:20000px}
+.sec-inner{border-top:1px solid #f0ebe4;padding:18px 20px}
+/* Typography */
+.prose{font-size:13px;color:#4a3020;line-height:1.9;margin-bottom:14px}
+.prose strong{color:#1c0f07;font-weight:700}
+.prose a{color:#8050c0;text-decoration:none;border-bottom:1px solid #d0c0e8}
+h4.sub{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#7a4010;margin:16px 0 8px;border-left:3px solid #c2852a;padding-left:10px}
+/* Paper list */
+.paper-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0ebe4}
+.paper-row:last-child{border-bottom:none}
+.pr-num{width:24px;height:24px;background:#f0ebe4;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#7a5840;flex-shrink:0;font-family:'EB Garamond',serif;margin-top:2px}
+.pr-body{flex:1;min-width:0}
+.pr-title{font-size:13px;font-weight:700;color:#2c1a0e;line-height:1.35;margin-bottom:3px}
+.pr-pub{font-size:11px;color:#a08060}
+.pr-insight{font-size:12px;color:#4a3020;line-height:1.7;margin-top:4px;background:#faf8f5;border-radius:6px;padding:6px 10px}
+.stags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.stag{height:18px;padding:0 8px;border-radius:9px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
+.sa4{background:#f3eeff;color:#6030a0}.sb{background:#edf0f8;color:#3050a0}.sc{background:#edf8f2;color:#1a6040}.sd{background:#edf3ff;color:#2050a0}
+/* Coverage chart */
+.cov-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.cov-lbl{font-size:12px;flex:0 0 140px;color:#4a3020}
+.cov-bar-w{flex:1;background:#f0ebe4;border-radius:4px;height:8px;overflow:hidden}
+.cov-bar{height:100%;border-radius:4px;background:#c2852a}
+.cov-cnt{font-size:12px;font-weight:700;color:#7a5840;flex:0 0 28px;text-align:right}
+.cov-gap{font-size:10px;font-weight:600;background:#fdf0e8;color:#b45309;border:1px solid #f0d0a8;border-radius:5px;padding:1px 7px;flex-shrink:0}
+/* Experiment cards */
+.exp-card{background:#faf8f5;border:1px solid #e8e4df;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.exp-name{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#1c0f07;margin-bottom:6px}
+.exp-field{margin-bottom:6px;font-size:12.5px;color:#4a3020;line-height:1.75}
+.exp-field strong{color:#7a4010;font-size:11px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+.exp-card.top{border-color:#c2852a;background:#fff8f0}
+/* Direction cards */
+.dir-card{background:#faf8f5;border:1px solid #e8e4df;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.dir-name{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#2c1a0e;margin-bottom:6px}
+.dir-field{margin-bottom:6px;font-size:12.5px;color:#4a3020;line-height:1.75}
+.dir-field strong{color:#4060a0;font-size:11px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+.diff-badge{display:inline-flex;align-items:center;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:700;margin-right:6px}
+.diff-low{background:#edf8f2;color:#1a6040}.diff-mid{background:#fff8f0;color:#a06020}.diff-high{background:#fff0f0;color:#a04020}
+/* Action list */
+.action-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0ebe4}
+.action-item:last-child{border-bottom:none}
+.action-num{width:24px;height:24px;background:#c2852a;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;margin-top:1px}
+.action-body{flex:1}
+.action-title{font-size:13px;font-weight:700;color:#2c1a0e;margin-bottom:3px}
+.action-desc{font-size:12.5px;color:#4a3020;line-height:1.75}
+.sumfooter{background:#1c0f07;color:#c8b49a;padding:20px 24px;border-radius:14px;margin-top:10px;font-size:13px;line-height:1.9}
+.sumfooter .ft{font-family:'EB Garamond',serif;font-size:17px;font-weight:700;color:#f5f0e8;font-style:italic;margin-bottom:8px}
+.sumfooter strong{color:#f5f0e8}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-eyebrow">空鼻症術後預測研究・週報</div>
+  <div class="mast-title">ENS 週報</div>
+  <div class="mast-sub">2026 年第 24 週（06/08 – 06/14）｜自動生成</div>
+  <div class="mast-pills">
+    <span class="mpill"><span class="mdot"></span>本週新增 18 篇</span>
+    <span class="mpill">累積 18 篇</span>
+    <span class="mpill">階段 A4 → B（進行中）</span>
+    <span class="mpill">N = 42 CT 對</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ====== BLOCK A: 本週文獻總覽 ====== -->
+  <div class="sec-card accent-a open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge ba">📚</div>
+      <div>
+        <div class="sec-title">A — 本週文獻總覽</div>
+        <div class="sec-meta">18 篇・覆蓋 B/C/D 全三個後續階段</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <div class="prose">本週（06/11–06/14）為 ENS 論文知識庫建立首週，共收錄 <strong>18 篇精選文獻</strong>，涵蓋條件式生成（7 篇）、鼻腔分割（4 篇）、ENS 臨床（7 篇）、CFD 氣流（3 篇）等主題。這是整個研究文獻回顧的重要基礎週。</div>
+
+      <h4 class="sub">每日精選回顧</h4>
+      <div class="prose"><strong>06/11（週二）：</strong>首日開啟知識庫，收錄 3 篇——<strong>3D MedDiffusion</strong>（條件式 3D CT 生成 baseline）、<strong>PHASOR</strong>（解剖相位一致的 volumetric diffusion，最具方法論啟示）、<strong>NasalSeg</strong>（鼻腔 CT 分割公開資料集，C 階段基準）。</div>
+      <div class="prose"><strong>06/12（週三）：</strong>收錄 5 篇——<strong>Geodesic Diffusion</strong>（流形空間的影像對影像轉換）、<strong>SinusSeg</strong>（鼻竇分割多模型比較）、<strong>seg2med</strong>（解剖 mask→多模態 CT 合成）、<strong>LoRA few-shot</strong>（小樣本合成策略）、<strong>CNN-Transformer SSL</strong>（小樣本鼻腔 CT 分類）。</div>
+      <div class="prose"><strong>06/13（週四）：</strong>收錄 5 篇，轉向 ENS 臨床和 CFD——<strong>Reg3DNet+</strong>（從 CT 直接回歸體積變化，最接近 ENS Δ 建模）、<strong>CFD 全切除研究</strong>（NOSE score 術前 72.5→術後 10.8）、<strong>ENS 症狀分群</strong>（4 個 cluster 對應不同手術結果）、2 篇 CFD 氣流動力學研究。</div>
+      <div class="prose"><strong>06/14（週日）：</strong>今日收錄 5 篇——<strong>TRACE</strong>（MICCAI 2025 解剖條件式 3D CT 生成，最直接相關）、<strong>3D-NASE</strong>（鼻腔分割集成 DICE +35.88%）、2 篇 ENS 臨床系統性回顧（最高等級臨床證據）、<strong>CrossView</strong>（跨視角術後預測）。</div>
+
+      <h4 class="sub">本週最值得精讀（Top 3）</h4>
+
+      <div class="paper-row">
+        <div class="pr-num">①</div>
+        <div class="pr-body">
+          <div class="pr-title">TRACE: Temporally Reliable Anatomically-Conditioned 3D CT Generation</div>
+          <div class="pr-pub">arXiv 2507.00802 · MICCAI 2025 · GitHub: VinyehShaw/TRACE</div>
+          <div class="stags"><span class="stag sb">B 生成</span></div>
+          <div class="pr-insight">把 3D CT 生成拆解為 2D frame-pair diffusion + 解剖 mask 條件，設計邏輯與 ENS 2.5D 殘差架構完全一致，有開源 code，可直接作為 B 階段實作骨架。替換光流條件為手術遮罩 Δ 即可適配 ENS 任務。</div>
+        </div>
+      </div>
+
+      <div class="paper-row">
+        <div class="pr-num">②</div>
+        <div class="pr-body">
+          <div class="pr-title">PHASOR: Anatomy- and Phase-Consistent Volumetric Diffusion for CT Virtual Contrast Enhancement</div>
+          <div class="pr-pub">arXiv 2604.01053 · 2026</div>
+          <div class="stags"><span class="stag sa4">A4</span><span class="stag sb">B 生成</span></div>
+          <div class="pr-insight">以解剖相位一致性約束 diffusion model 的 CT 體積轉換，直接示範如何在術前→術後 CT 的非對稱變化（ENS 的縮小鼻腔）中保持解剖一致性。方法論最接近 ENS 的 Δ 建模需求。</div>
+        </div>
+      </div>
+
+      <div class="paper-row">
+        <div class="pr-num">③</div>
+        <div class="pr-body">
+          <div class="pr-title">Surgical Interventions for ENS: A Meta-Analysis of Meta-Analyses</div>
+          <div class="pr-pub">European Archives ORL · 2025 · PMC12321921</div>
+          <div class="stags"><span class="stag sd">D 評估</span></div>
+          <div class="pr-insight">統合 3 個 meta-analysis（>1500 例）確認 ENS6Q 和 SNOT-25 為最具效度的術後 PRO 指標，是 D 階段評估框架的最高等級臨床佐證，直接支持「術後形態改變→症狀改善」的連結。</div>
+        </div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK B: 主題覆蓋地圖 ====== -->
+  <div class="sec-card accent-b open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bb">📊</div>
+      <div>
+        <div class="sec-title">B — 主題覆蓋地圖（累積至今）</div>
+        <div class="sec-meta">18 篇・9 個主題維度</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <div class="prose">以下顯示 18 篇累積文獻在各主題維度的分布。數字反映每個主題的覆蓋深度，空白項需要下週優先補充。</div>
+      <div id="cov-chart"></div>
+      <div class="prose" style="margin-top:14px"><strong>空白分析：</strong>目前覆蓋最薄弱的是「殘差學習 CT」（2 篇），主要因為 Reg3DNet+ 是從肺部體積變化的角度出發，尚缺乏直接以殘差 U-Net 做 CT-to-CT Δ 預測的方法論研究。建議下週搜尋 residual U-Net CT synthesis、delta learning medical image 等關鍵詞。此外「小樣本策略」（3 篇）涵蓋度尚可，但 LoRA few-shot 和 CNN-Transformer SSL 都不是針對 CT 配對生成任務的，建議補充小樣本 CT image-to-image 的特化方法。</div>
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK C: 實驗建議 ====== -->
+  <div class="sec-card accent-c open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bc">🔬</div>
+      <div>
+        <div class="sec-title">C — 當前論文實驗建議（週更）</div>
+        <div class="sec-meta">3 個具體可執行實驗・基於 N=42 CT 對</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="exp-card top">
+        <div class="exp-name">實驗一：Conditional Residual 2.5D U-Net + 手術遮罩 Ablation</div>
+        <div class="exp-field"><strong>研究問題</strong>手術遮罩（Δ-guide）作為條件輸入，相比無條件基線是否顯著提升術後 CT 預測精度？遮罩的解析度和覆蓋範圍如何影響結果？</div>
+        <div class="exp-field"><strong>方法說明</strong>輸入：術前 CT 三視角 slice（軸狀 + 冠狀 + 矢狀）+ 手術遮罩通道；輸出：術後 CT Δ（體積差分影像）。以 2.5D 殘差 U-Net 為主幹，對遮罩條件化方式做消融：① 無遮罩 baseline；② concat 遮罩到輸入通道；③ 以遮罩作為 cross-attention key/value（參考 TRACE 的 mask conditioning 方式）。損失函數：L1 + SSIM + 解剖 ROI 加權損失。</div>
+        <div class="exp-field"><strong>資料需求</strong>N=42 CT 對（已配準）。需要確認 A4 手術遮罩已完成（目前正在進行）。patch-based 訓練（128×128 patch），batch size 8，GPU 12GB 足夠。</div>
+        <div class="exp-field"><strong>依據文獻</strong>TRACE（trace_2507.00802）的 mask conditioning 設計；PHASOR（phasor_2604.01053）的 anatomical constraint；Reg3DNet+（reg3dnet_mp2023）的殘差體積變化回歸框架。</div>
+        <div class="exp-field"><strong>評估指標</strong>在手術 ROI 內計算：SSIM、PSNR、體積誤差（ΔV mm³）、DSC（術後解剖邊界）。主要指標：ROI-SSIM。</div>
+        <div class="exp-field"><strong>預計工作量</strong>2–3 週：1 週建 training pipeline，1 週跑基線和 3 個消融變體，1 週分析結果。</div>
+        <div class="exp-field"><strong>論文貢獻點</strong>量化確認手術遮罩條件化的必要性，建立 ENS 術後 CT 預測的第一個可比較基線系統。</div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-name">實驗二：TRACE-ENS — 以 TRACE 框架適配 ENS 術後 CT 生成</div>
+        <div class="exp-field"><strong>研究問題</strong>以 TRACE 的 frame-pair 2D diffusion 框架，替換光流條件為手術遮罩 Δ，能否在 N=42 小樣本上生成解剖一致的術後 CT？</div>
+        <div class="exp-field"><strong>方法說明</strong>Fork VinyehShaw/TRACE，修改條件輸入：移除 RAFT 光流和 CLIP 報告嵌入，保留 VISTA3D 解剖 mask 和相對位置編碼，新增手術遮罩 Δ 通道（和 mask 一起 concat）。用 overlapping-frame 策略推論完整術後 CT 體積。對比 Experiment 1（2.5D U-Net）評估 diffusion 方法的優劣。</div>
+        <div class="exp-field"><strong>資料需求</strong>N=42，可能需要 diffusion 的 pretrained weights（TRACE 提供）做 fine-tuning（LoRA 方式，參考 lora_2605.11898），降低對大量資料的需求。</div>
+        <div class="exp-field"><strong>依據文獻</strong>TRACE（trace_2507.00802）完整框架；LoRA few-shot（lora_2605.11898）的小樣本微調策略；seg2med（seg2med_2504.09182）的解剖 mask→CT 合成方法。</div>
+        <div class="exp-field"><strong>評估指標</strong>同 Experiment 1（ROI-SSIM、PSNR、ΔV）+ FID（評估整體 CT 分布合理性）。</div>
+        <div class="exp-field"><strong>預計工作量</strong>3–4 週：1 週適配 TRACE 架構，1-2 週訓練（含 LoRA fine-tuning），1 週評估和對比。</div>
+        <div class="exp-field"><strong>論文貢獻點</strong>首個將 MICCAI 2025 SOTA CT 生成框架應用於 ENS 術後預測的方法；提供與 baseline（Exp.1）的嚴格比較。</div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-name">實驗三：鼻腔分割集成的術後體積量測驗證</div>
+        <div class="exp-field"><strong>研究問題</strong>以 3D-NASE 集成分割策略，在 ENS 術後 CT 上量測下鼻甲體積，能否作為「術後形態預測準確性」的客觀評估指標？</div>
+        <div class="exp-field"><strong>方法說明</strong>以 NasalSeg 預訓練權重（YichiZhang98/NasalSeg）初始化，在 N=42 的術後 CT 標注上 fine-tune 3D U-Net + Swin UNETR（輕量版集成，2 個模型）；用 soft voting 集成分割，計算下鼻甲 ROI 的體積（mm³）；比較預測術後 CT 的分割體積 vs. 真實術後 CT 的分割體積，計算體積誤差（%）作為評估指標。</div>
+        <div class="exp-field"><strong>資料需求</strong>需要術後 CT 的下鼻甲標注（5–10 例半自動標注 + 其餘自動）。這是目前 C 階段最關鍵的前置工作。</div>
+        <div class="exp-field"><strong>依據文獻</strong>3D-NASE（nase3d_jimaging2025）的集成策略；NasalSeg（nasalseg_s41597）的預訓練權重；SinusSeg（sinusseg_s41598-2025）的多模型比較框架。</div>
+        <div class="exp-field"><strong>評估指標</strong>主要：下鼻甲體積誤差（ΔV%）。次要：DSC（分割準確性）、Hausdorff distance（邊界誤差）。</div>
+        <div class="exp-field"><strong>預計工作量</strong>2 週（假設標注已完成）：1 週 fine-tune，1 週計算體積誤差。標注本身需要額外 1–2 週。</div>
+        <div class="exp-field"><strong>論文貢獻點</strong>建立 ENS 術後形態預測的客觀量化評估管道（anatomy-aware volume metric），解決目前缺乏 ENS 專屬評估指標的問題。</div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK D: 未來論文方向 ====== -->
+  <div class="sec-card accent-d open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bd">🔭</div>
+      <div>
+        <div class="sec-title">D — 未來論文方向（本週新增）</div>
+        <div class="sec-meta">3 個方向・從即時可做到長期規劃</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="dir-card">
+        <div class="dir-name">方向一：以 CFD 驗證生成術後 CT 的功能預測能力（即時可做）</div>
+        <div class="dir-field"><strong>研究題目</strong>基於深度學習預測的 ENS 術後鼻腔形態，其 CFD 氣流模擬結果是否與真實術後 CT 的 CFD 結果一致？</div>
+        <div class="dir-field"><strong>一句話說明</strong>用 AI 預測的術後鼻腔形態做 CFD，比對真實術後的壁面剪切力和氣流分布，驗證預測形態的「功能等效性」。</div>
+        <div class="dir-field"><strong>為什麼值得做</strong>目前 ENS 術後評估完全依賴症狀問卷（ENS6Q、SNOT），缺乏客觀的功能性指標。CFD 壁面剪切力是 ENS 症狀的生理機制核心（ens_cfd_lary31757、ens_cfd_ear2025 均指出此點）。以 AI 預測形態→CFD 功能驗證，是術前規劃工具的完整 pipeline。Novelty：首個 AI 生成 ENS 術後形態 + CFD 功能驗證的 end-to-end 評估框架。</div>
+        <div class="dir-field"><strong>所需資源</strong>現有 N=42 CT 對（足夠做概念驗證，選 5–10 例做 CFD）+ 開源 CFD 工具（OpenFOAM 或 SimVascular）+ 鼻腔網格生成軟體（3D Slicer + OpenFOAM）。不需要新資料。</div>
+        <div class="dir-field"><strong>可借鑑文獻</strong>ens_cfd_lary31757（CFD 全切除研究方法）、ens_cfd_ear2025（ENS CFD 新洞見）、ens_cfd_biorxiv2504（結構→ENS 嚴重度 CFD）。</div>
+        <div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-mid">中</span>CFD 軟體學習曲線高，但有開源工具和 ENS 先例，主要工時是網格生成。</div>
+        <div class="dir-field"><strong>時機建議</strong>碩士論文 D 階段（已規劃）。現在就可以選 5 例開始 CFD 試驗，和主要實驗並行。</div>
+      </div>
+
+      <div class="dir-card">
+        <div class="dir-name">方向二：ENS 症狀分群導向的個人化術後形態預測（中期）</div>
+        <div class="dir-field"><strong>研究題目</strong>依據術前症狀分群（ENS6Q / SNOT-25 子域），設計群組條件化的術後 CT 預測模型，是否能提升個人化預測精度？</div>
+        <div class="dir-field"><strong>一句話說明</strong>不同 ENS 症狀側重（鼻塞型 vs. 情緒型 vs. 睡眠型）的患者，術後鼻腔形態改變模式可能不同；以症狀分群作為額外條件輸入，讓 AI 針對不同症狀型態生成個人化術後預測。</div>
+        <div class="dir-field"><strong>為什麼值得做</strong>ens_cluster_lary70460 已確認 4 個 ENS 症狀分群對應不同手術結果，說明一個通用預測模型可能無法捕捉個體差異。症狀條件化的個人化生成模型是 AI 術後規劃的下一步，也是走向臨床轉化的關鍵差異化點。Clinical impact：讓外科醫師能根據患者症狀型態選擇最佳植入位置和體積。</div>
+        <div class="dir-field"><strong>所需資源</strong>現有 N=42 CT 對 + 對應的術前術後 ENS6Q / SNOT-25 問卷資料（需確認資料庫中是否有）。可能需要擴大資料集（N ≥ 80）才能讓 4 個分群各有足夠樣本。</div>
+        <div class="dir-field"><strong>可借鑑文獻</strong>ens_cluster_lary70460（症狀分群方法）、ens_meta_pmc12321921（ENS6Q/SNOT 評估框架）、trace_2507.00802（條件化生成框架）。</div>
+        <div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-mid">中-高</span>需要擴充資料集和症狀問卷資料，且條件化模型設計更複雜。</div>
+        <div class="dir-field"><strong>時機建議</strong>碩士畢業後（博士班第一年）或作為碩士論文的 Discussion 中「未來工作」段落。</div>
+      </div>
+
+      <div class="dir-card">
+        <div class="dir-name">方向三：鼻腔手術規劃的多模態 AI 輔助系統（長期願景）</div>
+        <div class="dir-field"><strong>研究題目</strong>整合術前 CT 三維重建、AI 術後形態預測、CFD 功能驗證於統一平台，能否輔助外科醫師做 ENS 手術前的客觀決策？</div>
+        <div class="dir-field"><strong>一句話說明</strong>讓外科醫師在 3D Slicer 介面中：① 上傳術前 CT → ② AI 預測不同植入方案的術後形態 → ③ 即時 CFD 比較各方案的氣流改善 → ④ 選擇最佳方案。</div>
+        <div class="dir-field"><strong>為什麼值得做</strong>ENS 手術目前完全依賴醫師經驗和術後症狀追蹤，缺乏術前客觀規劃工具。系統性回顧（ens_sr_pmc13099783）指出這是最迫切的研究缺口。這是將本研究從 proof-of-concept 推向臨床轉化的完整 roadmap，也是最強的醫療 AI 論文貢獻。</div>
+        <div class="dir-field"><strong>所需資源</strong>大型多中心 ENS 資料集（N ≥ 200）、跨機構合作、3D Slicer 外掛開發能力、CFD 即時計算（或 surrogate model 加速）。</div>
+        <div class="dir-field"><strong>可借鑑文獻</strong>全部 ENS 臨床文獻 + CFD 研究 + trace_2507.00802 + seg2med_2504.09182。</div>
+        <div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-high">高</span>需要大規模資料、跨學科合作（工程 + 臨床）和實際部署。</div>
+        <div class="dir-field"><strong>時機建議</strong>博士班研究或碩士論文衍生的長期合作專案。現在做的 proof-of-concept 是這個系統的技術核心。</div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK E: 下週行動清單 ====== -->
+  <div class="sec-card accent-e open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge be">✅</div>
+      <div>
+        <div class="sec-title">E — 下週行動清單</div>
+        <div class="sec-meta">3 件最值得做的事・技術 + 文獻</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-body">
+          <div class="action-title">【技術】完成 A4 手術遮罩，啟動 Experiment 1 的 training pipeline</div>
+          <div class="action-desc">A4 是目前研究瓶頸。目標：確認手術 ROI 遮罩的生成方式（半自動 vs. 閾值 + 形態學），在 5 例 CT 上驗證遮罩品質，然後搭建 2.5D 殘差 U-Net 的訓練腳本（參考 Reg3DNet+ 的殘差體積變化框架）。第一個跑通無遮罩 baseline 即算成功。預計 3–4 天。</div>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-body">
+          <div class="action-title">【技術】clone TRACE repo，評估條件替換可行性</div>
+          <div class="action-desc">clone <code>VinyehShaw/TRACE</code>，研讀 <code>dataset.py</code> 和 <code>model.py</code> 中的條件輸入實作；確認能否移除 RAFT 光流、新增手術遮罩通道；在 1 例 CT 上跑 forward pass 確認。這是 Experiment 2 的技術先決條件。預計 1–2 天。</div>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-body">
+          <div class="action-title">【文獻】補搜小樣本 CT 生成和殘差學習的缺口文獻</div>
+          <div class="action-desc">本週空白主題：殘差學習 CT（2 篇）、小樣本 CT 生成策略。目標搜尋詞：「residual U-Net CT delta prediction」、「small-data CT image-to-image synthesis」、「paired CT pre-post surgical prediction」。找 2–3 篇填補空白，重點確認有沒有和 ENS 的 Δ 建模完全對齊的先驅工作（作為 Related Work 的直接 prior art）。</div>
+        </div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <div class="sumfooter">
+    <div class="ft">本週總結</div>
+    首週建立了完整的 ENS 文獻知識庫（18 篇），條件式生成（7 篇）和 ENS 臨床（7 篇）已有充分覆蓋。<strong>TRACE（MICCAI 2025）</strong>是本週最重要的發現——它直接驗證了 2.5D diffusion + 解剖 mask 條件化的技術路線，且有開源 code 可以直接適配。<strong>ENS 臨床文獻</strong>（PMC12321921、PMC13099783）確認了 ENS6Q 和 SNOT-25 作為 D 階段主要評估指標的必要性。下週最優先工作是：完成 A4 手術遮罩生成，讓第一個 training pipeline 跑起來——這是從文獻研讀轉向實驗執行的關鍵節點。當前研究方向（2.5D 殘差 + 條件式生成）完全正確，繼續推進。
+  </div>
+
+</div>
+
+<script>
+const COV_DATA=[
+  {label:'術前→術後預測',count:3,max:7},
+  {label:'條件式生成',count:7,max:7},
+  {label:'小樣本策略',count:3,max:7},
+  {label:'鼻腔/氣道分割',count:4,max:7},
+  {label:'殘差學習 CT',count:2,max:7},
+  {label:'ENS 臨床',count:7,max:7},
+  {label:'合成影像評估',count:3,max:7},
+  {label:'CFD 氣流分析',count:3,max:7},
+  {label:'ENS 症狀/問卷',count:3,max:7},
+];
+const el=document.getElementById('cov-chart');
+COV_DATA.forEach(c=>{
+  const pct=Math.round(c.count/c.max*100);
+  const row=document.createElement('div');
+  row.className='cov-row';
+  row.innerHTML=`<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${pct}%;opacity:${0.4+0.6*(c.count/c.max)}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count<=2?'<span class="cov-gap">空白</span>':''}`;
+  el.appendChild(row);
+});
+document.querySelectorAll('.sec-head').forEach(h=>{
+  h.addEventListener('click',()=>h.closest('.sec-card').classList.toggle('open'));
+});
+</script>
+</body>
+</html>
