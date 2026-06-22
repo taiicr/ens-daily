@@ -1,5 +1,5 @@
 {
-  "updated": "20260617",
+  "updated": "20260622",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -946,6 +946,150 @@
       "relations": [
         "reg3dnet_mp2023",
         "alignflow_2604.02868"
+      ],
+      "pick": false
+    },
+    {
+      "id": "mass_2603.13660",
+      "date": "20260622",
+      "title": "MASS: Learning Generalizable 3D Medical Image Representations from Mask-Guided Self-Supervision",
+      "pub": "Gao, Zhang, et al. · Stanford AIMI · CVPR 2026 · arXiv 2603.13660",
+      "stars": 4,
+      "stages": [
+        "b",
+        "c"
+      ],
+      "methods": [
+        "Self-Supervised Learning",
+        "Mask-Guided Pretraining",
+        "Class-Agnostic Masks",
+        "Few-Shot Segmentation",
+        "3D Medical Image Representation"
+      ],
+      "summary": "遮罩引導自監督預訓練（class-agnostic mask pretext task）；20–40% 標注資料媲美全監督；Dice 超越自監督 baseline >20 分；MIT 開源；CVPR 2026 Stanford AIMI",
+      "key_insight": "ENS N=42 標注量嚴重不足，MASS 的 mask-guided SSL 預訓練能以 NasalSeg 等公開資料集先學好鼻腔解剖特徵，再用 42 對 CT fine-tune，只需 20-40% 標注量就能媲美全監督，直接解決 C 階段最大痛點。",
+      "github": "https://github.com/Stanford-AIMI/MASS",
+      "arxiv": "https://arxiv.org/abs/2603.13660",
+      "pmc": null,
+      "relations": [
+        "nasalseg_s41597",
+        "sslsam2_2512.11548",
+        "sslknow_2503.06816"
+      ],
+      "pick": true
+    },
+    {
+      "id": "cbctddpm_mp70126",
+      "date": "20260622",
+      "title": "Few-shot CBCT-based Synthetic CT Generation with Denoising Diffusion Probabilistic Model",
+      "pub": "Yeap, Du, Zhou, et al. · University of Cambridge · Medical Physics · Nov 2025",
+      "stars": 3,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "DDPM",
+        "Few-Shot Learning",
+        "CT Synthesis",
+        "Modified Sampling",
+        "CBCT-to-CT"
+      ],
+      "summary": "Few-shot DDPM 修改採樣策略（Modified Sampling Process）；CBCT→CT 合成；剛性配準配對（無需形變配準）；少量訓練資料即可達到 HU 準確合成",
+      "key_insight": "Few-shot DDPM 的修改採樣策略和 batch/augmentation 設計可移植到 ENS B 階段術前→術後 CT 生成；「不需形變配準」的訓練方式適合 ENS 小樣本場景。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12614291/",
+      "doi": "10.1002/mp.70126",
+      "relations": [
+        "gdm_2503.00745",
+        "medlord_2503.13211",
+        "sgan2_2503.00962"
+      ],
+      "pick": false
+    },
+    {
+      "id": "txdiff_2605.29932",
+      "date": "20260622",
+      "title": "Treatment-Conditioned Diffusion for Forecasting Neurodegenerative Disease Progression",
+      "pub": "Boiko, Mishkurova · arXiv 2605.29932 · May 2026",
+      "stars": 3,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Diffusion Model",
+        "Treatment Conditioning",
+        "Longitudinal Prediction",
+        "Dual Conditioning",
+        "Disease Progression Forecasting"
+      ],
+      "summary": "基線影像 + 治療劑量（LEDD）雙重條件擴散模型；預測帕金森氏症患者一年後 DaTscan 影像；保留個體解剖細節；PPMI 資料集",
+      "key_insight": "「基線影像 + 介入資訊 → 未來影像」雙重條件擴散框架與 ENS 完全同構：把 DaTscan 換成術前 CT、把 LEDD 換成假體植入遮罩，可直接移植到 B 階段條件設計。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2605.29932",
+      "pmc": null,
+      "relations": [
+        "gliodiff3d_2606.05113",
+        "gbmldm_2510.17851",
+        "phasor_2604.01053"
+      ],
+      "pick": false
+    },
+    {
+      "id": "airwaynnunet_jdent2026",
+      "date": "20260622",
+      "title": "Segmentation of the Upper Airway using Deep Learning — nnUNet",
+      "pub": "Gianoni-Capenakas et al. · University of Alberta · Journal of Dentistry · Jan 2026",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "nnUNet",
+        "Upper Airway Segmentation",
+        "Multi-source Training",
+        "One-center-out Validation",
+        "CBCT+CT"
+      ],
+      "summary": "nnUNet 全上呼吸道分割；220 多來源 3D 影像（CBCT+CT，術前+術後）；one-center-out 跨機構驗證；University of Alberta",
+      "key_insight": "nnUNet 上呼吸道分割管線（含鼻腔）直接可移植到 ENS C 階段，one-center-out 跨機構驗證設計可作為 ENS 資料分割驗證策略參考。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "pmid": "41544837",
+      "doi": null,
+      "relations": [
+        "nasalseg_s41597",
+        "nase3d_jimaging2025",
+        "sinusseg_s41598-2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "idir_2506.02150",
+      "date": "20260622",
+      "title": "Implicit Deformable Medical Image Registration with Learnable Kernels",
+      "pub": "Fogarollo, Laimer, Bale, Harders · MICCAI 2025 · arXiv 2506.02150",
+      "stars": 3,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "Deformable Registration",
+        "Learnable Kernel Functions",
+        "Signal Reconstruction",
+        "Coarse-to-Fine",
+        "Sparse-to-Dense Displacement"
+      ],
+      "summary": "把影像配準重構為訊號重建問題；可學習核函數從稀疏關鍵點估算密集位移場；coarse-to-fine 階層架構；MICCAI 2025",
+      "key_insight": "「稀疏錨點 → 密集形變場」啟發 A4 遮罩設計：ENS 假體邊緣視為稀疏錨點，以可學習核函數向外擴散形成連續 Δ 形變場，比手動 ROI 遮罩更自然地捕捉植入物影響範圍。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2506.02150",
+      "pmc": null,
+      "relations": [
+        "polypose_2505.19256",
+        "reg3dnet_mp2023"
       ],
       "pick": false
     }
