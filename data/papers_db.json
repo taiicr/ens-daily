@@ -1,5 +1,5 @@
 {
-  "updated": "20260622",
+  "updated": "20260625",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -1092,6 +1092,321 @@
         "reg3dnet_mp2023"
       ],
       "pick": false
+    },
+    {
+      "id": "metrics_matter_2505.07175",
+      "date": "20260625",
+      "title": "Metrics that Matter: Evaluating Image Quality Metrics for Medical Image Generation",
+      "pub": "arXiv 2505.07175 · 2025-05",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Image Quality Evaluation",
+        "No-reference Metrics",
+        "FID",
+        "SSIM",
+        "Downstream Task Validation",
+        "Localised Morphological Alteration"
+      ],
+      "summary": "系統性評估無參考影像品質指標（FID、SSIM 等）在醫學合成影像中的可靠性；指標對局部解剖錯誤無感，與下游分割任務相關性極差",
+      "key_insight": "FID/SSIM 等標準指標無法檢測醫學影像的局部解剖錯誤，ENS D 階段必須採用三層次評估框架（影像相似度 → 分割 DSC/體積誤差 → CFD 功能驗證），本篇是論文方法論的直接引用佐證。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2505.07175",
+      "pmc": null,
+      "relations": [
+        "synthrad2025_2605.13555",
+        "nnanatomy_2509.22394"
+      ],
+      "pick": true
+    },
+    {
+      "id": "synthrad2025_2605.13555",
+      "date": "20260625",
+      "title": "Generating Synthetic CT for Radiotherapy: SynthRAD2025 Challenge Report",
+      "pub": "arXiv 2605.13555 · MICCAI 2025 · May 2026",
+      "stars": 4,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "CT Synthesis Benchmark",
+        "MRI-to-CT",
+        "CBCT-to-CT",
+        "Three-tier Evaluation",
+        "MAE",
+        "MS-SSIM",
+        "Dose Validation"
+      ],
+      "summary": "803 人競賽合成 CT 生成報告；三層次評估框架；Task 2 最佳 MAE 48.3 HU，MS-SSIM 0.968，Dice 0.86；影像-分割強相關但影像-功能弱相關",
+      "key_insight": "三層次評估框架（影像相似度 → 分割 → 功能驗證）可直接移植到 ENS D 階段；「影像-功能弱相關」提供 ENS 必須做 CFD 驗證的最強論據；B 階段性能基準 SSIM~0.97、MAE~50 HU。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2605.13555",
+      "pmc": null,
+      "relations": [
+        "metrics_matter_2505.07175",
+        "nnanatomy_2509.22394"
+      ],
+      "pick": false
+    },
+    {
+      "id": "sketch2ct_2603.22509",
+      "date": "20260625",
+      "title": "Sketch2CT: Multimodal Diffusion for Structure-Aware 3D Medical Volume Generation",
+      "pub": "An, Wang · University of Notre Dame · CVPR 2026 · arXiv 2603.22509",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Latent Diffusion Model",
+        "Sketch-guided Generation",
+        "Capsule-Attention",
+        "Two-stage Design",
+        "3D CT Synthesis",
+        "Mask-conditioned"
+      ],
+      "summary": "兩階段設計：2D 草圖+文字 → 3D 分割遮罩 → CT 體積（LDM）；Capsule-attention backbone；CVPR 2026；開源 GitHub",
+      "key_insight": "「結構遮罩 → CT 體積」第二階段 LDM 可直接用 ENS A4 手術 ROI 遮罩作為輸入條件，是 B 階段最直接可實驗的開源框架，不需從頭搭建 LDM。",
+      "github": "https://github.com/adlsn/Sketch2CT",
+      "arxiv": "https://arxiv.org/abs/2603.22509",
+      "pmc": null,
+      "relations": [
+        "metrics_matter_2505.07175",
+        "synthrad2025_2605.13555"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_fr_pmc12841989",
+      "date": "20260625",
+      "title": "Validity and Reliability of a French Version of the Empty Nose Syndrome 6-Item Questionnaire (ENS6Q)",
+      "pub": "Journal of Clinical Medicine · 2026 · PMC12841989",
+      "stars": 3,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "ENS6Q",
+        "Questionnaire Validation",
+        "Cronbach-alpha",
+        "ICC",
+        "French Validation",
+        "Cross-cultural Reliability"
+      ],
+      "summary": "33 名 ENS 患者 + 50 名健康對照驗證法語版 ENS6Q；α=0.81，ICC=0.895；診斷切點 ≥12（英語版 ≥11）",
+      "key_insight": "跨語言驗證強化 ENS6Q 作為 D 階段主要症狀評估工具的跨文化效度論據；ICC=0.895 確認縱向追蹤適用性；切點差異（≥12 vs ≥11）值得在 Methods 中討論。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12841989/",
+      "relations": [
+        "ens_cluster_lary70460",
+        "ens_meta_pmc12321921"
+      ],
+      "pick": false
+    },
+    {
+      "id": "nnanatomy_2509.22394",
+      "date": "20260625",
+      "title": "Deep Learning-Based Cross-Anatomy CT Synthesis Using Adapted nnResU-Net with Anatomical Feature Prioritized Loss",
+      "pub": "González et al. · arXiv 2509.22394 · SynthRAD2025 · 2025-09",
+      "stars": 3,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "nnResU-Net",
+        "Anatomical Feature-Prioritized Loss",
+        "AFP Loss",
+        "TotalSegmentator",
+        "CT Synthesis",
+        "Perceptual Loss"
+      ],
+      "summary": "nnResU-Net + AFP（Anatomical Feature-Prioritized）Loss；用 TotalSegmentator 分割特徵作為輔助損失引導解剖正確 CT 合成；解剖保真度優於 L1-only",
+      "key_insight": "AFP loss 設計可移植到 ENS B 階段：以 NasalSeg 預訓練分割網路提取鼻腔解剖特徵作為輔助損失，確保生成的下鼻甲重建形態解剖正確，與三層次評估框架形成訓練-評估一致性。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2509.22394",
+      "pmc": null,
+      "relations": [
+        "metrics_matter_2505.07175",
+        "synthrad2025_2605.13555",
+        "nasalseg_s41597"
+      ],
+      "pick": false
+    },
+    {
+      "id": "tracetrans_2510.22379",
+      "title": "TraceTrans: Translation and Spatial Tracing for Surgical Prediction",
+      "authors": "Anonymous (arXiv)",
+      "year": 2025,
+      "venue": "arXiv",
+      "date_added": "2026-06-26",
+      "relevance": 5,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "criteria": [
+        1,
+        2,
+        8
+      ],
+      "doi": "arXiv:2510.22379",
+      "arxiv_id": "2510.22379",
+      "pdf_url": "https://arxiv.org/pdf/2510.22379",
+      "github": null,
+      "open_source": false,
+      "key_insight": "Dual decoder 架構（形變場 + 合成影像同時輸出）直接對應 ENS Stage B 設計——可借鑑用於術前→術後鼻腔 CT 預測，形變場提供空間可追溯性驗證。",
+      "method": "Encoder + Dual Decoder (deformation field decoder + image synthesis decoder). Deformation field constrains generated output for anatomical consistency.",
+      "dataset": "Medical cosmetology (facial pre/post-op) + brain MRI",
+      "metrics": "Post-operative prediction accuracy, spatial correspondence error",
+      "tags": [
+        "surgical prediction",
+        "image-to-image translation",
+        "deformable",
+        "dual decoder",
+        "spatial tracing"
+      ],
+      "notes": "First approach for spatially traceable post-operative prediction without fixed reference images. Dual decoder is directly applicable to ENS Stage B."
+    },
+    {
+      "id": "afsdsn_medrxiv2026",
+      "title": "Adaptive Frequency-Spatial Dual-Stream Network (AFS-DSN) for Nasal and Paranasal Sinus CT Segmentation",
+      "authors": "Unknown (medRxiv preprint)",
+      "year": 2026,
+      "venue": "medRxiv",
+      "date_added": "2026-06-26",
+      "relevance": 4,
+      "stages": [
+        "c"
+      ],
+      "criteria": [
+        4
+      ],
+      "doi": "10.64898/2026.04.19.26351206",
+      "arxiv_id": null,
+      "pdf_url": "https://www.medrxiv.org/content/10.64898/2026.04.19.26351206v1.full.pdf",
+      "github": null,
+      "open_source": false,
+      "key_insight": "鼻腔/副鼻竇 CT 分割的最新方法，使用 NasalSeg（130 CT，5 結構）訓練。NasalSeg 可作為 ENS Stage C 分割模型的預訓練資料，頻率-空間雙流設計適合骨-植入物-空氣腔邊界細節分割。",
+      "method": "3D U-Net spatial backbone + parallel frequency branch (multi-scale 3D wavelet decomposition) + cross-domain attention + adaptive router for dynamic fusion.",
+      "dataset": "NasalSeg (130 CT, 5 structures: nasal cavity, maxillary/frontal/sphenoid/ethmoid sinuses)",
+      "metrics": "DSC on 5 sinonasal structures",
+      "tags": [
+        "nasal segmentation",
+        "sinus segmentation",
+        "frequency domain",
+        "wavelet",
+        "dual stream",
+        "3D U-Net"
+      ],
+      "notes": "medRxiv preprint, not yet peer-reviewed. Code not public. NasalSeg dataset already in DB (nasalseg_s41597). Frequency-spatial fusion approach is novel for nasal anatomy."
+    },
+    {
+      "id": "ragct_2603.08305",
+      "title": "Retrieval-Augmented Anatomical Guidance for Text-to-CT Generation",
+      "authors": "Daniele Molino, Camillo Maria Caruso, Paolo Soda, Valerio Guarrasi",
+      "year": 2026,
+      "venue": "arXiv",
+      "date_added": "2026-06-26",
+      "relevance": 4,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "criteria": [
+        2
+      ],
+      "doi": "arXiv:2603.08305",
+      "arxiv_id": "2603.08305",
+      "pdf_url": "https://arxiv.org/pdf/2603.08305",
+      "github": null,
+      "open_source": false,
+      "key_insight": "ControlNet 注入解剖代理的設計可直接改用於 ENS：將手術位置遮罩（A4 變化遮罩）替換文字/解剖標注作為 ControlNet 輸入，引導擴散模型生成解剖一致的術後 CT。",
+      "method": "Text-conditioned LDM + ControlNet branch. Retrieves similar clinical cases via 3D VL encoder; injects their anatomical annotations as structural proxy via ControlNet.",
+      "dataset": "Text-CT paired data (large medical corpus)",
+      "metrics": "Anatomical consistency (DSC, volume error), FID",
+      "tags": [
+        "text-to-CT",
+        "ControlNet",
+        "retrieval-augmented",
+        "anatomical guidance",
+        "latent diffusion",
+        "conditional generation"
+      ],
+      "notes": "Core transferable idea: replace text condition with surgical mask. ControlNet branch design is key reference for ENS Stage B conditional generation."
+    },
+    {
+      "id": "apldm_2602.10167",
+      "title": "Anatomy-Preserving Latent Diffusion for Generation of Brain Segmentation Masks with Ischemic Infarct",
+      "authors": "Lucia Borrego, Vajira Thambawita, Marco Ciuffreda, Ines del Val, Alejandro Dominguez, Josep Munuera",
+      "year": 2026,
+      "venue": "arXiv",
+      "date_added": "2026-06-26",
+      "relevance": 3,
+      "stages": [
+        "b"
+      ],
+      "criteria": [
+        2,
+        11
+      ],
+      "doi": "arXiv:2602.10167",
+      "arxiv_id": "2602.10167",
+      "pdf_url": "https://arxiv.org/pdf/2602.10167",
+      "github": null,
+      "open_source": false,
+      "key_insight": "先訓練解剖 VAE 學習潛在空間再做擴散生成的兩階段策略——可借鑑為 ENS 鼻腔解剖 VAE + 術後預測擴散模型，在 N=42 小樣本下比直接影像空間生成更穩定。",
+      "method": "VAE trained exclusively on segmentation masks learns anatomical latent space. Diffusion model operates in this space. Optional binary prompt for lesion control.",
+      "dataset": "Brain NCCT segmentation masks",
+      "metrics": "FID, diversity, anatomical plausibility",
+      "tags": [
+        "latent diffusion",
+        "anatomy-preserving",
+        "VAE",
+        "segmentation mask generation",
+        "small data",
+        "brain"
+      ],
+      "notes": "Two-stage strategy (anatomy VAE then diffusion) is key for small-sample scenarios like ENS N=42. Brain-specific but method is transferable to nasal anatomy."
+    },
+    {
+      "id": "huydra_2603.23041",
+      "title": "HUydra: Full-Range Lung CT Synthesis via Multiple HU Interval Generative Modelling",
+      "authors": "António Cardoso, Pedro Sousa, Tania Pereira, Hélder P. Oliveira",
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "date_added": "2026-06-26",
+      "relevance": 3,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "criteria": [
+        2,
+        7,
+        12
+      ],
+      "doi": "arXiv:2603.23041",
+      "arxiv_id": "2603.23041",
+      "pdf_url": "https://arxiv.org/pdf/2603.23041",
+      "github": null,
+      "open_source": false,
+      "key_insight": "HU interval 分解策略可用於 ENS Stage D 評估設計——ENS 術後 CT 包含多種異質 HU 材質（骨、軟骨、植入物、空氣腔），分 interval 計算 SSIM/FID 能更精準評估各組織的合成品質。",
+      "method": "Decomposes CT synthesis by HU intervals. Each interval trains independent generative model. Learned reconstruction network merges all intervals into full-range CT.",
+      "dataset": "Lung CT",
+      "metrics": "FID (-6.2%), MMD, Precision, Recall across HU intervals",
+      "tags": [
+        "CT synthesis",
+        "HU interval",
+        "lung CT",
+        "generative model",
+        "evaluation",
+        "CVPR 2026"
+      ],
+      "notes": "CVPR 2026 accepted. Lung-specific but HU interval decomposition strategy is directly applicable to ENS CT evaluation design. Key insight for Stage D metric design."
     }
   ]
 }
