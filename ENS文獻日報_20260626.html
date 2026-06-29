@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENS 文獻日報 20260626</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;color:#2c1a0e}
+.masthead{background:#1c0f07;color:#f5f0e8;padding:24px 20px 20px}
+.mast-eyebrow{font-family:'Noto Sans TC',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:8px}
+.mast-title{font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.15;color:#f5f0e8}
+.mast-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.18);padding:3px 11px;border-radius:20px;font-size:11.5px;font-family:'Noto Sans TC',sans-serif;color:#c8b49a}
+.mdot{width:6px;height:6px;border-radius:50%;background:#c2852a;flex-shrink:0}
+.page{max-width:720px;margin:20px auto 52px;padding:0 16px}
+.pick-card{background:#fff8f0;border:2px solid #e8c090;border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.pick-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.pick-icon{width:28px;height:28px;background:#c2852a;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.pick-lbl{font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#a06020}
+.pick-title{font-family:'EB Garamond',Georgia,serif;font-size:17px;font-weight:700;color:#2c1a0e;margin-bottom:6px;line-height:1.3}
+.pick-reason{font-size:13px;color:#6b4020;line-height:1.85}
+.pick-toggle{margin-top:12px;background:none;border:1.5px solid #c2852a;border-radius:8px;color:#a06020;font-size:12.5px;font-family:'Noto Sans TC',sans-serif;padding:6px 14px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s;font-weight:500}
+.pick-toggle:hover{background:#c2852a;color:#fff}
+.pick-toggle .chev-t{transition:transform .25s;display:inline-block}
+.pick-full{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.pick-full.open{max-height:3000px}
+.pick-full-inner{border-top:1.5px dashed #e8c090;margin-top:14px;padding-top:14px}
+.pf-block{margin-bottom:16px}
+.pf-body{font-size:13px;color:#4a3020;line-height:1.9}
+.pf-body strong{color:#1c0f07}
+.pf-tag{display:inline-block;background:#fff8f0;border:1px solid #e8c090;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;color:#a06020;margin-bottom:8px}
+.pf-step{background:#fdf9f5;border-left:3px solid #c2852a;border-radius:6px;padding:10px 13px;margin-bottom:8px}
+.pf-step:last-child{margin-bottom:0}
+.pf-step-title{font-weight:700;color:#7a4010;margin-bottom:4px;font-size:13px}
+.pf-step p{font-size:12.5px;color:#4a3020;line-height:1.85}
+.cov-card{background:#fff;border:1px solid #e8e4df;border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.cov-head{font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#a08060;margin-bottom:12px}
+.cov-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.cov-lbl{font-size:12px;flex:0 0 120px;color:#4a3020;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cov-bar-w{flex:1;background:#f0ebe4;border-radius:4px;height:6px;overflow:hidden}
+.cov-bar{height:100%;border-radius:4px}
+.cov-cnt{font-size:11px;color:#a08060;flex:0 0 18px;text-align:right}
+.cov-gap-tag{font-size:10px;font-weight:600;background:#fdf0e8;color:#b45309;border:1px solid #f0d0a8;border-radius:5px;padding:1px 7px;flex-shrink:0}
+.filter-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.filter-lbl{font-size:11px;color:#a08060;font-weight:700;letter-spacing:.5px;flex-shrink:0}
+.filter-btn{border:1px solid #e8e4df;background:#fff;color:#7a5840;border-radius:20px;padding:4px 13px;font-size:11.5px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .15s;white-space:nowrap}
+.filter-btn:hover{border-color:#c2852a;color:#7a4010}
+.filter-btn.active{background:#c2852a;color:#fff;border-color:#c2852a}
+.paper-card{background:#fff;border:1px solid #e8e4df;border-radius:12px;margin-bottom:9px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.paper-card:hover{box-shadow:0 2px 14px rgba(44,26,14,.07);border-color:#d4cdc5}
+.paper-card.open{border-color:#c2a07a;box-shadow:0 3px 18px rgba(120,70,20,.1)}
+.paper-card.read{opacity:.55}
+.paper-card.read .cnum{background:#d4cdc5!important;color:#a08060!important}
+.card-head{padding:14px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;-webkit-tap-highlight-color:transparent;user-select:none}
+.card-left{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.read-row{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.read-check{width:16px;height:16px;cursor:pointer;accent-color:#c2852a;flex-shrink:0;margin-top:2px}
+.read-label{font-size:10px;color:#a08060}
+.cnum{width:26px;height:26px;background:#f0ebe4;color:#4a3020;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:'EB Garamond',serif}
+.paper-card.open .cnum{background:#c2852a;color:#fff}
+.cstars{font-size:9px;color:#c2852a;letter-spacing:1px}
+.card-body{flex:1;min-width:0}
+.ptitle{font-family:'EB Garamond',Georgia,serif;font-size:15.5px;font-weight:700;line-height:1.3;color:#2c1a0e;word-break:break-word}
+.ppub{font-size:11.5px;color:#a08060;margin-top:2px}
+.srow{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.stag{height:20px;padding:0 9px;border-radius:10px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
+.sa4{background:#f3eeff;color:#6030a0}.sb{background:#edf0f8;color:#3050a0}.sc{background:#edf8f2;color:#1a6040}.sd{background:#edf3ff;color:#2050a0}
+.pdesc{margin-top:5px;font-size:12.5px;color:#7a5840;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.paper-card.open .pdesc{display:none}
+.chev{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#c0a880;font-size:14px;transition:transform .25s;flex-shrink:0;margin-top:1px}
+.paper-card.open .chev{transform:rotate(180deg);color:#c2852a}
+.card-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.paper-card.open .card-detail{max-height:4000px}
+.di{border-top:1px solid #f0ebe4;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:520px){.di{grid-template-columns:1fr}}
+.db{background:#faf8f5;border-radius:8px;padding:10px 12px}
+.db.full{grid-column:1/-1}
+.db.borrow{background:#f2faf4;border:1px solid #b8dfc4}
+.db.action{background:#fff8f0;border:1px solid #e8c090}
+.db.links{background:#f5f3ff;border:1px solid #cfc8f0}
+.db.arch{background:#f3f6ff;border:1px solid #bfcff0}
+.db.train{background:#faf3ff;border:1px solid #d8c8f0}
+.db.result{background:#f2faf4;border:1px solid #b0d8c0}
+.db.limit{background:#fff7f0;border:1px solid #e8c8a8}
+.db.notes{background:#fdf9f5;border:1px solid #e0d8d0;grid-column:1/-1}
+.dl{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#a08060;margin-bottom:5px}
+.db.borrow .dl{color:#1a6040}.db.action .dl{color:#a06020}.db.links .dl{color:#5040a0}
+.db.arch .dl{color:#2050a0}.db.train .dl{color:#6030a0}.db.result .dl{color:#1a6040}.db.limit .dl{color:#a04020}.db.notes .dl{color:#7a5840}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+@media(max-width:520px){.notes-grid{grid-template-columns:1fr}}
+.nitem{background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #ede8e2}
+.nitem-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.nl-key{color:#2050a0}.nl-feel{color:#6030a0}.nl-link{color:#1a6040}.nl-method{color:#a06020}
+.nitem p{font-size:12.5px;color:#4a3020;line-height:1.8}
+.dt{font-size:13px;color:#2c1a0e;line-height:1.85}
+.dt strong{font-weight:700;color:#1c0f07}
+.dt code{font-size:11.5px;background:#f0ebe4;padding:1px 6px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace;color:#4a3020}
+.dt a{color:#8050c0;text-decoration:none;font-weight:500;border-bottom:1px solid #d0c0e8}
+.section-block{background:#fff;border:1px solid #e8e4df;border-radius:12px;margin-bottom:10px;overflow:hidden}
+.section-block.github{border-color:#90d0b0}
+.section-block.assessment{border-color:#dcc080}
+.sec-head{padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;-webkit-tap-highlight-color:transparent;user-select:none}
+.sec-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.github .sec-icon{background:#edf7f2}
+.assessment .sec-icon{background:#fdf6e0}
+.sec-title{font-family:'EB Garamond',Georgia,serif;font-size:15px;font-weight:700;color:#2c1a0e;flex:1}
+.sec-chev{font-size:14px;color:#c0a880;transition:transform .25s}
+.section-block.open .sec-chev{transform:rotate(180deg);color:#c2852a}
+.sec-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.section-block.open .sec-body{max-height:3000px}
+.sec-inner{border-top:1px solid #f0ebe4;padding:14px 16px}
+.gh-card{background:#edf7f2;border:1px solid #90d0b0;border-radius:10px;padding:14px 16px}
+.gh-name{font-family:'EB Garamond',Georgia,serif;font-size:16px;font-weight:700;color:#1a5030;margin-bottom:3px}
+.gh-stars{font-size:11.5px;color:#a08060;margin-bottom:8px}
+.gh-desc{font-size:13px;color:#4a3020;line-height:1.85;margin-bottom:10px}
+.gh-rel{background:#d8f0e4;border-radius:7px;padding:9px 12px;font-size:12.5px;color:#0a3820;margin-bottom:10px;line-height:1.8}
+.gh-rel strong{color:#1a5030}
+.gh-install{font-family:'SF Mono','Cascadia Code',monospace;font-size:11.5px;background:#1c0f07;color:#c8e8b8;border-radius:7px;padding:9px 12px;margin-bottom:8px;white-space:pre-wrap}
+.gh-link{font-size:12.5px;color:#8050c0;border-bottom:1px solid #d0c0e8}
+.assess-verdict{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-weight:700;font-size:13px;margin-bottom:12px}
+.assess-verdict.keep{background:#f0faf4;color:#1a6040;border:1px solid #90d0b0}
+.assess-verdict.update{background:#fff8f0;color:#a06020;border:1px solid #e8c090}
+.assess-item{background:#fdf9f3;border-left:3px solid #c2852a;border-radius:6px;padding:11px 13px;margin-bottom:9px}
+.assess-item:last-child{margin-bottom:0}
+.assess-item-title{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-weight:700;color:#7a4010;margin-bottom:5px}
+.assess-item p{font-size:12.5px;color:#4a3020;line-height:1.85}
+.sumfooter{background:#1c0f07;color:#c8b49a;padding:18px 20px;margin-top:10px;border-radius:12px;font-size:13px;line-height:1.9}
+.sumfooter .footer-title{font-family:'EB Garamond',Georgia,serif;font-weight:700;color:#f5f0e8;margin-bottom:6px;font-size:16px;font-style:italic}
+.sumfooter strong{color:#f5f0e8}
+.tip{border-bottom:1.5px dotted #c2852a;cursor:help;color:inherit}
+.tip-box{position:absolute;z-index:9999;background:#1c0f07;color:#f5f0e8;border-radius:9px;padding:10px 13px;font-size:12px;line-height:1.75;max-width:240px;pointer-events:none;opacity:0;transition:opacity .15s;font-family:'Noto Sans TC',sans-serif;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.tip-box.show{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-eyebrow">空鼻症術後預測研究</div>
+  <div class="mast-title">ENS 文獻日報</div>
+  <div class="mast-meta">
+    <span class="mpill"><span class="mdot"></span>2026.06.26</span>
+    <span class="mpill">5 篇精選</span>
+    <span class="mpill">A4 變化遮罩 → Stage B</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- 今日必讀 Pick -->
+  <div class="pick-card">
+    <div class="pick-head"><div class="pick-icon">★</div><div class="pick-lbl">今日必讀 Pick</div></div>
+    <div class="pick-title">#1 TraceTrans: Translation and Spatial Tracing for Surgical Prediction</div>
+    <div class="pick-reason">這篇直接解決「術前→術後影像預測 + 空間可追溯性」這個雙重難題，與 ENS 研究的核心痛點高度吻合。它的 dual-decoder 設計（一個輸出形變場、一個輸出合成影像）可直接移植到 Stage B 模型架構中。是目前文獻庫中最接近 ENS 研究設計的一篇。</div>
+    <button class="pick-toggle" id="pick-toggle-btn" onclick="togglePick()">📖 完整白話講解（從零開始）<span class="chev-t" id="pick-chev">▾</span></button>
+    <div class="pick-full" id="pick-full">
+      <div class="pick-full-inner">
+        <div class="pf-block">
+          <div class="pf-tag">🤔 這篇在解決什麼問題？</div>
+          <div class="pf-body">想像你是整形外科醫師，要跟病人解釋「做完手術後你的鼻子會長這樣」。現有的 AI 影像轉換工具可以生成一張「看起來像術後」的圖，但它不告訴你「哪裡移動了多少」——就像地圖告訴你目的地，卻不給你路線。TraceTrans 要解決的就是這個：同時預測術後影像 AND 標出哪個位置移到哪裡，讓預測「可以被追溯和驗證」。</div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">💡 看懂這篇你需要知道的名詞</div>
+          <div class="pf-step"><div class="pf-step-title">Image-to-Image Translation（影像到影像轉換）</div><p>讓 AI 把一張圖「轉換成另一種風格或狀態的圖」。這裡是把術前 CT 轉成術後 CT。</p></div>
+          <div class="pf-step"><div class="pf-step-title">Deformation Field（形變場）</div><p>一張和原圖一樣大的「箭頭地圖」——每個位置的箭頭代表「這個點術後移到哪裡、移了多少」。是可形變配準的核心輸出。</p></div>
+          <div class="pf-step"><div class="pf-step-title">Dual Decoder（雙解碼器）</div><p>一個神經網路，編碼器提取特徵後，分叉成兩條路：一條預測形變場，一條生成合成影像。兩者互相約束，確保生成的影像符合形變場的空間邏輯。</p></div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">🏗 他們怎麼做的？</div>
+          <div class="pf-step"><div class="pf-step-title">① 共享 Encoder</div><p>術前影像進入 Encoder，提取多層次特徵——像是先「讀懂」術前解剖結構的每個細節，為後面兩條路做準備。</p></div>
+          <div class="pf-step"><div class="pf-step-title">② Decoder 1：預測形變場</div><p>根據特徵預測每個體素「術後會移到哪裡」，輸出一張形變場。這是空間可追溯性的關鍵。</p></div>
+          <div class="pf-step"><div class="pf-step-title">③ Decoder 2：生成術後影像（受形變場約束）</div><p>合成術後影像，但必須「符合」形變場的空間邏輯——不能無中生有，每個像素的移動都要和形變場一致。</p></div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">📊 結果如何？</div>
+          <div class="pf-body">在醫學美容（面部手術術前→術後）和腦部 MRI 兩個資料集上，TraceTrans 的空間對應精度和影像生成品質都優於現有的 image-to-image 方法。「空間對應精度」意思是：它預測的「哪個點移到哪裡」和真實術後情況的誤差更小。</div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">🔗 跟你的 ENS 研究有什麼關係？</div>
+          <div class="pf-body">ENS 研究的 Stage B 核心目標就是「給定術前 CT + 手術位置，預測術後鼻腔形態」。TraceTrans 的 dual decoder 可以直接對應：<strong>Decoder 1</strong> 預測鼻腔的形變場（手術後哪裡填補了多少）、<strong>Decoder 2</strong> 生成術後 CT 合成影像。A4 的變化遮罩可以作為手術位置條件注入 Encoder，引導兩個 Decoder 聚焦在手術區域。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主題覆蓋進度 -->
+  <div class="cov-card">
+    <div class="cov-head">主題覆蓋進度（今日）</div>
+    <div id="cov"></div>
+  </div>
+
+  <!-- 篩選器 -->
+  <div class="filter-bar">
+    <span class="filter-lbl">篩選：</span>
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="a4">A4 變化遮罩</button>
+    <button class="filter-btn" data-filter="b">B 生成模型</button>
+    <button class="filter-btn" data-filter="c">C 分割</button>
+    <button class="filter-btn" data-filter="d">D 評估</button>
+  </div>
+
+  <!-- Paper #1: TraceTrans -->
+  <div class="paper-card" id="paper-tracetrans_2510.22379" data-stages="a4 b">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">1</div>
+        <div class="cstars">★★★★★</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">TraceTrans: Translation and Spatial Tracing for Surgical Prediction</div>
+        <div class="ppub">arXiv:2510.22379 · October 2025</div>
+        <div class="srow">
+          <span class="stag sa4">A4 變化遮罩</span>
+          <span class="stag sb">B 生成模型</span>
+        </div>
+        <div class="pdesc">Deformable image translation with spatial traceability for post-operative prediction. Encoder + dual decoders output deformation field and synthetic image simultaneously.</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db full arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">Shared Encoder → <strong>Dual Decoder</strong>：形變場解碼器（輸出每個體素的位移向量）+ 影像合成解碼器（受形變場約束）。形變場強制施加空間一致性，防止影像生成時產生解剖幻覺。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">醫學美容（面部手術術前/術後）+ 腦部 MRI 資料集；監督式；形變場作為輔助損失項。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">術後預測任務上超越現有 image-to-image 方法；提供可解釋的空間位移圖，適合臨床驗證。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">目前僅在面部及腦部 MRI 驗證；CT 應用需額外適應；資料集規模未完整公開。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">Dual Decoder 直接對應 ENS Stage B：<strong>Decoder 1</strong> 預測鼻腔形變場（術前→術後的體積填補），<strong>Decoder 2</strong> 生成合成術後 CT。A4 的手術遮罩可作為空間條件注入 Encoder，引導預測聚焦在填補區域。形變場同時是 A4 階段「變化量可視化」的自然輸出。</div>
+        </div>
+        <div class="db links">
+          <div class="dl">🔗 連結</div>
+          <div class="dt"><a href="https://arxiv.org/abs/2510.22379" target="_blank">arXiv:2510.22379</a> · <a href="https://arxiv.org/pdf/2510.22379" target="_blank">PDF</a></div>
+        </div>
+        <div class="db action">
+          <div class="dl">📌 本週可做</div>
+          <div class="dt">閱讀 3.2 節 dual decoder 設計，評估是否可作為 ENS 2.5D 模型 Stage B 的架構基礎。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">重點</div><p>Dual decoder 是本篇核心創新——一個網路同時輸出「去哪裡」（形變場）和「長什麼樣」（合成影像），兩者互相約束。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">心得</div><p>術前→術後預測的「空間可追溯性」對 ENS 驗證非常重要：醫師需要知道填補了哪個位置，而不只是「術後看起來怎樣」。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">關聯文獻</div><p>與 txdiff_2605.29932（治療條件擴散）、idir_2506.02150（隱式形變配準）形成架構三角，共同支撐 Stage B 設計選擇。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">可學方法</div><p>Dual decoder 的損失函數設計：形變場損失（平滑度正則化）+ 影像合成損失（L1 + perceptual）+ 兩者一致性損失。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paper #2: AFS-DSN -->
+  <div class="paper-card" id="paper-afsdsn_medrxiv2026" data-stages="c">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">2</div>
+        <div class="cstars">★★★★☆</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">Adaptive Frequency-Spatial Dual-Stream Network (AFS-DSN) for Nasal and Paranasal Sinus CT Segmentation</div>
+        <div class="ppub">medRxiv · April 2026 · Preprint</div>
+        <div class="srow">
+          <span class="stag sc">C 分割</span>
+        </div>
+        <div class="pdesc">3D wavelet frequency branch + spatial U-Net for nasal/sinus segmentation on NasalSeg (130 CT, 5 structures). Cross-domain attention module for bidirectional fusion.</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">3D U-Net 空間主幹 + 並行頻率分支（多尺度 3D 小波分解）+ 跨域注意力模組 + 自適應路由器（動態加權融合）。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">NasalSeg 資料集（130 CT，5 個解剖結構：鼻腔、上頜竇、額竇、蝶竇、篩竇）。公開資料集。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">5 個結構分割性能全面超越純空間或純頻率基線；頻率分支對骨-空氣介面（鼻腔邊界）特別有效。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">medRxiv 預印本，尚未同行評審；code 未公開；NasalSeg 為正常解剖，不含 ENS 術後 OOD 形態。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">NasalSeg 的 130 CT 可用於 ENS Stage C 分割模型的預訓練，再 fine-tune 到 ENS 術後樣本（遷移學習策略）。頻率-空間雙流設計對 ENS 術後 CT 的骨-植入物-空氣腔邊界細節分割尤其適合。</div>
+        </div>
+        <div class="db links">
+          <div class="dl">🔗 連結</div>
+          <div class="dt"><a href="https://www.medrxiv.org/content/10.64898/2026.04.19.26351206v1.full" target="_blank">medRxiv Preprint</a> · DOI: 10.64898/2026.04.19.26351206</div>
+        </div>
+        <div class="db action">
+          <div class="dl">📌 本週可做</div>
+          <div class="dt">確認 NasalSeg 資料集（nasalseg_s41597）可否直接用作 Stage C 分割模型的預訓練基礎。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">重點</div><p>小波分解作為頻率分支——低頻捕捉整體解剖輪廓，高頻捕捉鼻腔邊界細節，兩者互補。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">心得</div><p>NasalSeg 的 130 個正常鼻腔 CT 對 ENS 研究很有價值，可以用來訓練「正常解剖分割器」再遷移到術後 OOD 形態。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">關聯文獻</div><p>與 nasalseg_s41597（NasalSeg 資料集）、sinusseg_s41598-2025（鼻竇分割）、nasalssm_2510.09713（SSM）形成 C 階段分割方法群。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">可學方法</div><p>自適應路由器設計：根據局部解剖複雜度動態決定空間分支與頻率分支的加權比例，可應用於 ENS 的異質 HU 區域。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paper #3: RAG-CT -->
+  <div class="paper-card" id="paper-ragct_2603.08305" data-stages="b d">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">3</div>
+        <div class="cstars">★★★★☆</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">Retrieval-Augmented Anatomical Guidance for Text-to-CT Generation</div>
+        <div class="ppub">arXiv:2603.08305 · March 2026</div>
+        <div class="srow">
+          <span class="stag sb">B 生成模型</span>
+          <span class="stag sd">D 評估</span>
+        </div>
+        <div class="pdesc">Text-conditioned LDM + ControlNet branch. Retrieves similar clinical cases via 3D VL encoder; injects their anatomical annotations as structural proxy for anatomically consistent CT generation.</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">Text-conditioned Latent Diffusion Model + ControlNet 分支。3D Vision-Language Encoder 從資料庫檢索相似病例，以其解剖標注作為 ControlNet 的結構代理輸入。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">文本-CT 配對資料庫；以相似病例解剖標注為 ControlNet 輸入；訓練時需要有標注的配對資料，推理時不需要標注。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">相比純文字條件基線，解剖一致性指標（體積誤差、DSC）顯著提升。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">需要大型配對資料庫支持檢索；ENS 案例數量少（N=42），檢索品質難以保證；text-based 條件不適用於 ENS 手術規劃場景。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">核心可借用：<strong>ControlNet 注入解剖代理的設計</strong>——將文字條件替換成手術位置遮罩（A4 變化遮罩），以遮罩作為 ControlNet 輸入，引導擴散模型生成解剖一致的術後 CT。這樣不需要文字，只需手術標注即可條件化生成。</div>
+        </div>
+        <div class="db links">
+          <div class="dl">🔗 連結</div>
+          <div class="dt"><a href="https://arxiv.org/abs/2603.08305" target="_blank">arXiv:2603.08305</a> · <a href="https://arxiv.org/pdf/2603.08305" target="_blank">PDF</a></div>
+        </div>
+        <div class="db action">
+          <div class="dl">📌 本週可做</div>
+          <div class="dt">閱讀 ControlNet 分支的設計細節，思考如何改用手術遮罩取代解剖標注作為條件輸入。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">重點</div><p>ControlNet 注入「非文字解剖先驗」的核心思想可以橋接到 ENS：把手術遮罩當成解剖先驗，引導生成聚焦在填補區域。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">心得</div><p>「文字→遮罩」的條件替換是關鍵改造點——ENS 不需要文字描述，只需要手術位置標注，這讓模型更適合小樣本場景。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">關聯文獻</div><p>與 sketch2ct_2603.22509（Sketch2CT）、gdrift_2604.19736（GDrift）同屬條件式 CT 生成方法群，共同支持 Stage B 設計選擇。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">可學方法</div><p>檢索增強的思路：在小樣本場景中，可以用正常鼻腔資料庫（NasalSeg）做解剖先驗的「資料庫」，為 ENS 術前/術後案例提供解剖參考。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paper #4: AP-LDM -->
+  <div class="paper-card" id="paper-apldm_2602.10167" data-stages="b">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">4</div>
+        <div class="cstars">★★★☆☆</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">Anatomy-Preserving Latent Diffusion for Generation of Brain Segmentation Masks with Ischemic Infarct</div>
+        <div class="ppub">arXiv:2602.10167 · February 2026</div>
+        <div class="srow">
+          <span class="stag sb">B 生成模型</span>
+        </div>
+        <div class="pdesc">VAE trained on segmentation masks learns anatomical latent space. Diffusion model operates in this space. Optional binary prompt controls lesion presence—anatomy preserved globally.</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">VAE（僅在分割遮罩上訓練）學習解剖潛在空間 → Diffusion Model 在此潛在空間操作 → 可選二元提示（病灶是否存在）控制生成。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">腦部 NCCT 分割遮罩；兩階段：① VAE 訓練固定 ② Diffusion Model 訓練。資料量不大。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">生成遮罩保留全局解剖組織結構；可通過提示控制梗塞區域是否出現；適合資料增強。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">腦部特定；遮罩生成（非影像生成）；ENS 的解剖形態差異比腦梗更複雜（植入物、骨塑形）。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">「先學解剖潛在空間再做生成」的兩階段策略——可先訓練一個鼻腔解剖 VAE（用 NasalSeg 正常 CT + ENS 術前 CT），再在此潛在空間訓練擴散模型預測術後遮罩。在 N=42 小樣本下，潛在空間操作比直接影像空間生成更穩定。</div>
+        </div>
+        <div class="db links">
+          <div class="dl">🔗 連結</div>
+          <div class="dt"><a href="https://arxiv.org/abs/2602.10167" target="_blank">arXiv:2602.10167</a> · <a href="https://arxiv.org/pdf/2602.10167" target="_blank">PDF</a></div>
+        </div>
+        <div class="db action">
+          <div class="dl">📌 本週可做</div>
+          <div class="dt">評估「先學解剖潛在空間再做生成」的兩階段策略是否適合 N=42 的 ENS 資料規模。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">重點</div><p>解剖 VAE 的核心優勢：先壓縮成「解剖合理的潛在碼」，排除不合解剖的生成可能性，再在潛在空間做擴散。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">心得</div><p>小樣本的 ENS 研究最怕的是生成出「解剖上不可能存在」的術後形態——解剖 VAE 作為隱式約束可以緩解這個問題。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">關聯文獻</div><p>與 gbmldm_2510.17851（GBM-LDM）同屬「解剖感知潛在擴散」方法群，可對比兩者的解剖保留策略。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">可學方法</div><p>VAE 訓練策略：只用遮罩（不用影像）訓練 VAE，降低對配對影像的依賴，適合 ENS 資料稀缺的場景。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paper #5: HUydra -->
+  <div class="paper-card" id="paper-huydra_2603.23041" data-stages="b d">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">5</div>
+        <div class="cstars">★★★☆☆</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">HUydra: Full-Range Lung CT Synthesis via Multiple HU Interval Generative Modelling</div>
+        <div class="ppub">arXiv:2603.23041 · CVPR 2026 · March 2026</div>
+        <div class="srow">
+          <span class="stag sb">B 生成模型</span>
+          <span class="stag sd">D 評估</span>
+        </div>
+        <div class="pdesc">Decomposes CT synthesis by HU intervals—each tissue type trained separately, merged via learned reconstruction network. 6.2% FID improvement over single-model baseline.</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">HU 範圍分割為多個 interval → 每個 interval 獨立訓練生成模型（multi-head 或 multi-decoder 變體）→ 學習型重建網路將各 interval 輸出融合成全範圍 CT。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">肺部 CT；CVPR 2026 接受；多頭/多解碼器架構對比實驗。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">FID 改善 6.2%；MMD、Precision、Recall 在所有 HU interval 全面提升。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">針對肺部設計；需重新設計 ENS CT 的 interval 劃分（骨、軟骨、植入物、空氣腔各有不同 HU 範圍）。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">ENS 術後 CT 的 HU 分布極為異質（空氣腔 -1000、軟組織 0-100、軟骨 ~100、骨頭 +400~+1000、植入物 +200~+800）。HU interval 分解策略可用於 Stage D 的合成影像評估：分 interval 計算各組織的 SSIM、PSNR、FID，避免高密度區域（骨/植入物）掩蓋低密度區域（黏膜）的誤差。</div>
+        </div>
+        <div class="db links">
+          <div class="dl">🔗 連結</div>
+          <div class="dt"><a href="https://arxiv.org/abs/2603.23041" target="_blank">arXiv:2603.23041</a> · <a href="https://arxiv.org/pdf/2603.23041" target="_blank">PDF</a></div>
+        </div>
+        <div class="db action">
+          <div class="dl">📌 本週可做</div>
+          <div class="dt">整理 ENS CT 的 HU 值分布（空氣、軟組織、骨頭、植入物），為 Stage D 設計 HU interval 驗證指標。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">重點</div><p>HU interval 分解的核心洞見：不同組織的 CT 生成難度截然不同，分而治之比統一建模效果更好。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">心得</div><p>ENS 的植入物材質（Medpor、自體軟骨）的 HU 值分布與正常組織重疊——HU interval 策略可以幫助設計「材質無關」的評估方案。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">關聯文獻</div><p>與 metrics_matter_2505.07175（評估指標設計）、synthrad2025_2605.13555（合成 CT 評估挑戰賽）形成 Stage D 評估方法群。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">可學方法</div><p>Multi-decoder 架構：為不同 HU interval 設計不同的生成解碼器，最後用統一的重建網路融合——可借鑑用於 ENS 的多組織類型預測。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GitHub 今日套件 -->
+  <div class="section-block github" id="github-section">
+    <div class="sec-head">
+      <div class="sec-icon">⚙️</div>
+      <div class="sec-title">今日 GitHub 套件 — nnInteractive</div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <div class="gh-card">
+        <div class="gh-name">nnInteractive (MIC-DKFZ)</div>
+        <div class="gh-stars">⭐ 1.4k+ · 積極維護 · CVPR 2025 互動分割挑戰賽冠軍</div>
+        <div class="gh-desc">來自 DKFZ 的 3D 互動式分割框架。支援點擊、筆劃、框選、套索等多種提示方式，在 120+ 個 3D 資料集（CT、MRI、PET）上訓練，無需重新訓練即可分割幾乎任何醫學解剖結構。有 Napari GUI 插件，可視化分割結果非常直覺。</div>
+        <div class="gh-rel"><strong>和你研究的關聯：</strong>Stage C（分割量測）——你需要精確分割 ENS 術後鼻腔（含植入物區域）並量測體積變化。nnInteractive 可以用少量點擊快速對 ENS 術後 CT 做分割初始化，作為 nnUNet fine-tuning 的偽標籤，或直接用於 N=42 樣本的半自動標注流程，大幅減少手動標注時間。</div>
+        <div class="gh-install">pip install nninteractive</div>
+        <a class="gh-link" href="https://github.com/MIC-DKFZ/nnInteractive" target="_blank">github.com/MIC-DKFZ/nnInteractive</a>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 每日研究方向評估 -->
+  <div class="section-block assessment" id="assessment-section">
+    <div class="sec-head">
+      <div class="sec-icon">🧭</div>
+      <div class="sec-title">每日研究方向評估</div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <p style="font-size:13px;color:#4a3020;margin-bottom:10px;line-height:1.85"><strong>當前方向：</strong>2.5D 殘差架構 + 條件式生成（以手術介入位置為條件），學習 Δ = 術後 − 術前，N=42。</p>
+      <div class="assess-verdict keep">✅ 建議：維持核心方向，強化 dual decoder 設計</div>
+      <div class="assess-item">
+        <div class="assess-item-title">TraceTrans 支持 dual decoder 策略</div>
+        <p>TraceTrans 直接驗證了「術前→術後 + 形變場」雙輸出的設計有效性。建議在 2.5D 殘差架構的基礎上加入形變場輸出作為輔助任務——這不改變核心方向，但增加空間可追溯性，是論文 Stage B 的重要加分點。</p>
+      </div>
+      <div class="assess-item">
+        <div class="assess-item-title">AFS-DSN 確認 NasalSeg 是 Stage C 的關鍵預訓練資料</div>
+        <p>AFS-DSN 使用 NasalSeg（130 CT）訓練鼻腔分割，驗證了該資料集的可用性。建議盡早確認 NasalSeg 的分割標注是否與 ENS 術後解剖兼容（ENS 術後鼻腔結構有所不同），再決定是否直接用於預訓練還是需要調整類別定義。</p>
+      </div>
+      <div class="assess-item">
+        <div class="assess-item-title">ControlNet 條件注入策略值得納入 Stage B 選項</div>
+        <p>RAG-CT 的 ControlNet 設計提供了一種「將手術遮罩注入擴散模型」的具體實現方案，與目前 2.5D 殘差方向並不衝突，可以作為 ablation study 的對比架構之一。</p>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- 今日總結 -->
+  <div class="sumfooter">
+    <div class="footer-title">今日總結</div>
+    今日共收錄 <strong>5 篇</strong>新文獻，覆蓋術前→術後預測（1）、條件式生成（3）、鼻腔分割（1）、HU interval 評估（1）。<strong>TraceTrans（#1）</strong>是最值得讀的一篇，其 dual decoder 設計直接對應 ENS Stage B 架構需求，建議本週優先精讀。AFS-DSN（#2）確認了 NasalSeg 作為 Stage C 預訓練資料的可用性。本週覆蓋空白仍在 CFD 氣流分析和 ENS 症狀問卷兩個方向，但近期最緊要的技術決策是：<strong>是否在 2.5D 殘差架構中加入形變場輸出作為輔助任務</strong>（TraceTrans 的核心設計）。
+  </div>
+
+</div>
+
+<script>
+const COV_DATA=[
+  {label:'術前→術後預測',count:1},
+  {label:'條件式生成',count:3},
+  {label:'小樣本策略',count:0},
+  {label:'鼻腔/氣道分割',count:1},
+  {label:'殘差學習 CT',count:1},
+  {label:'ENS 臨床',count:0},
+  {label:'合成影像評估',count:1},
+  {label:'CFD 氣流分析',count:0},
+  {label:'ENS 症狀/問卷',count:0},
+];
+const maxC=Math.max(...COV_DATA.map(c=>c.count),1);
+const covEl=document.getElementById('cov');
+COV_DATA.forEach(c=>{
+  const pct=Math.round(c.count/maxC*100);
+  const row=document.createElement('div');
+  row.className='cov-row';
+  row.innerHTML=`<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${c.count?pct:100}%;background:${c.count?'#c2852a':'#f0c8a8'}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count===0?'<span class="cov-gap-tag">空白</span>':''}`;
+  covEl.appendChild(row);
+});
+/* Card toggle — 展開後自動捲到卡片頂部 */
+document.querySelectorAll('.card-head').forEach(h=>{
+  h.addEventListener('click',e=>{
+    if(e.target.classList.contains('read-check')) return;
+    const card=h.closest('.paper-card');
+    const wasOpen=card.classList.contains('open');
+    card.classList.toggle('open');
+    if(!wasOpen){
+      setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),80);
+    }
+  });
+});
+document.querySelectorAll('.sec-head').forEach(h=>h.addEventListener('click',()=>h.closest('.section-block').classList.toggle('open')));
+if(window.innerWidth>600) document.querySelectorAll('.section-block').forEach(b=>b.classList.add('open'));
+function togglePick(){
+  const full=document.getElementById('pick-full');
+  const chev=document.getElementById('pick-chev');
+  full.classList.toggle('open');
+  chev.style.transform=full.classList.contains('open')?'rotate(180deg)':'';
+}
+document.querySelectorAll('.read-check').forEach(cb=>{
+  cb.addEventListener('change',()=>cb.closest('.paper-card').classList.toggle('read',cb.checked));
+});
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.paper-card').forEach(card=>{
+      card.style.display=(f==='all'||(card.dataset.stages||'').includes(f))?'':'none';
+    });
+  });
+});
+const GLOSSARY={'Diffusion Model':'一種 AI 生成圖片的方法。把圖片逐步加雜訊直到完全模糊，訓練 AI 學會「逆向」還原——反過來就能從純雜訊生成全新圖片。','GAN':'生成對抗網路。兩個神經網路互相競爭：Generator（生成假圖）vs Discriminator（分辨真假），一起訓練直到生成的圖難以分辨。','nnUNet':'目前最強的醫學影像分割框架。最大優勢是零調參——你只要提供資料集，它自動決定架構、patch size、augmentation。','voxel':'3D 版本的 pixel。CT 影像是由很多 voxel（體積元素）組成，每個 voxel 代表那個位置的密度（HU 值）。','Voxel':'3D 版本的 pixel。CT 影像是由很多 voxel（體積元素）組成，每個 voxel 代表那個位置的密度（HU 值）。','HU':'Hounsfield Unit，CT 影像的密度單位。空氣約 -1000、水是 0、骨頭約 +400~+1000 HU。','FID':'Fréchet Inception Distance，生成影像品質的評估指標。數字越低代表生成的影像越接近真實資料。','SSIM':'結構相似性指數，比較兩張影像的結構相似程度。值域 0~1，越高越好。','PSNR':'峰值信噪比，衡量生成影像和真實影像的差異，數字越高代表越相似（以 dB 為單位）。','DSC':'Dice Similarity Coefficient，分割任務的主要評估指標。計算預測區域和真實標注的重疊程度，>0.85 算好。','DICE':'同 DSC。計算預測分割和真實標注的重疊程度，值域 0~1，越高越好。','MONAI':'PyTorch-based 醫學影像深度學習函式庫，提供醫學影像常用的 transforms、損失函數和模型架構。','fine-tuning':'微調。先用大量通用資料訓練好的模型，再用少量特定領域資料繼續訓練，讓模型適應特定任務。','fine-tune':'微調。先用大量通用資料訓練好的模型，再用少量特定領域資料繼續訓練。','augmentation':'資料增強。對訓練圖片做翻轉、旋轉等操作，人工製造更多變化，幫助模型學到更泛化的特徵。','baseline':'基準線。實驗中拿來比較的標準方法。你的結果需要比 baseline 好才有意義。','ResNet':'殘差網路。使用跳連接讓梯度能直接跳過多個層傳遞，解決深層網路難訓練的問題。','Autoencoder':'自動編碼器。先「壓縮」再「還原」的神經網路，壓縮後的向量包含輸入的最重要特徵。','attention':'注意力機制。讓神經網路在處理每個位置時，能看到其他位置的資訊並給予不同程度的關注。','Attention':'注意力機制。讓神經網路在處理每個位置時，能看到其他位置的資訊並給予不同程度的關注。','patch':'把大影像切成小塊處理的策略。醫學影像太大，改用 patch 分塊可以節省記憶體。','DDIM':'加速 Diffusion Model 推理的採樣方法。原本需要 1000 步，DDIM 可以壓縮到 50 步。','VoxelMorph':'基於深度學習的可形變影像配準框架。輸入兩張影像，輸出讓它們對齊所需的「形變場」（每個點要移動多少）。','deformable registration':'可形變影像配準。讓一張影像「彎曲」變形來對齊另一張，能處理器官形態變化，適合術前術後比較。','SSM':'統計形狀模型（Statistical Shape Model）。從大量樣本中學習器官形狀的統計分布，可以用少數參數描述複雜形狀。','LoRA':'Low-Rank Adaptation，一種輕量微調大模型的方法。只訓練少量額外參數，大幅減少需要的訓練資料和時間。','semi-supervised':'半監督學習。同時用有標注和無標注的資料訓練，減少對人工標注的依賴。','self-supervised':'自監督學習。用資料本身的結構設計訓練目標（如遮住一部分讓模型預測），不需要人工標注。','CFD':'計算流體力學（Computational Fluid Dynamics）。用電腦模擬氣流在鼻腔內的流動，可以算出壁面剪切力和溫濕度分布。','wall shear stress':'壁面剪切力。氣流對鼻腔黏膜表面施加的摩擦力。ENS 患者的剪切力分布異常，是症狀的原因之一。','ENSTQ':'空鼻症 6 題問卷（Empty Nose Syndrome 6-item Questionnaire）。目前 ENS 專屬效度最好的症狀評估工具。','NOSE score':'鼻塞症狀評估量表（Nasal Obstruction Symptom Evaluation）。常用於鼻腔手術前後的症狀追蹤。','ControlNet':'一種讓擴散模型接受額外空間條件（如分割遮罩、邊緣圖）的插件架構。不改變原始模型，只新增一個並行的條件分支。','dual decoder':'雙解碼器。一個神經網路的編碼器連接兩個不同解碼器，分別輸出不同任務的結果，兩個任務互相約束提升整體品質。','Deformation Field':'形變場。一張和原圖一樣大的向量圖，每個位置的向量代表「這個點要移動到哪裡」。是可形變配準的輸出。','wavelet':'小波變換。一種信號分解方法，可以同時捕捉不同頻率（粗略輪廓和細節紋理）的特徵，比 FFT 更適合局部分析。'};
+const tipBox=document.createElement('div');
+tipBox.className='tip-box';
+document.body.appendChild(tipBox);
+function wrapGlossary(root){
+  if(!root) return;
+  const terms=Object.keys(GLOSSARY).sort((a,b)=>b.length-a.length);
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+    const p=n.parentElement;
+    if(!p) return NodeFilter.FILTER_REJECT;
+    if(['SCRIPT','STYLE','TEXTAREA','INPUT','CODE','A'].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+    if(p.classList.contains('tip')) return NodeFilter.FILTER_REJECT;
+    return n.textContent.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+  }});
+  const nodes=[];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node=>{
+    let html=node.textContent;let changed=false;
+    terms.forEach(term=>{
+      if(html.includes(term)){html=html.split(term).join(`<span class="tip" data-tip="${GLOSSARY[term].replace(/"/g,'&quot;')}">${term}</span>`);changed=true;}
+    });
+    if(changed){const s=document.createElement('span');s.innerHTML=html;node.parentNode.replaceChild(s,node);}
+  });
+}
+document.addEventListener('mouseover',e=>{
+  const tip=e.target.closest('.tip');
+  if(!tip){tipBox.classList.remove('show');return;}
+  tipBox.textContent=tip.dataset.tip;tipBox.classList.add('show');
+  const r=tip.getBoundingClientRect();
+  tipBox.style.left=Math.max(8,Math.min(r.left+window.scrollX,window.innerWidth+window.scrollX-260))+'px';
+  tipBox.style.top=(r.bottom+window.scrollY+8)+'px';
+});
+document.addEventListener('mouseout',()=>tipBox.classList.remove('show'));
+document.addEventListener('scroll',()=>tipBox.classList.remove('show'),{passive:true});
+window.addEventListener('load',()=>{wrapGlossary(document.querySelector('.page'));wrapGlossary(document.querySelector('.pick-full'));});
+</script>
+</body>
+</html>
