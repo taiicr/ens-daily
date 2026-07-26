@@ -1,5 +1,5 @@
 {
-  "updated": "20260622",
+  "updated": "20260726",
   "repos": [
     {
       "date": "20260611",
@@ -61,6 +61,19 @@
       "install": "git clone https://github.com/Stanford-AIMI/MASS && pip install -r requirements.txt",
       "description": "CVPR 2026 Stanford AIMI 的 3D 醫學影像 mask-guided 自監督預訓練框架。用 class-agnostic mask proposals 作為自監督訊號，在 20–200 個 scan 的小規模資料集上即可有效預訓練，fine-tune 後只需 20–40% 標注資料媲美全監督效能。",
       "ens_use": "ENS N=42 標注量不足時，可先在 NasalSeg（130 CT）做 MASS 預訓練，再 fine-tune 到 42 對 ENS 術後 CT，用最少標注達到最好 C 階段分割效果。"
+    },
+    {
+      "id": "sd-fsmis",
+      "date": "20260726",
+      "name": "SD-FSMIS",
+      "repo": "LeeX-Bruce/SD-FSMIS",
+      "url": "https://github.com/LeeX-Bruce/SD-FSMIS",
+      "description": "CVPR 2026 官方實作。把預訓練 Stable Diffusion 模型改造成少樣本醫學影像分割工具，透過 SQI 與 VTCT 模組只需少量範例圖＋標注即可分割新的解剖結構。",
+      "install": "git clone https://github.com/LeeX-Bruce/SD-FSMIS",
+      "relevance": "今日 #2 論文的官方實作。可用少數已標注 ENS 術後 CT 作為 support set，讓模型學會辨認下鼻甲重建後的異質材質邊界，緩解 C 階段標注資料稀少的問題。",
+      "related_papers": [
+        "sdfsmis_2604.03134"
+      ]
     }
   ]
 }
