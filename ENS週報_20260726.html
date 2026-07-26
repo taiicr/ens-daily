@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENS 週報 2026.07.26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;0,800;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#f7f5f2;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;color:#2c1a0e}
+.masthead{background:#1c0f07;color:#f5f0e8;padding:28px 24px 22px}
+.mast-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:8px}
+.mast-title{font-family:'EB Garamond',serif;font-size:34px;font-weight:800;color:#f5f0e8;line-height:1.1}
+.mast-sub{font-size:13px;color:#c8b49a;margin-top:8px}
+.mast-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.18);padding:3px 11px;border-radius:20px;font-size:11.5px;color:#c8b49a}
+.mdot{width:6px;height:6px;border-radius:50%;background:#c2852a;flex-shrink:0}
+.page{max-width:760px;margin:24px auto 60px;padding:0 16px}
+.sec-card{background:#fff;border:1px solid #e8e4df;border-radius:14px;margin-bottom:16px;overflow:hidden}
+.sec-card.accent-a{border-top:3px solid #c2852a}
+.sec-card.accent-b{border-top:3px solid #4080c0}
+.sec-card.accent-c{border-top:3px solid #20a060}
+.sec-card.accent-d{border-top:3px solid #8040c0}
+.sec-card.accent-e{border-top:3px solid #d04040}
+.sec-head{padding:16px 20px 14px;cursor:pointer;display:flex;align-items:center;gap:12px}
+.sec-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ba{background:#fff8f0}.bb{background:#edf3ff}.bc{background:#edf8f2}.bd{background:#f5f0ff}.be{background:#fff0f0}
+.sec-title{font-family:'EB Garamond',serif;font-size:17px;font-weight:700;color:#2c1a0e;flex:1}
+.sec-meta{font-size:11px;color:#a08060}
+.sec-chev{font-size:14px;color:#c0a880;transition:transform .25s}
+.sec-card.open .sec-chev{transform:rotate(180deg);color:#c2852a}
+.sec-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.sec-card.open .sec-body{max-height:20000px}
+.sec-inner{border-top:1px solid #f0ebe4;padding:18px 20px}
+.prose{font-size:13px;color:#4a3020;line-height:1.9;margin-bottom:14px}
+.prose strong{color:#1c0f07;font-weight:700}
+.prose a{color:#8050c0;text-decoration:none;border-bottom:1px solid #d0c0e8}
+h4.sub{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#7a4010;margin:16px 0 8px;border-left:3px solid #c2852a;padding-left:10px}
+.paper-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0ebe4}
+.paper-row:last-child{border-bottom:none}
+.pr-num{width:24px;height:24px;background:#f0ebe4;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#7a5840;flex-shrink:0;font-family:'EB Garamond',serif;margin-top:2px}
+.pr-body{flex:1;min-width:0}
+.pr-title{font-size:13px;font-weight:700;color:#2c1a0e;line-height:1.35;margin-bottom:3px}
+.pr-pub{font-size:11px;color:#a08060}
+.pr-insight{font-size:12px;color:#4a3020;line-height:1.7;margin-top:4px;background:#faf8f5;border-radius:6px;padding:6px 10px}
+.stags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.stag{height:18px;padding:0 8px;border-radius:9px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
+.sa4{background:#f3eeff;color:#6030a0}.sb{background:#edf0f8;color:#3050a0}.sc{background:#edf8f2;color:#1a6040}.sd{background:#edf3ff;color:#2050a0}
+.cov-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.cov-lbl{font-size:12px;flex:0 0 140px;color:#4a3020}
+.cov-bar-w{flex:1;background:#f0ebe4;border-radius:4px;height:8px;overflow:hidden}
+.cov-bar{height:100%;border-radius:4px;background:#c2852a}
+.cov-cnt{font-size:12px;font-weight:700;color:#7a5840;flex:0 0 28px;text-align:right}
+.cov-gap{font-size:10px;font-weight:600;background:#fdf0e8;color:#b45309;border:1px solid #f0d0a8;border-radius:5px;padding:1px 7px;flex-shrink:0}
+.exp-card{background:#faf8f5;border:1px solid #e8e4df;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.exp-name{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#1c0f07;margin-bottom:6px}
+.exp-field{margin-bottom:6px;font-size:12.5px;color:#4a3020;line-height:1.75}
+.exp-field strong{color:#7a4010;font-size:11px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+.exp-card.top{border-color:#c2852a;background:#fff8f0}
+.dir-card{background:#faf8f5;border:1px solid #e8e4df;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.dir-name{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#2c1a0e;margin-bottom:6px}
+.dir-field{margin-bottom:6px;font-size:12.5px;color:#4a3020;line-height:1.75}
+.dir-field strong{color:#4060a0;font-size:11px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+.diff-badge{display:inline-flex;align-items:center;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:700;margin-right:6px}
+.diff-low{background:#edf8f2;color:#1a6040}.diff-mid{background:#fff8f0;color:#a06020}.diff-high{background:#fff0f0;color:#a04020}
+.action-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0ebe4}
+.action-item:last-child{border-bottom:none}
+.action-num{width:24px;height:24px;background:#c2852a;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;margin-top:1px}
+.action-body{flex:1}
+.action-title{font-size:13px;font-weight:700;color:#2c1a0e;margin-bottom:3px}
+.action-desc{font-size:12.5px;color:#4a3020;line-height:1.75}
+.sumfooter{background:#1c0f07;color:#c8b49a;padding:20px 24px;border-radius:14px;margin-top:10px;font-size:13px;line-height:1.9}
+.sumfooter .ft{font-family:'EB Garamond',serif;font-size:17px;font-weight:700;color:#f5f0e8;font-style:italic;margin-bottom:8px}
+.sumfooter strong{color:#f5f0e8}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-eyebrow">空鼻症術後預測研究・週報</div>
+  <div class="mast-title">ENS 週報</div>
+  <div class="mast-sub">2026 年第 30 週（07/20 – 07/26，含排程中斷後恢復）｜自動生成</div>
+  <div class="mast-pills">
+    <span class="mpill"><span class="mdot"></span>本週新增 5 篇</span>
+    <span class="mpill">累積 65 篇</span>
+    <span class="mpill">階段 A4 → B（進行中）</span>
+    <span class="mpill">N = 42 CT 對</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ====== BLOCK A: 本週文獻總覽 ====== -->
+  <div class="sec-card accent-a open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge ba">📚</div>
+      <div>
+        <div class="sec-title">A — 本週文獻總覽</div>
+        <div class="sec-meta">5 篇・排程於 07/08–07/25 間中斷後今日恢復</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <div class="prose"><strong>提醒：</strong>自動每日檢索排程在 2026-07-07 之後未再執行，直到今日（07-26）才恢復，中間間隔近 3 週。因此本週實際只有「今天」一天的新增文獻，共 <strong>5 篇</strong>，涵蓋 ENS 臨床（D）、少樣本分割（C）、縱向不確定性預測（A4/D）、跨模態配準（A4）、解剖合理性生成（B/D）五個主題。累積文獻庫達 <strong>65 篇</strong>。</div>
+
+      <h4 class="sub">今日精選回顧</h4>
+      <div class="prose"><strong>07/26（週日）：</strong>收錄 5 篇——<strong>IMAP-ACC</strong>（自體肋軟骨鼻道下擴增術長期療效，追蹤平均 61 個月，ENS6Q 顯著且持久改善，今日必讀）、<strong>SD-FSMIS</strong>（CVPR 2026 開源少樣本分割框架，適配 C 階段標注稀少問題）、<strong>Uncertainty-Aware AD Forecasting</strong>（不確定性分解的縱向預測框架，啟發 D 階段信賴區間設計）、<strong>跨模態配準骨幹適配</strong>（凍結骨幹 + 測試時實例優化，未來擴充影像模態的備選方法）、<strong>AnatomyGen</strong>（SDF 隱式解剖生成，與現有 SSM 路線互補）。</div>
+
+      <h4 class="sub">本週最值得精讀（Top 3）</h4>
+
+      <div class="paper-row">
+        <div class="pr-num">①</div>
+        <div class="pr-body">
+          <div class="pr-title">Treatment Outcomes of the Inferior Meatus Augmentation Procedure With Autologous Costal Cartilage for ENS</div>
+          <div class="pr-pub">Clin Exp Otorhinolaryngol 19(1):79-85 · 2026-02 · PMC12973493</div>
+          <div class="stags"><span class="stag sd">D 評估</span></div>
+          <div class="pr-insight">追蹤平均 61 個月的長期 ENS 手術療效資料，ENS6Q 從 17.5 顯著改善至 9.1，早期與長期追蹤分數相近顯示效果持久。提供臨床動機段落與 D 階段效度驗證的最新量化基準。</div>
+        </div>
+      </div>
+
+      <div class="paper-row">
+        <div class="pr-num">②</div>
+        <div class="pr-body">
+          <div class="pr-title">SD-FSMIS: Adapting Stable Diffusion for Few-Shot Medical Image Segmentation</div>
+          <div class="pr-pub">CVPR 2026 · arXiv:2604.03134 · GitHub: LeeX-Bruce/SD-FSMIS</div>
+          <div class="stags"><span class="stag sc">C 分割</span></div>
+          <div class="pr-insight">用少量支持集樣本引導預訓練 Stable Diffusion 完成分割，是少數提供開源程式碼、可直接評估遷移到 ENS 術後分割任務的少樣本方法，直接對應 C 階段標注稀少的痛點。</div>
+        </div>
+      </div>
+
+      <div class="paper-row">
+        <div class="pr-num">③</div>
+        <div class="pr-body">
+          <div class="pr-title">Uncertainty-Aware Longitudinal Forecasting of Alzheimer's Disease Progression Using Deep Learning</div>
+          <div class="pr-pub">arXiv:2606.24604 · 2026-06</div>
+          <div class="stags"><span class="stag sa4">A4</span><span class="stag sd">D 評估</span></div>
+          <div class="pr-insight">「單點預測 + 分解式不確定性」框架，90% 可信區間覆蓋率經過嚴謹驗證。啟發 D 階段評估不只輸出單一預測 CT，也對形變場給出信賴區間，標示模型較不確定的解剖區域。</div>
+        </div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK B: 主題覆蓋地圖 ====== -->
+  <div class="sec-card accent-b open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bb">📊</div>
+      <div>
+        <div class="sec-title">B — 主題覆蓋地圖（累積至今）</div>
+        <div class="sec-meta">65 篇・9 個主題維度</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <div class="prose">以下為 65 篇累積文獻在各主題維度的分布（單篇可能橫跨多個主題，故加總會超過 65）。數字反映每個主題的覆蓋深度，空白項需要優先補充。</div>
+      <div id="cov-chart"></div>
+      <div class="prose" style="margin-top:14px"><strong>空白分析：</strong>累積至今最薄弱的仍是「殘差學習 CT」（約 4 篇）——多數殘差相關文獻是從肺部體積變化或形變場回歸角度出發，直接以殘差 U-Net 做鼻腔 CT-to-CT Δ 預測的先驅工作仍稀缺。「合成影像評估」（5 篇）與「CFD 氣流分析」（5 篇）也相對單薄，且彼此高度相關——建議下次檢索優先鎖定「residual delta learning CT synthesis」與「CFD virtual surgery nasal turbinate 2026」兩組關鍵詞，同時可留意 AnatomyGen 若釋出完整論文或程式碼後，是否能提供殘差/評估兩個維度的新素材。</div>
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK C: 實驗建議 ====== -->
+  <div class="sec-card accent-c open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bc">🔬</div>
+      <div>
+        <div class="sec-title">C — 當前論文實驗建議（週更）</div>
+        <div class="sec-meta">3 個具體可執行實驗・基於 N=42 CT 對</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="exp-card top">
+        <div class="exp-name">實驗一：Conditional Residual 2.5D U-Net + 手術遮罩 Ablation（沿用核心方向，持續為首要實驗）</div>
+        <div class="exp-field"><strong>研究問題</strong>手術遮罩（Δ-guide）作為條件輸入，相比無條件基線是否顯著提升術後 CT 預測精度？輸入端直接融合條件（參考 AG-LDM）是否能取代額外的 control 分支？</div>
+        <div class="exp-field"><strong>方法說明</strong>輸入：術前 CT 三視角 slice + 手術遮罩通道；輸出：術後 CT Δ。以 2.5D 殘差 U-Net 為主幹，比較① 無遮罩 baseline、② concat 遮罩到輸入通道、③ cross-attention 條件化三種設計；損失函數採 L1 + SSIM + 解剖 ROI 加權。</div>
+        <div class="exp-field"><strong>資料需求</strong>N=42 CT 對（已配準）。需 A4 手術遮罩完成（請確認目前進度，排程中斷期間是否有進展）。patch-based 訓練，GPU 12GB 足夠。</div>
+        <div class="exp-field"><strong>依據文獻</strong>reg3dnet_mp2023（殘差回歸體積變化框架）、agldm_2601.14584（輸入端融合條件策略）、toothdiff_2508.14276（遮罩損失、ROI 局部生成）。</div>
+        <div class="exp-field"><strong>評估指標</strong>ROI 內 SSIM、PSNR、體積誤差（ΔV mm³）、DSC。主要指標：ROI-SSIM。</div>
+        <div class="exp-field"><strong>預計工作量</strong>2–3 週：1 週 pipeline、1 週跑 baseline 與消融、1 週分析。</div>
+        <div class="exp-field"><strong>論文貢獻點</strong>建立 ENS 術後 CT 預測的第一個可比較基線系統，量化條件融合設計的必要性。</div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-name">實驗二：SD-FSMIS 少樣本遷移驗證（C 階段分割管線）</div>
+        <div class="exp-field"><strong>研究問題</strong>以 SD-FSMIS 的 support-query 框架，用少量已標注 ENS 術後 CT 作為 support set，能否有效分割下鼻甲重建後的異質材質邊界？</div>
+        <div class="exp-field"><strong>方法說明</strong>Clone LeeX-Bruce/SD-FSMIS；先用 NasalSeg 預訓練權重初始化分割先驗，再以 5–10 例手動標注的 ENS 術後 CT 作 support set，在剩餘病例上做 query 推論；比較與直接 fine-tune nnUNet 的分割精度差異。</div>
+        <div class="exp-field"><strong>資料需求</strong>需要 5–10 例術後 CT 的下鼻甲/鼻道人工標注（半自動亦可）作為 support set，其餘作為 query 驗證。</div>
+        <div class="exp-field"><strong>依據文獻</strong>sdfsmis_2604.03134（SQI/VTCT 框架）、nasalseg_s41597（預訓練權重來源）、mass_2603.13660（遮罩引導自監督預訓練，可作為互補比較 baseline）。</div>
+        <div class="exp-field"><strong>評估指標</strong>DSC、Hausdorff distance；與 nnUNet 全標注 baseline 比較所需標注量差異。</div>
+        <div class="exp-field"><strong>預計工作量</strong>2–3 週：1 週標注 support set、1 週跑 SD-FSMIS 遷移實驗、1 週與 baseline 比較。</div>
+        <div class="exp-field"><strong>論文貢獻點</strong>驗證少樣本分割方法能否大幅降低 ENS 術後標注需求，是 C 階段方法選型的關鍵證據。</div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-name">實驗三：不確定性感知的 Δ 形變場估計（D 階段強化）</div>
+        <div class="exp-field"><strong>研究問題</strong>在殘差 Δ 場輸出上加入 Mixture Density 頭部估計逐體素不確定性，能否標示模型對哪些解剖區域的預測較不可靠？</div>
+        <div class="exp-field"><strong>方法說明</strong>在實驗一訓練好的殘差 U-Net decoder 末端加入 MDN 頭部，輸出每個體素 Δ 的機率分布而非單一值；用 WASABI 風格的 ROI 體積 Wasserstein 距離同步評估解剖合理性；比較高不確定性區域是否對應手術植入邊緣或材質交界處。</div>
+        <div class="exp-field"><strong>資料需求</strong>沿用 N=42，不需額外資料；需先完成實驗一的基礎模型。</div>
+        <div class="exp-field"><strong>依據文獻</strong>adunc_2606.24604（MDN 自迴歸不確定性框架）、wasabi_2504.21771（Wasserstein 解剖合理性指標）、metrics_matter_2505.07175（標準指標對局部解剖錯誤不敏感的佐證）。</div>
+        <div class="exp-field"><strong>評估指標</strong>可信區間覆蓋率、ROI Wasserstein 距離、不確定性與實際誤差的相關性。</div>
+        <div class="exp-field"><strong>預計工作量</strong>2 週（基於實驗一模型延伸）。</div>
+        <div class="exp-field"><strong>論文貢獻點</strong>為術後形態預測補上「這個預測有多可信」的量化說明，是臨床轉譯前必要的安全性論述。</div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK D: 未來論文方向 ====== -->
+  <div class="sec-card accent-d open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bd">🔭</div>
+      <div>
+        <div class="sec-title">D — 未來論文方向（本週新增）</div>
+        <div class="sec-meta">3 個方向・從即時可做到長期規劃</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="dir-card">
+        <div class="dir-name">方向一：以虛擬手術 CFD 驗證預測形態的氣流功能等效性（即時可做）</div>
+        <div class="dir-field"><strong>研究題目</strong>AI 預測的 ENS 術後鼻腔形態，其 CFD 模擬的壁面剪切力與氣流分布，是否落在正常/術後合理範圍內？</div>
+        <div class="dir-field"><strong>一句話說明</strong>把預測出的術後鼻腔 3D 模型送進虛擬手術 CFD 流程，比對真實術後與正常鼻腔的氣流基準值，驗證預測形態的功能意義而不只是外觀相似。</div>
+        <div class="dir-field"><strong>為什麼值得做</strong>cfdimplant_jtice2024 已示範同一病人多種虛擬植入方案的 CFD 比較方法論；本週 IMAP-ACC 提供的長期症狀基準，可與 CFD 功能指標交叉驗證，建立「形態預測→功能恢復→症狀改善」的完整因果鏈，是目前 ENS AI 研究少見的閉環驗證設計。</div>
+        <div class="dir-field"><strong>所需資源</strong>現有 N=42 CT 對（選 5–10 例做 CFD 概念驗證）+ 開源 CFD 工具（OpenFOAM）+ 3D Slicer 網格生成，不需新資料。</div>
+        <div class="dir-field"><strong>可借鑑文獻</strong>cfdimplant_jtice2024、ens_cfd_lary31757、ens_cfd_ear2025、nasalcfd_pmc12808322（正常呼吸 WSS 基準值）。</div>
+        <div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-mid">中</span>CFD 網格生成工時較高，但方法論已有先例可循。</div>
+        <div class="dir-field"><strong>時機建議</strong>可與主要實驗（B 階段）並行，作為 D 階段功能驗證子研究。</div>
+      </div>
+
+      <div class="dir-card">
+        <div class="dir-name">方向二：SDF 隱式解剖先驗 + SSM 混合的鼻腔生成正則化（中期）</div>
+        <div class="dir-field"><strong>研究題目</strong>結合 AnatomyGen 的 SDF 隱式形狀編碼與 nasalssm 的鼻竇統計形狀模型，能否為 B 階段生成模型提供更強的解剖合理性正則化？</div>
+        <div class="dir-field"><strong>一句話說明</strong>先用 SDF 學一個「什麼樣的鼻腔形狀算合理」的隱式先驗，再讓生成模型的輸出被這個先驗約束，避免小樣本訓練下生成不合理的解剖結構。</div>
+        <div class="dir-field"><strong>為什麼值得做</strong>N=42 小樣本下生成模型容易產生解剖不合理的輸出，現有 SSM（nasalssm_2510.09713）只捕捉線性主成分變異，SDF 隱式表示能捕捉更複雜的非線性形狀變化，兩者結合可能是解決 OOD 分布（ENS 術後為分布外解剖）的關鍵正則化手段。</div>
+        <div class="dir-field"><strong>所需資源</strong>需要額外的正常/術後鼻腔 3D 網格資料訓練 SDF 編碼器（NasalSeg 130 例可作起點），現有 N=42 用於下游生成任務微調。</div>
+        <div class="dir-field"><strong>可借鑑文獻</strong>anatomygen_shapemi2025、nasalssm_2510.09713、wasabi_2504.21771（作為驗證框架）。</div>
+        <div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-mid">中-高</span>需要額外實作 SDF 編碼器，且 AnatomyGen 尚無開源程式碼可參考，需自行重現。</div>
+        <div class="dir-field"><strong>時機建議</strong>碩士畢業後或作為論文 Discussion 中「未來工作」段落；現階段可先追蹤 AnatomyGen 是否釋出程式碼。</div>
+      </div>
+
+      <div class="dir-card">
+        <div class="dir-name">方向三：長期追蹤導向的縱向術後形態—症狀聯合預測模型（長期願景）</div>
+        <div class="dir-field"><strong>研究題目</strong>能否用縱向深度學習框架，同時預測「術後多個時間點的鼻腔形態」與「對應的 ENS6Q 症狀軌跡」，並量化預測不確定性？</div>
+        <div class="dir-field"><strong>一句話說明</strong>參考本週 Uncertainty-Aware AD Forecasting 的做法，把單一時間點預測擴展成多時間點機率軌跡，同時輸出形態變化和症狀分數的聯合預測，並標示信賴區間。</div>
+        <div class="dir-field"><strong>為什麼值得做</strong>本週 IMAP-ACC 證實 ENS 手術效果在早期與長期追蹤間相對穩定，但個體差異仍存在；若能建立形態—症狀聯合縱向模型，將是從「單次預測」邁向「長期追蹤輔助決策」的關鍵一步，novelty 高且臨床影響力大。</div>
+        <div class="dir-field"><strong>所需資源</strong>需要多時間點的術後 CT 與對應 ENS6Q 問卷資料（現有 N=42 多為單一術後時間點，需擴充縱向追蹤資料，樣本量需求較高）。</div>
+        <div class="dir-field"><strong>可借鑑文獻</strong>adunc_2606.24604（TFT + MDN 縱向不確定性框架）、imapacc_pmc12973493（長期 ENS6Q 追蹤資料型態）、ens_cluster_lary70460（症狀分群）。</div>
+        <div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-high">高</span>需要跨機構合作取得縱向追蹤資料，且模型設計複雜度顯著提升。</div>
+        <div class="dir-field"><strong>時機建議</strong>博士班研究方向；現階段的單時間點 proof-of-concept 是這個長期方向的技術基礎。</div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <!-- ====== BLOCK E: 下週行動清單 ====== -->
+  <div class="sec-card accent-e open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge be">✅</div>
+      <div>
+        <div class="sec-title">E — 下週行動清單</div>
+        <div class="sec-meta">3 件最值得做的事・技術 + 文獻</div>
+      </div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-body">
+          <div class="action-title">【技術】確認 A4 手術遮罩目前進度，銜接排程中斷期間的空窗</div>
+          <div class="action-desc">排程中斷近 3 週，建議先盤點 A4 手術遮罩的實作進度是否有變動，再決定是否可直接啟動實驗一（2.5D 殘差 U-Net baseline）的 training pipeline。若 A4 已完成，本週優先目標是跑通無遮罩 baseline。</div>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-body">
+          <div class="action-title">【技術】clone SD-FSMIS，評估少樣本分割遷移可行性</div>
+          <div class="action-desc">clone <code>LeeX-Bruce/SD-FSMIS</code>，研讀 SQI/VTCT 模組實作；用 1–2 例已標注 ENS 術後 CT 做 forward pass 測試，確認能否讀入 NasalSeg 預訓練權重作為起點。這是實驗二的技術先決條件。</div>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-body">
+          <div class="action-title">【文獻】補強「殘差學習 CT」與「合成影像評估」空白主題</div>
+          <div class="action-desc">累積至今最薄弱的兩個主題。目標搜尋詞：「residual delta learning CT synthesis」、「voxel-wise change field prediction surgical」、「anatomy-aware evaluation metric medical image synthesis 2026」。同時追蹤 AnatomyGen 是否釋出完整論文或程式碼。</div>
+        </div>
+      </div>
+
+    </div></div>
+  </div>
+
+  <div class="sumfooter">
+    <div class="ft">本週總結</div>
+    自動排程在 07/08–07/25 間中斷，今日恢復後新增 5 篇文獻，累積文獻庫達 <strong>65 篇</strong>。本週最重要的發現是 <strong>IMAP-ACC</strong>——目前追蹤期最長的 ENS 手術療效研究，證實植入重建的症狀改善長期穩定，直接支撐研究的臨床動機；<strong>SD-FSMIS</strong> 提供了 C 階段少樣本分割的可行開源路徑；<strong>Uncertainty-Aware AD Forecasting</strong> 則為 D 階段評估設計帶來不確定性量化的新思路。當前研究方向（2.5D 殘差 + 條件式生成 Δ 建模）未被本週文獻動搖，建議維持核心路線；下週最優先工作是確認 A4 進度並啟動 baseline pipeline，同時補強殘差學習 CT 與合成影像評估兩個文獻空白。
+  </div>
+
+</div>
+
+<script>
+const COV_DATA=[
+  {label:'術前→術後預測',count:13},
+  {label:'條件式生成',count:23},
+  {label:'小樣本策略',count:7},
+  {label:'鼻腔/氣道分割',count:7},
+  {label:'殘差學習 CT',count:4},
+  {label:'ENS 臨床',count:7},
+  {label:'合成影像評估',count:5},
+  {label:'CFD 氣流分析',count:5},
+  {label:'ENS 症狀/問卷',count:6},
+];
+const maxC=Math.max(...COV_DATA.map(c=>c.count),1);
+const el=document.getElementById('cov-chart');
+COV_DATA.forEach(c=>{
+  const pct=Math.round(c.count/maxC*100);
+  const row=document.createElement('div');
+  row.className='cov-row';
+  row.innerHTML=`<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${pct}%;opacity:${0.4+0.6*(c.count/maxC)}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count<=4?'<span class="cov-gap">偏薄</span>':''}`;
+  el.appendChild(row);
+});
+document.querySelectorAll('.sec-head').forEach(h=>{
+  h.addEventListener('click',()=>h.closest('.sec-card').classList.toggle('open'));
+});
+</script>
+</body>
+</html>
