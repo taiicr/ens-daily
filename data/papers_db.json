@@ -1,5 +1,5 @@
 {
-  "updated": "20260625",
+  "updated": "20260726",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -1407,6 +1407,428 @@
         "CVPR 2026"
       ],
       "notes": "CVPR 2026 accepted. Lung-specific but HU interval decomposition strategy is directly applicable to ENS CT evaluation design. Key insight for Stage D metric design."
+    },
+    {
+      "id": "toothdiff_2508.14276",
+      "date": "20260706",
+      "title": "Tooth-Diffusion: Guided 3D CBCT Synthesis with Fine-Grained Tooth Conditioning",
+      "pub": "Mundinger et al. · ODIN Workshop @ MICCAI 2025 · arXiv:2508.14276 · 2025-08",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Wavelet-based Diffusion",
+        "FiLM Conditioning",
+        "Masked Loss",
+        "Binary Attribute Conditioning",
+        "3D Inpainting"
+      ],
+      "summary": "以牙齒層級二元屬性（存在/缺失）透過 FiLM 條件化小波域 3D 擴散模型，搭配遮罩損失只在局部區域生成改變、其餘解剖結構保持不變；未見場景 SSIM > 0.91，FID 低，inpainting 表現穩健",
+      "key_insight": "牙齒「存在/缺失」二元屬性與 ENS 植入物「有/無」直接對應；遮罩損失（ROI 內生成、ROI 外強制一致）可直接借用於 B 階段，是目前最接近 ENS 任務結構的開源框架。",
+      "github": "https://github.com/djafar1/tooth-diffusion",
+      "arxiv": "https://arxiv.org/abs/2508.14276",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2508.14276",
+      "relations": [
+        "posegcft_2603.21213",
+        "mrimask_2606.18354",
+        "cyclediff_2509.24267"
+      ],
+      "pick": true
+    },
+    {
+      "id": "adregnet_2602.07088",
+      "date": "20260706",
+      "title": "Attention-Driven Framework for Non-Rigid Medical Image Registration",
+      "pub": "arXiv:2602.07088 · 2026-02",
+      "stars": 4,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "3D U-Net",
+        "Bidirectional Cross-Attention",
+        "Regional Adaptive Attention",
+        "Multi-Resolution Deformation Field"
+      ],
+      "summary": "3D U-Net 骨幹 + 雙向交叉注意力建立多尺度對應，區域自適應注意力聚焦解剖相關結構，搭配多解析度形變場合成；在 DIR-Lab 胸部 CT 與 IXI 腦部 MRI 上均展現強健配準精度",
+      "key_insight": "區域自適應注意力機制可用於改進 A4 手術遮罩的形變場估計，讓模型自動聚焦植入物周邊區域而非對整個體積平均施力。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2602.07088",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2602.07088",
+      "relations": [
+        "rdcreg_2510.22380",
+        "idir_2506.02150",
+        "polypose_2505.19256"
+      ],
+      "pick": false
+    },
+    {
+      "id": "fedsct_2506.08654",
+      "date": "20260706",
+      "title": "A Privacy-Preserving Federated Learning Framework for Generalizable CBCT to Synthetic CT Translation in Head and Neck",
+      "pub": "Raggio et al. · Frontiers in Digital Health · 2026 · DOI 10.3389/fdgth.2026.1812254 · arXiv:2506.08654",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Federated Learning",
+        "Conditional GAN",
+        "FedAvg",
+        "FedProx",
+        "SynthRAD2025 Dataset",
+        "Cross-Silo Training"
+      ],
+      "summary": "延伸 FedSynthCT 框架至頭頸部 CBCT→合成CT任務；三個歐洲醫學中心以 FedAvg/FedProx 混合聚合策略聯合訓練條件式GAN，資料不出院；外部驗證60名病人 MAE 75.22±11.81 HU、SSIM 0.90±0.03、PSNR 33.52±2.06 dB，跨機構泛化穩健",
+      "key_insight": "若未來需跨院擴大 ENS 樣本數，聯邦學習可在不共享病患CT原始資料前提下聯合訓練生成模型，呼應研究「不碰病患影像」的安全界線。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2506.08654",
+      "pmc": null,
+      "doi": "10.3389/fdgth.2026.1812254",
+      "relations": [
+        "synthrad2025_2605.13555",
+        "seg2med_2504.09182"
+      ],
+      "pick": false
+    },
+    {
+      "id": "i2ibias_fradi1875867",
+      "date": "20260706",
+      "title": "Potential of Image2Image translation in reducing AI bias attributed to differences in CT reconstruction methods: proof-of-concept study on a paired dataset",
+      "pub": "Frontiers in Radiology · 2026 · DOI 10.3389/fradi.2026.1875867",
+      "stars": 5,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CycleGAN",
+        "Denoising Diffusion Model",
+        "Gaussian Filter Baseline",
+        "SSIM/PSNR/FID/SWD",
+        "Downstream Segmentation RVE"
+      ],
+      "summary": "比較 CycleGAN、DDPM、高斯濾波三種CT重建協調策略；擴散模型與CycleGAN在特徵層級指標表現佳，但下游多器官分割（尤其脂肪組織）體積誤差高達100%；高斯濾波反而最穩健、跨模式一致性最高",
+      "key_insight": "警示 D 階段評估不能只看 SSIM/PSNR/FID，必須加入下游解剖ROI（下鼻甲、鼻道）分割體積誤差作為臨床效度驗證，否則生成模型的表面相似度可能掩蓋解剖錯誤。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.3389/fradi.2026.1875867",
+      "relations": [
+        "metrics_matter_2505.07175",
+        "synthrad2025_2605.13555"
+      ],
+      "pick": false
+    },
+    {
+      "id": "rdcreg_2510.22380",
+      "date": "20260706",
+      "title": "Efficient Large-Deformation Medical Image Registration via Recurrent Dynamic Correlation",
+      "pub": "Li, Staring, Qiao · IEEE TMI 2025 · arXiv:2510.22380",
+      "stars": 4,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "Recurrent Correlation",
+        "Dynamic Region Relocation",
+        "Voxel-to-Region Matching",
+        "Lightweight Recurrent Update"
+      ],
+      "summary": "遞迴相關框架動態重定位匹配區域，解決 voxel-to-region 匹配的局部性限制以捕捉大形變；在非仿射 OASIS 資料集上以 9.5% FLOPs、快 96% 達到與 SOTA（RDP）相當精度",
+      "key_insight": "ENS 術前術後CT間形變量可能相當大（假體填充造成局部顯著改變），動態搜索窗口機制對大形變場景效率高，值得評估能否改進現有 A1/A4 配準效率瓶頸。",
+      "github": "https://github.com/YQiaoGroup/Registration-ReCorr",
+      "arxiv": "https://arxiv.org/abs/2510.22380",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2510.22380",
+      "relations": [
+        "adregnet_2602.07088",
+        "idir_2506.02150"
+      ],
+      "pick": false
+    },
+    {
+      "id": "agldm_2601.14584",
+      "date": "20260707",
+      "title": "AG-LDM: Anatomically Guided Latent Diffusion for Brain MRI Progression Modeling",
+      "pub": "Wan, Jafrasteh, Adeli, Zhang, Zhao · arXiv:2601.14584 · 2026-01",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Latent Diffusion",
+        "Input-level Conditioning Fusion",
+        "WarpSeg Lightweight Segmentation",
+        "Anatomical Supervision",
+        "Clinical Covariate Conditioning"
+      ],
+      "summary": "把 baseline 解剖影像、noisy follow-up 潛在狀態、臨床協變數直接在輸入端融合進 latent diffusion，免去額外 control network；用輕量 3D 分割模型 WarpSeg 在訓練時提供解剖監督；ADNI 31,713 筆縱向配對訓練，體積誤差降低 15-20%，對臨床協變數敏感度為 BrLP 的 31.5 倍",
+      "key_insight": "輸入端直接融合條件（術前影像＋手術遮罩）取代額外 control 分支，可簡化你的條件式殘差架構；分割監督換取解剖合理性的策略可用於 A4 變化遮罩生成。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2601.14584",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2601.14584",
+      "relations": [
+        "gbmldm_2510.17851",
+        "longbrain_2511.02558",
+        "gliodiff3d_2606.05113"
+      ],
+      "pick": true
+    },
+    {
+      "id": "wasabi_2504.21771",
+      "date": "20260707",
+      "title": "WASABI: A Metric for Evaluating Morphometric Plausibility of Synthetic Brain MRIs",
+      "pub": "MICCAI 2025 · arXiv:2504.21771 · 2025-04",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "SynthSeg Volumetric Extraction",
+        "Multivariate Wasserstein Distance",
+        "Anatomical Fidelity Metric"
+      ],
+      "summary": "用 SynthSeg 算出 52 個腦區體積量測，以多變量 Wasserstein 距離比較真實與合成資料分布；在 ADNI 分組驗證與 5 個 SOTA 生成模型比較中，只有 WASABI 正確反映解剖差異梯度，FID/MS-SSIM/MMD 均被影像外觀誤導",
+      "key_insight": "把 SynthSeg 換成鼻腔/鼻竇分割模型，即可套用同一套「ROI 體積分布 Wasserstein 距離」框架來評估你 D 階段預測影像的解剖合理性，比單純 SSIM/PSNR 更能偵測解剖錯誤。",
+      "github": "https://github.com/BahramJafrasteh/wasabi-mri",
+      "arxiv": "https://arxiv.org/abs/2504.21771",
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13102318/",
+      "doi": "10.48550/arXiv.2504.21771",
+      "relations": [
+        "metrics_matter_2505.07175"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ttoreg_2512.14556",
+      "date": "20260707",
+      "title": "Test Time Optimized Generalized AI-based Medical Image Registration Method",
+      "pub": "Sree, Shanbhag, Chatterjee · GE HealthCare · arXiv:2512.14556 · 2025-12",
+      "stars": 3,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "3D U-Net Displacement Field",
+        "Knowledge Distillation",
+        "Test-Time Optimization",
+        "Divergence Regularization"
+      ],
+      "summary": "3D U-Net 預測 displacement field，合成多模態資料預訓練後用知識蒸餾壓縮至 0.23M 參數，推論時做 test-time optimization 並加入 divergence 正則化避免不合理體積變化；pre/post-contrast CT 配準 Dice 從 0.81-0.96 提升至 0.95-0.99，效能與 ANTs 相當、速度快近一倍",
+      "key_insight": "TTO＋divergence 正則化的「單病人推論時微調＋抑制不合理形變」思路，可作為評估或改良你 A1 配準品質的參考，尤其你的手術造成局部大形變。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2512.14556",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2512.14556",
+      "relations": [
+        "adregnet_2602.07088",
+        "rdcreg_2510.22380",
+        "idir_2506.02150"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens6qit_acta2029",
+      "date": "20260707",
+      "title": "Italian validation of the ENS6Q: a disease-specific questionnaire for empty nose syndrome",
+      "pub": "Alicandri-Ciufelli et al. · ACTA Otorhinolaryngologica Italica 46(3):246-248 · 2026-06 · DOI 10.14639/0392-100X-A2029",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Cross-Cultural Adaptation",
+        "Exploratory Factor Analysis",
+        "ROC Analysis"
+      ],
+      "summary": "ENS6Q 跨文化翻譯為義大利文並驗證心理計量特性；125 名受試者（50 CRSwNP、25 ENS、50 對照），單因素解釋 61.4% 變異，Cronbach's α=0.873，與 SNOT-22 相關 ρ=0.724，區分 ENS 的 ROC AUC=0.974，切點 10.5（敏感度 0.87、特異度 0.97）",
+      "key_insight": "提供 ENS6Q 切點 10.5、AUC 0.974 的臨床基準數字，可作為未來串接解剖形態預測與症狀改善效標效度分析的候選指標。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.14639/0392-100X-A2029",
+      "relations": [
+        "ens_fr_pmc12841989"
+      ],
+      "pick": false
+    },
+    {
+      "id": "cfdimplant_jtice2024",
+      "date": "20260707",
+      "title": "Characterization of Nasal Aerodynamics and Air-Conditioning Ability Using CFD — Part II: Virtual Surgery for ENS Submucosal Floor Implant",
+      "pub": "Journal of the Taiwan Institute of Chemical Engineers · 2024-06",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Computational Fluid Dynamics",
+        "Virtual Surgery Simulation",
+        "Wall Shear Stress Analysis",
+        "Air-Conditioning Efficiency Modeling"
+      ],
+      "summary": "五種虛擬鼻甲下黏膜植入手術方案（外側/下方/聯合植入，不同大小）在同一 ENS-IT 患者鼻腔幾何上做 CFD 模擬；系統性分析氣流速度分布、壁面剪切力、加溫加濕效率與黏膜-氣流熱通量，提出最適植入部位與大小建議",
+      "key_insight": "示範「用手術規劃虛擬模擬預測術後功能結果」的方法論，可作為 D 階段驗證你預測出的術後解剖是否落在正常氣流/剪切力範圍的功能性驗證參考。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "ens_cfd_lary31757",
+        "ens_cfd_ear2025",
+        "ens_cfd_biorxiv2504"
+      ],
+      "pick": false
+    },
+    {
+      "id": "imapacc_pmc12973493",
+      "date": "20260726",
+      "title": "Treatment Outcomes of the Inferior Meatus Augmentation Procedure With Autologous Costal Cartilage for Empty Nose Syndrome",
+      "pub": "Gwak, Jang · Clin Exp Otorhinolaryngol 19(1):79-85 · 2026-02",
+      "stars": 5,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Retrospective Cohort",
+        "Autologous Costal Cartilage Graft",
+        "ENS6Q",
+        "Long-term Follow-up"
+      ],
+      "summary": "32 位 IMAP-ACC 患者回溯性分析，20 位納入長期追蹤（平均 61.2 個月）；ENS6Q 從術前 17.5 顯著改善至末次追蹤 9.1（P<0.001），早期與長期追蹤分數相近顯示效果持久；34.4% 出現鼻塞併發症，12.5% 需再手術",
+      "key_insight": "提供 ENS6Q 術前→長期追蹤的量化改善基準與長達 5 年的效果穩定性證據，可作為研究中「術後形態預測品質」與「症狀改善」建立關聯時的臨床參照，也提醒 D 階段驗證需留意過度填補導致的併發症風險。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12973493/",
+      "pmid": "40562376",
+      "doi": "10.21053/ceo.2025-00107",
+      "relations": [
+        "ens_cluster_lary70460",
+        "ens_meta_pmc12321921",
+        "ens6qit_acta2029"
+      ],
+      "pick": true
+    },
+    {
+      "id": "sdfsmis_2604.03134",
+      "date": "20260726",
+      "title": "SD-FSMIS: Adapting Stable Diffusion for Few-Shot Medical Image Segmentation",
+      "pub": "Li, Zhang, He, Qu, Li · Shenzhen University · CVPR 2026 · arXiv:2604.03134",
+      "stars": 4,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "Stable Diffusion Adaptation",
+        "Support-Query Interaction",
+        "Visual-to-Textual Condition Translator",
+        "Few-Shot Segmentation"
+      ],
+      "summary": "SQI 模組 + VTCT 模組把預訓練 Stable Diffusion 的先驗知識遷移到少樣本醫學影像分割；VTCT 把支持集視覺線索轉譯為隱式文字嵌入引導擴散模型分割，優於既有 few-shot 與 SAM-based baseline",
+      "key_insight": "少量已標注 ENS 術後 CT 可作為 support set，引導預訓練分割模型適應下鼻甲重建後的異質材質邊界，緩解 N=42 標注不足問題，是 C 階段可直接評估的開源少樣本分割方案。",
+      "github": "https://github.com/LeeX-Bruce/SD-FSMIS",
+      "arxiv": "https://arxiv.org/abs/2604.03134",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2604.03134",
+      "relations": [
+        "mass_2603.13660",
+        "sslsam2_2512.11548",
+        "sslknow_2503.06816"
+      ],
+      "pick": false
+    },
+    {
+      "id": "adunc_2606.24604",
+      "date": "20260726",
+      "title": "Uncertainty-Aware Longitudinal Forecasting of Alzheimer's Disease Progression Using Deep Learning",
+      "pub": "Hariharan, Gowda, Anala · arXiv:2606.24604 · 2026-06",
+      "stars": 3,
+      "stages": [
+        "a4",
+        "d"
+      ],
+      "methods": [
+        "Temporal Fusion Transformer",
+        "CORAL Ordinal Output",
+        "Autoregressive Mixture Density Network",
+        "Uncertainty Decomposition"
+      ],
+      "summary": "TFT 編碼器 + CORAL 序位輸出層 + 自迴歸 MDN 生成五年機率軌跡，同時預測診斷狀態、CDR-SB、MMSE、海馬迴體積；ADNI 驗證下次診斷預測優於線性/RNN/Transformer baseline，90% 可信區間覆蓋率接近名目值",
+      "key_insight": "「單點預測＋分解式不確定性」框架可啟發 D 階段評估設計：對術後形態預測結果額外估計形變場的信賴區間，標示模型對哪些解剖區域預測較不確定，而非只輸出單一預測 CT。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2606.24604",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2606.24604",
+      "relations": [
+        "longbrain_2511.02558",
+        "gliodiff3d_2606.05113",
+        "agldm_2601.14584"
+      ],
+      "pick": false
+    },
+    {
+      "id": "regadapt_2603.26393",
+      "date": "20260726",
+      "title": "Adapting Frozen Mono-modal Backbones for Multi-Modal Registration via Contrast-Agnostic Instance Optimization",
+      "pub": "Zhang, Zhao, Tao · TU Delft · arXiv:2603.26393",
+      "stars": 3,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "Frozen Backbone Adaptation",
+        "Contrast-Agnostic Style Transfer",
+        "Test-Time Instance Optimization",
+        "Multi-Modal Registration"
+      ],
+      "summary": "凍結預訓練單模態配準骨幹 + 對比不變風格轉換 + 推論時實例優化，無需全模型微調即可跨模態配準；Learn2Reg 2025 LUMIR validation set 多模態子集排名第二",
+      "key_insight": "測試時實例優化（每個新病人的 CT 對做輕量微調）可用於改善少樣本情境下的配準泛化，適合 N=42 的個體化配準精修，列為未來擴充影像模態時的備選方法。",
+      "github": null,
+      "arxiv": "https://arxiv.org/pdf/2603.26393",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2603.26393",
+      "relations": [
+        "adregnet_2602.07088",
+        "rdcreg_2510.22380",
+        "idir_2506.02150",
+        "ttoreg_2512.14556"
+      ],
+      "pick": false
+    },
+    {
+      "id": "anatomygen_shapemi2025",
+      "date": "20260726",
+      "title": "AnatomyGen: Generating Anatomically Plausible Human Phantoms at High Resolution",
+      "pub": "Podobnik, Balodi, Killeen, Vrtovec, Unberath · ShapeMI 2025 (MICCAI Workshop)",
+      "stars": 3,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Signed Distance Function",
+        "Pose Encoder",
+        "Latent Space Sampling",
+        "Anatomical Phantom Generation"
+      ],
+      "summary": "以 SDF 隱式編碼器官表面 + pose encoder 學習空間分布，訓練後在潛在空間取樣生成解剖合理、具真實變異性的高解析度人體幻影，不受體素解析度限制",
+      "key_insight": "SDF 隱式形狀編碼與潛在空間取樣策略，與現有鼻竇 SSM（nasalssm_2510.09713）互補，可作為 D 階段驗證生成形態是否落在合理解剖分布的另一種途徑，或 B 階段生成模型潛在空間正則化的參考設計。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1007/978-3-032-06774-6_10",
+      "relations": [
+        "nasalssm_2510.09713",
+        "metrics_matter_2505.07175",
+        "wasabi_2504.21771"
+      ],
+      "pick": false
     }
   ]
 }
