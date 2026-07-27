@@ -1,5 +1,5 @@
 {
-  "updated": "20260726",
+  "updated": "20260727",
   "repos": [
     {
       "date": "20260611",
@@ -73,6 +73,32 @@
       "relevance": "今日 #2 論文的官方實作。可用少數已標注 ENS 術後 CT 作為 support set，讓模型學會辨認下鼻甲重建後的異質材質邊界，緩解 C 階段標注資料稀少的問題。",
       "related_papers": [
         "sdfsmis_2604.03134"
+      ]
+    },
+    {
+      "id": "dino-augseg",
+      "date": "20260727",
+      "name": "DINO-AugSeg",
+      "repo": "apple1986/DINO-AugSeg",
+      "url": "https://github.com/apple1986/DINO-AugSeg",
+      "description": "凍結 DINOv3 特徵 + 小波域增廣（WT-Aug）+ 跨注意力融合（CG-Fuse），專為少樣本醫學影像分割設計，六個公開資料集五種模態驗證下全面優於既有方法。",
+      "install": "git clone https://github.com/apple1986/DINO-AugSeg",
+      "relevance": "今日必讀 #1 論文的官方實作。可用少量已標注 ENS 術後 CT 微調，取得可用的分割結果，緩解 C 階段標注量嚴重不足的問題。",
+      "related_papers": [
+        "dinoaugseg_2601.08078"
+      ]
+    },
+    {
+      "id": "kaiko-eva",
+      "date": "20260727",
+      "name": "eva (kaiko-ai)",
+      "repo": "kaiko-ai/eva",
+      "url": "https://github.com/kaiko-ai/eva",
+      "description": "腫瘤／放射科基礎模型評測框架，支援 patch-level、slide-level、掃描層級分類，2D/3D 語意分割與 VQA 任務；同時是 CoralBay 3D CT 自監督基礎模型的官方發布與評測管道。",
+      "install": "pip install kaiko-eva",
+      "relevance": "可用 eva 框架載入 CoralBay 預訓練權重當作 ENS 分割/生成模型的 encoder，並用內建標準化評測流程比較「用 CoralBay 初始化」vs「從頭訓練」在 N=42 小樣本下的表現差異。",
+      "related_papers": [
+        "coralbay_2606.03888"
       ]
     }
   ]
