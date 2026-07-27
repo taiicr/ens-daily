@@ -1,5 +1,5 @@
 {
-  "updated": "20260726",
+  "updated": "20260727",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -1827,6 +1827,94 @@
         "nasalssm_2510.09713",
         "metrics_matter_2505.07175",
         "wasabi_2504.21771"
+      ],
+      "pick": false
+    },
+    {
+      "id": "dinoaugseg_2601.08078",
+      "date": "20260727",
+      "title": "DINO-AugSeg: Exploiting DINOv3-Based Self-Supervised Features for Robust Few-Shot Medical Image Segmentation",
+      "pub": "Xu, Udupa, Lu, Zhang · arXiv:2601.08078 · 2026-01",
+      "stars": 4,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "DINOv3 Frozen Features",
+        "Wavelet Feature Augmentation (WT-Aug)",
+        "Cross-Attention Fusion (CG-Fuse)",
+        "Few-Shot Segmentation"
+      ],
+      "summary": "凍結 DINOv3 dense feature，接上 WT-Aug（小波域特徵擾動增廣）與 CG-Fuse（跨注意力融合高低解析度特徵）兩個輕量模組；六個公開資料集、五種模態（MRI/CT/超音波/內視鏡/皮膚鏡）少樣本情境下全面優於既有方法，程式碼已開源",
+      "key_insight": "不需重新訓練整個分割網路，只用少量已標注術後 CT 微調兩個輕量模組即可，直接對應 C 階段「術後解剖分布外、標注稀少」的核心困難，是 N=42 情境下最省資料的分割策略之一。",
+      "github": "https://github.com/apple1986/DINO-AugSeg",
+      "arxiv": "https://arxiv.org/abs/2601.08078",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2601.08078",
+      "relations": [
+        "sslsam2_2512.11548",
+        "sslknow_2503.06816",
+        "mass_2603.13660",
+        "sdfsmis_2604.03134"
+      ],
+      "pick": true
+    },
+    {
+      "id": "coralbay_2606.03888",
+      "date": "20260727",
+      "title": "CoralBay: A Self-Supervised CT Foundation Model",
+      "pub": "kaiko.ai · arXiv:2606.03888 · 2026-06",
+      "stars": 4,
+      "stages": [
+        "b",
+        "c"
+      ],
+      "methods": [
+        "Self-Distillation (DINO-style)",
+        "Hierarchical 3D Swin Backbone",
+        "Multi-scale Feature Concatenation",
+        "3D Radiology Benchmark (eva)"
+      ],
+      "summary": "延伸 DINO 自蒸餾框架至 3D CT，以層次化 3D Swin backbone 對多尺度串接特徵做自蒸餾，僅用 11K 筆無標注 CT volume 預訓練即在多種下游放射科任務表現優異；MIT 授權開源，並釋出標準化 3D 放射科評測基準 eva 框架",
+      "key_insight": "提供現成、MIT 授權的 3D CT 自監督基礎模型權重，可直接當作 ENS 分割/生成模型的 encoder 初始化，用 N=42 CT 微調就能獲得比從頭訓練更好的起點，緩解小樣本問題。",
+      "github": "https://github.com/kaiko-ai/eva",
+      "arxiv": "https://arxiv.org/abs/2606.03888",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2606.03888",
+      "relations": [
+        "mass_2603.13660",
+        "nasalseg_s41597",
+        "airwaynnunet_jdent2026"
+      ],
+      "pick": false
+    },
+    {
+      "id": "morphoflow_2604.11636",
+      "date": "20260727",
+      "title": "MorphoFlow: Sparse-Supervised Generative Shape Modeling with Adaptive Latent Relevance",
+      "pub": "Karanam, Kataria, Elhabian · University of Utah SCI Institute · arXiv:2604.11636 · 2026-04",
+      "stars": 3,
+      "stages": [
+        "a4",
+        "d"
+      ],
+      "methods": [
+        "Neural Implicit Shape Representation",
+        "Autodecoder",
+        "Autoregressive Normalizing Flow",
+        "Sparsity-Inducing Latent Relevance",
+        "Uncertainty Quantification"
+      ],
+      "summary": "神經隱式形狀表徵 + autodecoder + 自迴歸正規化流學習形狀潛在空間機率密度；稀疏性先驗自動調節潛在維度相關性，從稀疏表面標註即可重建高解析度形狀並量化不確定性；於腰椎與股骨資料集驗證",
+      "key_insight": "隱式形狀機率密度 + 不確定性量化的設計，可補足現有鼻腔 SSM（nasalssm_2510.09713）只給平均形狀與 PC 變異的限制，未來可用於 D 階段：生成的術後解剖在潛在空間的密度高低，直接反映形態合理性與預測信心。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2604.11636",
+      "pmc": null,
+      "doi": "10.48550/arXiv.2604.11636",
+      "relations": [
+        "nasalssm_2510.09713",
+        "adunc_2606.24604",
+        "anatomygen_shapemi2025"
       ],
       "pick": false
     }
