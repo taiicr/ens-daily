@@ -1,5 +1,5 @@
 {
-  "updated": "20260727",
+  "updated": "20260730",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -1915,6 +1915,87 @@
         "nasalssm_2510.09713",
         "adunc_2606.24604",
         "anatomygen_shapemi2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ssm_2603.13969",
+      "date": "20260730",
+      "title": "Leveraging a Statistical Shape Model for Efficient Generation of Annotated Training Data: A Case Study on Liver Landmarks Segmentation",
+      "pub": "Krnjaca, Krames, Nahm · Karlsruhe Institute of Technology · arXiv 2603.13969, 2026",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "c"
+      ],
+      "methods": [
+        "Statistical Shape Model (SSM)",
+        "Point Cloud Segmentation",
+        "SPRIN (Rotation-Invariant Network)",
+        "One-time Manual Annotation + Label Transfer"
+      ],
+      "summary": "只手動標一次 SSM 平均形狀，透過主成分變形公式把標註同步搬到 11,500 個合成肝臟形狀上，訓練旋轉不變點雲分割網路 SPRIN，合成測試集 mIoU 91.4%，套用到真實臨床肝臟形狀定性評估仍良好",
+      "key_insight": "只需手動標一次平均形狀，就能靠 SSM 變形自動生成上萬筆已標註合成資料，直接對應你 N=42 資料標註稀少的瓶頸，可用於 A4 變化遮罩或 C 分割的訓練資料擴增。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2603.13969",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "nasalssm_2510.09713"
+      ],
+      "pick": true
+    },
+    {
+      "id": "progidiff_2601.16060",
+      "date": "20260730",
+      "title": "ProGiDiff: Prompt-Guided Diffusion-Based Medical Image Segmentation",
+      "pub": "Lin, Xu, Hölle, Prabhakar, Maier, Belagiannis, Menze, Shit · arXiv 2601.16060, 2026",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "ControlNet-style Conditioning",
+        "Pretrained Text-to-Image Diffusion Model",
+        "Prompt-Guided Segmentation",
+        "LoRA Few-shot Cross-modality Adaptation"
+      ],
+      "summary": "仿 ControlNet 條件機制引導預訓練擴散模型輸出分割遮罩，支援自然語言提示多器官分割，CT 器官分割實驗表現具競爭力，並示範 LoRA 少樣本遷移到 MR 影像",
+      "key_insight": "借用既有預訓練擴散模型 + LoRA 少樣本遷移做分割，不需從零訓練，適合鼻腔分割標註量極少的情境，可先用 NasalSeg 預訓練再用少量 ENS 資料微調。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2601.16060",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "nasalseg_s41597",
+        "sdfsmis_2604.03134"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ctpet_medrxiv2026",
+      "date": "20260730",
+      "title": "Resource-Aware Conditional Diffusion for CT-to-PET Translation Supporting Rural Oncology Imaging",
+      "pub": "medRxiv 10.64898/2026.03.09.26347907, 2026",
+      "stars": 3,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Two-stage Residual Conditional Diffusion",
+        "SUV-aware Multi-objective Optimization",
+        "Reduced-step Deterministic Sampling",
+        "Few-shot Cross-dataset Adaptation"
+      ],
+      "summary": "兩階段殘差條件式擴散模型做 CT 到 PET 轉換，搭配 SUV-aware 多目標優化保留代謝生物標記，降低擴散步數與少樣本跨資料集適應以支援資源受限場景，同源訓練下 SUVmax 誤差低至 0.61",
+      "key_insight": "殘差穩定化＋少樣本跨資料集校準＋降低擴散步數的資源受限訓練組合，可作為 B 階段小樣本殘差擴散模型的訓練策略參考，SUV-aware 約束項的設計思路也可改寫成保留解剖 ROI 量測值的 loss。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.64898/2026.03.09.26347907",
+      "relations": [
+        "phasor_2604.01053",
+        "gdrift_2604.19736"
       ],
       "pick": false
     }
