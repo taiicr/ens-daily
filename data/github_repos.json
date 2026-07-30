@@ -1,5 +1,5 @@
 {
-  "updated": "20260727",
+  "updated": "20260730",
   "repos": [
     {
       "date": "20260611",
@@ -99,6 +99,20 @@
       "relevance": "可用 eva 框架載入 CoralBay 預訓練權重當作 ENS 分割/生成模型的 encoder，並用內建標準化評測流程比較「用 CoralBay 初始化」vs「從頭訓練」在 N=42 小樣本下的表現差異。",
       "related_papers": [
         "coralbay_2606.03888"
+      ]
+    },
+    {
+      "id": "nasalseg",
+      "date": "20260730",
+      "name": "NasalSeg (YichiZhang98)",
+      "repo": "YichiZhang98/NasalSeg",
+      "url": "https://github.com/YichiZhang98/NasalSeg",
+      "description": "Scientific Data 2024 官方資料集與程式碼。130 例 CT，含左右鼻腔、鼻咽、左右上頜竇共 5 個解剖結構標註，附 nnUNet 五折基準（DSC>0.87），完全開放授權。",
+      "install": "git clone https://github.com/YichiZhang98/NasalSeg",
+      "relevance": "今日 #2 ProGiDiff 論文提出借用預訓練擴散模型 + LoRA 少樣本遷移做分割，NasalSeg 正好可作為鼻腔解剖的預訓練資料來源，先在 130 例上預訓練條件式分割機制，再用 42 例 ENS 術後資料少樣本微調。",
+      "related_papers": [
+        "progidiff_2601.16060",
+        "nasalseg_s41597"
       ]
     }
   ]
