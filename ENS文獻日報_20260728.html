@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENS 文獻日報 20260728</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#faf8f5;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;color:#2c1a0e}
+.masthead{background:#1c0f07;color:#f5f0e8;padding:24px 20px 20px}
+.mast-eyebrow{font-family:'Noto Sans TC',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:8px}
+.mast-title{font-family:'EB Garamond',Georgia,serif;font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.15;color:#f5f0e8}
+.mast-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.18);padding:3px 11px;border-radius:20px;font-size:11.5px;font-family:'Noto Sans TC',sans-serif;color:#c8b49a}
+.mdot{width:6px;height:6px;border-radius:50%;background:#c2852a;flex-shrink:0}
+.page{max-width:720px;margin:20px auto 52px;padding:0 16px}
+.pick-card{background:#fff8f0;border:2px solid #e8c090;border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.pick-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.pick-icon{width:28px;height:28px;background:#c2852a;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.pick-lbl{font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#a06020}
+.pick-title{font-family:'EB Garamond',Georgia,serif;font-size:17px;font-weight:700;color:#2c1a0e;margin-bottom:6px;line-height:1.3}
+.pick-reason{font-size:13px;color:#6b4020;line-height:1.85}
+.pick-toggle{margin-top:12px;background:none;border:1.5px solid #c2852a;border-radius:8px;color:#a06020;font-size:12.5px;font-family:'Noto Sans TC',sans-serif;padding:6px 14px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s;font-weight:500}
+.pick-toggle:hover{background:#c2852a;color:#fff}
+.pick-toggle .chev-t{transition:transform .25s;display:inline-block}
+.pick-full{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.pick-full.open{max-height:3000px}
+.pick-full-inner{border-top:1.5px dashed #e8c090;margin-top:14px;padding-top:14px}
+.pf-block{margin-bottom:16px}
+.pf-body{font-size:13px;color:#4a3020;line-height:1.9}
+.pf-body strong{color:#1c0f07}
+.pf-tag{display:inline-block;background:#fff8f0;border:1px solid #e8c090;border-radius:6px;padding:2px 9px;font-size:11px;font-weight:700;color:#a06020;margin-bottom:8px}
+.pf-step{background:#fdf9f5;border-left:3px solid #c2852a;border-radius:6px;padding:10px 13px;margin-bottom:8px}
+.pf-step:last-child{margin-bottom:0}
+.pf-step-title{font-weight:700;color:#7a4010;margin-bottom:4px;font-size:13px}
+.pf-step p{font-size:12.5px;color:#4a3020;line-height:1.85}
+.cov-card{background:#fff;border:1px solid #e8e4df;border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.cov-head{font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#a08060;margin-bottom:12px}
+.cov-row{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.cov-lbl{font-size:12px;flex:0 0 120px;color:#4a3020;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cov-bar-w{flex:1;background:#f0ebe4;border-radius:4px;height:6px;overflow:hidden}
+.cov-bar{height:100%;border-radius:4px}
+.cov-cnt{font-size:11px;color:#a08060;flex:0 0 18px;text-align:right}
+.cov-gap-tag{font-size:10px;font-weight:600;background:#fdf0e8;color:#b45309;border:1px solid #f0d0a8;border-radius:5px;padding:1px 7px;flex-shrink:0}
+.filter-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.filter-lbl{font-size:11px;color:#a08060;font-weight:700;letter-spacing:.5px;flex-shrink:0}
+.filter-btn{border:1px solid #e8e4df;background:#fff;color:#7a5840;border-radius:20px;padding:4px 13px;font-size:11.5px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .15s;white-space:nowrap}
+.filter-btn:hover{border-color:#c2852a;color:#7a4010}
+.filter-btn.active{background:#c2852a;color:#fff;border-color:#c2852a}
+.paper-card{background:#fff;border:1px solid #e8e4df;border-radius:12px;margin-bottom:9px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.paper-card:hover{box-shadow:0 2px 14px rgba(44,26,14,.07);border-color:#d4cdc5}
+.paper-card.open{border-color:#c2a07a;box-shadow:0 3px 18px rgba(120,70,20,.1)}
+.paper-card.read{opacity:.55}
+.paper-card.read .cnum{background:#d4cdc5!important;color:#a08060!important}
+.card-head{padding:14px 16px;cursor:pointer;display:flex;align-items:flex-start;gap:12px;-webkit-tap-highlight-color:transparent;user-select:none}
+.card-left{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
+.read-row{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.read-check{width:16px;height:16px;cursor:pointer;accent-color:#c2852a;flex-shrink:0;margin-top:2px}
+.read-label{font-size:10px;color:#a08060}
+.cnum{width:26px;height:26px;background:#f0ebe4;color:#4a3020;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;font-family:'EB Garamond',serif}
+.paper-card.open .cnum{background:#c2852a;color:#fff}
+.cstars{font-size:9px;color:#c2852a;letter-spacing:1px}
+.card-body{flex:1;min-width:0}
+.ptitle{font-family:'EB Garamond',Georgia,serif;font-size:15.5px;font-weight:700;line-height:1.3;color:#2c1a0e;word-break:break-word}
+.ppub{font-size:11.5px;color:#a08060;margin-top:2px}
+.srow{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.stag{height:20px;padding:0 9px;border-radius:10px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
+.sa4{background:#f3eeff;color:#6030a0}.sb{background:#edf0f8;color:#3050a0}.sc{background:#edf8f2;color:#1a6040}.sd{background:#edf3ff;color:#2050a0}
+.pdesc{margin-top:5px;font-size:12.5px;color:#7a5840;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.paper-card.open .pdesc{display:none}
+.chev{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#c0a880;font-size:14px;transition:transform .25s;flex-shrink:0;margin-top:1px}
+.paper-card.open .chev{transform:rotate(180deg);color:#c2852a}
+.card-detail{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.paper-card.open .card-detail{max-height:4000px}
+.di{border-top:1px solid #f0ebe4;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:520px){.di{grid-template-columns:1fr}}
+.db{background:#faf8f5;border-radius:8px;padding:10px 12px}
+.db.full{grid-column:1/-1}
+.db.borrow{background:#f2faf4;border:1px solid #b8dfc4}
+.db.action{background:#fff8f0;border:1px solid #e8c090}
+.db.links{background:#f5f3ff;border:1px solid #cfc8f0}
+.db.arch{background:#f3f6ff;border:1px solid #bfcff0}
+.db.train{background:#faf3ff;border:1px solid #d8c8f0}
+.db.result{background:#f2faf4;border:1px solid #b0d8c0}
+.db.limit{background:#fff7f0;border:1px solid #e8c8a8}
+.db.notes{background:#fdf9f5;border:1px solid #e0d8d0;grid-column:1/-1}
+.dl{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#a08060;margin-bottom:5px}
+.db.borrow .dl{color:#1a6040}.db.action .dl{color:#a06020}.db.links .dl{color:#5040a0}
+.db.arch .dl{color:#2050a0}.db.train .dl{color:#6030a0}.db.result .dl{color:#1a6040}.db.limit .dl{color:#a04020}.db.notes .dl{color:#7a5840}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+@media(max-width:520px){.notes-grid{grid-template-columns:1fr}}
+.nitem{background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #ede8e2}
+.nitem-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.nl-key{color:#2050a0}.nl-feel{color:#6030a0}.nl-link{color:#1a6040}.nl-method{color:#a06020}
+.nitem p{font-size:12.5px;color:#4a3020;line-height:1.8}
+.dt{font-size:13px;color:#2c1a0e;line-height:1.85}
+.dt strong{font-weight:700;color:#1c0f07}
+.dt code{font-size:11.5px;background:#f0ebe4;padding:1px 6px;border-radius:4px;font-family:'SF Mono','Cascadia Code',monospace;color:#4a3020}
+.dt a{color:#8050c0;text-decoration:none;font-weight:500;border-bottom:1px solid #d0c0e8}
+.section-block{background:#fff;border:1px solid #e8e4df;border-radius:12px;margin-bottom:10px;overflow:hidden}
+.section-block.github{border-color:#90d0b0}
+.section-block.assessment{border-color:#dcc080}
+.sec-head{padding:13px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;-webkit-tap-highlight-color:transparent;user-select:none}
+.sec-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.github .sec-icon{background:#edf7f2}
+.assessment .sec-icon{background:#fdf6e0}
+.sec-title{font-family:'EB Garamond',Georgia,serif;font-size:15px;font-weight:700;color:#2c1a0e;flex:1}
+.sec-chev{font-size:14px;color:#c0a880;transition:transform .25s}
+.section-block.open .sec-chev{transform:rotate(180deg);color:#c2852a}
+.sec-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.section-block.open .sec-body{max-height:3000px}
+.sec-inner{border-top:1px solid #f0ebe4;padding:14px 16px}
+.gh-card{background:#edf7f2;border:1px solid #90d0b0;border-radius:10px;padding:14px 16px}
+.gh-name{font-family:'EB Garamond',Georgia,serif;font-size:16px;font-weight:700;color:#1a5030;margin-bottom:3px}
+.gh-stars{font-size:11.5px;color:#a08060;margin-bottom:8px}
+.gh-desc{font-size:13px;color:#4a3020;line-height:1.85;margin-bottom:10px}
+.gh-rel{background:#d8f0e4;border-radius:7px;padding:9px 12px;font-size:12.5px;color:#0a3820;margin-bottom:10px;line-height:1.8}
+.gh-rel strong{color:#1a5030}
+.gh-install{font-family:'SF Mono','Cascadia Code',monospace;font-size:11.5px;background:#1c0f07;color:#c8e8b8;border-radius:7px;padding:9px 12px;margin-bottom:8px;white-space:pre-wrap}
+.gh-link{font-size:12.5px;color:#8050c0;border-bottom:1px solid #d0c0e8}
+.assess-verdict{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-weight:700;font-size:13px;margin-bottom:12px}
+.assess-verdict.keep{background:#f0faf4;color:#1a6040;border:1px solid #90d0b0}
+.assess-verdict.update{background:#fff8f0;color:#a06020;border:1px solid #e8c090}
+.assess-item{background:#fdf9f3;border-left:3px solid #c2852a;border-radius:6px;padding:11px 13px;margin-bottom:9px}
+.assess-item:last-child{margin-bottom:0}
+.assess-item-title{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-weight:700;color:#7a4010;margin-bottom:5px}
+.assess-item p{font-size:12.5px;color:#4a3020;line-height:1.85}
+.sumfooter{background:#1c0f07;color:#c8b49a;padding:18px 20px;margin-top:10px;border-radius:12px;font-size:13px;line-height:1.9}
+.sumfooter .footer-title{font-family:'EB Garamond',Georgia,serif;font-weight:700;color:#f5f0e8;margin-bottom:6px;font-size:16px;font-style:italic}
+.sumfooter strong{color:#f5f0e8}
+.tip{border-bottom:1.5px dotted #c2852a;cursor:help;color:inherit}
+.tip-box{position:absolute;z-index:9999;background:#1c0f07;color:#f5f0e8;border-radius:9px;padding:10px 13px;font-size:12px;line-height:1.75;max-width:240px;pointer-events:none;opacity:0;transition:opacity .15s;font-family:'Noto Sans TC',sans-serif;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.tip-box.show{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-eyebrow">空鼻症術後預測研究</div>
+  <div class="mast-title">ENS 文獻日報</div>
+  <div class="mast-meta">
+    <span class="mpill"><span class="mdot"></span>2026.07.28</span>
+    <span class="mpill">4 篇精選</span>
+    <span class="mpill">階段 A4：變化遮罩製作中</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="pick-card">
+    <div class="pick-head"><div class="pick-icon">★</div><div class="pick-lbl">今日必讀 Pick</div></div>
+    <div class="pick-title">#1 PRDiT：殘差擴散 Transformer 的 3D CT 生成</div>
+    <div class="pick-reason">把 3D CT 生成拆成「先抓粗結構、再精修高頻殘差」兩階段，不需要 autoencoder 壓縮瓶頸就能直接在體素層級生成高解析度 CT，並在兩個公開胸部 CT 資料集上全面超越現有生成模型。這篇的核心哲學——用殘差來補足粗略估計和真實影像之間的差距——和你正在做的「學習 Δ = 術後 − 術前」2.5D 殘差架構幾乎是同一條思路的 3D 對照組，而且 ICLR 2026 已經開源程式碼，非常值得優先精讀架構細節。</div>
+    <button class="pick-toggle" id="pick-toggle-btn" onclick="togglePick()">📖 完整白話講解（從零開始）<span class="chev-t" id="pick-chev">▾</span></button>
+    <div class="pick-full" id="pick-full">
+      <div class="pick-full-inner">
+        <div class="pf-block">
+          <div class="pf-tag">🤔 這篇在解決什麼問題？</div>
+          <div class="pf-body">想像你要用黏土捏出一顆完整的人體肺部模型，直接一次捏出所有細節（血管、肺泡紋理）幾乎不可能——太複雜、記憶體（也就是你的手和注意力）撐不住。過去的做法通常是先把整個模型「壓縮」成一個小巧的草圖再還原，但壓縮過程會弄丟一些細節。這篇論文要解決的就是：能不能不壓縮、直接在最精細的層級生成完整的 3D CT 影像，同時又不會因為太複雜而做不出來？</div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">💡 看懂這篇你需要知道的名詞</div>
+          <div class="pf-step"><div class="pf-step-title">Diffusion Transformer</div><p>把 Diffusion Model（見下方 Diffusion Model 詞條）的雜訊預測網路換成 Transformer 架構，通常能處理更大範圍的關聯性，但計算量也更大。</p></div>
+          <div class="pf-step"><div class="pf-step-title">Autoencoder 瓶頸</div><p>許多生成模型會先用 Autoencoder 把大影像壓縮成小的「潛在向量」，在小空間裡生成，最後再還原回大影像。這個壓縮步驟就是「瓶頸」——壓縮時容易弄丟細節，尤其是醫學影像裡的細微結構。</p></div>
+          <div class="pf-step"><div class="pf-step-title">Coarse-to-fine（先粗後細）</div><p>不是一次到位，而是先做出一個模糊但方向正確的大略版本，再逐步在這個基礎上加入細節，把它修得更精確。</p></div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">🏗 他們怎麼做的？</div>
+          <div class="pf-step"><div class="pf-step-title">① 局部去噪器（Local Denoiser）</div><p>先把整個 3D CT 切成很多重疊的小方塊（patch），用一個輕量的 MLP 網路快速抓出每個小方塊裡「大概是什麼形狀」的低頻粗結構，就像先用鉛筆打一個模糊的輪廓草稿。</p></div>
+          <div class="pf-step"><div class="pf-step-title">② 全域殘差擴散 Transformer</div><p>有了粗略草稿之後，再用一個看得到「整個 3D volume」的 Transformer，去計算「草稿和真實影像之間還差多少」（也就是殘差），並把這個差距一步步修補回去，讓成品保留細膩的紋理和邊界。因為只需要修補「差距」而不是從零生成全部內容，計算量和訓練難度都大幅降低。</p></div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">📊 結果如何？</div>
+          <div class="pf-body">在兩個公開的胸部 CT 資料集（LIDC-IDRI、RAD-ChestCT）上，用 3D FID、MMD、Wasserstein distance 三種「生成影像和真實影像有多像」的指標評估（都是數字越低代表生成的影像越逼真、越接近真實資料的分布），PRDiT 全面贏過 HA-GAN、3D LDM、WDM-3D 這幾個目前常見的 3D 醫學影像生成方法。</div>
+        </div>
+        <div class="pf-block">
+          <div class="pf-tag">🔗 跟你的 ENS 研究有什麼關係？</div>
+          <div class="pf-body">你現在的方向是用 2.5D 殘差架構學習「Δ = 術後 − 術前」，本質上就是「不直接生成整張影像，而是生成一個要疊加上去的差距」。PRDiT 證明了這套「先抓粗結構、再用殘差補細節」的策略在 3D CT 上確實比直接生成整張影像更穩定、更省資源，而且完全不需要 autoencoder 壓縮。這給你的方向提供了額外的方法論支持：與其煩惱要不要上 full 3D、要不要用 autoencoder 壓縮潛在空間，或許可以參考 PRDiT 的 patch-based local denoiser 設計，在你 N=42 的記憶體限制下，用類似的「先粗後細」漸進式訓練流程，讓 2.5D 殘差生成更穩定。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cov-card">
+    <div class="cov-head">主題覆蓋進度（今日）</div>
+    <div id="cov"></div>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-lbl">篩選：</span>
+    <button class="filter-btn active" data-filter="all">全部</button>
+    <button class="filter-btn" data-filter="a4">A4 變化遮罩</button>
+    <button class="filter-btn" data-filter="b">B 生成模型</button>
+    <button class="filter-btn" data-filter="c">C 分割</button>
+    <button class="filter-btn" data-filter="d">D 評估</button>
+  </div>
+
+  <div class="paper-card" id="paper-prdit_2606.20112" data-stages="b">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">1</div>
+        <div class="cstars">★★★★</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">PRDiT: Pixel-Level Residual Diffusion Transformer — Scalable 3D CT Volume Generation</div>
+        <div class="ppub">Zhang, Hiller, Ehinger, Drummond · ICLR 2026 · arXiv 2606.20112</div>
+        <div class="srow"><span class="stag sb">B 生成模型</span></div>
+        <div class="pdesc">局部 patch 去噪器抓粗結構 + 全域殘差擴散 Transformer 修高頻細節，體素層級直接生成 3D CT，不需 autoencoder 瓶頸，全面超越 HA-GAN/3D LDM/WDM-3D，程式碼已開源。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db full">
+          <div class="dl">① 研究問題</div>
+          <div class="dt">如何在不使用 autoencoder 壓縮瓶頸的前提下，直接在體素層級生成高解析度、細節保真的 3D CT volume，同時控制計算量？</div>
+        </div>
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">兩階段：① 局部去噪器（MLP-based blind estimator，在重疊 3D patch 上運作，分離低頻粗結構）；② 全域殘差擴散 Transformer（記憶體效率高的 attention，對整個 volume 建模並精修高頻殘差）。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">LIDC-IDRI、RAD-ChestCT 兩個公開資料集；先訓練 local denoiser（depth=0），再用其權重初始化並訓練 global residual PRDiT（depth&gt;0）的漸進式訓練流程。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">3D FID、MMD、Wasserstein distance 全面優於 HA-GAN、3D LDM、WDM-3D 等主流生成模型基準。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">驗證資料為胸部/肺部 CT，非鼻腔專屬；屬於無條件生成，未展示條件式（如手術介入位置條件）生成實驗，遷移到條件式 Δ 生成需自行擴充。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">「粗結構＋殘差精修」的兩階段分工正是你現有 2.5D 殘差學習方向的 3D 對照組——可借用其 patch-based local denoiser 設計處理 N=42 記憶體限制下的全解析度訓練，也可參考其漸進式訓練流程（先練局部、再練全域）穩定小樣本下的訓練過程。</div>
+        </div>
+        <div class="db links full">
+          <div class="dl">④ 開源連結</div>
+          <div class="dt"><a href="https://github.com/Fredy-Zhang/PRDiT" target="_blank">GitHub</a> · <a href="https://openreview.net/forum?id=bWtRZQ1rm2" target="_blank">OpenReview (ICLR 2026)</a> · <a href="https://arxiv.org/abs/2606.20112" target="_blank">arXiv 2606.20112</a></div>
+        </div>
+        <div class="db action full">
+          <div class="dl">本週可做</div>
+          <div class="dt">讀 PRDiT 的 local/global 兩階段程式碼架構，評估把 local denoiser 替換成你現有的條件式殘差模組是否可行。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">🔑 重點</div><p>殘差式兩階段生成能在不犧牲細節的前提下大幅降低 3D 生成的計算與訓練難度。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">💭 心得</div><p>你的 2.5D 殘差方向本質上和這篇同一套哲學，值得直接對照其程式碼細節找優化空間。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>與 3dmed_2412.13059、gdrift_2604.19736 等擴散生成方法同屬 B 階段生成模型群，可比較不同的殘差/條件策略。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>patch-based local denoiser + 漸進式（先局部後全域）訓練流程，可直接用於小樣本情境下穩定訓練。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-card" id="paper-deltalfm_2512.09185" data-stages="a4 b">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">2</div>
+        <div class="cstars">★★★★</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">Δ-LFM: Learning Patient-Specific Disease Dynamics with Latent Flow Matching for Longitudinal Imaging Generation</div>
+        <div class="ppub">Chen, Yin, Chen, Chen, Li · ICLR 2026 · arXiv 2512.09185</div>
+        <div class="srow"><span class="stag sa4">A4 變化遮罩</span><span class="stag sb">B 生成模型</span></div>
+        <div class="pdesc">把疾病進展視為潛在空間的速度場，用 Flow Matching 對齊時間演化並強迫病患軌跡落在單調遞增的語意軸上，三個縱向 MRI benchmark 上優於既有方法。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db full">
+          <div class="dl">① 研究問題</div>
+          <div class="dt">如何把疾病進展這種「連續、單調」的變化，用一個語意結構清晰、可解釋的潛在空間軌跡來建模，避免擴散模型隨機去噪破壞時間連續性的問題？</div>
+        </div>
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">把疾病動態視為潛在空間中的速度場，用 Flow Matching 對齊病患資料的時間演化；額外設計 patient-specific latent alignment，強迫每個病患軌跡落在特定軸上、大小隨疾病嚴重度單調遞增。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">三個縱向 MRI benchmark；提出對應的進展專屬評估指標 ∆-RMAE 量化預測軌跡與真實進展的一致性。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">三個 benchmark 上全面優於現有方法，且能提供更可解釋、可視化的疾病動態軌跡。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">驗證對象為疾病自然進展（單調惡化），和 ENS 的「手術介入造成的一次性結構改變」性質不同，單調性假設不能直接套用；未找到官方公開程式碼。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">把 Δ（變化量）視為連續速度場而非單次跳躍的建模角度，可啟發 A4/B 階段：借用 Flow Matching 的軌跡對齊技巧讓 Δ 的生成過程更穩定、更好解釋（雖然 ENS 是一次性介入而非連續病程，仍可借鑑其潛在空間對齊設計）。</div>
+        </div>
+        <div class="db links full">
+          <div class="dl">④ 開源連結</div>
+          <div class="dt"><a href="https://arxiv.org/abs/2512.09185" target="_blank">arXiv 2512.09185</a>（ICLR 2026 accepted，未找到官方程式碼）</div>
+        </div>
+        <div class="db action full">
+          <div class="dl">本週可做</div>
+          <div class="dt">精讀 patient-specific latent alignment 的損失函數設計，評估能否套用到你的條件式殘差生成模型的潛在空間正則化。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">🔑 重點</div><p>把變化量建模成連續速度場而非單步差分，是縱向/差分建模的另一種數學框架。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">💭 心得</div><p>單調性假設不適用 ENS 情境，借用時需要挑對能遷移的部分（潛在對齊），而非整套照搬。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>與 gliodiff3d_2606.05113、gbmldm_2510.17851、longbrain_2511.02558 等術前→術後/縱向預測方法同屬一群，可互相比較。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>∆-RMAE 這類「進展專屬評估指標」的設計思路，可用於 D 階段設計 Δ 預測準確度的專屬指標。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-card" id="paper-semigda_2604.23274" data-stages="c">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">3</div>
+        <div class="cstars">★★★★</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">SemiGDA: Generative Dual-distribution Alignment for Semi-Supervised Medical Image Segmentation</div>
+        <div class="ppub">Huang, Zhou, Zhang, Li, Zhou · CVPR 2026 · arXiv 2604.23274</div>
+        <div class="srow"><span class="stag sc">C 分割</span></div>
+        <div class="pdesc">雙 encoder 對齊影像特徵分布與遮罩特徵分布（DAM），搭配跨分支一致性 skip adapter（CDSA），提升半監督分割在標注稀缺情境下的偽標籤品質，程式碼已開源。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db full">
+          <div class="dl">① 研究問題</div>
+          <div class="dt">在標注量有限的情境下，半監督分割常因過擬合和偽標籤品質不佳而失效，如何用生成式框架同時提升表徵品質與偽標籤可靠度？</div>
+        </div>
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">Dual-distribution Alignment Module（DAM）用兩個結構不同的 encoder 分別建模影像特徵分布與遮罩特徵分布，在潛在空間用分布對齊約束強迫兩者一致；Consistency-Driven Skip Adapter（CDSA）用雙 skip adapter 融合多尺度特徵並用一致性損失強化跨分支語意對齊。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">CVPR 2026 錄取，官方程式碼已釋出；標注稀缺情境下的半監督分割 benchmark。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">在半監督分割 benchmark 上取得穩定提升，優於既有 pseudo-label 類方法。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">未包含鼻腔/氣道專屬驗證；雙 encoder 設計增加訓練時的記憶體與計算成本，套用到 3D CT 需評估硬體資源是否足夠。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">「影像分布 vs 遮罩分布對齊」的設計直接對應 C 階段最大痛點——ENS 術後解剖標注稀少。可用少量已標注術後 CT 遮罩 + 大量無標注術後 CT 影像，透過 DAM 的分布對齊機制提升偽標籤品質，緩解小樣本分割的過擬合問題。</div>
+        </div>
+        <div class="db links full">
+          <div class="dl">④ 開源連結</div>
+          <div class="dt"><a href="https://github.com/taozh2017/SemiGDA" target="_blank">GitHub</a> · <a href="https://arxiv.org/abs/2604.23274" target="_blank">arXiv 2604.23274</a></div>
+        </div>
+        <div class="db action full">
+          <div class="dl">本週可做</div>
+          <div class="dt">clone SemiGDA repo，用現有少量已標注術後 CT 遮罩測試 DAM 模組能否產生穩定的偽標籤。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">🔑 重點</div><p>雙分布對齊（影像 vs 遮罩）是提升半監督偽標籤品質的新角度，不同於傳統 teacher-student 一致性方法。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">💭 心得</div><p>CVPR 2026 錄取且已開源，是今天除了 PRDiT 外第二個可以直接下載測試的工具。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>與 dinoaugseg_2601.08078、sslsam2_2512.11548、sslknow_2503.06816 同屬少樣本/半監督分割方法群。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>Consistency-Driven Skip Adapter 的跨分支一致性損失設計可獨立借用於現有分割模型的多尺度特徵融合。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-card" id="paper-ens_cfddpm_jas2026" data-stages="d">
+    <div class="card-head">
+      <div class="card-left">
+        <div class="read-row"><input type="checkbox" class="read-check"><span class="read-label">已讀</span></div>
+        <div class="cnum">4</div>
+        <div class="cstars">★★★</div>
+      </div>
+      <div class="card-body">
+        <div class="ptitle">Approaching Particle Deposition Separation Characteristics in the Empty Nose Syndrome (ENS) Nasal Cavities with CT Image-Based Nasal Cavity and CFD-DPM Simulations</div>
+        <div class="ppub">Journal of Aerosol Science, Vol. 193 · 2026</div>
+        <div class="srow"><span class="stag sd">D 評估</span></div>
+        <div class="pdesc">CT 影像重建單側 ENS 鼻腔幾何，搭配 CFD-DPM 模擬植入手術前後的顆粒物沉積分布變化，模擬結果與活體/離體實驗量測吻合。</div>
+      </div>
+      <div class="chev">▾</div>
+    </div>
+    <div class="card-detail">
+      <div class="di">
+        <div class="db full">
+          <div class="dl">① 研究問題</div>
+          <div class="dt">單側空鼻症患者的鼻腔在植入手術前後，吸入顆粒物（PM10 等）的沉積特性如何變化？能否用 CT 影像重建的鼻腔幾何搭配 CFD-DPM 模擬量化這個變化？</div>
+        </div>
+        <div class="db arch">
+          <div class="dl">🏗 架構</div>
+          <div class="dt">以病患 CT 影像重建單側 ENS 鼻腔幾何，搭配計算流體力學（CFD）與離散顆粒相（DPM）模擬顆粒物在鼻腔內的運動與沉積。</div>
+        </div>
+        <div class="db train">
+          <div class="dl">📊 訓練</div>
+          <div class="dt">非深度學習研究，屬於數值模擬；比較術前（ENS 患側 vs 健側）與植入手術後的顆粒沉積分布。</div>
+        </div>
+        <div class="db result">
+          <div class="dl">📈 結果</div>
+          <div class="dt">術前 ENS 患側因低速渦流導致 10、20 μm 顆粒沉積延遲到鼻腔後段；植入手術後因渦流強度降低、表面積增加，患側 PM10 沉積改善，健側也因兩側氣流量平衡而受益；模擬結果與活體/離體實驗量測吻合。</div>
+        </div>
+        <div class="db limit">
+          <div class="dl">⚠ 限制</div>
+          <div class="dt">純 CFD 數值模擬，不涉及深度學習或影像生成；未公開程式碼或模擬檔案（符合 CFD/臨床論文慣例）。</div>
+        </div>
+        <div class="db borrow full">
+          <div class="dl">③ 可借用之處</div>
+          <div class="dt">提供「植入手術前後顆粒沉積分布」這個新的功能性驗證角度，補充現有以壁面剪切力／氣流阻力為主的 CFD 評估框架。未來 D 階段可考慮：把預測出的術後解剖形態不只驗證幾何/體積誤差，還能進一步做 CFD-DPM 模擬，用「顆粒沉積分布是否恢復正常」作為功能性驗證的額外指標。</div>
+        </div>
+        <div class="db links full">
+          <div class="dl">④ 開源連結</div>
+          <div class="dt"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0032591025003493" target="_blank">ScienceDirect</a>（無開源模擬檔案，CFD/臨床論文慣例不強制開源）</div>
+        </div>
+        <div class="db action full">
+          <div class="dl">本週可做</div>
+          <div class="dt">精讀顆粒沉積分布的量化方法（沉積效率、沉積位置分布圖），評估是否能作為 D 階段模型預測形態的功能性驗證附加指標。</div>
+        </div>
+        <div class="db notes full">
+          <div class="dl">📒 重點・心得・關聯・可學方法</div>
+          <div class="notes-grid">
+            <div class="nitem"><div class="nitem-label nl-key">🔑 重點</div><p>顆粒沉積分布是壁面剪切力之外，另一個可量化「氣流功能是否恢復正常」的 CFD 指標。</p></div>
+            <div class="nitem"><div class="nitem-label nl-feel">💭 心得</div><p>純臨床/CFD 論文不必強求開源，重點是量化方法本身能否遷移到自己的評估流程。</p></div>
+            <div class="nitem"><div class="nitem-label nl-link">🔗 關聯</div><p>與 ens_cfd_lary31757、ens_cfd_ear2025、ens_cfd_biorxiv2504、cfdimplant_jtice2024 同屬 ENS CFD 氣流分析文獻群。</p></div>
+            <div class="nitem"><div class="nitem-label nl-method">🛠 可學方法</div><p>用 CT 影像重建幾何 + CFD-DPM 模擬顆粒沉積的完整流程，可作為未來 D 階段延伸實驗的方法參考。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block github">
+    <div class="sec-head">
+      <div class="sec-icon">⚙️</div>
+      <div class="sec-title">今日 GitHub 套件 — SemiGDA（taozh2017）</div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <div class="gh-card">
+        <div class="gh-name">taozh2017/SemiGDA</div>
+        <div class="gh-stars">⭐ CVPR 2026 官方實作 · 南京理工大學 / 東南大學團隊維護</div>
+        <div class="gh-desc">半監督醫學影像分割框架，用雙 encoder 對齊影像特徵與遮罩特徵分布（DAM），搭配跨分支一致性 skip adapter（CDSA），在標注稀缺情境下提升偽標籤品質與分割穩定性。</div>
+        <div class="gh-rel"><strong>和你研究的關聯：</strong>可用現有少量已標注術後 CT 遮罩 + 大量無標注術後 CT，透過 DAM 分布對齊機制訓練分割模型，緩解 C 階段「術後解剖分布外、標注稀少」的核心困難，且不需要像 DINO-AugSeg 一樣依賴大型自然影像預訓練特徵。</div>
+        <div class="gh-install">git clone https://github.com/taozh2017/SemiGDA</div>
+        <a class="gh-link" href="https://github.com/taozh2017/SemiGDA" target="_blank">github.com/taozh2017/SemiGDA</a>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="section-block assessment">
+    <div class="sec-head">
+      <div class="sec-icon">🧭</div>
+      <div class="sec-title">每日研究方向評估</div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner">
+      <p style="font-size:13px;color:#4a3020;margin-bottom:10px;line-height:1.85"><strong>當前方向：</strong>2.5D 殘差學習 + 條件式生成（以手術介入位置為條件），學習 Δ = 術後 − 術前，N=42。</p>
+      <div class="assess-verdict keep">✅ 建議：維持核心方向</div>
+      <div class="assess-item">
+        <div class="assess-item-title">根據：今日論文分析</div>
+        <p>今天最重要的訊號來自 PRDiT——它用兩個公開資料集證明「先粗結構、再殘差精修」的策略在 3D CT 生成上優於直接生成整張影像的方法，且不需要 autoencoder 壓縮，這是對你現有 2.5D 殘差方向的正面方法論佐證，沒有出現需要改變核心路線的證據。同時 SemiGDA 提供了低成本、本週就能驗證的 C 階段補強（半監督分割緩解標注稀少），CFD-DPM 論文則指出 D 階段評估框架可以再加入顆粒沉積這個功能性驗證維度，兩者都不影響 B 階段生成模型的主線設計。</p>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="sumfooter">
+    <div class="footer-title">今日總結</div>
+    今日新增 4 篇，涵蓋殘差擴散 CT 生成、縱向流匹配建模、半監督分割、CFD 顆粒沉積四個角度。PRDiT 是今日最值得讀的一篇：其「粗結構＋殘差精修」兩階段架構和你現有的 2.5D 殘差方向高度呼應，且已開源，建議本週優先精讀。SemiGDA 提供緩解 C 階段標注稀少問題的新工具，程式碼可直接測試。Δ-LFM 的單調性假設不完全適用 ENS 一次性手術介入的情境，但潛在空間對齊技巧仍值得參考。CFD-DPM 補上顆粒沉積這個新的功能性驗證角度。ENS 臨床、症狀問卷、鼻腔分割三個主題今日無新增，累積量已相對充足，暫無急迫缺口。
+  </div>
+
+</div>
+
+<script>
+const COV_DATA=[
+  {label:'術前→術後預測',count:1},
+  {label:'條件式生成',count:0},
+  {label:'小樣本策略',count:1},
+  {label:'鼻腔/氣道分割',count:0},
+  {label:'殘差學習 CT',count:1},
+  {label:'ENS 臨床',count:0},
+  {label:'合成影像評估',count:0},
+  {label:'CFD 氣流分析',count:1},
+  {label:'ENS 症狀/問卷',count:0},
+];
+const maxC=Math.max(...COV_DATA.map(c=>c.count),1);
+const covEl=document.getElementById('cov');
+COV_DATA.forEach(c=>{
+  const pct=Math.round(c.count/maxC*100);
+  const row=document.createElement('div');
+  row.className='cov-row';
+  row.innerHTML=`<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${c.count?pct:100}%;background:${c.count?'#c2852a':'#f0c8a8'}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count===0?'<span class="cov-gap-tag">空白</span>':''}`;
+  covEl.appendChild(row);
+});
+/* Card toggle — 展開後自動捲到卡片頂部 */
+document.querySelectorAll('.card-head').forEach(h=>{
+  h.addEventListener('click',e=>{
+    if(e.target.classList.contains('read-check')) return;
+    const card=h.closest('.paper-card');
+    const wasOpen=card.classList.contains('open');
+    card.classList.toggle('open');
+    if(!wasOpen){
+      setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),80);
+    }
+  });
+});
+document.querySelectorAll('.sec-head').forEach(h=>h.addEventListener('click',()=>h.closest('.section-block').classList.toggle('open')));
+if(window.innerWidth>600) document.querySelectorAll('.section-block').forEach(b=>b.classList.add('open'));
+function togglePick(){
+  const full=document.getElementById('pick-full');
+  const chev=document.getElementById('pick-chev');
+  full.classList.toggle('open');
+  chev.style.transform=full.classList.contains('open')?'rotate(180deg)':'';
+}
+document.querySelectorAll('.read-check').forEach(cb=>{
+  cb.addEventListener('change',()=>cb.closest('.paper-card').classList.toggle('read',cb.checked));
+});
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.paper-card').forEach(card=>{
+      card.style.display=(f==='all'||(card.dataset.stages||'').includes(f))?'':'none';
+    });
+  });
+});
+const GLOSSARY={'Diffusion Model':'一種 AI 生成圖片的方法。把圖片逐步加雜訊直到完全模糊，訓練 AI 學會「逆向」還原——反過來就能從純雜訊生成全新圖片。','GAN':'生成對抗網路。兩個神經網路互相競爭：Generator（生成假圖）vs Discriminator（分辨真假），一起訓練直到生成的圖難以分辨。','nnUNet':'目前最強的醫學影像分割框架。最大優勢是零調參——你只要提供資料集，它自動決定架構、patch size、augmentation。','voxel':'3D 版本的 pixel。CT 影像是由很多 voxel（體積元素）組成，每個 voxel 代表那個位置的密度（HU 值）。','Voxel':'3D 版本的 pixel。CT 影像是由很多 voxel（體積元素）組成，每個 voxel 代表那個位置的密度（HU 值）。','HU':'Hounsfield Unit，CT 影像的密度單位。空氣約 -1000、水是 0、骨頭約 +400~+1000 HU。','FID':'Fréchet Inception Distance，生成影像品質的評估指標。數字越低代表生成的影像越接近真實資料。','SSIM':'結構相似性指數，比較兩張影像的結構相似程度。值域 0~1，越高越好。','PSNR':'峰值信噪比，衡量生成影像和真實影像的差異，數字越高代表越相似（以 dB 為單位）。','DSC':'Dice Similarity Coefficient，分割任務的主要評估指標。計算預測區域和真實標注的重疊程度，>0.85 算好。','DICE':'同 DSC。計算預測分割和真實標注的重疊程度，值域 0~1，越高越好。','MONAI':'PyTorch-based 醫學影像深度學習函式庫，提供醫學影像常用的 transforms、損失函數和模型架構。','fine-tuning':'微調。先用大量通用資料訓練好的模型，再用少量特定領域資料繼續訓練，讓模型適應特定任務。','fine-tune':'微調。先用大量通用資料訓練好的模型，再用少量特定領域資料繼續訓練。','augmentation':'資料增強。對訓練圖片做翻轉、旋轉等操作，人工製造更多變化，幫助模型學到更泛化的特徵。','baseline':'基準線。實驗中拿來比較的標準方法。你的結果需要比 baseline 好才有意義。','ResNet':'殘差網路。使用跳連接讓梯度能直接跳過多個層傳遞，解決深層網路難訓練的問題。','Autoencoder':'自動編碼器。先「壓縮」再「還原」的神經網路，壓縮後的向量包含輸入的最重要特徵。','attention':'注意力機制。讓神經網路在處理每個位置時，能看到其他位置的資訊並給予不同程度的關注。','Attention':'注意力機制。讓神經網路在處理每個位置時，能看到其他位置的資訊並給予不同程度的關注。','patch':'把大影像切成小塊處理的策略。醫學影像太大，改用 patch 分塊可以節省記憶體。','DDIM':'加速 Diffusion Model 推理的採樣方法。原本需要 1000 步，DDIM 可以壓縮到 50 步。','VoxelMorph':'基於深度學習的可形變影像配準框架。輸入兩張影像，輸出讓它們對齊所需的「形變場」（每個點要移動多少）。','deformable registration':'可形變影像配準。讓一張影像「彎曲」變形來對齊另一張，能處理器官形態變化，適合術前術後比較。','SSM':'統計形狀模型（Statistical Shape Model）。從大量樣本中學習器官形狀的統計分布，可以用少數參數描述複雜形狀。','LoRA':'Low-Rank Adaptation，一種輕量微調大模型的方法。只訓練少量額外參數，大幅減少需要的訓練資料和時間。','semi-supervised':'半監督學習。同時用有標注和無標注的資料訓練，減少對人工標注的依賴。','self-supervised':'自監督學習。用資料本身的結構設計訓練目標（如遮住一部分讓模型預測），不需要人工標注。','CFD':'計算流體力學（Computational Fluid Dynamics）。用電腦模擬氣流在鼻腔內的流動，可以算出壁面剪切力和溫濕度分布。','wall shear stress':'壁面剪切力。氣流對鼻腔黏膜表面施加的摩擦力。ENS 患者的剪切力分布異常，是症狀的原因之一。','ENSTQ':'空鼻症 6 題問卷（Empty Nose Syndrome 6-item Questionnaire）。目前 ENS 專屬效度最好的症狀評估工具。','NOSE score':'鼻塞症狀評估量表（Nasal Obstruction Symptom Evaluation）。常用於鼻腔手術前後的症狀追蹤。','DINOv3':'Meta 開發的自監督視覺基礎模型，用大量一般照片訓練，能抽取出物體邊界和結構的通用特徵，不需要人工標注。','DINOv2':'DINOv3 的前一代版本，同樣是自監督視覺基礎模型。','wavelet':'小波，一種把訊號拆解成不同頻率層次的數學工具，常用來做影像的多尺度分析或增廣。','cross-attention':'跨注意力機制，讓模型在整合兩組不同來源的特徵時，動態決定要參考彼此的哪些部分。','normalizing flow':'正規化流，一種透過一連串可逆變換把簡單分布（如常態分布）轉換成複雜分布的生成模型技術，可用來估計精確的機率密度。','implicit shape representation':'隱式形狀表徵，不直接儲存形狀的網格頂點，而是用一個函數描述「空間中每個點是否在形狀內部」，解析度無關且可任意細緻化。','autodecoder':'一種只有解碼器、沒有編碼器的生成模型架構，直接對每個訓練樣本優化一組潛在編碼，而非用編碼器從輸入推得。','Flow Matching':'一種生成模型訓練技術，直接學習一個「速度場」把簡單分布（如雜訊）連續地搬運到目標資料分布，比傳統擴散模型的隨機去噪過程更平滑、更容易解釋成一條連續軌跡。','MMD':'Maximum Mean Discrepancy，一種比較兩組資料分布是否相似的統計指標，數字越低代表兩個分布越接近。','Wasserstein distance':'又稱推土機距離，衡量把一個機率分布「搬運」成另一個分布所需的最小代價，數字越低代表兩個分布越相似。','coarse-to-fine':'先粗後細。生成或處理影像時先做出模糊的大略版本，再逐步加入細節修正，是分階段降低任務難度的常見策略。','CFD-DPM':'計算流體力學（CFD）搭配離散顆粒模型（Discrete Particle Model）的模擬方法，除了模擬氣流本身，還能追蹤懸浮顆粒物在氣流中的運動路徑與沉積位置。'};
+const tipBox=document.createElement('div');
+tipBox.className='tip-box';
+document.body.appendChild(tipBox);
+function wrapGlossary(root){
+  if(!root) return;
+  const terms=Object.keys(GLOSSARY).sort((a,b)=>b.length-a.length);
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+    const p=n.parentElement;
+    if(!p) return NodeFilter.FILTER_REJECT;
+    if(['SCRIPT','STYLE','TEXTAREA','INPUT','CODE','A'].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+    if(p.classList.contains('tip')) return NodeFilter.FILTER_REJECT;
+    return n.textContent.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;
+  }});
+  const nodes=[];
+  while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node=>{
+    let html=node.textContent;let changed=false;
+    terms.forEach(term=>{
+      if(html.includes(term)){html=html.split(term).join(`<span class="tip" data-tip="${GLOSSARY[term].replace(/"/g,'&quot;')}">${term}</span>`);changed=true;}
+    });
+    if(changed){const s=document.createElement('span');s.innerHTML=html;node.parentNode.replaceChild(s,node);}
+  });
+}
+document.addEventListener('mouseover',e=>{
+  const tip=e.target.closest('.tip');
+  if(!tip){tipBox.classList.remove('show');return;}
+  tipBox.textContent=tip.dataset.tip;tipBox.classList.add('show');
+  const r=tip.getBoundingClientRect();
+  tipBox.style.left=Math.max(8,Math.min(r.left+window.scrollX,window.innerWidth+window.scrollX-260))+'px';
+  tipBox.style.top=(r.bottom+window.scrollY+8)+'px';
+});
+document.addEventListener('mouseout',()=>tipBox.classList.remove('show'));
+document.addEventListener('scroll',()=>tipBox.classList.remove('show'),{passive:true});
+window.addEventListener('load',()=>{wrapGlossary(document.querySelector('.page'));wrapGlossary(document.querySelector('.pick-full'));});
+</script>
+</body>
+</html>
