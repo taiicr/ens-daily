@@ -1,5 +1,5 @@
 {
-  "updated": "20260730",
+  "updated": "20260731",
   "repos": [
     {
       "date": "20260611",
@@ -113,6 +113,21 @@
       "related_papers": [
         "progidiff_2601.16060",
         "nasalseg_s41597"
+      ]
+    },
+    {
+      "id": "psp",
+      "date": "20260731",
+      "name": "PSP (xubin471)",
+      "repo": "xubin471/PSP",
+      "url": "https://github.com/xubin471/PSP",
+      "description": "跨域小樣本醫學影像分割框架官方程式碼。用位置座標嵌入（PCE）與形狀原型調變（SPM）兩個跨模態穩定線索，做小樣本器官分割，附混合原型預測（HPP）模組做 query 端自適應校正。",
+      "install": "git clone https://github.com/xubin471/PSP",
+      "relevance": "今日 #2 論文本體。可評估把現有鼻腔 SSM 或形狀先驗接上 SPM 模組，做為 C 階段分割在小樣本、術後分布外解剖下的 prototype 初始化起點。",
+      "related_papers": [
+        "psp_2606.28799",
+        "nasalssm_2510.09713",
+        "ssm_2603.13969"
       ]
     }
   ]
