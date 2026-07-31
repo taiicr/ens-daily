@@ -1,5 +1,5 @@
 {
-  "updated": "20260730",
+  "updated": "20260731",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -1996,6 +1996,90 @@
       "relations": [
         "phasor_2604.01053",
         "gdrift_2604.19736"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ctregprot_2604.13397",
+      "date": "20260731",
+      "title": "A Multimodal Clinically Informed Coarse-to-Fine Framework for Longitudinal CT Registration in Proton Therapy",
+      "pub": "Jiang, Ding, Jia, et al. · Mayo Clinic / ShanghaiTech · arXiv 2604.13397, 2026",
+      "stars": 4,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "Coarse-to-Fine Deformable Registration",
+        "Dual CNN Encoder + Swin Transformer Decoder",
+        "Anatomy- and Risk-Guided Attention",
+        "Foreground-Aware Masked NCC Loss",
+        "Residual Deformation Field Composition"
+      ],
+      "summary": "雙路 CNN 編碼器 + Swin Transformer 解碼器逐層預測殘差形變場，搭配前景遮罩 NCC loss 與解剖/風險引導注意力，在 1,222 對縱向 CT 上把 NCC 從 baseline 95.43% 提升到 96.82%，靶區輪廓傳遞體積誤差降到 4.19%",
+      "key_insight": "前景遮罩 NCC loss 把背景排除在相似度計算外、只聚焦解剖 ROI，和你「材質無關、只算解剖 ROI 內 Δ」的策略高度契合，可直接借用來設計 A4 變化遮罩的 loss function。",
+      "github": null,
+      "arxiv": "https://arxiv.org/html/2604.13397",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "idir_2506.02150",
+        "rdcreg_2510.22380",
+        "adregnet_2602.07088"
+      ],
+      "pick": true
+    },
+    {
+      "id": "psp_2606.28799",
+      "date": "20260731",
+      "title": "PSP: Harnessing Position and Shape Priors for Cross-Domain Few-Shot Medical Image Segmentation",
+      "pub": "Xu, Zhu, Zhang · Nanjing University of Science and Technology · arXiv 2606.28799, 2026",
+      "stars": 4,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "Position Coordinate Embedding (PCE)",
+        "Shape Prototype Modulation (SPM)",
+        "Hybrid-Prototype Prediction (HPP)",
+        "Cross-Domain Few-Shot Segmentation"
+      ],
+      "summary": "利用器官相對位置與幾何形狀這兩個跨模態穩定的線索，透過位置座標嵌入、形狀原型調變、混合原型預測三模組，做跨域（如 CT→MRI）小樣本分割，宣稱優於現有 SOTA 方法",
+      "key_insight": "SPM 模組用形狀先驗建構跨域不變原型的思路，可類比成用術前 CT 建立的鼻腔形狀原型去適應術後分布外解剖，作為 C 階段小樣本分割的 prototype 初始化參考。",
+      "github": "https://github.com/xubin471/PSP",
+      "arxiv": "https://arxiv.org/pdf/2606.28799",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "nasalssm_2510.09713",
+        "ssm_2603.13969",
+        "sslsam2_2512.11548"
+      ],
+      "pick": false
+    },
+    {
+      "id": "airwaymeta_cre70314",
+      "date": "20260731",
+      "title": "Efficacy of Automatic 3D Segmentation of the Upper Airway in CBCT or CT Scans via Artificial Intelligence Versus Manual Segmentation by Human Experts: A Systematic Review and Meta-Analysis",
+      "pub": "Sobouti et al. · Clinical and Experimental Dental Research, 2026",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "Systematic Review",
+        "Meta-Analysis",
+        "AI vs. Manual Segmentation Agreement"
+      ],
+      "summary": "彙整 11 篇 AI 上呼吸道分割研究（其中 6 篇做量化統合分析），比較 AI 與人工專家分割的一致性，precision、Dice、IoU、recall 皆高於 90%，是首篇系統性驗證此議題的統合分析",
+      "key_insight": "提供 AI 上呼吸道分割 vs. 人工標註的統合基準數字（Dice/precision/recall > 90%），可作為 C 階段分割模型準確度的外部標竿，寫論文時可引用來說明結果落在文獻已知的合理區間。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1002/cre2.70314",
+      "relations": [
+        "nasalseg_s41597",
+        "nase3d_jimaging2025",
+        "sinusseg_s41598-2025"
       ],
       "pick": false
     }
