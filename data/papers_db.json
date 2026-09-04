@@ -1,5 +1,5 @@
 {
-  "updated": "20260731",
+  "updated": "20260904",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -2080,6 +2080,292 @@
         "nasalseg_s41597",
         "nase3d_jimaging2025",
         "sinusseg_s41598-2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "nice_2512.05920",
+      "date": "20260803",
+      "title": "NICE — Neural Implicit Craniofacial Model for Orthognathic Surgery Prediction",
+      "pub": "Yang, Cao, Tian, Zhang, Wei · ShanghaiTech / SJTU · AAAI 2026 (arXiv 2512.05920)",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Implicit Signed Distance Function (SDF)",
+        "Region-Specific Decoders",
+        "Shared Surgery Latent Code",
+        "Deformation Field Prediction",
+        "Landmark-Centered MLP Ensemble"
+      ],
+      "summary": "Shape module 用三個 region-specific SDF decoder 重建臉部/上頜/下頜幾何，Surgery module 用共享的手術潛碼驅動各區域變形場 decoder，在 76 對術前/術後頭部 CT（60 訓練）上預測術後臉部外觀，P2PL 0.88mm 優於現有 SOTA",
+      "key_insight": "跟你的研究幾乎同構：小樣本（N=76）術前CT→手術計畫→術後預測，用 SDF＋共享手術潛碼驅動的變形場取代點雲點對點監督，是目前找到最貼近 ENS 研究目標的方法論文。",
+      "github": "https://github.com/Bill-Yang-1/NICE",
+      "arxiv": "https://arxiv.org/abs/2512.05920",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "phasor_2604.01053",
+        "gposc_pmc11911408",
+        "physfinet_2601.02088",
+        "crossview_2509.02256"
+      ],
+      "pick": true
+    },
+    {
+      "id": "tialign_2604.16955",
+      "date": "20260803",
+      "title": "Training-Inference Input Alignment Outweighs Framework Choice in Longitudinal Retinal Image Prediction",
+      "pub": "arXiv 2604.16955, 2026",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Conditional Diffusion vs. Deterministic Regression",
+        "Training-Inference Distribution Alignment",
+        "Temporal Retinal U-Net (TRU)",
+        "Continuous Time-Delta Conditioning"
+      ],
+      "summary": "五種條件化設定共用同一架構與訓練資料，比較條件式 diffusion、推論對齊隨機訓練、確定性回歸；跨 28,899 眼、3 廠牌、2 模態驗證，發現訓練/推論輸入分佈對齊帶來的增益遠大於選哪種生成框架",
+      "key_insight": "證明「訓練與推論輸入分布對齊」比選 diffusion 還是 regression 更重要——這對你在 N=42 下決定用哪種模型架構、以及如何編碼手術介入條件是關鍵提醒。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2604.16955",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "longbrain_2511.02558",
+        "gbmldm_2510.17851",
+        "phasor_2604.01053",
+        "adunc_2606.24604"
+      ],
+      "pick": false
+    },
+    {
+      "id": "prdit_2606.20112",
+      "date": "20260803",
+      "title": "PRDiT — Pixel-Level Residual Diffusion Transformer for Scalable 3D CT Volume Generation",
+      "pub": "Zhang, Hiller, Ehinger, Drummond · ICLR 2026 (arXiv 2606.20112)",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Two-Stage Coarse-to-Fine Diffusion",
+        "MLP-Based Local Denoiser",
+        "Global Residual Diffusion Transformer",
+        "Memory-Efficient Attention",
+        "No Autoencoder Bottleneck"
+      ],
+      "summary": "兩階段架構：local denoiser 在重疊 3D patch 上快速分離低頻大結構，global residual diffusion transformer 用記憶體高效 attention 對整體積的高頻殘差建模精修，在 LIDC-IDRI / RAD-ChestCT 上 3D FID、MMD、Wasserstein 距離皆優於 HA-GAN、3D LDM、WDM-3D",
+      "key_insight": "先算低頻大結構、再用殘差 diffusion 修高頻細節，不需要 autoencoder 瓶頸——這個粗到細策略可以用在你的殘差 CT 生成，尤其在 N=42 小樣本下訓練可能更穩定。",
+      "github": "https://github.com/Fredy-Zhang/PRDiT",
+      "arxiv": "https://arxiv.org/abs/2606.20112",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "3dmed_2412.13059",
+        "gdrift_2604.19736",
+        "medlord_2503.13211"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_dpm_aerosol2026",
+      "date": "20260803",
+      "title": "Approaching Particle Deposition Separation Characteristics in the Empty Nose Syndrome (ENS) Nasal Cavities With CT Image-Based Nasal Cavity and CFD-DPM Simulations",
+      "pub": "Journal of Aerosol Science, Vol. 193, Article 106764, 2026",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CT-Based Nasal Cavity Reconstruction",
+        "Computational Fluid Dynamics (CFD)",
+        "Discrete Phase Model (DPM)",
+        "Pre/Post-Implant Comparison"
+      ],
+      "summary": "以病患 CT 重建單側 ENS 鼻腔幾何，CFD+DPM 模擬術前/術後 PM10 微粒沉積；ENS 側因低表面積、高氣流、渦流而沉積延遲，植入物手術透過優化表面積與渦流結構改善沉積分布，模擬結果與活體/離體實驗吻合",
+      "key_insight": "用 CFD-DPM 算 ENS 鼻腔的微粒沉積，證實植入物能改善渦流與沉積分布——是你 D 階段驗證預測解剖是否恢復氣流功能的具體指標來源，可作為 SSIM/DSC 之外的功能性評估角度。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "ens_cfd_lary31757",
+        "cfdimplant_jtice2024",
+        "nasalcfd_pmc12808322",
+        "imapacc_pmc12973493"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_sleep_alr23615",
+      "date": "20260803",
+      "title": "Postoperative Sleep Outcomes in Empty Nose Syndrome: Associations With Psychiatric Symptomatology",
+      "pub": "Hsueh et al. · International Forum of Allergy & Rhinology, 2025 (DOI: 10.1002/alr.23615)",
+      "stars": 3,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Prospective Cohort Study",
+        "Polysomnography",
+        "ENS6Q / PSQI / BDI-II / BAI Questionnaires"
+      ],
+      "summary": "39 位接受重建手術的 ENS 患者，術前與術後 6 個月做多項睡眠生理檢查與問卷；術後 ENS6Q、PSQI、嗜睡、憂鬱、焦慮分數皆顯著改善，無術後憂鬱症狀者睡眠品質達臨床顯著改善的機率高 13 倍",
+      "key_insight": "術後 ENS6Q、睡眠品質、憂鬱焦慮分數同步追蹤，顯示症狀改善會受心理狀態調節——提醒你 D 階段的評估不能只看解剖，還要對照症狀量表做多維度驗證。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1002/alr.23615",
+      "relations": [
+        "ens_cluster_lary70460",
+        "ens_meta_pmc12321921",
+        "ens_sr_pmc13099783",
+        "ens6qit_acta2029"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_morph_lary31328",
+      "date": "20260904",
+      "title": "Morphology, Not Only Volume: A Study on Empty Nose Syndrome and Inferior Turbinates",
+      "pub": "Fu et al. · The Laryngoscope (2024)",
+      "stars": 5,
+      "stages": [
+        "a4",
+        "d"
+      ],
+      "methods": [
+        "CT-based Turbinate Volumetry (ImageJ)",
+        "Morphological Phenotyping (Torpedo vs Pistol Type)",
+        "Symptom Questionnaire Correlation (ENS6Q, SNOT-25, BDI-II, BAI)"
+      ],
+      "summary": "從薄切鼻竇 CT 用 ImageJ 量測 54 名 ENS 患者的殘存下鼻甲體積(ITV)，並依組織分布形態分為「魚雷型」(前後均衡)與「手槍型」(後段組織集中)；ITV 與 ENS6Q、SNOT-25 症狀分域正相關，且手槍型患者隨 ITV 增加症狀負擔明顯升高，證明形狀分布模式比單純體積更能解釋症狀嚴重度差異",
+      "key_insight": "目前研究以材質無關的解剖 ROI 內 Δ 體積為核心，這篇證明形狀分布模式本身就是症狀嚴重度的獨立解釋變數，可在 D 階段用這套魚雷型/手槍型分類法驗證模型預測出的術後形態是否落在臨床上較佳的表現型。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1002/lary.31328",
+      "relations": [
+        "ens_cluster_lary70460",
+        "ens6qit_acta2029",
+        "ens_3yfu_alr23257"
+      ],
+      "pick": true
+    },
+    {
+      "id": "arena_2507.15793",
+      "date": "20260904",
+      "title": "ARENA: Regularized Low-Rank Adaptation for Few-Shot Organ Segmentation",
+      "pub": "Baklouti, Silva-Rodriguez, Dolz, Bahig, Ben Ayed · MICCAI 2025 (arXiv 2507.15793)",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "c"
+      ],
+      "methods": [
+        "Low-Rank Adaptation (LoRA)",
+        "L1 Sparsity Regularization on SVD",
+        "Proximal Optimization",
+        "Few-Shot Parameter-Efficient Fine-Tuning"
+      ],
+      "summary": "把 LoRA 低秩權重矩陣視為 SVD 分解形式，對奇異值施加 l1 稀疏正則化並用 proximal optimizer 求解，讓有效 rank 在少樣本微調過程中自動收縮/擴張；在 9 個資料集共 2042 筆 CT 預訓練的分割基礎模型上做少樣本微調，新器官分割表現顯著優於固定 rank 的標準 LoRA，且對 rank 初始值不佳有高穩健性",
+      "key_insight": "ENS N=42、鼻腔解剖屬於分布外情境，正是「新器官少樣本微調」的典型場景，可用 ARENA 微調現有器官分割基礎模型辨識鼻腔/下鼻甲，避免手動調 LoRA rank 的試錯成本，作為 A4 半自動遮罩生成或 C 階段分割的基線方案。",
+      "github": "https://github.com/ghassenbaklouti/ARENA",
+      "arxiv": "https://arxiv.org/abs/2507.15793",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "fewshot_review_acm2025",
+        "mass_2603.13660",
+        "detsamreg_asmus2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "epc3ddiff_2605.20470",
+      "date": "20260904",
+      "title": "EPC-3D-Diff: Equivariant Physics Consistent Conditional 3D Latent Diffusion for CBCT to CT Synthesis",
+      "pub": "arXiv 2605.20470 (2026-05)",
+      "stars": 4,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Conditional Latent Diffusion",
+        "3D Autoencoder",
+        "Projection-Domain Equivariance Loss",
+        "Physics-Informed Consistency"
+      ],
+      "summary": "先用輕量 3D autoencoder 學習緊湊潛在空間並在其中做條件式擴散生成，額外引入「投影域等變損失」：把合成 CT 旋轉後重新正向投影，要求結果匹配對應角度平移後的真實 CT 投影，利用造影物理關係強化解剖一致性；相較標準條件式擴散基準，HU 值準確度與骨性結構邊界一致性提升",
+      "key_insight": "目前 Δ=術後−術前生成模型主要靠影像層級損失，這篇「用物理關係定義額外一致性損失」的做法可類比借用，例如用配準後解剖 ROI 的體積守恆或表面連續性作為額外約束項，讓合成術後形態不只像素相似，也符合解剖上合理的變化。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2605.20470",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "synthrad2025_2605.13555",
+        "cdm_2409.08500",
+        "medlord_2503.13211"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_3yfu_alr23257",
+      "date": "20260904",
+      "title": "A 3-year Follow-up Study After Nasal Reconstruction Surgery in Patients With Empty Nose Syndrome",
+      "pub": "Huang et al. · International Forum of Allergy & Rhinology 2024;14:841-844",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Submucosal Implant Reconstruction",
+        "Longitudinal Questionnaire Follow-up (ENS6Q)",
+        "Psychiatric Symptom Tracking"
+      ],
+      "summary": "長庚醫院鼻科團隊對接受黏膜下植入重建手術的 ENS 患者做前瞻追蹤，以 ENS6Q 等症狀量表與心理量表追蹤術後 3 年病程；ENS 症狀與心理症狀術後改善並維持穩定達 3 年，但強調仍需辨識殘餘病灶以進一步提升療效",
+      "key_insight": "證實你的研究對象（鼻腔黏膜下重建手術）在長期追蹤上確有穩定療效，可作為論文背景的長期預後證據；「殘餘病灶」概念也提示術後形態預測若能標示植入物覆蓋不足的殘留區域，會是有臨床意義的延伸應用方向。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1002/alr.23257",
+      "relations": [
+        "ens_morph_lary31328",
+        "ens_sleep_alr23615",
+        "cfdimplant_jtice2024"
+      ],
+      "pick": false
+    },
+    {
+      "id": "cictransmorph_2603.21760",
+      "date": "20260904",
+      "title": "Cycle Inverse-Consistent TransMorph: A Balanced Deep Learning Framework for Brain MRI Registration",
+      "pub": "Shang et al. · arXiv 2603.21760 (2026-03)",
+      "stars": 3,
+      "stages": [
+        "a4"
+      ],
+      "methods": [
+        "Swin-UNet Backbone",
+        "Bidirectional Deformation Field Estimation",
+        "Cycle Inverse-Consistency Constraint"
+      ],
+      "summary": "以 Swin-UNet 為骨幹同時估計正向與反向形變場，並用雙向不變一致性約束聯合訓練；在 13 個公開資料集共 2851 筆 T1 腦部 MRI 上驗證，相較標準 TransMorph 提升形變場正反一致性與長距離解剖對應穩定性",
+      "key_insight": "A2 配準步驟若要疊代精修，可借用「正向+反向形變場雙向一致性」設計作為配準品質的量化檢查，正向配準後再反向配準回去量測循環誤差，有助於在計算 Δ 之前篩掉配準不佳的樣本對，提升 A4 變化遮罩可靠度。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2603.21760",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "idir_2506.02150",
+        "polypose_2505.19256",
+        "regadapt_2603.26393"
       ],
       "pick": false
     }
