@@ -1,5 +1,5 @@
 {
-  "updated": "20260731",
+  "updated": "20260904",
   "repos": [
     {
       "date": "20260611",
@@ -128,6 +128,21 @@
         "psp_2606.28799",
         "nasalssm_2510.09713",
         "ssm_2603.13969"
+      ]
+    },
+    {
+      "id": "arena_fewshot",
+      "date": "20260904",
+      "name": "ARENA (ghassenbaklouti)",
+      "repo": "ghassenbaklouti/ARENA",
+      "url": "https://github.com/ghassenbaklouti/ARENA",
+      "description": "今日 #2 論文官方實作。用 l1 稀疏正則化讓 LoRA 的有效 rank 在少樣本微調過程中自動調整，不需手動選 rank；在多個公開 CT 資料集上對新器官分割任務有顯著提升，對初始 rank 選得不好也很穩健。",
+      "install": "git clone https://github.com/ghassenbaklouti/ARENA.git\ncd ARENA\npip install -r requirements.txt",
+      "relevance": "ENS N=42、鼻腔解剖屬於分布外情境，可直接試跑官方 repo 對現有器官分割基礎模型做少樣本微調，評估辨識鼻腔/下鼻甲的可行性，作為 A4 半自動遮罩生成或 C 階段分割的基線，不需從頭訓練分割網路也不用手動調 LoRA rank。",
+      "related_papers": [
+        "arena_2507.15793",
+        "fewshot_review_acm2025",
+        "mass_2603.13660"
       ]
     }
   ]
