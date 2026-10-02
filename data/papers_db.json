@@ -1,5 +1,5 @@
 {
-  "updated": "20260904",
+  "updated": "20260915",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -2366,6 +2366,399 @@
         "idir_2506.02150",
         "polypose_2505.19256",
         "regadapt_2603.26393"
+      ],
+      "pick": false
+    },
+    {
+      "id": "anatomica_2511.20587",
+      "date": "20260907",
+      "title": "Anatomica: Localized Control over Geometric and Topological Properties for Anatomical Diffusion Models",
+      "pub": "arXiv 2511.20587 (2025-11)",
+      "stars": 4,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Inference-Time Diffusion Guidance",
+        "Voxel-wise Moments (Geometric Control)",
+        "Persistent Homology (Topological Control)",
+        "Neural Field Decoder"
+      ],
+      "summary": "推論時框架，用可變維度/位置/形狀的立方體控制域切出解剖子結構，計算可微分懲罰函數（voxel-wise moments 控制幾何、persistent homology 控制拓樸）引導潛在擴散模型的採樣過程逼近目標約束，不需重新訓練模型；可套用於多種解剖系統，控制子結構的大小、形狀、位置與連通性、洞、空腔數等拓樸性質",
+      "key_insight": "目前 Δ 生成模型只靠影像層級 loss 監督，術後鼻腔屬分布外解剖，容易生成拓樸不合理的結果；這篇提供 inference-time 局部幾何/拓樸約束的具體做法，可用於 B 階段後處理或轉化為 D 階段的解剖一致性評估指標，不需重新訓練模型。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2511.20587",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "nasalssm_2510.09713",
+        "epc3ddiff_2605.20470",
+        "wasabi_2504.21771"
+      ],
+      "pick": true
+    },
+    {
+      "id": "synthmetrics_ejr113124",
+      "date": "20260907",
+      "title": "Evaluation Metrics for Synthetic Medical Imaging",
+      "pub": "de Wilde et al. · European Journal of Radiology 2026;204:113124",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Systematic Review",
+        "Pixel-level Metrics (SSIM/PSNR/FID)",
+        "Downstream Task-based Metrics"
+      ],
+      "summary": "系統性回顧整理像素/影像層級指標（SSIM、PSNR、FID 等）與下游任務型指標（分割一致性、放射科醫師圖靈測試、臨床任務表現）的分類架構，指出 FID 等常用指標源自 ImageNet 訓練的特徵萃取器不適合醫學影像領域，提出依生成任務目的（視覺品質 vs 解剖正確性 vs 下游任務可用性）選用對應指標組合的建議框架",
+      "key_insight": "目前研究在 D 階段的合成影像評估設計仍待定，這篇整理的「依任務目的選指標」框架可直接用於決定 ENS 術後預測的評估組合：除影像相似度外，應加入解剖一致性與下游任務型指標（如植入物覆蓋率、Δ 體積誤差）。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1016/j.ejrad.2026.113124",
+      "relations": [
+        "metrics_matter_2505.07175",
+        "wasabi_2504.21771",
+        "anatomica_2511.20587"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_itpsurg_gox8066",
+      "date": "20260907",
+      "title": "Inferior Turbinate Preservation Surgery: Surgical Strategies to Prevent Empty Nose Syndrome",
+      "pub": "Plastic and Reconstructive Surgery - Global Open 2026;14(9):e8066",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Narrative Review",
+        "Submucosal vs Ablative Technique Comparison"
+      ],
+      "summary": "敘述性回顧英文文獻中下鼻甲肥厚手術術式，比較黏膜下（射頻消融、微創刀輔助、雷射）與較具侵入性（全下鼻甲切除）術式對黏膜、纖毛、溫度感受器保留程度與功能性併發症發生率的差異；黏膜保留式術式明顯優於消融式，破壞黏膜的術式與呼吸功能障礙及 ENS 發生較相關，建議僅在明確需要時才進行全下鼻甲/中鼻甲切除",
+      "key_insight": "補足「哪些手術方式容易導致 ENS」的臨床背景知識，可強化論文引言的手術機制說明；也提示「以手術介入資訊為條件」的設計中，術式類型（黏膜保留 vs 消融）或許是比植入位置更細緻的條件變數。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13533496/",
+      "doi": "10.1097/GOX.0000000000008066",
+      "relations": [
+        "ens_meta_pmc12321921",
+        "ens_sr_pmc13099783",
+        "ens_morph_lary31328"
+      ],
+      "pick": false
+    },
+    {
+      "id": "murineairway_fmedt1823048",
+      "date": "20260907",
+      "title": "An Automated Deep Learning-Based Pipeline for 3D Characterisation of the Murine Upper Airway from Micro-CT",
+      "pub": "Frontiers in Medical Technology 2026;8:1823048",
+      "stars": 3,
+      "stages": [
+        "a4",
+        "c"
+      ],
+      "methods": [
+        "nnU-Net",
+        "5-Fold Cross-Validation",
+        "Cross-Cohort Generalization"
+      ],
+      "summary": "以 nnU-Net 框架訓練全解析度 2D CNN，在軸切面上對小鼠上呼吸道（氣管、咽、鼻腔）micro-CT 影像做 5-fold 交叉驗證分割；內部驗證 DSC 分別為氣管 0.988、咽 0.985、鼻腔 0.958，相對體積誤差約 1.5–2%，在掃描設定略有差異的獨立世代仍能偵測到具生物意義的變化",
+      "key_insight": "雖是小鼠鼻腔資料，證明 nnU-Net 對細小分支狀氣道結構能達到 >0.95 DSC 且跨掃描設定泛化，可作為 A4 階段選擇下鼻甲/鼻腔半自動遮罩生成框架時的基線參考。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13503376/",
+      "doi": "10.3389/fmedt.2026.1823048",
+      "relations": [
+        "nasalseg_s41597",
+        "sinusseg_s41598-2025",
+        "airwaynnunet_jdent2026"
+      ],
+      "pick": false
+    },
+    {
+      "id": "pedairwaycfd_sleepbreath",
+      "date": "20260907",
+      "title": "Biomechanical Analysis of Upper Airway Airflow Characteristics in Children",
+      "pub": "Sleep and Breathing 2026",
+      "stars": 3,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Mimics HU-Threshold Segmentation",
+        "Computational Fluid Dynamics (CFD)"
+      ],
+      "summary": "4 名健康兒童（6.8–11.9 歲）DICOM 影像匯入 Mimics 21.0，以 HU 閾值分割鼻腔、鼻咽、咽氣道體積，重建 3D 模型後進行 CFD 模擬，建立健康兒童上呼吸道氣流力學基準數據，可用於比較病理狀態下的氣流異常",
+      "key_insight": "與現有累積的 ENS CFD 文獻互補，提供健康對照組的氣流力學基準流程（Mimics 分割 + CFD 模擬），可作為 D 階段若加入「預測形態的氣流功能驗證」時，建立健康 vs ENS 對照基準的方法參考。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1007/s11325-026-03757-1",
+      "relations": [
+        "nasalcfd_pmc12808322",
+        "ens_cfd_ear2025",
+        "ens_cfd_biorxiv2504"
+      ],
+      "pick": false
+    },
+    {
+      "id": "eqdiffct_2509.21913",
+      "date": "20260914",
+      "title": "EqDiff-CT — Equivariant Conditional Diffusion Model for CT Image Synthesis from CBCT",
+      "pub": "Altalib et al. · Medical Physics 2026 · arXiv 2509.21913",
+      "stars": 5,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Diffusion Model",
+        "DDPM",
+        "Group Equivariant CNN",
+        "Conditional U-Net",
+        "Rotational Equivariance"
+      ],
+      "summary": "群等變卷積（e2cnn steerable layers, cyclic C4）強化條件式擴散模型 U-Net 主幹，CBCT→CT 頭頸部影像合成，結構保真度與 HU 準確度優於 CycleGAN 與標準 DDPM，開源",
+      "key_insight": "旋轉等變卷積把「保留精細解剖細節」的規則直接寫進網路結構，不需額外訓練資料；ENS 術後 CT 生成最擔心植入物邊緣被模糊化，這個架構可直接借用強化 B 階段生成模型的解剖保真度。",
+      "github": "https://github.com/ALZAHRAALTALIB/EqDiff-CT",
+      "arxiv": "https://arxiv.org/abs/2509.21913",
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13433820/",
+      "doi": "10.1002/mp.70617",
+      "pmid": "42547903",
+      "relations": [
+        "3dmed_2412.13059",
+        "gdm_2503.00745",
+        "medlord_2503.13211"
+      ],
+      "pick": true
+    },
+    {
+      "id": "ens_turbectomy_ohn70277",
+      "date": "20260914",
+      "title": "Does Total Inferior and Middle Turbinectomy Always Lead to Empty Nose Syndrome?",
+      "pub": "Jha, Speers, Odeh et al. · Otolaryngology–Head and Neck Surgery 2026;175(1):71-77",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "CFD",
+        "Virtual Surgery Simulation",
+        "Retrospective Cohort Comparison"
+      ],
+      "summary": "延伸既有虛擬手術模擬器，對 6 名鼻阻塞患者做虛擬全下鼻甲+中鼻甲切除，CFD 結果與已發表 27 例 ENS 世代比較；截面積/流速/壁面剪切力顯著改變但趨勢與真實 ENS 患者不同，證實 ENS 為多因素疾病",
+      "key_insight": "延伸資料庫既有的 ens_cfd_lary31757（同團隊前作），為 D 階段「形態相似 ≠ 功能相似」提供最新臨床佐證，提醒評估框架不能只看解剖層面。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13327433/",
+      "doi": "10.1002/ohn.70277",
+      "pmid": "42084302",
+      "relations": [
+        "ens_cfd_lary31757",
+        "ens_cluster_lary70460",
+        "ens_cfd_biorxiv2504"
+      ],
+      "pick": false
+    },
+    {
+      "id": "regal_2607.25014",
+      "date": "20260914",
+      "title": "RegAL — Unifying Active Learning and Semi-Supervised Learning for Medical Image Segmentation",
+      "pub": "arXiv 2607.25014 (2026-07)",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "Active Learning",
+        "Semi-Supervised Learning",
+        "Topology-Aware Pareto Optimization",
+        "Mean Teacher",
+        "Diffeomorphic Registration Augmentation"
+      ],
+      "summary": "topology-aware Pareto 優化統一主動學習與半監督學習：voxel-wise 不確定性/特徵多樣性/拓樸一致性三軸選案例標注，同組指標挑穩定 atlas 做配準增強訓練 Mean Teacher；BraTS2021/dHCP/ProstateX 上超越現有 AL/SSL baseline",
+      "key_insight": "N=42 標注量有限，這套「主動學習挑選最有價值案例」+「半監督訓練」統一框架可用於 C 階段決定優先標注哪些下鼻甲/鼻腔切片，未查到公開程式碼。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2607.25014",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "sslsam2_2512.11548",
+        "sslknow_2503.06816",
+        "mass_2603.13660"
+      ],
+      "pick": false
+    },
+    {
+      "id": "cbctdiffreview_2509.17790",
+      "date": "20260914",
+      "title": "Conditional Diffusion Models for CT Image Synthesis from CBCT: A Systematic Review",
+      "pub": "Tomography 2026 · arXiv 2509.17790",
+      "stars": 3,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Systematic Review",
+        "Diffusion Model",
+        "Evaluation Metric Survey"
+      ],
+      "summary": "系統性回顧 2013-2024 年條件式擴散模型於 CBCT→CT 合成的架構策略（DDPM、Latent Diffusion、條件化方式）與評估指標分布，指出多數研究仍以像素層級指標為主、臨床相關性佐證不足",
+      "key_insight": "提供 B 階段生成模型主幹架構選項的總覽對照，且評估指標分布統計佐證 D 階段需採用超越像素層級的多層次評估框架，可作 Related Work 素材。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2509.17790",
+      "pmc": null,
+      "doi": "10.3390/tomography12050064",
+      "relations": [
+        "metrics_matter_2505.07175",
+        "synthmetrics_ejr113124",
+        "eqdiffct_2509.21913"
+      ],
+      "pick": false
+    },
+    {
+      "id": "ens_airjet_lary70398",
+      "date": "20260914",
+      "title": "Nasal Air-Jet Sensitivity Differentiates Empty Nose Syndrome and Turbinate Reduction Patients: A Pilot Study",
+      "pub": "Kim et al. · The Laryngoscope 2026",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Air-Jet Sensory Threshold Testing",
+        "Prospective Pilot Study",
+        "Symptom Score Correlation"
+      ],
+      "summary": "以 0.25 秒精準氣流脈衝（0.5–5 L/min）於鼻瓣、下鼻甲頭/中段及對應鼻中隔測感覺閾值；7 名 ENS vs 7 名鼻甲縮小術後患者，ENS 組於下鼻甲中段對應鼻中隔閾值顯著較高（2.43±1.37 vs 1.39±1.27 L/min, p=0.016）且與自評症狀分數相關",
+      "key_insight": "提供「特定解剖位置黏膜感覺功能」與症狀嚴重度的量化關聯，補足黏膜感覺神經機制角度；未來 D 階段評估延伸到功能面時，是除 CFD 之外可考慮的驗證維度（樣本量極小，需留意）。",
+      "github": null,
+      "arxiv": null,
+      "pmc": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13078140/",
+      "doi": "10.1002/lary.70398",
+      "pmid": "41618731",
+      "relations": [
+        "ens6qit_acta2029",
+        "ens_fr_pmc12841989",
+        "ens_morph_lary31328"
+      ],
+      "pick": false
+    },
+    {
+      "id": "flowlet_2601.05212",
+      "date": "20260915",
+      "title": "FlowLet — Conditional 3D Brain MRI Synthesis using Wavelet Flow Matching",
+      "pub": "Danese, Lombardi, Attimonelli, Fasano, Di Noia · Medical Image Analysis (Elsevier) 2026 · arXiv 2601.05212",
+      "stars": 5,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Flow Matching",
+        "Invertible 3D Wavelet Transform",
+        "FiLM Conditioning",
+        "Cross-Attention Conditioning",
+        "3D U-Net"
+      ],
+      "summary": "Flow Matching 直接在可逆 3D Haar 小波域運作，免除 latent 壓縮；FiLM + cross-attention 雙軌條件化注入年齡資訊，約 100 步生成高保真 3D MRI，區域化解剖分析驗證結構保真，開源完整",
+      "key_insight": "把「年齡」條件換成「手術介入位置/尺寸」，FiLM + cross-attention 雙軌條件化可直接套用在 B 階段生成模型；小波域生成避開壓縮偽影，對植入物邊緣精細解剖更友善，已發表於 Medical Image Analysis。",
+      "github": "https://github.com/sisinflab/FlowLet",
+      "arxiv": "https://arxiv.org/abs/2601.05212",
+      "pmc": null,
+      "doi": "10.1016/j.media.2026.104161",
+      "relations": [
+        "gdm_2503.00745",
+        "3dmed_2412.13059",
+        "gliodiff3d_2606.05113"
+      ],
+      "pick": true
+    },
+    {
+      "id": "tlrn_2407.11219",
+      "date": "20260915",
+      "title": "TLRN — Temporal Latent Residual Networks for Large Deformation Image Registration",
+      "pub": "Wu, Xing, Zhang · MICCAI 2024 · arXiv 2407.11219",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Temporal Residual Network",
+        "Latent Deformation Space",
+        "Initial Velocity Field Parameterization",
+        "Large Deformation Registration"
+      ],
+      "summary": "時間殘差網路在潛在形變空間學殘差，以時間序列初始速度場參數化，用於大幅形變時間序列影像配準；在合成資料與心臟電影 MRI 上配準準確度顯著優於 SOTA，開源",
+      "key_insight": "「潛在形變空間學殘差、而非直接回歸位移場」的設計正對應 Δ = 術後 − 術前 的建模精神，可作為 A4 遮罩／B 階段殘差生成架構的替代設計選項，補足近期較少直接對應的殘差學習/可形變配準缺口。",
+      "github": "https://github.com/nellie689/TLRN",
+      "arxiv": "https://arxiv.org/abs/2407.11219",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "reg3dnet_mp2023",
+        "idir_2506.02150",
+        "polypose_2505.19256"
+      ],
+      "pick": false
+    },
+    {
+      "id": "medvar_2602.14512",
+      "date": "20260915",
+      "title": "MedVAR — Towards Scalable and Efficient Medical Image Generation via Next-scale Autoregressive Prediction",
+      "pub": "He, Zhao, Wu et al. · NUS / Oxford / Zhejiang Univ. / Shanghai Jiao Tong Univ. · arXiv 2602.14512 · 2026",
+      "stars": 3,
+      "stages": [
+        "b"
+      ],
+      "methods": [
+        "Next-scale Autoregressive Prediction",
+        "Coarse-to-Fine Generation",
+        "Multi-organ Pretraining"
+      ],
+      "summary": "首個採用 next-scale autoregressive prediction 的醫學影像生成基礎模型，約 44 萬張跨 6 解剖部位 CT/MRI 訓練，保真度/多樣性/可擴展性全面超越比較方法；程式碼尚未釋出",
+      "key_insight": "多解剖部位大規模預訓練 + 快速由粗到細生成的基礎模型定位，可作為 ENS N=42 few-shot fine-tune 的候選預訓練骨幹，推理速度可能比擴散模型更快，但程式碼未公開，暫列追蹤清單。",
+      "github": "https://github.com/jinlab-imvr/MedVAR",
+      "arxiv": "https://arxiv.org/abs/2602.14512",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "lora_2605.11898",
+        "3dmed_2412.13059"
+      ],
+      "pick": false
+    },
+    {
+      "id": "fame_2607.27856",
+      "date": "20260915",
+      "title": "FAME — Benchmarking Foundation and Large Language Models for Few-Shot Medical Image Segmentation",
+      "pub": "Liu, Deng, Liu, Huang, Li · arXiv 2607.27856 · 2026",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "Benchmark",
+        "Few-Shot Segmentation",
+        "SAM-based Methods",
+        "CLIP-based Methods",
+        "MLLM-based Methods"
+      ],
+      "summary": "統一基準 FAME，涵蓋專用模型/SAM-based/CLIP-based/MLLM-based 四類少樣本分割典範，14,958 筆測試樣本橫跨 7 部位 9 模態；直接視覺適應普遍優於 prompt-based 策略",
+      "key_insight": "N=42 且術後解剖屬於 OOD 的情境正落在「少樣本+語意遷移困難」痛點上，其結論可佐證 C 階段應優先投入 MASS 式微調路線而非單純依賴 SAM prompt 工程；未查到公開程式碼。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2607.27856",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "mass_2603.13660",
+        "sslsam2_2512.11548",
+        "fewshot_review_acm2025"
       ],
       "pick": false
     }
