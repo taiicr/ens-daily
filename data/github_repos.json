@@ -1,5 +1,5 @@
 {
-  "updated": "20260904",
+  "updated": "20261006",
   "repos": [
     {
       "date": "20260611",
@@ -144,6 +144,16 @@
         "fewshot_review_acm2025",
         "mass_2603.13660"
       ]
+    },
+    {
+      "id": "sinussegment_repo",
+      "date": "20261006",
+      "name": "rheadkaul/SinusSegment",
+      "url": "https://github.com/rheadkaul/SinusSegment",
+      "description": "改良 UNet++ 的鼻竇（五個鼻竇）與鼻腔 CT 分割工具，附預訓練權重 default_parameters.pth。",
+      "relevance": "C 階段鼻腔分割 baseline，可與 nnU-Net 對照並參考窗位 300/窗寬 3000 前處理。",
+      "install": "git clone https://github.com/rheadkaul/SinusSegment",
+      "stars": "約 2"
     }
   ]
 }
