@@ -1,5 +1,5 @@
 {
-  "updated": "20260915",
+  "updated": "2026-10-06",
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -2759,6 +2759,92 @@
         "mass_2603.13660",
         "sslsam2_2512.11548",
         "fewshot_review_acm2025"
+      ],
+      "pick": false
+    },
+    {
+      "id": "vt_2603.06147",
+      "date": "20261006",
+      "title": "Longitudinal NSCLC Treatment Progression via Multimodal Generative Models",
+      "pub": "Mantegna, Mulero Ayllón, Caragliano, Di Feola, …, Cattin, Soda, Tortora, Guarrasi · arXiv 2603.06147 · 2026-03",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Dose-aware conditioning",
+        "2.5D diffusion (TADM)",
+        "Residual prediction",
+        "CTV-focused L1 loss"
+      ],
+      "summary": "把放療中 NSCLC 進展視為「劑量條件式 CT 影像對影像轉換」：2.5D 擴散模型預測加到輸入上的殘差，用腫瘤區 L1 損失與體積誤差評估。",
+      "key_insight": "和你的設定幾乎同構：用「介入量」當條件、2.5D、預測殘差加回輸入，並用 ROI 體積誤差而非只看 SSIM；可直接參考其條件注入與評估設計。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2603.06147",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "tlrn_2407.11219",
+        "eqdiffct_2509.21913",
+        "prdit_2606.20112"
+      ],
+      "pick": true
+    },
+    {
+      "id": "regbias_2609.29387",
+      "date": "20261006",
+      "title": "When Misalignment Becomes Supervision: Structured Label Noise in Supervised Synthetic CT Generation",
+      "pub": "Boussot, Hémon, Lafond, Nunes, Dillenseger · arXiv 2609.29387 · 2026-09",
+      "stars": 4,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Registration bias",
+        "SAM-encoder perceptual loss",
+        "2.5D U-Net++ (ResNet-34)",
+        "Anatomical consistency metrics"
+      ],
+      "summary": "殘餘配準誤差會變成「結構性標籤雜訊」：監督式 sCT 網路會學到配準方法的幾何習慣，而非保留來源解剖；提出 SAM 特徵感知損失緩解。",
+      "key_insight": "你的 42 對術前/術後 CT 是配準後的配對，殘餘配準誤差會被模型學進去；這篇提供偵測偏差的方法（換配準法交叉評估）與 SAM 感知損失。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2609.29387",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "synthrad2025_2605.13555",
+        "metrics_matter_2505.07175",
+        "i2ibias_fradi1875867"
+      ],
+      "pick": false
+    },
+    {
+      "id": "sinusseg_lary32292",
+      "date": "20261006",
+      "title": "Development of an Open-Source Algorithm for Automated Segmentation in Clinician-Led Paranasal Sinus Radiologic Research",
+      "pub": "Darbari Kaul 等（Harvey 團隊）· The Laryngoscope 135(11) · 2025-11",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "UNet++",
+        "Paranasal sinus + nasal cavity",
+        "Open-source weights"
+      ],
+      "summary": "改良 UNet++ 以 100 例 CT 訓練，分割五個鼻竇與鼻腔，DSC 0.87，附公開程式與預訓練權重。",
+      "key_insight": "可當鼻腔/鼻竇分割的現成 baseline 與前處理（窗寬窗位）參考，但訓練資料是一般鼻竇族群，ENS 術後 OOD 解剖需自己驗證。",
+      "github": "https://github.com/rheadkaul/SinusSegment",
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.1002/lary.32292",
+      "relations": [
+        "sinusseg_s41598-2025",
+        "airwaynnunet_jdent2026",
+        "nasalseg_s41597"
       ],
       "pick": false
     }
