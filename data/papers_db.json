@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06",
+  "updated": 10,
   "papers": [
     {
       "id": "3dmed_2412.13059",
@@ -2847,6 +2847,238 @@
         "nasalseg_s41597"
       ],
       "pick": false
+    },
+    {
+      "id": "synthrct_2609.08627",
+      "date": "20261007",
+      "title": "SynthRCT: Scalable Conditional Deformation Synthesis for Synthetic Repeat CT Generation",
+      "pub": "Guija-Valiente, Rodriguez-Gonzalez, Malpica · arXiv 2609.08627 · 2026-09",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "b"
+      ],
+      "methods": [
+        "Conditional VAE",
+        "SVF deformation",
+        "FiLM conditioning",
+        "Slab-wise decoding"
+      ],
+      "summary": "條件式 VAE 取樣潛在碼，逐 slab 解碼為速度場，積分成位移場 warp 原 CT，生成病人專屬的重複 CT 形變；FiLM 條件、省 41.6% 記憶體。",
+      "key_insight": "把「變化」建模成可取樣的形變場，與你的強度殘差 Δ 互補；FiLM 條件注入與 slab 解碼可直接借來編碼植入位置、省記憶體。",
+      "github": "https://github.com/TomasGuija/SynthRCT",
+      "arxiv": "https://arxiv.org/abs/2609.08627",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "regbias_2609.29387",
+        "cdm_2409.08500",
+        "vt_2603.06147"
+      ],
+      "pick": true
+    },
+    {
+      "id": "simcbct_2602.02130",
+      "date": "20261007",
+      "title": "Eliminating Registration Bias in Synthetic CT Generation: A Physics-Based Simulation Framework",
+      "pub": "Zimmermann, Rauter, Schmid, Georg, Knäusl · arXiv 2602.02130 · 2026-02",
+      "stars": 3,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Physics-based simulation",
+        "Registration bias",
+        "NMI metric",
+        "Observer study"
+      ],
+      "summary": "以物理模擬產生天生對齊的 CBCT/CT 訓練對，證明配準偏差會讓 MAE 與臨床評分反向相關，NMI 才預測醫師偏好。",
+      "key_insight": "你的術前/術後 CT 同樣靠配準配對，這篇警告只看 MAE/SSIM 可能被配準偏差誤導；建議 D 階段加 NMI 與醫師評分。",
+      "github": "https://github.com/openvoxelmed/simcbctgenerator",
+      "arxiv": "https://arxiv.org/abs/2602.02130",
+      "pmc": null,
+      "doi": null,
+      "relations": [
+        "regbias_2609.29387",
+        "synthrad2025_2605.13555",
+        "metrics_matter_2505.07175"
+      ],
+      "pick": false
+    },
+    {
+      "id": "thaflow_2608.25845",
+      "title": "THA-Flow Generative Model: Prosthesis Geometry Prediction from Preoperative CT",
+      "pub": "Wang, Li, Shen, Wang · arXiv 2608.25845 · 2026-08",
+      "stars": 4,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Conditional flow matching",
+        "AutoencoderKL",
+        "TSDF",
+        "Pre/post CT registration"
+      ],
+      "summary": "以術前骨骼 CT 為條件，用 flow matching 在潛空間生成人工髖關節假體 3D 幾何；訓練標籤來自「術後 CT 配準回術前 CT」，1,355 髖／1,149 位病患。",
+      "key_insight": "和你的任務同構：「術前 CT＋規劃 → 預測植入物與術後形態」，而且標籤同樣來自術後配準回術前；可借用它的一對多（多個合理解）想法與 TSDF 表示。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2608.25845",
+      "pmc": null,
+      "doi": null,
+      "relations": [],
+      "pick": true,
+      "date": "20261020"
+    },
+    {
+      "id": "4dlog_2604.22700",
+      "title": "4DLoG: Generative Modeling of Neurodegenerative Brain Anatomy with 4D Longitudinal Diffusion Model",
+      "pub": "Jayakumar, Deb, Jafrasteh, Zhao, Zhang · arXiv 2604.22700 (v2 2026-08) · 2026-04",
+      "stars": 4,
+      "stages": [
+        "a4",
+        "b",
+        "d"
+      ],
+      "methods": [
+        "4D diffusion",
+        "Deformation (velocity field) generation",
+        "Spatiotemporal attention",
+        "DetJac check"
+      ],
+      "summary": "擴散模型不直接生成影像，而是生成拓撲保持的形變場，把基線掃描變形成追蹤掃描；ADNI 上形變版本 FID 0.241、PSNR 25.90、SSIM 0.93，負 Jacobian 行列式比例約 3.5×10⁻⁴%。",
+      "key_insight": "「生成形變而非生成強度」能保證解剖合理，並提供 DetJac 檢查；對 ENS 這種在固定背景上局部改變的 Δ 很有啟發。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2604.22700",
+      "pmc": null,
+      "doi": null,
+      "relations": [],
+      "pick": false,
+      "date": "20261020"
+    },
+    {
+      "id": "benchreg_2609.15669",
+      "title": "Benchmarking Intra-Patient 3D Deformable Multimodal Image Registration",
+      "pub": "Barbieri, La Barbera, De La Plata, Sarnacki, Bloch, Gori · arXiv 2609.15669 · 2026-09",
+      "stars": 3,
+      "stages": [
+        "a4",
+        "d"
+      ],
+      "methods": [
+        "Registration benchmark",
+        "DSC / HD95 / MIND-SSC",
+        "Foundation-model registration"
+      ],
+      "summary": "在三個資料集上比較古典與學習式個案內 3D 可形變配準，結論是沒有方法在所有解剖／模態穩健，且 DSC／HD95 與影像式 MIND-SSC 常互相矛盾。",
+      "key_insight": "提醒配準品質不能只看 Dice：標籤對齊好不代表整體對應好，直接關係到你 Δ 標籤的可信度。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2609.15669",
+      "pmc": null,
+      "doi": null,
+      "relations": [],
+      "pick": false,
+      "date": "20261020"
+    },
+    {
+      "id": "jcmcfd_8069",
+      "title": "Virtual Surgery and CFD in Rhinology: A Scoping Review",
+      "pub": "Szydłowski, Nogal, Skorek, Kasprzyk-Tryk, Tretiakow · J Clin Med 15(20):8069 · 2026-10",
+      "stars": 4,
+      "stages": [
+        "d"
+      ],
+      "methods": [
+        "Scoping review",
+        "41 studies",
+        "CFD validation",
+        "PROMs (NOSE, SNOT-22)"
+      ],
+      "summary": "回顧 41 篇鼻科 CFD＋虛擬手術研究：僅 7 篇有與實際術後解剖／氣流／症狀比對，多為 1–7 例；ENS 虛擬全鼻甲切除未重現臨床氣流型態。",
+      "key_insight": "直接說明「預測術後形態再做 CFD」目前的證據缺口，並提醒要搭配 NOSE／SNOT-22 等症狀，正是你 D 階段功能性驗證的定位依據。",
+      "github": null,
+      "arxiv": null,
+      "pmc": null,
+      "doi": "10.3390/jcm15208069",
+      "relations": [],
+      "pick": false,
+      "date": "20261020"
+    },
+    {
+      "id": "osteoflow_2603.22421",
+      "title": "OsteoFlow: Lyapunov-Guided Flow Distillation for Predicting Bone Remodeling after Mandibular Reconstruction",
+      "pub": "Aftabi, Yu, Switzer, Fishman, Prisman, Hodgson, Whyne, Fels, Hardisty · arXiv 2603.22421 · 2026-03",
+      "stars": 5,
+      "stages": [
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Rectified flow",
+        "Res-UNet 學生/SVF 配準教師",
+        "Lyapunov 軌跡蒸餾",
+        "小樣本 ROI 訓練"
+      ],
+      "summary": "從術後第 5 天 CT 預測術後 1 年骨重塑：時間條件 3D 殘差 U-Net 學習速度場（rectified flow），並蒸餾配準式 SVF 教師；120 位病患、344 組 ROI，bone MAE 由 87.15 降至 69.88 HU。",
+      "key_insight": "任務與你最像：術後 CT 為標籤、小樣本、手術區域 ROI 內評估；其「配準教師→生成學生」蒸餾與手術區域加權損失可直接借用。",
+      "github": "https://github.com/hamidreza-aftabi/OsteoFlow",
+      "arxiv": "https://arxiv.org/abs/2603.22421",
+      "pmc": null,
+      "doi": null,
+      "relations": [],
+      "pick": true,
+      "date": "20261021"
+    },
+    {
+      "id": "latentdrift_2607.08270",
+      "title": "Progression as Latent Drift: Generative Forecasting of Slow-Evolving Pathologies",
+      "pub": "Feng, Wang, Xu, Hou, Wang, Qian, Liu, Sun, Liu, Wang · arXiv 2607.08270 · 2026-07",
+      "stars": 3,
+      "stages": [
+        "a4",
+        "b",
+        "d"
+      ],
+      "methods": [
+        "Latent drift (差分潛變量)",
+        "FSQ 量化 dead-zone",
+        "自回歸 Transformer",
+        "Diff-SSIM"
+      ],
+      "summary": "預測慢速演變疾病的未來腦 MRI：不直接生成影像，而是量化「基線與追蹤的潛空間差」(drift)，用 FSQ 抑制微小雜訊；ADNI/AIBL 3,981 組影像對，Diff-SSIM 0.8204。",
+      "key_insight": "直接把「後 − 前 = 變化」放進潛空間建模並用量化濾掉雜訊，和你的 Δ 預測及 A4 變化遮罩同一思路；Diff-SSIM 也可借作變化區評估。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2607.08270",
+      "pmc": null,
+      "doi": null,
+      "relations": [],
+      "pick": false,
+      "date": "20261021"
+    },
+    {
+      "id": "nnfoundation_2609.26924",
+      "title": "nnFoundation: 3D Foundation Models for Radiology",
+      "pub": "Harsy, … Isensee, Maier-Hein · arXiv 2609.26924 · 2026-09",
+      "stars": 3,
+      "stages": [
+        "c"
+      ],
+      "methods": [
+        "3D 基礎模型",
+        "CNN/Transformer 預訓練",
+        "低資料遷移",
+        "nnU-Net 整合"
+      ],
+      "summary": "以約 210 萬個 CT/MRI/PET 3D 體積、125 個資料集預訓練卷積與 Transformer 兩種 3D 基礎模型，在 108 個任務（含低資料與領域位移）上優於從頭訓練。",
+      "key_insight": "可作為鼻腔分割（階段 C）的預訓練權重候選，在術後分布外與僅 42 例標注的情境下改善分割穩健度。",
+      "github": null,
+      "arxiv": "https://arxiv.org/abs/2609.26924",
+      "pmc": null,
+      "doi": null,
+      "relations": [],
+      "pick": false,
+      "date": "20261021"
     }
   ]
 }
