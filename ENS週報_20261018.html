@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENS 週報 2026.10.18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;0,800;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#f7f5f2;font-family:'Noto Sans TC',system-ui,sans-serif;font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;color:#2c1a0e}
+.masthead{background:#1c0f07;color:#f5f0e8;padding:28px 24px 22px}
+.mast-eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a08060;margin-bottom:8px}
+.mast-title{font-family:'EB Garamond',serif;font-size:34px;font-weight:800;color:#f5f0e8;line-height:1.1}
+.mast-sub{font-size:13px;color:#c8b49a;margin-top:8px}
+.mast-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.mpill{display:inline-flex;align-items:center;gap:5px;background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.18);padding:3px 11px;border-radius:20px;font-size:11.5px;color:#c8b49a}
+.mdot{width:6px;height:6px;border-radius:50%;background:#c2852a;flex-shrink:0}
+.page{max-width:760px;margin:24px auto 60px;padding:0 16px}
+.sec-card{background:#fff;border:1px solid #e8e4df;border-radius:14px;margin-bottom:16px;overflow:hidden}
+.sec-card.accent-a{border-top:3px solid #c2852a}
+.sec-card.accent-b{border-top:3px solid #4080c0}
+.sec-card.accent-c{border-top:3px solid #20a060}
+.sec-card.accent-d{border-top:3px solid #8040c0}
+.sec-card.accent-e{border-top:3px solid #d04040}
+.sec-head{padding:16px 20px 14px;cursor:pointer;display:flex;align-items:center;gap:12px}
+.sec-badge{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ba{background:#fff8f0}.bb{background:#edf3ff}.bc{background:#edf8f2}.bd{background:#f5f0ff}.be{background:#fff0f0}
+.sec-title{font-family:'EB Garamond',serif;font-size:17px;font-weight:700;color:#2c1a0e;flex:1}
+.sec-meta{font-size:11px;color:#a08060}
+.sec-chev{font-size:14px;color:#c0a880;transition:transform .25s}
+.sec-card.open .sec-chev{transform:rotate(180deg);color:#c2852a}
+.sec-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.sec-card.open .sec-body{max-height:20000px}
+.sec-inner{border-top:1px solid #f0ebe4;padding:18px 20px}
+.prose{font-size:13px;color:#4a3020;line-height:1.9;margin-bottom:14px}
+.prose strong{color:#1c0f07;font-weight:700}
+.prose a{color:#8050c0;text-decoration:none;border-bottom:1px solid #d0c0e8}
+h4.sub{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#7a4010;margin:16px 0 8px;border-left:3px solid #c2852a;padding-left:10px}
+.paper-row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0ebe4}
+.paper-row:last-child{border-bottom:none}
+.pr-num{width:24px;height:24px;background:#f0ebe4;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#7a5840;flex-shrink:0;font-family:'EB Garamond',serif;margin-top:2px}
+.pr-body{flex:1;min-width:0}
+.pr-title{font-size:13px;font-weight:700;color:#2c1a0e;line-height:1.35;margin-bottom:3px}
+.pr-pub{font-size:11px;color:#a08060}
+.pr-insight{font-size:12px;color:#4a3020;line-height:1.7;margin-top:4px;background:#faf8f5;border-radius:6px;padding:6px 10px}
+.stags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.stag{height:18px;padding:0 8px;border-radius:9px;font-size:10px;font-weight:700;display:inline-flex;align-items:center}
+.sa4{background:#f3eeff;color:#6030a0}.sb{background:#edf0f8;color:#3050a0}.sc{background:#edf8f2;color:#1a6040}.sd{background:#edf3ff;color:#2050a0}
+.cov-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.cov-lbl{font-size:12px;flex:0 0 140px;color:#4a3020}
+.cov-bar-w{flex:1;background:#f0ebe4;border-radius:4px;height:8px;overflow:hidden}
+.cov-bar{height:100%;border-radius:4px;background:#c2852a}
+.cov-cnt{font-size:12px;font-weight:700;color:#7a5840;flex:0 0 28px;text-align:right}
+.cov-gap{font-size:10px;font-weight:600;background:#fdf0e8;color:#b45309;border:1px solid #f0d0a8;border-radius:5px;padding:1px 7px;flex-shrink:0}
+.exp-card{background:#faf8f5;border:1px solid #e8e4df;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.exp-name{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#1c0f07;margin-bottom:6px}
+.exp-field{margin-bottom:6px;font-size:12.5px;color:#4a3020;line-height:1.75}
+.exp-field strong{color:#7a4010;font-size:11px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+.exp-card.top{border-color:#c2852a;background:#fff8f0}
+.dir-card{background:#faf8f5;border:1px solid #e8e4df;border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.dir-name{font-family:'EB Garamond',serif;font-size:15px;font-weight:700;color:#2c1a0e;margin-bottom:6px}
+.dir-field{margin-bottom:6px;font-size:12.5px;color:#4a3020;line-height:1.75}
+.dir-field strong{color:#4060a0;font-size:11px;text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+.diff-badge{display:inline-flex;align-items:center;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:700;margin-right:6px}
+.diff-low{background:#edf8f2;color:#1a6040}.diff-mid{background:#fff8f0;color:#a06020}.diff-high{background:#fff0f0;color:#a04020}
+.action-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #f0ebe4}
+.action-item:last-child{border-bottom:none}
+.action-num{width:24px;height:24px;background:#c2852a;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;margin-top:1px}
+.action-body{flex:1}
+.action-title{font-size:13px;font-weight:700;color:#2c1a0e;margin-bottom:3px}
+.action-desc{font-size:12.5px;color:#4a3020;line-height:1.75}
+.sumfooter{background:#1c0f07;color:#c8b49a;padding:20px 24px;border-radius:14px;margin-top:10px;font-size:13px;line-height:1.9}
+.sumfooter .ft{font-family:'EB Garamond',serif;font-size:17px;font-weight:700;color:#f5f0e8;font-style:italic;margin-bottom:8px}
+.sumfooter strong{color:#f5f0e8}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="mast-eyebrow">空鼻症術後預測研究・週報</div>
+  <div class="mast-title">ENS 週報</div>
+  <div class="mast-sub">2026 年第 42 週（10/12 – 10/18）｜自動生成</div>
+  <div class="mast-pills"><span class="mpill"><span class="mdot"></span>本週新增 23 篇</span><span class="mpill">累積 192 篇</span><span class="mpill">階段 A4 → B（進行中）</span><span class="mpill">N = 42 CT 對</span></div>
+</div>
+<div class="page">
+  <div class="sec-card accent-a open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge ba">📚</div>
+      <div><div class="sec-title">A — 本週文獻總覽</div><div class="sec-meta">23 篇・累積 192 篇</div></div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner"><div class="prose"><strong>本週（10/12–10/18）</strong>共新增 <strong>23</strong> 篇，涵蓋階段：B 生成 13 篇、D 評估 12 篇、A4 3 篇、C 分割 3 篇（單篇可多階段）。累積文獻庫（papers_entry 與 papers_db 合併去重）共 <strong>192</strong> 篇。本週有收錄的日期：10/12、10/13、10/14、10/15、10/16、10/18；10/17 沒有日報。</div>
+<h4 class="sub">每日收錄</h4><div class="prose"><strong>10/12：</strong>3 篇（diffkt3d、uncert、conflux）。 <strong>10/13：</strong>3 篇（vit3flow、nasalgcn、blepharo）。 <strong>10/14：</strong>3 篇（ctflow、ctusinr、ens6qital）。 <strong>10/15：</strong>5 篇（thaflow、fmcond、rafm、mastoid、strokedae）。 <strong>10/16：</strong>4 篇（repair、climb、dao、mri2ctgan）。 <strong>10/18：</strong>5 篇（imap、rightprior、contlatent、ensi、scalp）。 </div>
+<h4 class="sub">本週最值得精讀（Top 3）</h4>
+<div class="paper-row"><div class="pr-num">①</div><div class="pr-body"><div class="pr-title">THA-Flow Generative Model: Prosthesis Geometry Prediction from Preoperative CT</div><div class="pr-pub">Wang, Li, Shen, Wang · arXiv 2608.25845 · 2026-08</div><div class="stags"><span class="stag sb">B 生成</span></div><div class="pr-insight">把植入物/介入位置編碼成 SDF 當條件，是「材質無關」的作法，可直接支援 A4 之後的 B 階段條件化。</div></div></div><div class="paper-row"><div class="pr-num">②</div><div class="pr-body"><div class="pr-title">ViT³Flow: A Test-Time Training Transformer MeanFlow for Postoperative Radiograph Synthesis in Scoliosis</div><div class="pr-pub">Tang, Yang, Zhao, …, Meng · arXiv 2609.05579 · 2026-09</div><div class="stags"><span class="stag sb">B 生成</span><span class="stag sd">D 評估</span></div><div class="pr-insight">同樣是「術前影像→術後影像」的條件式生成，且把手術矯正當成連續傳輸；可借來設計你以植入位置為條件的 Δ 預測與評估。</div></div></div><div class="paper-row"><div class="pr-num">③</div><div class="pr-body"><div class="pr-title">Inferior Meatus Augmentation Procedure (IMAP) Normalizes Nasal Airflow Patterns in Empty Nose Syndrome Patients via CFD Modeling</div><div class="pr-pub">Malik, Dholakia, Spector, Yang, Kim, Borchard, Thamboo, Zhao, Nayak · Int Forum Allergy Rhinol 11(5):902-909 · 2020-11（2021-05 期號）</div><div class="stags"><span class="stag sd">D 評估</span></div><div class="pr-insight">這是少數『術前/術後 CT + CFD + 症狀分數』三合一的 ENS 研究，直接示範你 D 階段可用的功能性終點：中鼻道氣流占比，而不是只看外形相似度。</div></div></div>
+<div class="prose" style="margin-top:10px">選擇理由：THA-Flow 直接預測『假體幾何』，與你的假體位置條件互為鏡像；ViT³Flow 是 3D 條件生成的新一代快速採樣路線；IMAP-CFD 提供 D 階段功能性終點。</div></div></div>
+  </div>
+
+  <div class="sec-card accent-b open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bb">📊</div>
+      <div><div class="sec-title">B — 主題覆蓋地圖（累積至今）</div><div class="sec-meta">192 篇・11 個主題維度</div></div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner"><div class="prose">以下為 192 篇累積文獻在各主題的粗略分布（以標題、摘要、方法、洞見的關鍵字比對，單篇可橫跨多主題，數字為估計值，條件式生成與鼻腔等詞較寬鬆，僅供找空白用）。</div><div id="cov-chart"></div>
+<div class="prose" style="margin-top:14px"><strong>空白分析：</strong>以關鍵字估計，相對偏薄的是統計形狀模型 SSM、殘差學習 CT、CFD 氣流分析、ENS 症狀/問卷。另外，在實務上『殘差學習 CT』與『合成影像評估』仍缺少直接針對鼻腔 CT Δ 預測的工作；『術前→術後預測』的臨床案例（如假體幾何、乳突切除形狀）本週已有補強但仍屬跨領域借鏡。建議下週檢索關鍵字：「residual change prediction CT surgery」「anatomy-aware metric synthetic CT」「nasal airway segmentation postoperative」。</div></div></div>
+  </div>
+
+  <div class="sec-card accent-c open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bc">🔬</div>
+      <div><div class="sec-title">C — 當前論文實驗建議（週更）</div><div class="sec-meta">3 個具體可執行實驗・基於 N=42 CT 對</div></div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner"><div class="exp-card top"><div class="exp-name">實驗一：Conditional Residual 2.5D U-Net + 假體條件 Ablation（核心實驗）</div>
+<div class="exp-field"><strong>研究問題</strong>以假體位置／體積作為條件，是否顯著提升 ROI 內術後 CT 的預測？條件注入方式（concat／FiLM／cross-attention）哪種最有效？</div>
+<div class="exp-field"><strong>方法說明</strong>輸入：術前 CT 的 2.5D 相鄰切片＋假體位置遮罩（或其 SDF）通道；輸出：Δ=術後−術前，再加回術前得到預測。比較 ①無條件 ②輸入端 concat ③FiLM（參考 SynthRCT）三種。損失：ROI 加權 L1＋SSIM，非手術區加 Δ≈0 的正則。</div>
+<div class="exp-field"><strong>資料需求</strong>N=42 對已配準 CT 夠用（建議 5-fold 交叉驗證）；需 A4 變化遮罩／假體 ROI 完成；12GB GPU 即可。</div>
+<div class="exp-field"><strong>依據文獻</strong>resdiff3d_2410.10826（殘差擴散做 CT 生成）、agldm_2601.14584（輸入端融合條件）、toothdiff_2508.14276（遮罩 ROI 局部生成）、synthrct_2609.08627（FiLM 條件注入）。</div>
+<div class="exp-field"><strong>評估指標</strong>手術 ROI 內 SSIM、PSNR、體積誤差 ΔV（mm³）、DSC（氣道）；非手術區 |Δ| 作為洩漏檢查。</div>
+<div class="exp-field"><strong>預計工作量</strong>2–3 週（1 週 pipeline、1 週 baseline 與消融、1 週分析）。</div>
+<div class="exp-field"><strong>適合寫入論文的理由</strong>建立 ENS 術後 CT 預測的首個可比較基線，並量化「手術條件」是否必要。</div></div>
+<div class="exp-card"><div class="exp-name">實驗二：Flow Matching 條件生成 vs. 直接殘差回歸（N=42 下誰更穩）</div>
+<div class="exp-field"><strong>研究問題</strong>在極小樣本下，flow matching（少步採樣）相較直接回歸 Δ，是否能更好保留術後鼻腔的細節而不產生解剖幻覺？</div>
+<div class="exp-field"><strong>方法說明</strong>沿用實驗一的 2.5D 骨幹，改成 conditional flow matching（以術前切片＋假體條件為條件，起點為術前或雜訊），採樣 4–8 步；與回歸版同架構對照，並用多次採樣估計預測不確定性。</div>
+<div class="exp-field"><strong>資料需求</strong>N=42 對；資料增強（輕微仿射、強度擾動）；需與實驗一相同折數以公平比較。</div>
+<div class="exp-field"><strong>依據文獻</strong>fmcond_2510.04823（條件 flow matching 做 MRI-CT/CBCT-CT）、vit3flow_2609.05579（3D MeanFlow 快速生成）、thaflow_2608.25845（以條件預測假體幾何）、uncert_2610.03224（MC-dropout 不確定性作品質代理）。</div>
+<div class="exp-field"><strong>評估指標</strong>ROI-SSIM、體積誤差、DSC，另報多次採樣的變異（不確定性）與錯誤的相關性。</div>
+<div class="exp-field"><strong>預計工作量</strong>3–4 週（建在實驗一之上，主要新增 flow 訓練與採樣）。</div>
+<div class="exp-field"><strong>適合寫入論文的理由</strong>回答「生成式 vs 確定性」這個審查者必問的問題，並提供可信度指標。</div></div>
+<div class="exp-card"><div class="exp-name">實驗三：配準偏差敏感度分析與評估協定</div>
+<div class="exp-field"><strong>研究問題</strong>A1 配準的品質與正則化強度，如何影響 Δ 標籤與 MAE/SSIM 等指標？NMI／不確定性是否能補足只看 MAE 的盲點？</div>
+<div class="exp-field"><strong>方法說明</strong>對 N=42 取代表性病例，用 3 組正則化強度重跑配準（可含多解析度 B-Spline），計算 SD(log J) 與鼻腔／鼻甲標籤 Dice，並重新計算模型指標，觀察排名是否改變。加報 NMI 與 MC-dropout 不確定性。</div>
+<div class="exp-field"><strong>資料需求</strong>只需現有 CT 對與配準流程（在你本地進行，本系統不接觸影像）；額外工作是整理指標腳本。</div>
+<div class="exp-field"><strong>依據文獻</strong>regbias_2609.29387 與 simcbct_2602.02130（配準偏差使 MAE 與臨床評分相反）、metrics_matter_2505.07175（指標選擇）、rightprior_2608.16146（先驗與 SD(log J)）。</div>
+<div class="exp-field"><strong>評估指標</strong>Dice（標籤）、SD(log J)、NMI、ROI-SSIM、體積誤差；比較各設定下的模型排名一致性。</div>
+<div class="exp-field"><strong>預計工作量</strong>1–2 週。</div>
+<div class="exp-field"><strong>適合寫入論文的理由</strong>把「配準偏差」從隱性限制變成已量化的討論，提升結果可信度。</div></div></div></div>
+  </div>
+
+  <div class="sec-card accent-d open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge bd">🔭</div>
+      <div><div class="sec-title">D — 未來論文方向（本週新增）</div><div class="sec-meta">3 個方向・從即時可做到長期規劃</div></div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner"><div class="dir-card"><div class="dir-name">方向一：預測形態的 CFD 功能驗證，以中鼻道／下鼻道氣流占比為終點（現有資料可立即延伸）</div><div class="dir-field"><strong>研究題目</strong>預測的術後鼻腔與真實術後鼻腔，在 CFD 的氣流分配（中鼻道／下鼻道占比）上是否一致？</div><div class="dir-field"><strong>一句話說明</strong>把預測形態與真實術後形態各跑 CFD，比較氣流分配，檢驗模型學到的 Δ 在功能上是否有意義。</div><div class="dir-field"><strong>為什麼值得做</strong>IMAP-CFD 顯示症狀進步與中鼻道氣流占比下降相關；nasalgcn_pof2026 類的快速氣流預測可降低 CFD 成本。此「形態→功能」閉環在 ENS 影像 AI 中少見。</div><div class="dir-field"><strong>所需資源</strong>現有 N=42 中取 5–10 例；開源 CFD（如 OpenFOAM）與網格工具；需要臨床 CFD 合作者校驗設定。</div><div class="dir-field"><strong>可借鑑的文獻</strong>imap_alr22720、cfdimplant_jtice2024、nasalgcn_pof2026、ens_cfd_lary31757。</div><div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-mid">中</span>網格品質與邊界條件設定耗時，但方法有先例。</div><div class="dir-field"><strong>時機建議</strong>現在可以開始，與 B 階段並行作為 D 階段子研究。</div></div><div class="dir-card"><div class="dir-name">方向二：逆向問題——由術前 CT 與目標氣流／症狀，反推最佳植入幾何與位置（中期）</div><div class="dir-field"><strong>研究題目</strong>能否學習『給定術前鼻腔與期望的氣流分配，建議假體的形狀與位置』？</div><div class="dir-field"><strong>一句話說明</strong>把你的正向預測（植入→術後形態）反過來，成為手術規劃輔助。thaflow_2608.25845 示範了以條件預測假體幾何的做法。</div><div class="dir-field"><strong>為什麼值得做</strong>臨床上真正需要的是規劃植入方案；若能和 CFD 終點結合，可把手術規劃從經驗法則推向可量化。</div><div class="dir-field"><strong>所需資源</strong>需要更多（含植入幾何標註的）病例；N=42 僅夠做概念驗證；需外科醫師參與定義可行解空間。</div><div class="dir-field"><strong>可借鑑的文獻</strong>thaflow_2608.25845、cfdimplant_jtice2024、mastoid_2407.15787（自監督預測手術後形狀）。</div><div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-high">高</span>逆問題多解、資料少、需臨床驗證。</div><div class="dir-field"><strong>時機建議</strong>碩士畢業後或博班題目；現階段先把正向模型做穩。</div></div><div class="dir-card"><div class="dir-name">方向三：形態到症狀——以多量表（ENS6Q／ENSI／NOSE）建立影像形態特徵與症狀的縱向關聯（長期）</div><div class="dir-field"><strong>研究題目</strong>術後鼻腔形態與氣流特徵，能否預測 ENS6Q／ENSI 的改善幅度？</div><div class="dir-field"><strong>一句話說明</strong>在形態預測之後，再連到患者主觀症狀，完成「影像→功能→感受」三層。</div><div class="dir-field"><strong>為什麼值得做</strong>ens6qital_pubmed42325183 與 Fr-ENSI（ensi_rhin24394）顯示量表正在標準化；IMAP-CFD 提供初步相關（R²=0.60，n=5）；多中心縱向資料能把這條鏈驗證成預測模型。</div><div class="dir-field"><strong>所需資源</strong>需多中心術前／術後 CT＋同時間點量表，N=42 遠不夠；需倫理與合作者。</div><div class="dir-field"><strong>可借鑑的文獻</strong>imap_alr22720、ensi_rhin24394、ens6qital_pubmed42325183、ens_fr_pmc12841989。</div><div class="dir-field"><strong>難度評估</strong><span class="diff-badge diff-high">高</span>資料取得與標準化是主要難題。</div><div class="dir-field"><strong>時機建議</strong>需要更多資料才能做；可先在論文未來工作中描述並整理量表對照。</div></div></div></div>
+  </div>
+
+  <div class="sec-card accent-e open">
+    <div class="sec-head" onclick="this.closest('.sec-card').classList.toggle('open')">
+      <div class="sec-badge be">✅</div>
+      <div><div class="sec-title">E — 下週行動清單</div><div class="sec-meta">3 件最值得做的事・技術＋文獻</div></div>
+      <div class="sec-chev">▾</div>
+    </div>
+    <div class="sec-body"><div class="sec-inner"><div class="action-item"><div class="action-num">1</div><div class="action-body"><div class="action-title">【技術】檢查 A1 配準品質並完成 A4 變化遮罩</div><div class="action-desc">用不同正則化強度對少數代表病例重跑配準，畫 Dice 對 SD(log J) 曲線（見實驗三），確定之後固定一組配準設定，再完成 A4 遮罩。</div></div></div><div class="action-item"><div class="action-num">2</div><div class="action-body"><div class="action-title">【技術】跑通實驗一的無條件 2.5D 殘差 U-Net baseline</div><div class="action-desc">先不加條件，用 5-fold 在手術 ROI 內報 SSIM、體積誤差與非手術區 |Δ|，作為之後所有消融的底線。</div></div></div><div class="action-item"><div class="action-num">3</div><div class="action-body"><div class="action-title">【文獻】精讀 IMAP-CFD 與 ENSI，整理 D 階段終點表</div><div class="action-desc">把氣流占比定義、切片位置、ENS6Q／ENSI 切點整理成一張表；同時確認 RightPriorDIR 與 contlatent 的程式碼是否已公開。</div></div></div></div></div>
+  </div>
+<div class="sumfooter"><div class="ft">本週總結</div>本週新增 <strong>23</strong> 篇（累積 <strong>192</strong> 篇）。最值得精讀的是 THA-Flow（以條件預測假體幾何）、ViT³Flow（快速 3D 條件生成）與 IMAP-CFD（ENS 的形態—氣流—症狀鏈）。核心方向（2.5D 殘差＋以假體位置為條件的 Δ 建模）未被動搖，建議維持；新增兩個重點：A1 配準偏差需量化，D 階段應加入氣流占比等功能終點。文獻空白仍在殘差學習 CT 與合成影像評估。下週優先：檢查配準、跑通 baseline、整理終點表。註：本週 10/17 沒有日報；部分論文僅依摘要整理。</div>
+</div>
+
+<script>
+const COV_DATA=[
+  {label:'術前→術後預測',count:49},
+  {label:'條件式生成',count:91},
+  {label:'小樣本策略',count:33},
+  {label:'鼻腔/氣道分割',count:86},
+  {label:'殘差學習 CT',count:13},
+  {label:'ENS 臨床',count:30},
+  {label:'合成影像評估',count:34},
+  {label:'CFD 氣流分析',count:18},
+  {label:'ENS 症狀/問卷',count:21},
+  {label:'可形變配準',count:35},
+  {label:'統計形狀模型 SSM',count:5},
+];
+const maxC=Math.max(...COV_DATA.map(c=>c.count),1);
+const el=document.getElementById('cov-chart');
+COV_DATA.forEach(c=>{
+  const pct=Math.round(c.count/maxC*100);
+  const row=document.createElement('div');
+  row.className='cov-row';
+  row.innerHTML=`<div class="cov-lbl">${c.label}</div><div class="cov-bar-w"><div class="cov-bar" style="width:${pct}%;opacity:${0.4+0.6*(c.count/maxC)}">&nbsp;</div></div><div class="cov-cnt">${c.count}</div>${c.count<=4?'<span class="cov-gap">偏薄</span>':''}`;
+  el.appendChild(row);
+});
+document.querySelectorAll('.sec-head').forEach(h=>{
+  h.addEventListener('click',()=>h.closest('.sec-card').classList.toggle('open'));
+});
+</script>
+</body>
+</html>
